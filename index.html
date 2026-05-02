@@ -238,39 +238,58 @@
     </script>
 
 
-    <script>
-    // Script para carregar a lista de arquivos do dados.txt
+   <script>
     async function carregarArquivos() {
         const listaDoc = document.getElementById('lista-arquivos');
+        listaDoc.innerHTML = "<h3>📂 Conteúdos de Estudo</h3>"; // Limpa antes de carregar
+
         try {
             const resposta = await fetch('dados.txt');
             const texto = await resposta.text();
             const linhas = texto.split('\n');
 
             linhas.forEach(linha => {
-                if (linha.trim() !== "") {
-                    const link = document.createElement('a');
-                    link.href = linha.trim(); // O caminho que o Python gerou
-                    link.target = "_blank";
-                    link.style.display = "block";
-                    link.style.margin = "10px 0";
-                    link.style.padding = "10px";
-                    link.style.background = "#fff";
-                    link.style.borderRadius = "8px";
-                    link.style.textDecoration = "none";
-                    link.style.color = "#2c3e50";
-                    link.style.boxShadow = "0 2px 5px rgba(0,0,0,0.1)";
+                let nomeLimpo = linha.trim();
+                if (nomeLimpo !== "") {
+                    // 1. Remove os prefixos chatos que o C++ coloca
+                    nomeLimpo = nomeLimpo.replace('Pasta:', '').replace('[DIR]', '').replace('[ARQ]', '');
                     
-                    link.innerHTML = `📁 ${linha.split('/').pop()}`; // Pega só o nome do arquivo
+                    const link = document.createElement('a');
+                    link.href = linha.trim(); 
+                    link.target = "_blank";
+                    link.className = "arquivo-link"; // Vamos usar uma classe para o CSS
+                    
+                    // 2. Define o ícone: se tiver ponto (extensão), é arquivo, senão é pasta
+                    const icone = nomeLimpo.includes('.') ? '📄' : '📁';
+                    
+                    link.innerHTML = `<span style="margin-right:10px">${icone}</span> ${nomeLimpo}`;
+                    
+                    // Estilo rápido para não bugar o visual
+                    Object.assign(link.style, {
+                        display: "block",
+                        margin: "8px 0",
+                        padding: "12px",
+                        background: "white",
+                        borderRadius: "10px",
+                        textDecoration: "none",
+                        color: "#2c3e50",
+                        boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
+                        border: "1px solid #eee",
+                        transition: "0.2s"
+                    });
+
                     listaDoc.appendChild(link);
                 }
             });
         } catch (erro) {
-            console.error("Erro ao carregar dados.txt:", erro);
+            console.error("Erro ao carregar arquivos:", erro);
         }
     }
     carregarArquivos();
 </script>
+  
+
+
 
 </body>
 </html>
