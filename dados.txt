@@ -140,7 +140,6 @@ Historia/2 ANO M/Celcio/1P/América Pré colonial Introdução P+.pptx
 [DIR]Historia/2 ANO M/Celcio/1P/Conteúdos das Provas
 Historia/2 ANO M/Celcio/1P/Conteúdos das Provas/1P - História - Conteúdos da Prova de História da 1ª Etapa do 1º Período.docx
 Historia/2 ANO M/Celcio/1P/Conteúdos das Provas/1P - História - Conteúdos da Prova de História da 2ª Etapa do 1º Período.docx
-Historia/2 ANO M/Celcio/1P/HIS_CE_1P.docx
 [DIR]Historia/2 ANO M/Celcio/2P
 [DIR]Historia/2 ANO M/Celcio/2P/1a Etapa
 Historia/2 ANO M/Celcio/2P/1a Etapa/2P - As Independências na América Espanhola.pptx
@@ -257,7 +256,6 @@ Quimica/2 ANO M/Renato/1P/Exercicios/LISTA EXTRA - SOLUÇÕES - PARTE 1.pdf
 Quimica/2 ANO M/Renato/1P/Exercicios/LISTA EXTRA - SOLUÇÕES - PARTE 2 - CONCENTRAÇÃO DE SOLUÇÕES.pdf
 Quimica/2 ANO M/Renato/1P/Exercicios/LISTA EXTRA - SOLUÇÕES - PARTE 3 - CONCENTRAÇÃO DE SOLUÇÕES (1).pdf
 Quimica/2 ANO M/Renato/1P/Exercicios/LISTA EXTRA - SOLUÇÕES - PARTE 4 - CONCENTRAÇÕES E OPERAÇÕES.pdf
-Quimica/2 ANO M/Renato/1P/Q_RE_1P.docx
 [DIR]Quimica/2 ANO M/Renato/1P/Sala
 Quimica/2 ANO M/Renato/1P/Sala/Capítulo 2 - Solubilidade.pdf
 Quimica/2 ANO M/Renato/1P/Sala/Capítulo 3 - Concentração Comum.pdf
