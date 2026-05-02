@@ -1,33 +1,33 @@
 Pasta:Estudos
 [DIR]Biologia
-[DIR]Biologia/Crot
-[DIR]Biologia/Crot/1P
-[DIR]Biologia/Crot/1P/2EM - RECUPERAÇÃO
-[DIR]Biologia/Crot/1P/2EM - RECUPERAÇÃO/2EM - 1º PERÍODO
-Biologia/Crot/1P/2EM - RECUPERAÇÃO/2EM - 1º PERÍODO/REC 01 - Ciclo Celular, Mitose e Meiose - gabarito.pdf
-Biologia/Crot/1P/2EM - RECUPERAÇÃO/2EM - 1º PERÍODO/REC 02 - Replicação e Transcrição do DNA - Ciclos Reprodutivos - gabarito.pdf
-Biologia/Crot/1P/Aula 01 - Biodiversidade.pdf
-Biologia/Crot/1P/Aula 02 - Algas microscópicas.pdf
-Biologia/Crot/1P/Aula 03 - Algas Macroscópicas.pdf
-Biologia/Crot/1P/Aula 04 - Ciclos Reprodutivos.pdf
-Biologia/Crot/1P/Aula 05 - Archaeplastida.pdf
-Biologia/Crot/1P/Aula 06 - Agrupamentos.pdf
-Biologia/Crot/1P/Aula 07 - Briófitas - Ciclo Reprodutivo - Gabarito.pdf
-Biologia/Crot/1P/Aula 07 - Briófitas - Ciclo Reprodutivo.pdf
-Biologia/Crot/1P/Aula 07 - Briófitas.pdf
-Biologia/Crot/1P/Aula 08 - Pteridófitas - Ciclo Reprodutivo - Gabarito.pdf
-Biologia/Crot/1P/Aula 08 - Pteridófitas - Ciclo Reprodutivo.pdf
-Biologia/Crot/1P/Aula 08 - Pteridófitas.pdf
-[DIR]Biologia/Crot/2P
-Biologia/Crot/2P/Aula 09 - Gimnospermas - Ciclo Reprodutivo - Gabarito.pdf
-Biologia/Crot/2P/Aula 09 - Gimnospermas - Ciclo Reprodutivo.pdf
-Biologia/Crot/2P/Aula 09 - Gimnospermas.pdf
-Biologia/Crot/2P/Aula 10 - Angiospermas - Ciclo Reprodutivo - Gabarito.pdf
-Biologia/Crot/2P/Aula 10 - Angiospermas - Ciclo Reprodutivo.pdf
-Biologia/Crot/2P/Aula 10 - Angiospermas.pdf
-Biologia/Crot/2P/Aula 11 - Angiospermas (Monocotiledôneas e Dicotiledôneas).pdf
-[DIR]Biologia/Crot/3P
-[DIR]Biologia/Crot/4P
+[DIR]Biologia/Croti
+[DIR]Biologia/Croti/1P
+[DIR]Biologia/Croti/1P/2EM - RECUPERAÇÃO
+[DIR]Biologia/Croti/1P/2EM - RECUPERAÇÃO/2EM - 1º PERÍODO
+Biologia/Croti/1P/2EM - RECUPERAÇÃO/2EM - 1º PERÍODO/REC 01 - Ciclo Celular, Mitose e Meiose - gabarito.pdf
+Biologia/Croti/1P/2EM - RECUPERAÇÃO/2EM - 1º PERÍODO/REC 02 - Replicação e Transcrição do DNA - Ciclos Reprodutivos - gabarito.pdf
+Biologia/Croti/1P/Aula 01 - Biodiversidade.pdf
+Biologia/Croti/1P/Aula 02 - Algas microscópicas.pdf
+Biologia/Croti/1P/Aula 03 - Algas Macroscópicas.pdf
+Biologia/Croti/1P/Aula 04 - Ciclos Reprodutivos.pdf
+Biologia/Croti/1P/Aula 05 - Archaeplastida.pdf
+Biologia/Croti/1P/Aula 06 - Agrupamentos.pdf
+Biologia/Croti/1P/Aula 07 - Briófitas - Ciclo Reprodutivo - Gabarito.pdf
+Biologia/Croti/1P/Aula 07 - Briófitas - Ciclo Reprodutivo.pdf
+Biologia/Croti/1P/Aula 07 - Briófitas.pdf
+Biologia/Croti/1P/Aula 08 - Pteridófitas - Ciclo Reprodutivo - Gabarito.pdf
+Biologia/Croti/1P/Aula 08 - Pteridófitas - Ciclo Reprodutivo.pdf
+Biologia/Croti/1P/Aula 08 - Pteridófitas.pdf
+[DIR]Biologia/Croti/2P
+Biologia/Croti/2P/Aula 09 - Gimnospermas - Ciclo Reprodutivo - Gabarito.pdf
+Biologia/Croti/2P/Aula 09 - Gimnospermas - Ciclo Reprodutivo.pdf
+Biologia/Croti/2P/Aula 09 - Gimnospermas.pdf
+Biologia/Croti/2P/Aula 10 - Angiospermas - Ciclo Reprodutivo - Gabarito.pdf
+Biologia/Croti/2P/Aula 10 - Angiospermas - Ciclo Reprodutivo.pdf
+Biologia/Croti/2P/Aula 10 - Angiospermas.pdf
+Biologia/Croti/2P/Aula 11 - Angiospermas (Monocotiledôneas e Dicotiledôneas).pdf
+[DIR]Biologia/Croti/3P
+[DIR]Biologia/Croti/4P
 [DIR]Biologia/Murilo
 [DIR]Biologia/Murilo/1P
 Biologia/Murilo/1P/DNA, RNA e síntese proteica 2026.pptx
