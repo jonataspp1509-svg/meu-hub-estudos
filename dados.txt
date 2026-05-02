@@ -1,0 +1,49 @@
+Pasta:Estudos
+[DIR]Fisica
+[DIR]Fisica/Fabio
+Fisica/Fabio/Lista 01 – Densidade e Pressão - Gabarito.pdf
+Fisica/Fabio/Lista 01 – Densidade e Pressão.pdf
+Fisica/Fabio/Lista 02 - Pressão Hidrostática e Teorema de Stevin - Aluno.pdf
+Fisica/Fabio/Lista 02 - Pressão Hidrostática e Teorema de Stevin - Gabarito.pdf
+Fisica/Fabio/Lista 03 - Pressão Hidrostática e Teorema de Stevin - Aluno.pdf
+Fisica/Fabio/Lista 03 – Pressão Hidrostática e Teorema de Stevin - Gabarito.pdf
+Fisica/Fabio/Lista 04 – Aplicações da Lei de Stevin - Aluno.pdf
+Fisica/Fabio/Lista 05 – Princípio de Pascal - Aluno.pdf
+[DIR]Fisica/Padua
+[DIR]Fisica/Rocris
+[DIR]Fisica/Rocris/2p
+Fisica/Rocris/2p/Potência e Rendimento - Exercícios - Resolução.pdf
+Fisica/Rocris/2p/Potência e Rendimento - Exercícios.pdf
+Fisica/Rocris/2p/TEC - Exercícios.pdf
+[DIR]Geografia
+[DIR]Historia
+[DIR]Ingles
+[DIR]ITA
+[DIR]ITA/2026
+ITA/2026/Prova ITA 1ª Fase - 2026__95bd2cae-b04f-412e-92f5-6d87db489fd0.pdf
+ITA/2026/Prova ITA 2ª Fase Dia 2_Química 2026__cab8504d-3690-40d0-a062-b6554230261b.pdf
+ITA/2026/Prova ITA 2ª Fase Dia 3_Física 2026__1c7a3947-6757-4c55-b9c0-fbfc9dcbbace.pdf
+ITA/2026/Prova ITA 2ª Fase Dia 4_Língua Portuguesa e Inglesa 2026__caf370d5-2ffe-4117-aae6-70e3477a037f.pdf
+ITA/2026/Prova ITA 2ª Fase_Dia 1_Matemática 2026__0e8821eb-f2ad-4b39-885d-5e27a135cdc7.pdf
+[DIR]Matematica
+[DIR]Portugues
+[DIR]Quimica
+[DIR]Quimica/Gabriel
+[DIR]Quimica/Renato
+[DIR]Quimica/Renato/Exercicios
+Quimica/Renato/Exercicios/LISTA EXTRA - SOLUÇÕES - PARTE 1.pdf
+Quimica/Renato/Exercicios/LISTA EXTRA - SOLUÇÕES - PARTE 2 - CONCENTRAÇÃO DE SOLUÇÕES.pdf
+Quimica/Renato/Exercicios/LISTA EXTRA - SOLUÇÕES - PARTE 3 - CONCENTRAÇÃO DE SOLUÇÕES (1).pdf
+Quimica/Renato/Exercicios/LISTA EXTRA - SOLUÇÕES - PARTE 4 - CONCENTRAÇÕES E OPERAÇÕES.pdf
+[DIR]Quimica/Renato/Sala
+Quimica/Renato/Sala/Capítulo 2 - Solubilidade.pdf
+Quimica/Renato/Sala/Capítulo 3 - Concentração Comum.pdf
+Quimica/Renato/Sala/Capítulo 3 - Concentração Molar.pdf
+Quimica/Renato/Sala/Capítulo 3 - Relações entre concentrações.pdf
+Quimica/Renato/Sala/Capítulo 3 - Título, ppm e ppb.pdf
+[DIR]Quimica/Renato/slides
+Quimica/Renato/slides/SLIDE - CAPÍTULO 2 - SOLUÇÕES - SOLUBILIDADE.pdf
+Quimica/Renato/slides/SLIDE - CAPÍTULO 3 - SOLUÇÕES - CONCENTRAÇÃO COMUM E DENSIDADE.pdf
+Quimica/Renato/slides/SLIDE - CAPÍTULO 3 - SOLUÇÕES - CONCENTRAÇÃO MOLAR.pdf
+Quimica/Renato/slides/SLIDE - CAPÍTULO 3 - SOLUÇÕES - TÍTULO.pdf
+[DIR]Quimica/Thati
