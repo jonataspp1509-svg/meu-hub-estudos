@@ -13,35 +13,29 @@
         }
 
         body {
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             display: flex;
-            flex-direction: row; /* Lado a lado no PC */
+            flex-direction: row;
             height: 100vh;
             background-color: var(--bg);
         }
 
-        /* Responsividade para Telemóvel */
+        /* Ajuste para Celular */
         @media (max-width: 768px) {
-            body {
-                flex-direction: column; /* Um debaixo do outro no celular */
-                height: auto;
-            }
-            #calc-container {
-                width: 100% !important;
-                box-shadow: 0 -2px 10px rgba(0,0,0,0.1) !important;
-            }
-            #main-content {
-                padding-bottom: 20px;
-            }
+            body { flex-direction: column; height: auto; }
+            #calc-container { width: 100% !important; border-left: none; border-top: 2px solid rgba(0,0,0,0.1); }
+            #main-content { height: auto; overflow: visible; }
         }
 
+        /* Área de Conteúdo */
         #main-content {
             flex: 1;
             padding: 20px;
             overflow-y: auto;
         }
 
+        /* Estilo das Pastas */
         .folder {
             background: #fff;
             margin: 8px 0;
@@ -51,18 +45,32 @@
             border-left: 5px solid var(--secondary);
             font-weight: bold;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            transition: background 0.2s;
+        }
+        .folder:hover { background: #fdf2e9; }
+
+        /* Container de arquivos (começa escondido) */
+        .files-container {
+            display: none;
+            margin-left: 20px;
+            border-left: 2px dashed #ccc;
+            padding-left: 10px;
         }
 
         .file-link {
             display: block;
-            margin: 5px 0 5px 25px;
+            margin: 5px 0;
             color: var(--primary);
             text-decoration: none;
             padding: 8px;
             background: #eee;
             border-radius: 4px;
             font-size: 0.9rem;
+            transition: 0.2s;
         }
+        .file-link:hover { background: #ddd; color: var(--secondary); }
 
         /* Calculadora */
         #calc-container {
@@ -96,16 +104,15 @@
         }
 
         button {
-            padding: 18px 5px;
+            padding: 15px 5px;
             font-size: 1.2rem;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             background: #34495e;
             color: white;
-            touch-action: manipulation; /* Melhora o toque no celular */
+            touch-action: manipulation;
         }
-
         button:active { background: var(--secondary); }
         .btn-equal { grid-column: span 2; background: #27ae60; }
         .btn-op { background: var(--secondary); }
@@ -115,7 +122,7 @@
 
     <div id="main-content">
         <h1>📚 Hub de Estudos</h1>
-        <div id="lista-arquivos">Buscando arquivos...</div>
+        <div id="lista-arquivos">Carregando materiais...</div>
     </div>
 
     <div id="calc-container">
@@ -148,39 +155,70 @@
     </div>
 
     <script>
-        // Carregamento automático via GitHub
+        // CARREGAMENTO AUTOMÁTICO
         window.onload = function() {
             fetch('dados.txt')
-                .then(res => res.text())
+                .then(res => {
+                    if (!res.ok) throw new Error();
+                    return res.text();
+                })
                 .then(data => processar(data.split('\n')))
-                .catch(() => document.getElementById('lista-arquivos').innerText = "Erro ao carregar dados.");
+                .catch(() => {
+                    document.getElementById('lista-arquivos').innerText = "Erro ao carregar dados.txt. Verifique se o arquivo está no GitHub!";
+                });
         };
 
         function processar(linhas) {
             const lista = document.getElementById('lista-arquivos');
             lista.innerHTML = "";
-            linhas.forEach(l => {
-                l = l.trim();
-                if(!l || l.startsWith("Pasta:")) return;
-                
-                if(l.startsWith("[DIR]")) {
-                    const d = document.createElement('div');
-                    d.className = 'folder';
-                    d.innerText = "📁 " + l.replace("[DIR]","");
-                    lista.appendChild(d);
+            let currentContainer = null;
+
+            linhas.forEach(linha => {
+                linha = linha.trim();
+                if (!linha || linha.startsWith("Pasta:")) return;
+
+                if (linha.startsWith("[DIR]")) {
+                    const nomePasta = linha.replace("[DIR]", "");
+                    
+                    // Criar a Pasta (Botão)
+                    const divFolder = document.createElement('div');
+                    divFolder.className = 'folder';
+                    divFolder.innerHTML = "<span>📁 " + nomePasta + "</span>";
+                    
+                    // Criar o container de arquivos desta pasta
+                    const divFiles = document.createElement('div');
+                    divFiles.className = 'files-container';
+                    
+                    // Evento de abrir/fechar
+                    divFolder.onclick = function() {
+                        const aberto = divFiles.style.display === 'block';
+                        divFiles.style.display = aberto ? 'none' : 'block';
+                        this.querySelector('span').innerText = aberto ? "📁 " + nomePasta : "📂 " + nomePasta;
+                    };
+
+                    lista.appendChild(divFolder);
+                    lista.appendChild(divFiles);
+                    currentContainer = divFiles; // Os próximos arquivos entrarão aqui
+
                 } else {
-                    const a = document.createElement('a');
-                    a.className = 'file-link';
-                    // AJUSTE: Garanta que a pasta no GitHub se chama "Estudos"
-                    a.href = "Estudos/" + l;
-                    a.target = "_blank";
-                    a.innerText = "📄 " + l.split('/').pop();
-                    lista.appendChild(a);
+                    const link = document.createElement('a');
+                    link.className = 'file-link';
+                    // Converte barra invertida do Windows para barra de URL
+                    const pathWeb = linha.replace(/\\/g, '/');
+                    link.href = "Estudos/" + pathWeb; 
+                    link.target = "_blank";
+                    link.innerText = "📄 " + linha.split(/[\\/]/).pop();
+                    
+                    if (currentContainer) {
+                        currentContainer.appendChild(link);
+                    } else {
+                        lista.appendChild(link);
+                    }
                 }
             });
         }
 
-        // Calculadora
+        // LÓGICA DA CALCULADORA
         const display = document.getElementById('calc-display');
         function addChar(c) { display.value += c; }
         function clearCalc() { display.value = ""; }
@@ -190,7 +228,7 @@
             catch { display.value = "Erro"; setTimeout(clearCalc, 1000); }
         }
 
-        // Atalhos de teclado
+        // Teclado
         document.addEventListener('keydown', (e) => {
             if(/[0-9\+\-\*\/\.]/.test(e.key)) addChar(e.key);
             if(e.key === 'Enter') calculate();
