@@ -108,9 +108,13 @@
             const text = await response.text();
             
             // Transforma o texto em uma lista de caminhos limpos
-            db = text.split('\n')
-                .map(linha => linha.trim())
-                .filter(linha => linha !== "" && !linha.includes("Pasta:"));
+          db = [...new Set(
+                text.split('\n')
+                    .map(linha => linha.trim())
+                    .filter(linha => linha !== "" && !linha.includes("Pasta:"))
+                    .map(linha => linha.replace('[DIR]', '').trim())
+                    .map(linha => linha.replace(/\s+/g, ' ')) // remove espaços duplicados
+            )];
             
             render();
         } catch (e) {
