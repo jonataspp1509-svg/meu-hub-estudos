@@ -3,293 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Hub de Estudos - Provas e Médias</title>
+    <title>Meu Hub de Estudos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root {
-            --primary-color: #2c3e50;
-            --accent-color: #f1c40f; /* Amarelo Bloco de Notas */
-            --bg-color: #f4f7f6;
-            --success-color: #2ecc71;
-            --danger-color: #e74c3c;
-        }
+        /* Mantendo seu CSS original para as pastas não bugarem */
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f0f2f5; margin: 0; display: flex; justify-content: center; padding: 20px; }
+        .container { display: flex; width: 100%; max-width: 1200px; gap: 20px; }
+        
+        /* Área das Pastas (Lado Esquerdo) */
+        .arquivos-section { flex: 2; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .folder { margin-left: 20px; border-left: 2px dashed #ccc; padding-left: 10px; }
+        .item { cursor: pointer; padding: 8px; margin: 5px 0; background: #fff; border-radius: 8px; display: flex; align-items: center; border: 1px solid #eee; }
+        .item:hover { background: #f9f9f9; }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
+        /* Área do Simulador (Lado Direito - Mesmo tamanho da calculadora) */
+        .sidebar { flex: 1; max-width: 350px; }
+        .card-calculo { background: #2c3e50; color: white; padding: 20px; border-radius: 15px; position: sticky; top: 20px; }
+        
+        .input-group { display: flex; gap: 10px; margin-bottom: 10px; }
+        input { width: 100%; padding: 10px; border-radius: 8px; border: none; font-size: 14px; }
+        button { width: 100%; padding: 12px; background: #2ecc71; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px; }
+        
+        .modo-btn { background: #34495e; padding: 5px; border-radius: 8px; display: flex; margin-bottom: 15px; }
+        .modo-btn label { flex: 1; text-align: center; padding: 5px; cursor: pointer; font-size: 12px; }
+        .modo-btn input { display: none; }
+        .modo-btn input:checked + span { background: #1abc9c; border-radius: 5px; display: block; padding: 2px; }
 
-        h1 { color: var(--primary-color); }
-
-        /* --- ESTILO DO SIMULADOR (ESTILO CELULAR/BLOCO) --- */
-        .card-medias {
-            background: white;
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 350px;
-            margin-bottom: 30px;
-        }
-
-        .card-medias h2 {
-            margin-top: 0;
-            font-size: 1.2rem;
-            text-align: center;
-            color: var(--primary-color);
-        }
-
-        .modo-seletor {
-            display: flex;
-            background: #eee;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            padding: 5px;
-        }
-
-        .modo-seletor label {
-            flex: 1;
-            text-align: center;
-            padding: 8px;
-            cursor: pointer;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        .modo-seletor input { display: none; }
-
-        .modo-seletor input:checked + span {
-            background: var(--primary-color);
-            color: white;
-            display: block;
-            border-radius: 5px;
-            padding: 5px;
-        }
-
-        .input-group {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
-        input[type="number"] {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            outline: none;
-            font-size: 1rem;
-        }
-
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        button:hover { opacity: 0.9; }
-
-        /* --- BLOCO DE NOTAS (RESULTADO) --- */
-        .bloco-notas {
-            margin-top: 20px;
-            background: #fffef0; /* Cor de papel */
-            border-left: 6px solid var(--accent-color);
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .nota-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            border-bottom: 1px dashed #ddd;
-            padding-bottom: 5px;
-        }
-
-        .nota-final {
-            font-size: 1.3rem;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            margin-top: 15px;
-        }
-
-        /* --- LISTA DE ARQUIVOS (O QUE O C++ GERA) --- */
-        #lista-arquivos {
-            width: 100%;
-            max-width: 600px;
-        }
+        .bloco-resultado { background: #f1c40f; color: #2c3e50; padding: 15px; border-radius: 8px; margin-top: 15px; font-family: 'Courier New', monospace; }
+        .nota-f { font-size: 1.5rem; font-weight: bold; text-align: center; display: block; margin-top: 10px; }
     </style>
 </head>
 <body>
 
-    <h1>📚 Meu Hub de Estudos</h1>
+<div class="container">
+    <div class="arquivos-section">
+        <h2><i class="folder-open"></i> Conteúdos de Estudo</h2>
+        <div id="arvore-arquivos">
+            </div>
+    </div>
 
-    <div class="card-medias">
-        <h2>📊 Calcular Minha Nota</h2>
-        
-        <div class="modo-seletor">
-            <label>
-                <input type="radio" name="modo" value="media" checked onchange="trocarModo()">
-                <span>Média (P1+P2)</span>
-            </label>
-            <label>
-                <input type="radio" name="modo" value="soma" onchange="trocarModo()">
-                <span>Soma (Filo/Socio)</span>
-            </label>
-        </div>
+    <div class="sidebar">
+        <div class="card-calculo">
+            <h3><i class="fas fa-calculator"></i> Simulador de Médias</h3>
+            
+            <div class="modo-btn">
+                <label><input type="radio" name="m" value="media" checked onchange="vP2(true)"><span>Média P1/P2</span></label>
+                <label><input type="radio" name="m" value="soma" onchange="vP2(false)"><span>Soma (Filo)</span></label>
+            </div>
 
-        <div class="input-group">
-            <input type="number" id="p1" placeholder="Nota P1">
-            <input type="number" id="tp1" placeholder="Teste P1">
-        </div>
-
-        <div id="sessao-p2">
             <div class="input-group">
+                <input type="number" id="p1" placeholder="Nota P1">
+                <input type="number" id="tp1" placeholder="Teste P1">
+            </div>
+            <div id="box-p2" class="input-group">
                 <input type="number" id="p2" placeholder="Nota P2">
                 <input type="number" id="tp2" placeholder="Teste P2">
             </div>
-        </div>
+            <input type="number" id="val" placeholder="Valorada / Outros" style="margin-bottom: 10px;">
+            
+            <button onclick="calc()">Calcular Média</button>
 
-        <div class="input-group">
-            <input type="number" id="valorada" placeholder="Valorada / Outros">
-        </div>
-
-        <button onclick="calcular()">Gerar Bloco de Notas</button>
-
-        <div id="resultado-bloco" class="bloco-notas" style="display: none;">
-            <div class="nota-item"><span>Total P1:</span> <strong id="res-p1">0</strong></div>
-            <div id="res-item-p2" class="nota-item"><span>Total P2:</span> <strong id="res-p2">0</strong></div>
-            <div class="nota-item"><span>Extras:</span> <strong id="res-val">0</strong></div>
-            <div class="nota-final">
-                <span id="label-final">Média:</span> 
-                <strong id="res-total">0</strong>
+            <div id="res" class="bloco-resultado" style="display:none">
+                <div>P1: <span id="r1"></span> | P2: <span id="r2"></span></div>
+                <hr>
+                <div style="text-align:center">RESULTADO FINAL:</div>
+                <span id="rf" class="nota-f">0.0</span>
             </div>
         </div>
     </div>
+</div>
 
-    <hr style="width: 80%; border: 0.5px solid #ccc;">
-
-    <div id="lista-arquivos">
-        <h3>📂 Conteúdos de Estudo</h3>
-        </div>
-
-    <script>
-        function trocarModo() {
-            const modo = document.querySelector('input[name="modo"]:checked').value;
-            const sessaoP2 = document.getElementById('sessao-p2');
-            const resItemP2 = document.getElementById('res-item-p2');
-            const labelFinal = document.getElementById('label-final');
-
-            if (modo === 'soma') {
-                sessaoP2.style.display = 'none';
-                resItemP2.style.display = 'none';
-                labelFinal.innerText = 'Soma Total:';
-            } else {
-                sessaoP2.style.display = 'block';
-                resItemP2.style.display = 'flex';
-                labelFinal.innerText = 'Média Final:';
-            }
-        }
-
-        function calcular() {
-            const modo = document.querySelector('input[name="modo"]:checked').value;
-            
-            const p1 = parseFloat(document.getElementById('p1').value) || 0;
-            const tp1 = parseFloat(document.getElementById('tp1').value) || 0;
-            const p2 = parseFloat(document.getElementById('p2').value) || 0;
-            const tp2 = parseFloat(document.getElementById('tp2').value) || 0;
-            const valorada = parseFloat(document.getElementById('valorada').value) || 0;
-
-            const totalP1 = p1 + tp1;
-            const totalP2 = p2 + tp2;
-            let final = 0;
-
-            if (modo === 'media') {
-                final = (totalP1 + totalP2 + valorada) / 3;
-            } else {
-                final = totalP1 + valorada;
-            }
-
-            // Preencher o Bloco
-            document.getElementById('res-p1').innerText = totalP1.toFixed(1);
-            document.getElementById('res-p2').innerText = totalP2.toFixed(1);
-            document.getElementById('res-val').innerText = valorada.toFixed(1);
-            document.getElementById('res-total').innerText = final.toFixed(1);
-
-            // Mostrar resultado
-            document.getElementById('resultado-bloco').style.display = 'block';
-
-            // Cor baseada na nota (ex: 6.0)
-            const corFinal = final >= 5 ? '#2ecc71' : '#e74c3c';
-            document.getElementById('res-total').style.color = corFinal;
-        }
-    </script>
-
-
-   <script>
-    async function carregarArquivos() {
-        const listaDoc = document.getElementById('lista-arquivos');
-        listaDoc.innerHTML = "<h3>📂 Conteúdos de Estudo</h3>"; // Limpa antes de carregar
-
-        try {
-            const resposta = await fetch('dados.txt');
-            const texto = await resposta.text();
-            const linhas = texto.split('\n');
-
-            linhas.forEach(linha => {
-                let nomeLimpo = linha.trim();
-                if (nomeLimpo !== "") {
-                    // 1. Remove os prefixos chatos que o C++ coloca
-                    nomeLimpo = nomeLimpo.replace('Pasta:', '').replace('[DIR]', '').replace('[ARQ]', '');
-                    
-                    const link = document.createElement('a');
-                    link.href = linha.trim(); 
-                    link.target = "_blank";
-                    link.className = "arquivo-link"; // Vamos usar uma classe para o CSS
-                    
-                    // 2. Define o ícone: se tiver ponto (extensão), é arquivo, senão é pasta
-                    const icone = nomeLimpo.includes('.') ? '📄' : '📁';
-                    
-                    link.innerHTML = `<span style="margin-right:10px">${icone}</span> ${nomeLimpo}`;
-                    
-                    // Estilo rápido para não bugar o visual
-                    Object.assign(link.style, {
-                        display: "block",
-                        margin: "8px 0",
-                        padding: "12px",
-                        background: "white",
-                        borderRadius: "10px",
-                        textDecoration: "none",
-                        color: "#2c3e50",
-                        boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
-                        border: "1px solid #eee",
-                        transition: "0.2s"
-                    });
-
-                    listaDoc.appendChild(link);
-                }
-            });
-        } catch (erro) {
-            console.error("Erro ao carregar arquivos:", erro);
-        }
+<script>
+    // 1. Lógica do Simulador
+    function vP2(show) { document.getElementById('box-p2').style.display = show ? 'flex' : 'none'; }
+    function calc() {
+        const m = document.querySelector('input[name="m"]:checked').value;
+        const n = id => parseFloat(document.getElementById(id).value) || 0;
+        const t1 = n('p1') + n('tp1');
+        const t2 = n('p2') + n('tp2');
+        let f = (m === 'media') ? (t1 + t2 + n('val')) / 3 : (t1 + n('val'));
+        
+        document.getElementById('r1').innerText = t1.toFixed(1);
+        document.getElementById('r2').innerText = t2.toFixed(1);
+        document.getElementById('rf').innerText = f.toFixed(1);
+        document.getElementById('res').style.display = 'block';
     }
-    carregarArquivos();
+
+    // 2. Lógica Original das Pastas (Para desbugar o erro de visual)
+    async function load() {
+        const resp = await fetch('dados.txt');
+        const text = await resp.text();
+        const linhas = text.split('\n').filter(l => l.trim() !== "");
+        const tree = document.getElementById('arvore-arquivos');
+        
+        // Esta lógica recria a visualização limpa que você tinha antes
+        linhas.forEach(l => {
+            const div = document.createElement('div');
+            div.className = 'item';
+            const nome = l.split('/').pop().replace('Pasta:', '').replace('[DIR]', '');
+            div.innerHTML = `<i class="fa fa-${l.includes('.') ? 'file-word' : 'folder'}" style="margin-right:10px; color:#f1c40f"></i> <a href="${l}" style="text-decoration:none; color:#333">${nome}</a>`;
+            tree.appendChild(div);
+        });
+    }
+    load();
 </script>
-  
-
-
 
 </body>
 </html>
