@@ -3,88 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mendel Hub | Mobile Ready</title>
+    <title>Mendel Hub | Oficial</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root { --primary: #4361ee; --bg: #f8faff; --sidebar: #ffffff; --text-main: #1e293b; --text-sub: #64748b; --folder-icon: #ffca28; }
-        
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            background: var(--bg); 
-            color: var(--text-main); 
-            display: flex; 
-            height: 100vh; 
-            overflow: hidden; 
-            flex-direction: row; 
-        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text-main); display: flex; height: 100vh; overflow: hidden; }
 
-        /* --- SIDEBAR RESPONSIVA --- */
-        nav { 
-            width: 260px; 
-            background: var(--sidebar); 
-            border-right: 1px solid #e2e8f0; 
-            display: flex; 
-            flex-direction: column; 
-            padding: 40px 20px; 
-            flex-shrink: 0; 
-            transition: all 0.3s ease;
-        }
-
+        /* Sidebar Desktop */
+        nav { width: 260px; background: var(--sidebar); border-right: 1px solid #e2e8f0; display: flex; flex-direction: column; padding: 40px 20px; flex-shrink: 0; }
         .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); margin-bottom: 40px; display: flex; align-items: center; gap: 10px; }
         .nav-group { display: flex; flex-direction: column; gap: 8px; }
         .nav-link { padding: 14px 18px; border-radius: 12px; cursor: pointer; display: flex; align-items: center; gap: 12px; font-weight: 600; color: var(--text-sub); transition: 0.3s; text-decoration: none; }
         .nav-link:hover { background: #f1f5f9; color: var(--primary); }
-        .nav-link.active { background: var(--primary); color: #fff; box-shadow: 0 10px 20px -5px rgba(67, 97, 238, 0.3); }
-        .nav-divider { height: 1px; background: #e2e8f0; margin: 20px 0; }
+        .nav-link.active { background: var(--primary); color: #fff; }
+        .nav-divider { height: 1px; background: #e2e8f0; margin: 15px 0; }
 
-        /* --- CONTEÚDO --- */
-        main { flex: 1; padding: 40px 20px; overflow-y: auto; width: 100%; }
-        .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 25px; color: var(--text-sub); font-weight: 600; font-size: 0.9rem; flex-wrap: wrap; }
-        
+        /* Conteúdo */
+        main { flex: 1; padding: 40px; overflow-y: auto; }
+        .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 25px; color: var(--text-sub); font-weight: 600; font-size: 0.9rem; }
+        .breadcrumb span { cursor: pointer; }
         .item-list { display: flex; flex-direction: column; gap: 10px; }
         .item { background: #fff; padding: 18px; border-radius: 15px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; border: 1px solid #eef2f6; transition: 0.2s; text-decoration: none; color: inherit; }
+        .item:hover { transform: translateX(5px); border-color: var(--primary); }
         .item-info { display: flex; align-items: center; gap: 12px; overflow: hidden; }
-        .item-info span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.95rem; font-weight: 600; }
-        
-        .icon-folder { color: var(--folder-icon); font-size: 1.4rem; flex-shrink: 0; }
-        .icon-file { color: #ef4444; font-size: 1.4rem; flex-shrink: 0; }
-
+        .item-info span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 600; }
+        .icon-folder { color: var(--folder-icon); font-size: 1.4rem; }
+        .icon-file { color: #ef4444; font-size: 1.4rem; }
         .hidden { display: none !important; }
 
-        /* --- CALCULADORA --- */
-        .calc-wrapper { width: 100%; max-width: 360px; margin: 0 auto; background: #1e293b; padding: 25px; border-radius: 25px; }
-        .display { width: 100%; background: transparent; border: none; color: #fff; font-size: 2.2rem; text-align: right; margin-bottom: 20px; outline: none; }
+        /* Calculadora */
+        .calc-wrapper { width: 100%; max-width: 320px; margin: 0 auto; background: #1e293b; padding: 25px; border-radius: 25px; }
+        .display { width: 100%; background: transparent; border: none; color: #fff; font-size: 2rem; text-align: right; margin-bottom: 20px; outline: none; }
         .btn-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-        .c-btn { height: 55px; border-radius: 12px; border: none; background: #334155; color: #fff; font-weight: 700; cursor: pointer; font-size: 1.1rem; }
+        .c-btn { height: 50px; border-radius: 10px; border: none; background: #334155; color: #fff; font-weight: 700; cursor: pointer; }
 
-        /* --- ADAPTAÇÃO PARA CELULAR (MEDIA QUERIES) --- */
+        /* Mobile */
         @media (max-width: 768px) {
             body { flex-direction: column; }
-            
-            nav { 
-                width: 100%; 
-                height: auto; 
-                padding: 15px; 
-                border-right: none; 
-                border-bottom: 1px solid #e2e8f0; 
-                flex-direction: row; 
-                justify-content: space-between; 
-                align-items: center; 
-            }
-
-            .logo { margin-bottom: 0; font-size: 1.2rem; }
+            nav { width: 100%; height: 70px; padding: 0 15px; border-right: none; border-bottom: 1px solid #e2e8f0; flex-direction: row; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+            .logo { display: none; }
+            .nav-group { flex-direction: row; width: 100%; justify-content: space-around; gap: 5px; }
+            .nav-link { padding: 8px; flex-direction: column; font-size: 0.6rem; gap: 4px; flex: 1; align-items: center; }
+            .nav-link span { display: block; }
             .nav-divider { display: none; }
-            .nav-group { flex-direction: row; gap: 5px; }
-            
-            .nav-link { padding: 10px; font-size: 0.8rem; flex-direction: column; gap: 4px; border-radius: 8px; }
-            .nav-link i { font-size: 1.1rem; }
-            .nav-link span { display: none; } /* Esconde texto no mobile para caber ícones */
-
-            main { padding: 20px 15px; }
-            .item { padding: 15px; }
+            main { padding: 20px 15px; height: calc(100vh - 70px); }
         }
     </style>
 </head>
@@ -93,8 +57,9 @@
 <nav>
     <div class="logo"><i class="fas fa-dna"></i> MENDEL</div>
     <div class="nav-group">
-        <div class="nav-link active" onclick="changeTab('materiais', this)"><i class="fas fa-folder-open"></i><span>Materiais</span></div>
-        <div class="nav-link" onclick="changeTab('calculadora', this)"><i class="fas fa-calculator"></i><span>Calculadora</span></div>
+        <div class="nav-link active" id="tab-mat" onclick="changeTab('materiais', this)"><i class="fas fa-folder-open"></i><span>Materiais</span></div>
+        <div class="nav-link" id="tab-calc" onclick="changeTab('calculadora', this)"><i class="fas fa-calculator"></i><span>Calculadora</span></div>
+        <div class="nav-divider"></div>
         <a href="https://pmais.p4ed.com/dashboard" target="_blank" class="nav-link"><i class="fas fa-graduation-cap"></i><span>Portal P+</span></a>
     </div>
 </nav>
@@ -127,8 +92,6 @@
                 <button class="c-btn" onclick="ins('2')">2</button>
                 <button class="c-btn" onclick="ins('3')">3</button>
                 <button class="c-btn" style="background:#10b981" onclick="res()">=</button>
-                <button class="c-btn" style="grid-column: span 2;" onclick="ins('0')">0</button>
-                <button class="c-btn" onclick="ins('.')">.</button>
             </div>
         </div>
     </div>
@@ -142,19 +105,16 @@
         try {
             const response = await fetch('dados.txt?v=' + Date.now());
             const text = await response.text();
-            // Limpa as linhas e converte barras
             db = text.split('\n').filter(l => l.trim() !== "").map(l => {
                 return l.replace(/\\/g, '/').replace("[ARQ]", "").replace("[DIR]", "").replace("Pasta:", "").trim();
             });
-            render(); // Chama a função após carregar os dados
-        } catch(e) { 
-            console.error("Erro ao carregar dados.txt:", e); 
-        }
+            render();
+        } catch(e) { console.error("Erro:", e); }
     }
 
     function render() {
         const container = document.getElementById('list-container');
-        if (!container) return;
+        if(!container) return;
         container.innerHTML = "";
         updateBreadcrumb();
 
@@ -162,25 +122,18 @@
         let files = [];
 
         db.forEach(path => {
-            let cleanPath = path.trim();
-            let displayPath = cleanPath.startsWith("Estudos/") ? cleanPath.replace("Estudos/", "") : cleanPath;
+            let cleanPath = path.startsWith("Estudos/") ? path.replace("Estudos/", "") : path;
             
             if (currentPath === "") {
-                let parts = displayPath.split('/');
-                if (parts.length > 1) {
-                    folders.add(parts[0].trim());
-                } else if (displayPath.toLowerCase().endsWith('.pdf')) {
-                    files.push({ name: displayPath, full: cleanPath });
-                }
+                let parts = cleanPath.split('/');
+                if (parts.length > 1) folders.add(parts[0]);
+                else if (cleanPath.toLowerCase().endsWith('.pdf')) files.push({ name: cleanPath, full: path });
             } else {
-                if (displayPath.toLowerCase().startsWith(currentPath.toLowerCase() + "/")) {
-                    let relative = displayPath.substring(currentPath.length + 1);
+                if (cleanPath.toLowerCase().startsWith(currentPath.toLowerCase() + "/")) {
+                    let relative = cleanPath.substring(currentPath.length + 1);
                     let parts = relative.split('/');
-                    if (parts.length > 1) {
-                        folders.add(parts[0].trim());
-                    } else if (relative.toLowerCase().endsWith('.pdf')) {
-                        files.push({ name: relative, full: cleanPath });
-                    }
+                    if (parts.length > 1) folders.add(parts[0]);
+                    else if (relative.toLowerCase().endsWith('.pdf')) files.push({ name: relative, full: path });
                 }
             }
         });
@@ -188,7 +141,7 @@
         folders.forEach(f => {
             const div = document.createElement('div');
             div.className = 'item';
-            div.innerHTML = `<div class="item-info"><i class="fas fa-folder icon-folder"></i><span>${f}</span></div><i class="fas fa-chevron-right" style="color:#cbd5e1"></i>`;
+            div.innerHTML = `<div class="item-info"><i class="fas fa-folder icon-folder"></i><span>${f}</span></div><i class="fas fa-chevron-right"></i>`;
             div.onclick = () => { currentPath = currentPath === "" ? f : currentPath + "/" + f; render(); };
             container.appendChild(div);
         });
@@ -199,18 +152,16 @@
             let linkFinal = file.full.startsWith("Estudos/") ? file.full : "Estudos/" + file.full;
             a.href = encodeURI(linkFinal);
             a.target = "_blank";
-            a.innerHTML = `<div class="item-info"><i class="fas fa-file-pdf icon-file"></i><span>${file.name}</span></div><i class="fas fa-external-link-alt" style="color:#cbd5e1; font-size:0.8rem"></i>`;
+            a.innerHTML = `<div class="item-info"><i class="fas fa-file-pdf icon-file"></i><span>${file.name}</span></div><i class="fas fa-external-link-alt"></i>`;
             container.appendChild(a);
         });
 
-        if (container.innerHTML === "") {
-            container.innerHTML = "<p style='text-align:center; padding:20px; color:#94a3b8;'>Nenhum item encontrado nesta pasta.</p>";
-        }
+        if (container.innerHTML === "") container.innerHTML = "<p style='text-align:center;color:#94a3b8;padding:20px;'>Pasta vazia.</p>";
     }
 
     function updateBreadcrumb() {
         const bc = document.getElementById('breadcrumb');
-        if (!bc) return;
+        if(!bc) return;
         bc.innerHTML = `<span onclick="goToPath('')">Início</span>`;
         if (currentPath !== "") {
             let parts = currentPath.split('/');
@@ -218,7 +169,7 @@
             parts.forEach(p => {
                 temp += (temp === "" ? p : "/" + p);
                 const cap = temp;
-                bc.innerHTML += ` <i class="fas fa-chevron-right" style="font-size:0.7rem; color:#cbd5e1"></i> <span onclick="goToPath('${cap}')">${p}</span>`;
+                bc.innerHTML += ` <i class="fas fa-chevron-right" style="font-size:0.7rem; opacity:0.5"></i> <span onclick="goToPath('${cap}')">${p}</span>`;
             });
         }
     }
@@ -234,14 +185,12 @@
 
     // Calculadora
     const s = document.getElementById('scr');
-    function ins(v) { if(s) s.value += v; }
-    function clr() { if(s) s.value = ""; }
-    function bk() { if(s) s.value = s.value.slice(0, -1); }
+    function ins(v) { s.value += v; }
+    function clr() { s.value = ""; }
+    function bk() { s.value = s.value.slice(0, -1); }
     function res() { try { s.value = eval(s.value); } catch { s.value = "Erro"; } }
 
-    // Inicia tudo
     start();
 </script>
-
 </body>
 </html>
