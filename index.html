@@ -3,256 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mendel Hub | Dashboard de Estudos</title>
+    <title>Mendel Hub | Premium</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #4361ee;
-            --primary-hover: #3a56d4;
-            --bg: #f8faff;
-            --sidebar: #ffffff;
-            --card: #ffffff;
-            --text-main: #1e293b;
-            --text-sub: #64748b;
-            --accent: #eef2ff;
-        }
-
+        :root { --p: #4361ee; --bg: #f8faff; --txt: #1e293b; --sub: #64748b; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text-main); display: flex; height: 100vh; overflow: hidden; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--txt); display: flex; height: 100vh; }
 
-        /* Sidebar Moderna */
-        nav { width: 280px; background: var(--sidebar); border-right: 1px solid #e2e8f0; display: flex; flex-direction: column; padding: 40px 24px; }
-        .brand { font-size: 1.6rem; font-weight: 800; color: var(--primary); margin-bottom: 48px; display: flex; align-items: center; gap: 12px; }
-        
-        .nav-section { margin-bottom: 32px; }
-        .nav-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-sub); margin-bottom: 16px; display: block; }
-        
+        /* Sidebar */
+        nav { width: 260px; background: #fff; border-right: 1px solid #e2e8f0; padding: 40px 20px; flex-shrink: 0; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--p); margin-bottom: 40px; display: flex; align-items: center; gap: 10px; }
         .nav-link { 
-            padding: 14px 18px; border-radius: 12px; cursor: pointer; display: flex; align-items: center; gap: 12px; 
-            font-weight: 600; color: var(--text-sub); transition: 0.3s; margin-bottom: 8px; text-decoration: none;
+            padding: 12px 15px; border-radius: 10px; cursor: pointer; display: flex; align-items: center; gap: 10px; 
+            font-weight: 600; color: var(--sub); transition: 0.2s; margin-bottom: 5px;
         }
-        .nav-link:hover { background: #f1f5f9; color: var(--primary); }
-        .nav-link.active { background: var(--primary); color: white; box-shadow: 0 10px 20px -5px rgba(67, 97, 238, 0.3); }
+        .nav-link:hover { background: #f1f5f9; }
+        .nav-link.active { background: var(--p); color: #fff; }
 
-        /* Área de Conteúdo */
-        main { flex: 1; padding: 60px; overflow-y: auto; }
-        .page-header { margin-bottom: 40px; }
-        .page-header h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 8px; }
-        .page-header p { color: var(--text-sub); font-size: 1.1rem; }
-
-        .view { display: none; animation: slideUp 0.5s ease-out forwards; }
-        .view.active { display: block; }
-
-        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        /* Main */
+        main { flex: 1; padding: 50px; overflow-y: auto; }
+        .header { margin-bottom: 40px; }
+        .header h1 { font-size: 2rem; font-weight: 800; }
 
         /* Grid de Matérias */
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 30px; }
-        .subject-card { 
-            background: var(--card); padding: 40px 30px; border-radius: 24px; text-align: center; 
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
-            cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid transparent;
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+        .card { 
+            background: #fff; padding: 30px; border-radius: 20px; text-align: center; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03); cursor: pointer; transition: 0.3s; border: 1px solid transparent;
         }
-        .subject-card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
-        .subject-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; display: block; }
-        .subject-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
+        .card:hover { transform: translateY(-5px); border-color: var(--p); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+        .card i { font-size: 2rem; color: var(--p); margin-bottom: 15px; display: block; }
+        .card h3 { font-size: 1.1rem; font-weight: 700; }
 
         /* Lista de Arquivos */
-        .file-list { background: white; border-radius: 24px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); overflow: hidden; }
-        .file-item { 
-            display: flex; align-items: center; padding: 24px 32px; border-bottom: 1px solid #f1f5f9; 
+        .file-box { background: #fff; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); overflow: hidden; }
+        .file-row { 
+            display: flex; align-items: center; padding: 20px 25px; border-bottom: 1px solid #f1f5f9; 
             text-decoration: none; color: inherit; transition: 0.2s;
         }
-        .file-item:hover { background: #f8faff; }
-        .file-item:last-child { border-bottom: none; }
-        .file-icon { font-size: 1.8rem; color: #ef4444; margin-right: 24px; }
-        .file-details { flex: 1; }
-        .file-path { font-size: 0.75rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; display: block; }
-        .file-name { font-weight: 600; font-size: 1rem; color: var(--text-main); }
-        .btn-back { 
-            background: white; border: 1px solid #e2e8f0; padding: 12px 24px; border-radius: 12px; 
-            cursor: pointer; font-weight: 700; margin-bottom: 32px; display: flex; align-items: center; gap: 10px;
-            transition: 0.3s;
-        }
-        .btn-back:hover { background: #f1f5f9; }
+        .file-row:hover { background: #f8faff; }
+        .file-icon { font-size: 1.5rem; color: #ef4444; margin-right: 20px; }
+        .file-info { flex: 1; }
+        .file-info span { display: block; }
+        .path-label { font-size: 0.7rem; font-weight: 800; color: var(--p); text-transform: uppercase; margin-bottom: 2px; }
+        .name-label { font-weight: 600; }
 
-        /* Calculadora Estilizada */
-        .calc-wrapper { max-width: 400px; margin: 0 auto; background: #0f172a; padding: 35px; border-radius: 35px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
-        .calc-screen { width: 100%; background: transparent; border: none; color: white; font-size: 3rem; text-align: right; margin-bottom: 30px; outline: none; }
-        .calc-btns { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
-        .c-btn { height: 70px; border-radius: 18px; border: none; background: #1e293b; color: white; font-size: 1.3rem; font-weight: 700; cursor: pointer; transition: 0.2s; }
-        .c-btn:hover { background: #334155; }
-        .c-btn.op { background: var(--primary); }
-        .c-btn.eq { background: #10b981; grid-column: span 2; }
-        .c-btn.del { background: #f43f5e; }
+        .btn-back { 
+            background: #fff; border: 1px solid #e2e8f0; padding: 10px 20px; border-radius: 10px; 
+            cursor: pointer; font-weight: 700; margin-bottom: 25px; display: inline-flex; align-items: center; gap: 8px;
+        }
+
+        .hidden { display: none; }
+
+        /* Calculadora */
+        .calc-box { max-width: 350px; background: #1e293b; padding: 25px; border-radius: 25px; margin: 0 auto; }
+        .display { width: 100%; background: none; border: none; color: #fff; font-size: 2.5rem; text-align: right; margin-bottom: 20px; }
+        .buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+        .btn { height: 60px; border-radius: 12px; border: none; background: #334155; color: #fff; font-size: 1.2rem; cursor: pointer; }
+        .btn.op { background: var(--p); }
+        .btn.eq { background: #10b981; grid-column: span 2; }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="brand"><i class="fas fa-dna"></i> MENDEL</div>
-        
-        <div class="nav-section">
-            <span class="nav-label">Acadêmico</span>
-            <div class="nav-link active" onclick="showTab('materias', this)"><i class="fas fa-grid-2"></i> Materiais</div>
-            <div class="nav-link" onclick="showTab('calc', this)"><i class="fas fa-calculator"></i> Calculadora</div>
+<nav>
+    <div class="logo"><i class="fas fa-brain"></i> MENDEL</div>
+    <div class="nav-link active" onclick="switchPage('page-materias', this)"><i class="fas fa-book"></i> Materiais</div>
+    <div class="nav-link" onclick="switchPage('page-calc', this)"><i class="fas fa-calculator"></i> Calculadora</div>
+</nav>
+
+<main>
+    <div id="page-materias">
+        <div class="header">
+            <h1>Meus Conteúdos</h1>
+            <p id="sub-msg">Selecione uma disciplina abaixo.</p>
         </div>
 
-        <div class="nav-section">
-            <span class="nav-label">Links Rápidos</span>
-            <a href="https://pmais.p4ed.com/dashboard" target="_blank" class="nav-link"><i class="fas fa-graduation-cap"></i> Portal P+</a>
+        <div id="grid-subjects" class="grid"></div>
+
+        <div id="file-view" class="hidden">
+            <button class="btn-back" onclick="showGrid()"><i class="fas fa-arrow-left"></i> Voltar</button>
+            <h2 id="folder-name" style="margin-bottom: 20px;"></h2>
+            <div id="file-container" class="file-box"></div>
         </div>
-    </nav>
+    </div>
 
-    <main>
-        <div id="materias" class="view active">
-            <div class="page-header">
-                <h1>Meus Conteúdos</h1>
-                <p>Selecione uma disciplina para acessar os arquivos.</p>
-            </div>
-
-            <div id="grid-subjects" class="grid"></div>
-
-            <div id="view-files" style="display:none;">
-                <button class="btn-back" onclick="goBack()"><i class="fas fa-arrow-left"></i> Voltar para Matérias</button>
-                <h2 id="current-title" style="margin-bottom: 24px; font-weight: 800;"></h2>
-                <div id="list-container" class="file-list"></div>
-            </div>
-        </div>
-
-        <div id="calc" class="view">
-            <div class="page-header">
-                <h1>Calculadora de Apoio</h1>
-                <p>Ferramenta rápida para auxilia-lo nos estudos.</p>
-            </div>
-            <div class="calc-wrapper">
-                <input type="text" id="scr" class="calc-screen" readonly placeholder="0">
-                <div class="calc-btns">
-                    <button class="c-btn del" onclick="clr()">C</button>
-                    <button class="c-btn op" onclick="add('/')">/</button>
-                    <button class="c-btn op" onclick="add('*')">×</button>
-                    <button class="c-btn" onclick="bk()"><i class="fas fa-backspace"></i></button>
-                    <button class="c-btn" onclick="add('7')">7</button>
-                    <button class="c-btn" onclick="add('8')">8</button>
-                    <button class="c-btn" onclick="add('9')">9</button>
-                    <button class="c-btn op" onclick="add('-')">-</button>
-                    <button class="c-btn" onclick="add('4')">4</button>
-                    <button class="c-btn" onclick="add('5')">5</button>
-                    <button class="c-btn" onclick="add('6')">6</button>
-                    <button class="c-btn op" onclick="add('+')">+</button>
-                    <button class="c-btn" onclick="add('1')">1</button>
-                    <button class="c-btn" onclick="add('2')">2</button>
-                    <button class="c-btn" onclick="add('3')">3</button>
-                    <button class="c-btn eq" onclick="res()">=</button>
-                    <button class="c-btn" style="grid-column: span 2;" onclick="add('0')">0</button>
-                    <button class="c-btn" onclick="add('.')">.</button>
-                </div>
+    <div id="page-calc" class="hidden">
+        <div class="header"><h1>Calculadora</h1></div>
+        <div class="calc-box">
+            <input type="text" id="res" class="display" readonly placeholder="0">
+            <div class="buttons">
+                <button class="btn" onclick="clearRes()">C</button>
+                <button class="btn op" onclick="ins('/')">/</button>
+                <button class="btn op" onclick="ins('*')">x</button>
+                <button class="btn op" onclick="ins('-')">-</button>
+                <button class="btn" onclick="ins('7')">7</button>
+                <button class="btn" onclick="ins('8')">8</button>
+                <button class="btn" onclick="ins('9')">9</button>
+                <button class="btn op" onclick="ins('+')">+</button>
+                <button class="btn" onclick="ins('4')">4</button>
+                <button class="btn" onclick="ins('5')">5</button>
+                <button class="btn" onclick="ins('6')">6</button>
+                <button class="btn" onclick="solve()">=</button>
+                <button class="btn" onclick="ins('1')">1</button>
+                <button class="btn" onclick="ins('2')">2</button>
+                <button class="btn" onclick="ins('3')">3</button>
+                <button class="btn" onclick="ins('0')">0</button>
             </div>
         </div>
-    </main>
+    </div>
+</main>
 
-    <script>
-        let db = [];
+<script>
+    let lines = [];
 
-        function showTab(id, el) {
-            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-            document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-            el.classList.add('active');
-        }
+    // Busca os dados e limpa tudo
+    async function load() {
+        const r = await fetch('dados.txt?v=' + Date.now());
+        const t = await r.text();
+        lines = t.split('\n').map(l => l.replace(/\\/g, '/').trim()).filter(l => l !== "");
+        renderGrid();
+    }
 
-        window.onload = () => {
-            fetch('dados.txt?v=' + Date.now())
-                .then(r => r.text())
-                .then(data => {
-                    // Limpeza pesada dos dados para garantir que barras e espaços não quebrem nada
-                    db = data.split('\n')
-                             .filter(l => l.trim() !== "")
-                             .map(l => l.replace(/\\/g, '/').trim());
-                    renderGrid();
-                });
-        };
+    function renderGrid() {
+        const grid = document.getElementById('grid-subjects');
+        grid.innerHTML = "";
+        let subjects = new Set();
 
-        function getCleanSubject(line) {
-            // Remove prefixos e a pasta raiz "Estudos/" para pegar o nome real da matéria
-            let path = line.replace("[DIR]", "").replace("[ARQ]", "").replace("Pasta:", "").trim();
-            if(path.startsWith("Estudos/")) path = path.replace("Estudos/", "");
-            let parts = path.split('/');
-            return parts[0]; // Retorna apenas o primeiro nível (ex: Biologia, Fisica)
-        }
-
-        function renderGrid() {
-            const grid = document.getElementById('grid-subjects');
-            const files = document.getElementById('view-files');
-            grid.style.display = "grid";
-            files.style.display = "none";
-            grid.innerHTML = "";
-
-            let subjects = new Set();
-            db.forEach(l => {
-                let s = getCleanSubject(l);
-                // Filtro crucial: Não adiciona a própria palavra "Estudos" como uma matéria
-                if(s && s !== "Estudos") subjects.add(s);
-            });
-
-            subjects.forEach(s => {
-                const card = document.createElement('div');
-                card.className = "subject-card";
-                card.innerHTML = `<i class="fas fa-folder-open"></i><h3>${s}</h3><p style="color:var(--text-sub); font-size:0.9rem;">Abrir arquivos</p>`;
-                card.onclick = () => openFiles(s);
-                grid.appendChild(card);
-            });
-        }
-
-        function openFiles(subject) {
-            document.getElementById('grid-subjects').style.display = "none";
-            document.getElementById('view-files').style.display = "block";
-            document.getElementById('current-title').innerText = subject;
+        lines.forEach(line => {
+            // Pega o que está entre Estudos/ e a próxima barra
+            // Se a linha for "Estudos/Biologia/Croti", ele pega "Biologia"
+            let clean = line.replace("[DIR]", "").replace("[ARQ]", "").replace("Pasta:", "").trim();
+            let parts = clean.split('/');
             
-            const container = document.getElementById('list-container');
-            container.innerHTML = "";
+            let name = "";
+            if (parts[0] === "Estudos" && parts[1]) name = parts[1];
+            else if (parts[0] !== "Estudos") name = parts[0];
 
-            db.forEach(line => {
-                // Lógica de busca: O arquivo deve conter o nome da matéria e ser marcado como [ARQ]
-                if(line.includes("[ARQ]") && (line.includes("/" + subject + "/") || line.includes("Estudos/" + subject))) {
-                    
-                    let fullPath = line.replace("[ARQ]", "").trim();
-                    let parts = fullPath.split('/');
-                    let name = parts.pop(); // Nome do arquivo
+            if (name && name !== "Estudos") subjects.add(name);
+        });
 
-                    // Cria o "breadcrumb" (ex: Croti > 1P)
-                    let subPath = parts.slice(parts.indexOf(subject) + 1).join(' ❯ ');
+        subjects.forEach(s => {
+            const div = document.createElement('div');
+            div.className = 'card';
+            div.innerHTML = `<i class="fas fa-folder"></i><h3>${s}</h3>`;
+            div.onclick = () => showFiles(s);
+            grid.appendChild(div);
+        });
+    }
 
-                    const item = document.createElement('a');
-                    item.className = "file-item";
-                    item.href = encodeURI(fullPath);
-                    item.target = "_blank";
-                    item.innerHTML = `
-                        <i class="fas fa-file-pdf file-icon"></i>
-                        <div class="file-details">
-                            ${subPath ? `<span class="file-path">${subPath}</span>` : ''}
-                            <span class="file-name">${name}</span>
-                        </div>
-                        <i class="fas fa-external-link-alt" style="color:#cbd5e1"></i>
-                    `;
-                    container.appendChild(item);
-                }
-            });
+    function showFiles(subject) {
+        document.getElementById('grid-subjects').classList.add('hidden');
+        document.getElementById('file-view').classList.remove('hidden');
+        document.getElementById('folder-name').innerText = subject;
+        document.getElementById('sub-msg').classList.add('hidden');
 
-            if(container.innerHTML === "") {
-                container.innerHTML = "<div style='padding:50px; text-align:center; color:var(--text-sub);'>Nenhum arquivo encontrado aqui. Verifique se o caminho no arquivo dados.txt está correto.</div>";
+        const container = document.getElementById('file-container');
+        container.innerHTML = "";
+
+        lines.forEach(line => {
+            // Se for um arquivo e contiver o nome da matéria no caminho
+            if (line.includes("[ARQ]") && line.toLowerCase().includes(subject.toLowerCase())) {
+                let fullPath = line.replace("[ARQ]", "").trim();
+                let parts = fullPath.split('/');
+                let fileName = parts.pop();
+                let breadcrumb = parts.slice(parts.indexOf(subject) + 1).join(' > ');
+
+                const a = document.createElement('a');
+                a.className = 'file-row';
+                a.href = encodeURI(fullPath);
+                a.target = "_blank";
+                a.innerHTML = `
+                    <i class="fas fa-file-pdf file-icon"></i>
+                    <div class="file-info">
+                        ${breadcrumb ? `<span class="path-label">${breadcrumb}</span>` : ''}
+                        <span class="name-label">${fileName}</span>
+                    </div>
+                `;
+                container.appendChild(a);
             }
+        });
+
+        if (container.innerHTML === "") {
+            container.innerHTML = "<p style='padding:40px; text-align:center;'>Nenhum PDF encontrado para " + subject + ".</p>";
         }
+    }
 
-        function goBack() { renderGrid(); }
+    function showGrid() {
+        document.getElementById('grid-subjects').classList.remove('hidden');
+        document.getElementById('file-view').classList.add('hidden');
+        document.getElementById('sub-msg').classList.remove('hidden');
+    }
 
-        // Calculadora
-        const s = document.getElementById('scr');
-        function add(v) { s.value += v; }
-        function clr() { s.value = ""; }
-        function bk() { s.value = s.value.slice(0, -1); }
-        function res() { try { s.value = eval(s.value); } catch { s.value = "Erro"; } }
-    </script>
+    function switchPage(id, el) {
+        document.getElementById('page-materias').classList.add('hidden');
+        document.getElementById('page-calc').classList.add('hidden');
+        document.getElementById(id).classList.remove('hidden');
+        document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
+        el.classList.add('active');
+    }
+
+    // Calc
+    const screen = document.getElementById('res');
+    function ins(v) { screen.value += v; }
+    function clearRes() { screen.value = ""; }
+    function solve() { try { screen.value = eval(screen.value); } catch { screen.value = "Erro"; } }
+
+    load();
+</script>
 </body>
 </html>
