@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Hub de Estudos</title>
+    <title>Meu Hub de Estudos - Hierárquico</title>
     <style>
         :root {
             --primary: #2c3e50;
             --secondary: #e67e22;
             --bg: #f4f7f6;
-            --text: #333;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             margin: 0;
             display: flex;
             flex-direction: row;
@@ -21,219 +20,164 @@
             background-color: var(--bg);
         }
 
-        /* Ajuste para Celular */
         @media (max-width: 768px) {
             body { flex-direction: column; height: auto; }
-            #calc-container { width: 100% !important; border-left: none; border-top: 2px solid rgba(0,0,0,0.1); }
-            #main-content { height: auto; overflow: visible; }
+            #calc-container { width: 100% !important; border-top: 2px solid #ddd; }
+            #main-content { height: auto; }
         }
 
-        /* Área de Conteúdo */
-        #main-content {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
+        #main-content { flex: 1; padding: 20px; overflow-y: auto; }
+
+        /* Estilo das Pastas e Subpastas */
+        .folder-wrapper {
+            margin: 5px 0;
+            padding-left: 15px; /* Recuo para subpastas */
         }
 
-        /* Estilo das Pastas */
-        .folder {
+        .folder-header {
             background: #fff;
-            margin: 8px 0;
-            padding: 12px;
-            border-radius: 8px;
+            padding: 10px;
+            border-radius: 5px;
             cursor: pointer;
-            border-left: 5px solid var(--secondary);
+            border-left: 4px solid var(--secondary);
             font-weight: bold;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
             display: flex;
             align-items: center;
-            transition: background 0.2s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            user-select: none;
         }
-        .folder:hover { background: #fdf2e9; }
 
-        /* Container de arquivos (começa escondido) */
-        .files-container {
-            display: none;
-            margin-left: 20px;
-            border-left: 2px dashed #ccc;
-            padding-left: 10px;
+        .folder-content {
+            display: none; /* Começa fechado */
+            border-left: 1px dashed #ccc;
+            margin-left: 10px;
         }
 
         .file-link {
             display: block;
-            margin: 5px 0;
+            margin: 3px 0 3px 20px;
             color: var(--primary);
             text-decoration: none;
-            padding: 8px;
-            background: #eee;
+            padding: 6px;
+            background: #ebeef0;
             border-radius: 4px;
-            font-size: 0.9rem;
-            transition: 0.2s;
+            font-size: 0.85rem;
         }
-        .file-link:hover { background: #ddd; color: var(--secondary); }
+        .file-link:hover { background: #d5dbdf; }
 
         /* Calculadora */
-        #calc-container {
-            width: 320px;
-            background: var(--primary);
-            color: white;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            box-sizing: border-box;
-        }
-
-        #calc-display {
-            width: 100%;
-            height: 60px;
-            font-size: 1.8rem;
-            text-align: right;
-            margin-bottom: 15px;
-            padding: 10px;
-            box-sizing: border-box;
-            border: none;
-            border-radius: 8px;
-            background: #ecf0f1;
-            color: #2c3e50;
-        }
-
-        .calc-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-        }
-
-        button {
-            padding: 15px 5px;
-            font-size: 1.2rem;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            background: #34495e;
-            color: white;
-            touch-action: manipulation;
-        }
-        button:active { background: var(--secondary); }
+        #calc-container { width: 300px; background: var(--primary); color: white; padding: 20px; box-sizing: border-box; }
+        #calc-display { width: 100%; height: 50px; font-size: 1.5rem; text-align: right; margin-bottom: 10px; padding: 10px; border-radius: 5px; border: none; box-sizing: border-box; }
+        .calc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+        button { padding: 15px 5px; border: none; border-radius: 5px; cursor: pointer; background: #34495e; color: white; }
         .btn-equal { grid-column: span 2; background: #27ae60; }
-        .btn-op { background: var(--secondary); }
     </style>
 </head>
 <body>
 
     <div id="main-content">
         <h1>📚 Hub de Estudos</h1>
-        <div id="lista-arquivos">Carregando materiais...</div>
+        <div id="arvore-arquivos">Carregando estrutura...</div>
     </div>
 
     <div id="calc-container">
-        <h3 style="margin-top:0">🧮 Calculadora</h3>
+        <h3>🧮 Calculadora</h3>
         <input type="text" id="calc-display" readonly placeholder="0">
         <div class="calc-grid">
             <button onclick="clearCalc()">C</button>
             <button onclick="addChar('/')">/</button>
             <button onclick="addChar('*')">*</button>
             <button onclick="backspace()">⌫</button>
-            
             <button onclick="addChar('7')">7</button>
             <button onclick="addChar('8')">8</button>
             <button onclick="addChar('9')">9</button>
             <button onclick="addChar('-')">-</button>
-            
             <button onclick="addChar('4')">4</button>
             <button onclick="addChar('5')">5</button>
             <button onclick="addChar('6')">6</button>
             <button onclick="addChar('+')">+</button>
-            
             <button onclick="addChar('1')">1</button>
             <button onclick="addChar('2')">2</button>
             <button onclick="addChar('3')">3</button>
             <button class="btn-equal" onclick="calculate()">=</button>
-            
             <button onclick="addChar('0')" style="grid-column: span 2;">0</button>
             <button onclick="addChar('.')">.</button>
         </div>
     </div>
 
     <script>
-        // CARREGAMENTO AUTOMÁTICO
         window.onload = function() {
             fetch('dados.txt')
-                .then(res => {
-                    if (!res.ok) throw new Error();
-                    return res.text();
-                })
-                .then(data => processar(data.split('\n')))
-                .catch(() => {
-                    document.getElementById('lista-arquivos').innerText = "Erro ao carregar dados.txt. Verifique se o arquivo está no GitHub!";
+                .then(res => res.text())
+                .then(data => {
+                    const linhas = data.split('\n').map(l => l.trim()).filter(l => l && !l.startsWith("Pasta:"));
+                    construirArvore(linhas);
                 });
         };
 
-        function processar(linhas) {
-            const lista = document.getElementById('lista-arquivos');
-            lista.innerHTML = "";
-            let currentContainer = null;
+        function construirArvore(linhas) {
+            const containerRaiz = document.getElementById('arvore-arquivos');
+            containerRaiz.innerHTML = "";
+            
+            // Objeto para mapear os containers de cada caminho
+            const caminhosSaves = { "": containerRaiz };
 
             linhas.forEach(linha => {
-                linha = linha.trim();
-                if (!linha || linha.startsWith("Pasta:")) return;
+                const eDiretorio = linha.startsWith("[DIR]");
+                const caminhoPuro = linha.replace("[DIR]", "").replace(/\\/g, '/');
+                const partes = caminhoPuro.split('/');
+                
+                let caminhoAcumulado = "";
+                
+                partes.forEach((parte, index) => {
+                    const pai = caminhoAcumulado;
+                    caminhoAcumulado += (caminhoAcumulado ? "/" : "") + parte;
 
-                if (linha.startsWith("[DIR]")) {
-                    const nomePasta = linha.replace("[DIR]", "");
-                    
-                    // Criar a Pasta (Botão)
-                    const divFolder = document.createElement('div');
-                    divFolder.className = 'folder';
-                    divFolder.innerHTML = "<span>📁 " + nomePasta + "</span>";
-                    
-                    // Criar o container de arquivos desta pasta
-                    const divFiles = document.createElement('div');
-                    divFiles.className = 'files-container';
-                    
-                    // Evento de abrir/fechar
-                    divFolder.onclick = function() {
-                        const aberto = divFiles.style.display === 'block';
-                        divFiles.style.display = aberto ? 'none' : 'block';
-                        this.querySelector('span').innerText = aberto ? "📁 " + nomePasta : "📂 " + nomePasta;
-                    };
+                    // Se esse nível ainda não foi criado no HTML
+                    if (!caminhosSaves[caminhoAcumulado]) {
+                        if (eDiretorio || index < partes.length - 1) {
+                            // Criar Pasta
+                            const wrapper = document.createElement('div');
+                            wrapper.className = "folder-wrapper";
+                            
+                            const header = document.createElement('div');
+                            header.className = "folder-header";
+                            header.innerHTML = "📁 " + parte;
+                            
+                            const content = document.createElement('div');
+                            content.className = "folder-content";
+                            
+                            header.onclick = (e) => {
+                                e.stopPropagation();
+                                const aberto = content.style.display === "block";
+                                content.style.display = aberto ? "none" : "block";
+                                header.innerHTML = (aberto ? "📁 " : "📂 ") + parte;
+                            };
 
-                    lista.appendChild(divFolder);
-                    lista.appendChild(divFiles);
-                    currentContainer = divFiles; // Os próximos arquivos entrarão aqui
-
-                } else {
-                    const link = document.createElement('a');
-                    link.className = 'file-link';
-                    // Converte barra invertida do Windows para barra de URL
-                    const pathWeb = linha.replace(/\\/g, '/');
-                    link.href = "Estudos/" + pathWeb; 
-                    link.target = "_blank";
-                    link.innerText = "📄 " + linha.split(/[\\/]/).pop();
-                    
-                    if (currentContainer) {
-                        currentContainer.appendChild(link);
-                    } else {
-                        lista.appendChild(link);
+                            wrapper.appendChild(header);
+                            wrapper.appendChild(content);
+                            caminhosSaves[pai].appendChild(wrapper);
+                            caminhosSaves[caminhoAcumulado] = content;
+                        } else {
+                            // Criar Arquivo
+                            const a = document.createElement('a');
+                            a.className = "file-link";
+                            a.href = "Estudos/" + caminhoPuro;
+                            a.target = "_blank";
+                            a.innerText = "📄 " + parte;
+                            caminhosSaves[pai].appendChild(a);
+                        }
                     }
-                }
+                });
             });
         }
 
-        // LÓGICA DA CALCULADORA
+        // Calculadora
         const display = document.getElementById('calc-display');
         function addChar(c) { display.value += c; }
         function clearCalc() { display.value = ""; }
         function backspace() { display.value = display.value.slice(0,-1); }
-        function calculate() {
-            try { display.value = eval(display.value); } 
-            catch { display.value = "Erro"; setTimeout(clearCalc, 1000); }
-        }
-
-        // Teclado
-        document.addEventListener('keydown', (e) => {
-            if(/[0-9\+\-\*\/\.]/.test(e.key)) addChar(e.key);
-            if(e.key === 'Enter') calculate();
-            if(e.key === 'Backspace') backspace();
-        });
+        function calculate() { try { display.value = eval(display.value); } catch { display.value = "Erro"; } }
     </script>
 </body>
 </html>
