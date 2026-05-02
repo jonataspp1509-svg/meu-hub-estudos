@@ -182,14 +182,26 @@
             container.appendChild(div);
         });
 
+       
         files.forEach(file => {
             const a = document.createElement('a');
             a.className = 'item';
-            a.href = encodeURI(file.full);
+            
+            // --- ESTE É O TRECHO NOVO QUE CORRIGE O ERRO 404 ---
+            let linkFinal = file.full;
+            // Se o caminho no dados.txt não começar com "Estudos/", nós adicionamos
+            if (!linkFinal.startsWith("Estudos/")) {
+                linkFinal = "Estudos/" + linkFinal;
+            }
+
+            a.href = encodeURI(linkFinal); 
+            // --------------------------------------------------
+
             a.target = "_blank";
             a.innerHTML = `<div class="item-info"><i class="fas fa-file-pdf icon-file"></i><span>${file.name}</span></div><i class="fas fa-external-link-alt" style="color:#cbd5e1; font-size:0.8rem"></i>`;
             container.appendChild(a);
         });
+
     }
 
     function updateBreadcrumb() {
