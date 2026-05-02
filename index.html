@@ -236,5 +236,41 @@
             document.getElementById('res-total').style.color = corFinal;
         }
     </script>
+
+
+    <script>
+    // Script para carregar a lista de arquivos do dados.txt
+    async function carregarArquivos() {
+        const listaDoc = document.getElementById('lista-arquivos');
+        try {
+            const resposta = await fetch('dados.txt');
+            const texto = await resposta.text();
+            const linhas = texto.split('\n');
+
+            linhas.forEach(linha => {
+                if (linha.trim() !== "") {
+                    const link = document.createElement('a');
+                    link.href = linha.trim(); // O caminho que o Python gerou
+                    link.target = "_blank";
+                    link.style.display = "block";
+                    link.style.margin = "10px 0";
+                    link.style.padding = "10px";
+                    link.style.background = "#fff";
+                    link.style.borderRadius = "8px";
+                    link.style.textDecoration = "none";
+                    link.style.color = "#2c3e50";
+                    link.style.boxShadow = "0 2px 5px rgba(0,0,0,0.1)";
+                    
+                    link.innerHTML = `📁 ${linha.split('/').pop()}`; // Pega só o nome do arquivo
+                    listaDoc.appendChild(link);
+                }
+            });
+        } catch (erro) {
+            console.error("Erro ao carregar dados.txt:", erro);
+        }
+    }
+    carregarArquivos();
+</script>
+
 </body>
 </html>
