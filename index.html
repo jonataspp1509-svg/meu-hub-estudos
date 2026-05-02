@@ -3,187 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mendel Hub | Premium</title>
+    <title>Mendel Hub | Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root { --p: #4361ee; --bg: #f8faff; --txt: #1e293b; --sub: #64748b; }
+        :root { 
+            --primary: #4361ee; 
+            --bg: #f8faff; 
+            --sidebar: #ffffff;
+            --text-main: #1e293b;
+            --text-sub: #64748b;
+            --folder-icon: #ffca28; /* Amarelo clássico de pasta */
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--txt); display: flex; height: 100vh; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text-main); display: flex; height: 100vh; overflow: hidden; }
 
-        /* Menu Lateral (Design Novo) */
-        nav { width: 260px; background: #fff; border-right: 1px solid #e2e8f0; padding: 40px 20px; flex-shrink: 0; }
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--p); margin-bottom: 40px; display: flex; align-items: center; gap: 10px; }
+        /* --- MENU LATERAL --- */
+        nav { 
+            width: 260px; background: var(--sidebar); border-right: 1px solid #e2e8f0; 
+            display: flex; flex-direction: column; padding: 40px 20px; flex-shrink: 0; 
+        }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); margin-bottom: 40px; display: flex; align-items: center; gap: 10px; }
+        
         .nav-link { 
-            padding: 12px 15px; border-radius: 10px; cursor: pointer; display: flex; align-items: center; gap: 10px; 
-            font-weight: 600; color: var(--sub); transition: 0.2s; margin-bottom: 5px;
+            padding: 14px 18px; border-radius: 12px; cursor: pointer; display: flex; align-items: center; gap: 12px; 
+            font-weight: 600; color: var(--text-sub); transition: 0.3s; margin-bottom: 8px; text-decoration: none;
         }
-        .nav-link:hover { background: #f1f5f9; color: var(--p); }
-        .nav-link.active { background: var(--p); color: #fff; }
+        .nav-link:hover { background: #f1f5f9; color: var(--primary); }
+        .nav-link.active { background: var(--primary); color: #fff; box-shadow: 0 10px 20px -5px rgba(67, 97, 238, 0.3); }
 
-        /* Área de Conteúdo */
+        /* --- CONTEÚDO PRINCIPAL --- */
         main { flex: 1; padding: 50px; overflow-y: auto; }
-        .header { margin-bottom: 40px; }
-        .header h1 { font-size: 2.2rem; font-weight: 800; }
+        .header { margin-bottom: 30px; }
+        .header h1 { font-size: 2rem; font-weight: 800; margin-bottom: 5px; }
+        .header p { color: var(--text-sub); }
 
-        /* Grid de Pastas (Lógica Antiga com Design Novo) */
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
-        .folder-card { 
-            background: #fff; padding: 30px; border-radius: 20px; text-align: center; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03); cursor: pointer; transition: 0.3s; border: 1px solid transparent;
+        /* --- LISTA DE PASTAS (Estilo solicitado) --- */
+        .folder-list { display: flex; flex-direction: column; gap: 12px; }
+        .folder-item { 
+            background: #fff; padding: 18px 25px; border-radius: 15px; 
+            display: flex; align-items: center; gap: 20px; cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02); border: 1px solid #eef2f6; transition: 0.2s;
         }
-        .folder-card:hover { transform: translateY(-5px); border-color: var(--p); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
-        .folder-card i { font-size: 2.2rem; color: var(--p); margin-bottom: 15px; display: block; }
-        .folder-card h3 { font-size: 1rem; font-weight: 700; color: var(--txt); word-break: break-all; }
+        .folder-item:hover { transform: translateX(5px); border-color: var(--primary); background: #fcfdfe; }
+        .folder-item i { font-size: 1.6rem; color: var(--folder-icon); }
+        .folder-item span { font-weight: 700; font-size: 1rem; color: var(--text-main); }
 
-        /* Lista de PDFs */
-        .file-list { background: #fff; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); overflow: hidden; }
+        /* --- LISTA DE ARQUIVOS --- */
+        .file-view-container { animation: fadeIn 0.3s ease; }
+        .file-box { background: #fff; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); overflow: hidden; }
         .file-row { 
-            display: flex; align-items: center; padding: 18px 25px; border-bottom: 1px solid #f1f5f9; 
+            display: flex; align-items: center; padding: 20px 30px; border-bottom: 1px solid #f1f5f9; 
             text-decoration: none; color: inherit; transition: 0.2s;
         }
         .file-row:hover { background: #f8faff; }
-        .file-icon { font-size: 1.4rem; color: #ef4444; margin-right: 15px; }
-        .file-name { font-weight: 600; font-size: 0.95rem; }
+        .file-row:last-child { border-bottom: none; }
+        .file-icon { font-size: 1.5rem; color: #ef4444; margin-right: 20px; }
+        .file-name { font-weight: 600; font-size: 1rem; }
 
         .btn-back { 
-            background: #fff; border: 1px solid #e2e8f0; padding: 10px 20px; border-radius: 10px; 
-            cursor: pointer; font-weight: 700; margin-bottom: 25px; display: inline-flex; align-items: center; gap: 8px;
+            background: #fff; border: 1px solid #e2e8f0; padding: 12px 20px; border-radius: 12px; 
+            cursor: pointer; font-weight: 700; margin-bottom: 30px; display: inline-flex; align-items: center; gap: 10px;
+            transition: 0.2s;
         }
+        .btn-back:hover { background: #f1f5f9; border-color: var(--primary); }
+
+        /* --- CALCULADORA --- */
+        .calc-wrapper { max-width: 360px; margin: 0 auto; background: #1e293b; padding: 30px; border-radius: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
+        .display { width: 100%; background: transparent; border: none; color: #fff; font-size: 2.8rem; text-align: right; margin-bottom: 25px; outline: none; }
+        .btn-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+        .c-btn { height: 65px; border-radius: 15px; border: none; background: #334155; color: #fff; font-size: 1.3rem; font-weight: 700; cursor: pointer; transition: 0.2s; }
+        .c-btn:hover { background: #475569; }
+        .c-btn.op { background: var(--primary); }
+        .c-btn.eq { background: #10b981; grid-column: span 2; }
+        .c-btn.del { background: #f43f5e; }
 
         .hidden { display: none; }
-
-        /* Calculadora (Botão Verde do Simulado de Médias) */
-        .calc-box { max-width: 350px; background: #1e293b; padding: 25px; border-radius: 25px; margin: 0 auto; }
-        .display { width: 100%; background: none; border: none; color: #fff; font-size: 2.5rem; text-align: right; margin-bottom: 20px; outline: none; }
-        .buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-        .btn { height: 60px; border-radius: 12px; border: none; background: #334155; color: #fff; font-size: 1.2rem; font-weight: 600; cursor: pointer; }
-        .btn.op { background: var(--p); }
-        .btn.eq { background: #10b981; grid-column: span 2; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
 <nav>
-    <div class="logo"><i class="fas fa-dna"></i> MENDEL</div>
-    <div class="nav-link active" onclick="showPage('materiais-page', this)"><i class="fas fa-folder-open"></i> Materiais</div>
-    <div class="nav-link" onclick="showPage('calc-page', this)"><i class="fas fa-calculator"></i> Calculadora</div>
+    <div class="logo"><i class="fas fa-graduation-cap"></i> MENDEL</div>
+    <div class="nav-link active" onclick="changePage('materiais', this)"><i class="fas fa-folder-open"></i> Materiais</div>
+    <div class="nav-link" onclick="changePage('calculadora', this)"><i class="fas fa-calculator"></i> Calculadora</div>
 </nav>
 
 <main>
-    <div id="materiais-page">
-        <div class="header">
-            <h1>Conteúdos de Estudo</h1>
-            <p id="msg-sub">Navegue pelas suas pastas abaixo.</p>
+    <div id="materiais">
+        <div class="header" id="main-header">
+            <h1>Minhas Pastas</h1>
+            <p>Selecione uma categoria para visualizar os arquivos.</p>
         </div>
 
-        <div id="grid-container" class="grid"></div>
+        <div id="folder-list-container" class="folder-list">
+            </div>
 
-        <div id="view-files" class="hidden">
-            <button class="btn-back" onclick="loadFolders()"><i class="fas fa-arrow-left"></i> Voltar</button>
-            <h2 id="current-folder-title" style="margin-bottom: 20px; font-weight: 800;"></h2>
-            <div id="file-list-container" class="file-list"></div>
+        <div id="file-view" class="hidden file-view-container">
+            <button class="btn-back" onclick="backToFolders()"><i class="fas fa-arrow-left"></i> Voltar para Pastas</button>
+            <h2 id="current-folder-name" style="margin-bottom: 25px; font-weight: 800; font-size: 1.8rem;"></h2>
+            <div id="file-list-container" class="file-box"></div>
         </div>
     </div>
 
-    <div id="calc-page" class="hidden">
-        <div class="header"><h1>Calculadora de Apoio</h1></div>
-        <div class="calc-box">
-            <input type="text" id="screen" class="display" readonly placeholder="0">
-            <div class="buttons">
-                <button class="btn" onclick="c()">C</button>
-                <button class="btn op" onclick="i('/')">/</button>
-                <button class="btn op" onclick="i('*')">x</button>
-                <button class="btn op" onclick="i('-')">-</button>
-                <button class="btn" onclick="i('7')">7</button>
-                <button class="btn" onclick="i('8')">8</button>
-                <button class="btn" onclick="i('9')">9</button>
-                <button class="btn op" onclick="i('+')">+</button>
-                <button class="btn" onclick="i('4')">4</button>
-                <button class="btn" onclick="i('5')">5</button>
-                <button class="btn" onclick="i('6')">6</button>
-                <button class="btn eq" onclick="e()">=</button>
-                <button class="btn" onclick="i('1')">1</button>
-                <button class="btn" onclick="i('2')">2</button>
-                <button class="btn" onclick="i('3')">3</button>
-                <button class="btn" onclick="i('0')">0</button>
+    <div id="calculadora" class="hidden">
+        <div class="header">
+            <h1>Calculadora</h1>
+            <p>Use para cálculos rápidos.</p>
+        </div>
+        <div class="calc-wrapper">
+            <input type="text" id="scr" class="display" readonly placeholder="0">
+            <div class="btn-grid">
+                <button class="c-btn del" onclick="clr()">C</button>
+                <button class="c-btn op" onclick="ins('/')">/</button>
+                <button class="c-btn op" onclick="ins('*')">×</button>
+                <button class="c-btn" onclick="bk()">⌫</button>
+                <button class="c-btn" onclick="ins('7')">7</button>
+                <button class="c-btn" onclick="ins('8')">8</button>
+                <button class="c-btn" onclick="ins('9')">9</button>
+                <button class="c-btn op" onclick="ins('-')">-</button>
+                <button class="c-btn" onclick="ins('4')">4</button>
+                <button class="c-btn" onclick="ins('5')">5</button>
+                <button class="c-btn" onclick="ins('6')">6</button>
+                <button class="c-btn op" onclick="ins('+')">+</button>
+                <button class="c-btn" onclick="ins('1')">1</button>
+                <button class="c-btn" onclick="ins('2')">2</button>
+                <button class="c-btn" onclick="ins('3')">3</button>
+                <button class="c-btn eq" onclick="res()">=</button>
+                <button class="c-btn" style="grid-column: span 2;" onclick="ins('0')">0</button>
+                <button class="c-btn" onclick="ins('.')">.</button>
             </div>
         </div>
     </div>
 </main>
 
 <script>
-    let rawData = [];
+    let db = [];
 
-    // Lógica que você gosta: Lê o arquivo e separa Pastas de Arquivos
-    async function init() {
-        const res = await fetch('dados.txt?v=' + Date.now());
-        const text = await res.text();
-        rawData = text.split('\n').filter(l => l.trim() !== "");
-        loadFolders();
+    // Carregamento dos dados com a sua lógica funcional
+    async function start() {
+        try {
+            const response = await fetch('dados.txt?v=' + Date.now());
+            const text = await response.text();
+            db = text.split('\n').filter(line => line.trim() !== "");
+            renderFolders();
+        } catch (e) {
+            console.error("Erro ao ler dados.txt");
+        }
     }
 
-    function loadFolders() {
-        document.getElementById('grid-container').classList.remove('hidden');
-        document.getElementById('view-files').classList.add('hidden');
-        document.getElementById('msg-sub').classList.remove('hidden');
+    function renderFolders() {
+        document.getElementById('folder-list-container').classList.remove('hidden');
+        document.getElementById('file-view').classList.add('hidden');
+        document.getElementById('main-header').classList.remove('hidden');
         
-        const grid = document.getElementById('grid-container');
-        grid.innerHTML = "";
+        const container = document.getElementById('folder-list-container');
+        container.innerHTML = "";
 
-        // Pega as linhas que são pastas (Lógica antiga)
-        const folders = rawData.filter(l => !l.includes('.pdf'));
+        // Pega as linhas que representam pastas (conforme sua lógica de antes)
+        const folders = db.filter(line => !line.includes('.pdf'));
 
         folders.forEach(f => {
             let name = f.replace("Pasta:", "").replace("[DIR]", "").trim();
-            const card = document.createElement('div');
-            card.className = 'folder-card';
-            card.innerHTML = `<i class="fas fa-folder"></i><h3>${name}</h3>`;
-            card.onclick = () => showFiles(name);
-            grid.appendChild(card);
+            const div = document.createElement('div');
+            div.className = 'folder-item';
+            div.innerHTML = `<i class="fas fa-folder"></i><span>${name}</span>`;
+            div.onclick = () => openFolder(name);
+            container.appendChild(div);
         });
     }
 
-    function showFiles(folderName) {
-        document.getElementById('grid-container').classList.add('hidden');
-        document.getElementById('view-files').classList.remove('hidden');
-        document.getElementById('msg-sub').classList.add('hidden');
-        document.getElementById('current-folder-title').innerText = folderName;
+    function openFolder(folderName) {
+        document.getElementById('folder-list-container').classList.add('hidden');
+        document.getElementById('main-header').classList.add('hidden');
+        document.getElementById('file-view').classList.remove('hidden');
+        document.getElementById('current-folder-name').innerText = folderName;
 
         const list = document.getElementById('file-list-container');
         list.innerHTML = "";
 
-        // Filtra arquivos que contém o nome da pasta no caminho (Lógica antiga)
-        const files = rawData.filter(l => l.includes('.pdf') && l.includes(folderName));
+        // Filtra os PDFs que pertencem à pasta clicada
+        const files = db.filter(line => line.includes('.pdf') && line.includes(folderName));
 
         files.forEach(f => {
-            let path = f.replace("[ARQ]", "").trim();
-            let fileName = path.split('/').pop();
+            let fullPath = f.replace("[ARQ]", "").trim();
+            let fileName = fullPath.split('/').pop();
 
             const row = document.createElement('a');
             row.className = 'file-row';
-            row.href = encodeURI(path);
+            row.href = encodeURI(fullPath);
             row.target = "_blank";
             row.innerHTML = `<i class="fas fa-file-pdf file-icon"></i><span class="file-name">${fileName}</span>`;
             list.appendChild(row);
         });
     }
 
-    function showPage(id, el) {
-        document.getElementById('materiais-page').classList.add('hidden');
-        document.getElementById('calc-page').classList.add('hidden');
+    function backToFolders() { renderFolders(); }
+
+    function changePage(id, el) {
+        document.getElementById('materiais').classList.add('hidden');
+        document.getElementById('calculadora').classList.add('hidden');
         document.getElementById(id).classList.remove('hidden');
         document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
         el.classList.add('active');
+        if(id === 'materiais') renderFolders();
     }
 
-    // Funções Calculadora
-    const s = document.getElementById('screen');
-    function i(v) { s.value += v; }
-    function c() { s.value = ""; }
-    function e() { try { s.value = eval(s.value); } catch { s.value = "Erro"; } }
+    // Calculadora
+    const s = document.getElementById('scr');
+    function ins(v) { s.value += v; }
+    function clr() { s.value = ""; }
+    function bk() { s.value = s.value.slice(0, -1); }
+    function res() { try { s.value = eval(s.value.replace('×','*')); } catch { s.value = "Erro"; } }
 
-    init();
+    start();
 </script>
 </body>
 </html>
