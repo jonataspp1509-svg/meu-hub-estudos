@@ -1,16 +1,15 @@
-<!DOCTYPE html>
+       <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Hub de Estudos - Oficial</title>
+    <title>Meu Hub de Estudos - Inteligente</title>
     <style>
         :root { 
             --primary: #2c3e50; 
             --secondary: #e67e22; 
             --bg: #f4f7f6; 
             --text: #333;
-            --accent: #f1c40f;
         }
         
         body { 
@@ -25,12 +24,12 @@
 
         @media (max-width: 768px) { 
             body { flex-direction: column; height: auto; } 
-            #sidebar-right { width: 100% !important; border-top: 2px solid #ddd; } 
+            #calc-container { width: 100% !important; border-top: 2px solid #ddd; } 
         }
 
         #main-content { flex: 1; padding: 25px; overflow-y: auto; }
         
-        /* Estrutura de Pastas (Estilo Original) */
+        /* Estrutura de Pastas */
         .folder-wrapper { margin: 8px 0; padding-left: 15px; }
         
         .folder-header { 
@@ -38,7 +37,7 @@
             padding: 12px; 
             border-radius: 6px; 
             cursor: pointer; 
-            border-left: 5px solid var(--accent); 
+            border-left: 5px solid var(--secondary); 
             font-weight: 600; 
             display: flex; 
             align-items: center; 
@@ -55,39 +54,36 @@
             padding-top: 5px;
         }
         
+        /* Links de Arquivos e Vídeos */
         .file-link { 
             display: block; 
             margin: 5px 0 5px 25px; 
             color: var(--primary); 
             text-decoration: none; 
             padding: 8px 12px; 
-            background: #fff; 
+            background: #e2e8f0; 
             border-radius: 5px; 
             font-size: 0.9rem;
-            border: 1px solid #eee;
-            transition: all 0.2s;
+            transition: background 0.2s;
         }
-        .file-link:hover { background: #e2e8f0; border-color: #3498db; transform: translateX(5px); }
-
-        /* Sidebar Direita (Simulador de Médias) */
-        #sidebar-right { width: 320px; background: var(--primary); color: white; padding: 25px; box-sizing: border-box; box-shadow: -2px 0 10px rgba(0,0,0,0.1); overflow-y: auto; }
+        .file-link:hover { background: #cbd5e0; }
         
-        .simulador-box { background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; margin-top: 10px; }
-        .input-group { margin-bottom: 10px; }
-        .input-group label { display: block; font-size: 0.8rem; margin-bottom: 4px; opacity: 0.8; }
-        
-        input[type="number"] { width: 100%; padding: 10px; border-radius: 6px; border: none; font-size: 1rem; box-sizing: border-box; }
-        
-        .btn-calc { width: 100%; padding: 12px; background: #2ecc71; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px; transition: background 0.2s; }
-        .btn-calc:hover { background: #27ae60; }
+        .yt-link { 
+            background: #fff5f5; 
+            color: #c53030; 
+            border-left: 3px solid #f56565; 
+            font-weight: 500;
+        }
+        .yt-link:hover { background: #fed7d7; }
 
-        .modo-seletor { display: flex; background: #34495e; border-radius: 8px; padding: 5px; margin-bottom: 15px; gap: 5px; }
-        .modo-seletor label { flex: 1; text-align: center; font-size: 0.75rem; padding: 5px; cursor: pointer; border-radius: 5px; }
-        .modo-seletor input { display: none; }
-        .modo-seletor input:checked + span { background: #1abc9c; display: block; border-radius: 4px; padding: 2px 0; }
-
-        .resultado-bloco { background: var(--accent); color: var(--primary); padding: 15px; border-radius: 8px; margin-top: 15px; text-align: center; }
-        .resultado-bloco strong { font-size: 1.8rem; display: block; }
+        /* Calculadora Lateral */
+        #calc-container { width: 320px; background: var(--primary); color: white; padding: 25px; box-sizing: border-box; box-shadow: -2px 0 10px rgba(0,0,0,0.1); }
+        #calc-display { width: 100%; height: 60px; font-size: 1.8rem; text-align: right; margin-bottom: 15px; padding: 10px; border-radius: 8px; border: none; background: #34495e; color: #fff; box-sizing: border-box; }
+        .calc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+        button { padding: 18px 5px; border: none; border-radius: 8px; cursor: pointer; background: #4a5568; color: white; font-size: 1.1rem; font-weight: bold; transition: opacity 0.2s; }
+        button:hover { opacity: 0.8; }
+        .btn-equal { grid-column: span 2; background: #38a169; }
+        .btn-op { background: var(--secondary); }
     </style>
 </head>
 <body>
@@ -95,52 +91,44 @@
     <div id="main-content">
         <h1>📚 Hub de Estudos - 2026</h1>
         <p>Acesse seus materiais de forma organizada e rápida.</p>
-        <hr style="opacity: 0.1; margin-bottom: 20px;">
-        <div id="arvore-arquivos">Carregando estrutura de pastas...</div>
+        <hr style="opacity: 0.2; margin-bottom: 20px;">
+        <div id="arvore-arquivos">Carregando estrutura...</div>
     </div>
 
-    <div id="sidebar-right">
-        <h3>📊 Simulador de Médias</h3>
-        
-        <div class="simulador-box">
-            <div class="modo-seletor">
-                <label><input type="radio" name="modo" value="media" checked onchange="toggleP2(true)"><span>Média P1/P2</span></label>
-                <label><input type="radio" name="modo" value="soma" onchange="toggleP2(false)"><span>Soma (Filo)</span></label>
-            </div>
-
-            <div class="input-group">
-                <label>P1 + Teste P1</label>
-                <input type="number" id="v_p1" placeholder="Ex: 8.5">
-            </div>
-
-            <div id="grupo-p2">
-                <div class="input-group">
-                    <label>P2 + Teste P2</label>
-                    <input type="number" id="v_p2" placeholder="Ex: 7.0">
-                </div>
-            </div>
-
-            <div class="input-group">
-                <label>Ativ. Valorada / Extras</label>
-                <input type="number" id="v_val" placeholder="Ex: 1.5">
-            </div>
-
-            <button class="btn-calc" onclick="calcularMedia()">CALCULAR</button>
-
-            <div id="bloco-res" class="resultado-bloco" style="display: none;">
-                <span id="txt-res">SUA MÉDIA:</span>
-                <strong id="final-res">0.0</strong>
-            </div>
+    <div id="calc-container">
+        <h3>🧮 Calculadora</h3>
+        <input type="text" id="calc-display" readonly placeholder="0">
+        <div class="calc-grid">
+            <button onclick="clearCalc()">C</button>
+            <button class="btn-op" onclick="addChar('/')">/</button>
+            <button class="btn-op" onclick="addChar('*')">*</button>
+            <button onclick="backspace()">⌫</button>
+            <button onclick="addChar('7')">7</button>
+            <button onclick="addChar('8')">8</button>
+            <button onclick="addChar('9')">9</button>
+            <button class="btn-op" onclick="addChar('-')">-</button>
+            <button onclick="addChar('4')">4</button>
+            <button onclick="addChar('5')">5</button>
+            <button onclick="addChar('6')">6</button>
+            <button class="btn-op" onclick="addChar('+')">+</button>
+            <button onclick="addChar('1')">1</button>
+            <button onclick="addChar('2')">2</button>
+            <button onclick="addChar('3')">3</button>
+            <button class="btn-equal" onclick="calculate()">=</button>
+            <button onclick="addChar('0')" style="grid-column: span 2;">0</button>
+            <button onclick="addChar('.')">.</button>
         </div>
     </div>
 
     <script>
-        // --- LÓGICA DE PASTAS (ORIGINAL) ---
+        // Evita cache ao carregar o arquivo de dados
         window.onload = function() {
             fetch('dados.txt?t=' + Date.now())
                 .then(res => res.text())
                 .then(data => {
-                    const linhas = data.split('\n').map(l => l.trim()).filter(l => l !== "");
+                    const linhas = data.split('\n')
+                                       .map(l => l.trim())
+                                       .filter(l => l && !l.startsWith("Pasta:"));
                     construirArvore(linhas);
                 });
         };
@@ -151,8 +139,11 @@
             const caminhosSaves = { "": containerRaiz };
 
             linhas.forEach(linha => {
-                // Limpa caminhos e prefixos do C++
-                const caminhoPuro = linha.replace("[DIR]", "").replace("Pasta:", "").replace("[ARQ]", "").replace(/\\/g, '/');
+                const eLink = linha.startsWith("[LINK]");
+                const eDiretorio = linha.startsWith("[DIR]");
+                
+                // Limpa o prefixo e normaliza barras
+                const caminhoPuro = linha.replace("[DIR]", "").replace("[LINK]", "").replace(/\\/g, '/');
                 const partes = caminhoPuro.split('/');
                 
                 let caminhoAcumulado = "";
@@ -162,10 +153,11 @@
                     caminhoAcumulado += (caminhoAcumulado ? "/" : "") + parte;
 
                     if (!caminhosSaves[caminhoAcumulado]) {
-                        if (index < partes.length - 1 || linha.includes("[DIR]")) {
-                            // É PASTA
+                        // Se for diretório ou se não for a última parte do caminho (é uma pasta pai)
+                        if (eDiretorio || index < partes.length - 1) {
                             const wrapper = document.createElement('div');
                             wrapper.className = "folder-wrapper";
+                            
                             const header = document.createElement('div');
                             header.className = "folder-header";
                             header.innerHTML = "<span class='icon'>📁</span>&nbsp;" + parte;
@@ -175,9 +167,19 @@
                             
                             header.onclick = (e) => {
                                 e.stopPropagation();
-                                const aberto = content.style.display === "block";
-                                content.style.display = aberto ? "none" : "block";
-                                header.querySelector('.icon').innerText = aberto ? "📁" : "📂";
+                                const estaAberto = content.style.display === "block";
+                                
+                                if (estaAberto) {
+                                    // FECHAR: Esconde esta e TODAS as subpastas
+                                    content.style.display = "none";
+                                    header.querySelector('.icon').innerText = "📁";
+                                    content.querySelectorAll('.folder-content').forEach(sub => sub.style.display = "none");
+                                    content.querySelectorAll('.folder-header .icon').forEach(i => i.innerText = "📁");
+                                } else {
+                                    // ABRIR: Apenas esta pasta
+                                    content.style.display = "block";
+                                    header.querySelector('.icon').innerText = "📂";
+                                }
                             };
 
                             wrapper.appendChild(header);
@@ -185,13 +187,21 @@
                             caminhosSaves[pai].appendChild(wrapper);
                             caminhosSaves[caminhoAcumulado] = content;
                         } else {
-                            // É ARQUIVO
+                            // É UM ARQUIVO OU LINK
                             const a = document.createElement('a');
-                            a.className = "file-link";
-                            // Ajuste automático do caminho para evitar 404
-                            a.href = caminhoPuro; 
+                            if (eLink) {
+                                // Formato esperado: [LINK]Nome do Video|URL
+                                const [nome, url] = parte.split('|');
+                                a.className = "file-link yt-link";
+                                a.href = url || "#";
+                                a.innerHTML = "🎬 " + (nome || "Vídeo");
+                            } else {
+                                a.className = "file-link";
+                                // EncodeURI trata espaços e acentos no link do PDF
+                                a.href = "Estudos/" + encodeURI(caminhoPuro);
+                                a.innerText = "📄 " + parte;
+                            }
                             a.target = "_blank";
-                            a.innerHTML = "📄 " + parte;
                             caminhosSaves[pai].appendChild(a);
                         }
                     }
@@ -199,29 +209,20 @@
             });
         }
 
-        // --- LÓGICA DO SIMULADOR ---
-        function toggleP2(show) {
-            document.getElementById('grupo-p2').style.display = show ? 'block' : 'none';
-        }
-
-        function calcularMedia() {
-            const modo = document.querySelector('input[name="modo"]:checked').value;
-            const p1 = parseFloat(document.getElementById('v_p1').value) || 0;
-            const p2 = parseFloat(document.getElementById('v_p2').value) || 0;
-            const val = parseFloat(document.getElementById('v_val').value) || 0;
-            
-            let resultado = 0;
-            if(modo === 'media') {
-                resultado = (p1 + p2 + val) / 3;
-                document.getElementById('txt-res').innerText = "SUA MÉDIA:";
-            } else {
-                resultado = p1 + val;
-                document.getElementById('txt-res').innerText = "SOMA TOTAL:";
-            }
-
-            document.getElementById('final-res').innerText = resultado.toFixed(1);
-            document.getElementById('bloco-res').style.display = 'block';
+        // Lógica da Calculadora
+        const disp = document.getElementById('calc-display');
+        function addChar(c) { disp.value += c; }
+        function clearCalc() { disp.value = ""; }
+        function backspace() { disp.value = disp.value.slice(0,-1); }
+        function calculate() { 
+            try { 
+                // eval é seguro aqui pois o input é apenas via botões
+                disp.value = eval(disp.value); 
+            } catch { 
+                disp.value = "Erro"; 
+                setTimeout(clearCalc, 1500);
+            } 
         }
     </script>
 </body>
-</html>
+</html>                                                                                                                                                                              Voltei como era antes
