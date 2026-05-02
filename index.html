@@ -11,43 +11,40 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--txt); display: flex; height: 100vh; }
 
-        /* Sidebar */
+        /* Menu Lateral (Design Novo) */
         nav { width: 260px; background: #fff; border-right: 1px solid #e2e8f0; padding: 40px 20px; flex-shrink: 0; }
         .logo { font-size: 1.5rem; font-weight: 800; color: var(--p); margin-bottom: 40px; display: flex; align-items: center; gap: 10px; }
         .nav-link { 
             padding: 12px 15px; border-radius: 10px; cursor: pointer; display: flex; align-items: center; gap: 10px; 
             font-weight: 600; color: var(--sub); transition: 0.2s; margin-bottom: 5px;
         }
-        .nav-link:hover { background: #f1f5f9; }
+        .nav-link:hover { background: #f1f5f9; color: var(--p); }
         .nav-link.active { background: var(--p); color: #fff; }
 
-        /* Main */
+        /* Área de Conteúdo */
         main { flex: 1; padding: 50px; overflow-y: auto; }
         .header { margin-bottom: 40px; }
-        .header h1 { font-size: 2rem; font-weight: 800; }
+        .header h1 { font-size: 2.2rem; font-weight: 800; }
 
-        /* Grid de Matérias */
+        /* Grid de Pastas (Lógica Antiga com Design Novo) */
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
-        .card { 
+        .folder-card { 
             background: #fff; padding: 30px; border-radius: 20px; text-align: center; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.03); cursor: pointer; transition: 0.3s; border: 1px solid transparent;
         }
-        .card:hover { transform: translateY(-5px); border-color: var(--p); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
-        .card i { font-size: 2rem; color: var(--p); margin-bottom: 15px; display: block; }
-        .card h3 { font-size: 1.1rem; font-weight: 700; }
+        .folder-card:hover { transform: translateY(-5px); border-color: var(--p); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+        .folder-card i { font-size: 2.2rem; color: var(--p); margin-bottom: 15px; display: block; }
+        .folder-card h3 { font-size: 1rem; font-weight: 700; color: var(--txt); word-break: break-all; }
 
-        /* Lista de Arquivos */
-        .file-box { background: #fff; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); overflow: hidden; }
+        /* Lista de PDFs */
+        .file-list { background: #fff; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); overflow: hidden; }
         .file-row { 
-            display: flex; align-items: center; padding: 20px 25px; border-bottom: 1px solid #f1f5f9; 
+            display: flex; align-items: center; padding: 18px 25px; border-bottom: 1px solid #f1f5f9; 
             text-decoration: none; color: inherit; transition: 0.2s;
         }
         .file-row:hover { background: #f8faff; }
-        .file-icon { font-size: 1.5rem; color: #ef4444; margin-right: 20px; }
-        .file-info { flex: 1; }
-        .file-info span { display: block; }
-        .path-label { font-size: 0.7rem; font-weight: 800; color: var(--p); text-transform: uppercase; margin-bottom: 2px; }
-        .name-label { font-weight: 600; }
+        .file-icon { font-size: 1.4rem; color: #ef4444; margin-right: 15px; }
+        .file-name { font-weight: 600; font-size: 0.95rem; }
 
         .btn-back { 
             background: #fff; border: 1px solid #e2e8f0; padding: 10px 20px; border-radius: 10px; 
@@ -56,11 +53,11 @@
 
         .hidden { display: none; }
 
-        /* Calculadora */
+        /* Calculadora (Botão Verde do Simulado de Médias) */
         .calc-box { max-width: 350px; background: #1e293b; padding: 25px; border-radius: 25px; margin: 0 auto; }
-        .display { width: 100%; background: none; border: none; color: #fff; font-size: 2.5rem; text-align: right; margin-bottom: 20px; }
+        .display { width: 100%; background: none; border: none; color: #fff; font-size: 2.5rem; text-align: right; margin-bottom: 20px; outline: none; }
         .buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-        .btn { height: 60px; border-radius: 12px; border: none; background: #334155; color: #fff; font-size: 1.2rem; cursor: pointer; }
+        .btn { height: 60px; border-radius: 12px; border: none; background: #334155; color: #fff; font-size: 1.2rem; font-weight: 600; cursor: pointer; }
         .btn.op { background: var(--p); }
         .btn.eq { background: #10b981; grid-column: span 2; }
     </style>
@@ -68,149 +65,125 @@
 <body>
 
 <nav>
-    <div class="logo"><i class="fas fa-brain"></i> MENDEL</div>
-    <div class="nav-link active" onclick="switchPage('page-materias', this)"><i class="fas fa-book"></i> Materiais</div>
-    <div class="nav-link" onclick="switchPage('page-calc', this)"><i class="fas fa-calculator"></i> Calculadora</div>
+    <div class="logo"><i class="fas fa-dna"></i> MENDEL</div>
+    <div class="nav-link active" onclick="showPage('materiais-page', this)"><i class="fas fa-folder-open"></i> Materiais</div>
+    <div class="nav-link" onclick="showPage('calc-page', this)"><i class="fas fa-calculator"></i> Calculadora</div>
 </nav>
 
 <main>
-    <div id="page-materias">
+    <div id="materiais-page">
         <div class="header">
-            <h1>Meus Conteúdos</h1>
-            <p id="sub-msg">Selecione uma disciplina abaixo.</p>
+            <h1>Conteúdos de Estudo</h1>
+            <p id="msg-sub">Navegue pelas suas pastas abaixo.</p>
         </div>
 
-        <div id="grid-subjects" class="grid"></div>
+        <div id="grid-container" class="grid"></div>
 
-        <div id="file-view" class="hidden">
-            <button class="btn-back" onclick="showGrid()"><i class="fas fa-arrow-left"></i> Voltar</button>
-            <h2 id="folder-name" style="margin-bottom: 20px;"></h2>
-            <div id="file-container" class="file-box"></div>
+        <div id="view-files" class="hidden">
+            <button class="btn-back" onclick="loadFolders()"><i class="fas fa-arrow-left"></i> Voltar</button>
+            <h2 id="current-folder-title" style="margin-bottom: 20px; font-weight: 800;"></h2>
+            <div id="file-list-container" class="file-list"></div>
         </div>
     </div>
 
-    <div id="page-calc" class="hidden">
-        <div class="header"><h1>Calculadora</h1></div>
+    <div id="calc-page" class="hidden">
+        <div class="header"><h1>Calculadora de Apoio</h1></div>
         <div class="calc-box">
-            <input type="text" id="res" class="display" readonly placeholder="0">
+            <input type="text" id="screen" class="display" readonly placeholder="0">
             <div class="buttons">
-                <button class="btn" onclick="clearRes()">C</button>
-                <button class="btn op" onclick="ins('/')">/</button>
-                <button class="btn op" onclick="ins('*')">x</button>
-                <button class="btn op" onclick="ins('-')">-</button>
-                <button class="btn" onclick="ins('7')">7</button>
-                <button class="btn" onclick="ins('8')">8</button>
-                <button class="btn" onclick="ins('9')">9</button>
-                <button class="btn op" onclick="ins('+')">+</button>
-                <button class="btn" onclick="ins('4')">4</button>
-                <button class="btn" onclick="ins('5')">5</button>
-                <button class="btn" onclick="ins('6')">6</button>
-                <button class="btn" onclick="solve()">=</button>
-                <button class="btn" onclick="ins('1')">1</button>
-                <button class="btn" onclick="ins('2')">2</button>
-                <button class="btn" onclick="ins('3')">3</button>
-                <button class="btn" onclick="ins('0')">0</button>
+                <button class="btn" onclick="c()">C</button>
+                <button class="btn op" onclick="i('/')">/</button>
+                <button class="btn op" onclick="i('*')">x</button>
+                <button class="btn op" onclick="i('-')">-</button>
+                <button class="btn" onclick="i('7')">7</button>
+                <button class="btn" onclick="i('8')">8</button>
+                <button class="btn" onclick="i('9')">9</button>
+                <button class="btn op" onclick="i('+')">+</button>
+                <button class="btn" onclick="i('4')">4</button>
+                <button class="btn" onclick="i('5')">5</button>
+                <button class="btn" onclick="i('6')">6</button>
+                <button class="btn eq" onclick="e()">=</button>
+                <button class="btn" onclick="i('1')">1</button>
+                <button class="btn" onclick="i('2')">2</button>
+                <button class="btn" onclick="i('3')">3</button>
+                <button class="btn" onclick="i('0')">0</button>
             </div>
         </div>
     </div>
 </main>
 
 <script>
-    let lines = [];
+    let rawData = [];
 
-    // Busca os dados e limpa tudo
-    async function load() {
-        const r = await fetch('dados.txt?v=' + Date.now());
-        const t = await r.text();
-        lines = t.split('\n').map(l => l.replace(/\\/g, '/').trim()).filter(l => l !== "");
-        renderGrid();
+    // Lógica que você gosta: Lê o arquivo e separa Pastas de Arquivos
+    async function init() {
+        const res = await fetch('dados.txt?v=' + Date.now());
+        const text = await res.text();
+        rawData = text.split('\n').filter(l => l.trim() !== "");
+        loadFolders();
     }
 
-    function renderGrid() {
-        const grid = document.getElementById('grid-subjects');
+    function loadFolders() {
+        document.getElementById('grid-container').classList.remove('hidden');
+        document.getElementById('view-files').classList.add('hidden');
+        document.getElementById('msg-sub').classList.remove('hidden');
+        
+        const grid = document.getElementById('grid-container');
         grid.innerHTML = "";
-        let subjects = new Set();
 
-        lines.forEach(line => {
-            // Pega o que está entre Estudos/ e a próxima barra
-            // Se a linha for "Estudos/Biologia/Croti", ele pega "Biologia"
-            let clean = line.replace("[DIR]", "").replace("[ARQ]", "").replace("Pasta:", "").trim();
-            let parts = clean.split('/');
-            
-            let name = "";
-            if (parts[0] === "Estudos" && parts[1]) name = parts[1];
-            else if (parts[0] !== "Estudos") name = parts[0];
+        // Pega as linhas que são pastas (Lógica antiga)
+        const folders = rawData.filter(l => !l.includes('.pdf'));
 
-            if (name && name !== "Estudos") subjects.add(name);
-        });
-
-        subjects.forEach(s => {
-            const div = document.createElement('div');
-            div.className = 'card';
-            div.innerHTML = `<i class="fas fa-folder"></i><h3>${s}</h3>`;
-            div.onclick = () => showFiles(s);
-            grid.appendChild(div);
+        folders.forEach(f => {
+            let name = f.replace("Pasta:", "").replace("[DIR]", "").trim();
+            const card = document.createElement('div');
+            card.className = 'folder-card';
+            card.innerHTML = `<i class="fas fa-folder"></i><h3>${name}</h3>`;
+            card.onclick = () => showFiles(name);
+            grid.appendChild(card);
         });
     }
 
-    function showFiles(subject) {
-        document.getElementById('grid-subjects').classList.add('hidden');
-        document.getElementById('file-view').classList.remove('hidden');
-        document.getElementById('folder-name').innerText = subject;
-        document.getElementById('sub-msg').classList.add('hidden');
+    function showFiles(folderName) {
+        document.getElementById('grid-container').classList.add('hidden');
+        document.getElementById('view-files').classList.remove('hidden');
+        document.getElementById('msg-sub').classList.add('hidden');
+        document.getElementById('current-folder-title').innerText = folderName;
 
-        const container = document.getElementById('file-container');
-        container.innerHTML = "";
+        const list = document.getElementById('file-list-container');
+        list.innerHTML = "";
 
-        lines.forEach(line => {
-            // Se for um arquivo e contiver o nome da matéria no caminho
-            if (line.includes("[ARQ]") && line.toLowerCase().includes(subject.toLowerCase())) {
-                let fullPath = line.replace("[ARQ]", "").trim();
-                let parts = fullPath.split('/');
-                let fileName = parts.pop();
-                let breadcrumb = parts.slice(parts.indexOf(subject) + 1).join(' > ');
+        // Filtra arquivos que contém o nome da pasta no caminho (Lógica antiga)
+        const files = rawData.filter(l => l.includes('.pdf') && l.includes(folderName));
 
-                const a = document.createElement('a');
-                a.className = 'file-row';
-                a.href = encodeURI(fullPath);
-                a.target = "_blank";
-                a.innerHTML = `
-                    <i class="fas fa-file-pdf file-icon"></i>
-                    <div class="file-info">
-                        ${breadcrumb ? `<span class="path-label">${breadcrumb}</span>` : ''}
-                        <span class="name-label">${fileName}</span>
-                    </div>
-                `;
-                container.appendChild(a);
-            }
+        files.forEach(f => {
+            let path = f.replace("[ARQ]", "").trim();
+            let fileName = path.split('/').pop();
+
+            const row = document.createElement('a');
+            row.className = 'file-row';
+            row.href = encodeURI(path);
+            row.target = "_blank";
+            row.innerHTML = `<i class="fas fa-file-pdf file-icon"></i><span class="file-name">${fileName}</span>`;
+            list.appendChild(row);
         });
-
-        if (container.innerHTML === "") {
-            container.innerHTML = "<p style='padding:40px; text-align:center;'>Nenhum PDF encontrado para " + subject + ".</p>";
-        }
     }
 
-    function showGrid() {
-        document.getElementById('grid-subjects').classList.remove('hidden');
-        document.getElementById('file-view').classList.add('hidden');
-        document.getElementById('sub-msg').classList.remove('hidden');
-    }
-
-    function switchPage(id, el) {
-        document.getElementById('page-materias').classList.add('hidden');
-        document.getElementById('page-calc').classList.add('hidden');
+    function showPage(id, el) {
+        document.getElementById('materiais-page').classList.add('hidden');
+        document.getElementById('calc-page').classList.add('hidden');
         document.getElementById(id).classList.remove('hidden');
         document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
         el.classList.add('active');
     }
 
-    // Calc
-    const screen = document.getElementById('res');
-    function ins(v) { screen.value += v; }
-    function clearRes() { screen.value = ""; }
-    function solve() { try { screen.value = eval(screen.value); } catch { screen.value = "Erro"; } }
+    // Funções Calculadora
+    const s = document.getElementById('screen');
+    function i(v) { s.value += v; }
+    function c() { s.value = ""; }
+    function e() { try { s.value = eval(s.value); } catch { s.value = "Erro"; } }
 
-    load();
+    init();
 </script>
 </body>
 </html>
