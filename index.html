@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mendel Hub | Organizado</title>
+    <title>Mendel Hub | Navegação Real</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -19,88 +19,67 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text-main); display: flex; height: 100vh; overflow: hidden; }
 
-        /* --- MENU LATERAL --- */
-        nav { 
-            width: 260px; background: var(--sidebar); border-right: 1px solid #e2e8f0; 
-            display: flex; flex-direction: column; padding: 40px 20px; flex-shrink: 0; 
-        }
+        /* Menu Lateral */
+        nav { width: 260px; background: var(--sidebar); border-right: 1px solid #e2e8f0; display: flex; flex-direction: column; padding: 40px 20px; flex-shrink: 0; }
         .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); margin-bottom: 40px; display: flex; align-items: center; gap: 10px; }
-        
-        .nav-link { 
-            padding: 14px 18px; border-radius: 12px; cursor: pointer; display: flex; align-items: center; gap: 12px; 
-            font-weight: 600; color: var(--text-sub); transition: 0.3s; margin-bottom: 8px; text-decoration: none;
-        }
+        .nav-link { padding: 14px 18px; border-radius: 12px; cursor: pointer; display: flex; align-items: center; gap: 12px; font-weight: 600; color: var(--text-sub); transition: 0.3s; margin-bottom: 8px; text-decoration: none; }
         .nav-link:hover { background: #f1f5f9; color: var(--primary); }
         .nav-link.active { background: var(--primary); color: #fff; box-shadow: 0 10px 20px -5px rgba(67, 97, 238, 0.3); }
 
-        /* --- CONTEÚDO PRINCIPAL --- */
+        /* Conteúdo */
         main { flex: 1; padding: 50px; overflow-y: auto; }
         .header { margin-bottom: 30px; }
-        .header h1 { font-size: 2rem; font-weight: 800; margin-bottom: 5px; }
-        .header p { color: var(--text-sub); }
+        .header h1 { font-size: 2rem; font-weight: 800; }
 
-        /* --- LISTA DE PASTAS (AGRUPADAS) --- */
-        .folder-list { display: flex; flex-direction: column; gap: 12px; }
-        .folder-item { 
-            background: #fff; padding: 18px 25px; border-radius: 15px; 
+        /* Navegação (Caminho/Breadcrumb) */
+        .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 25px; color: var(--text-sub); font-weight: 600; font-size: 0.9rem; }
+        .breadcrumb span { cursor: pointer; transition: 0.2s; }
+        .breadcrumb span:hover { color: var(--primary); }
+        .breadcrumb i { font-size: 0.8rem; }
+
+        /* Lista de Itens (Pastas e Arquivos) */
+        .item-list { display: flex; flex-direction: column; gap: 8px; }
+        
+        .item { 
+            background: #fff; padding: 16px 24px; border-radius: 12px; 
             display: flex; align-items: center; justify-content: space-between; cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02); border: 1px solid #eef2f6; transition: 0.2s;
+            border: 1px solid #eef2f6; transition: 0.2s; text-decoration: none; color: inherit;
         }
-        .folder-item:hover { transform: translateX(5px); border-color: var(--primary); background: #fcfdfe; }
-        .folder-info { display: flex; align-items: center; gap: 20px; }
-        .folder-info i { font-size: 1.6rem; color: var(--folder-icon); }
-        .folder-info span { font-weight: 700; font-size: 1.1rem; }
-        .file-count { font-size: 0.8rem; background: #f1f5f9; padding: 4px 10px; border-radius: 20px; color: var(--text-sub); }
-
-        /* --- LISTA DE ARQUIVOS --- */
-        .file-box { background: #fff; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); overflow: hidden; }
-        .file-row { 
-            display: flex; align-items: center; padding: 20px 30px; border-bottom: 1px solid #f1f5f9; 
-            text-decoration: none; color: inherit; transition: 0.2s;
-        }
-        .file-row:hover { background: #f8faff; }
-        .file-icon { font-size: 1.5rem; color: #ef4444; margin-right: 20px; }
-        .file-details { display: flex; flex-direction: column; }
-        .file-name { font-weight: 600; font-size: 1rem; }
-        .file-subpath { font-size: 0.7rem; color: var(--primary); font-weight: 700; text-transform: uppercase; margin-bottom: 2px; }
-
-        .btn-back { 
-            background: #fff; border: 1px solid #e2e8f0; padding: 12px 20px; border-radius: 12px; 
-            cursor: pointer; font-weight: 700; margin-bottom: 30px; display: inline-flex; align-items: center; gap: 10px;
-        }
+        .item:hover { transform: translateX(5px); border-color: var(--primary); background: #fcfdfe; }
+        .item-info { display: flex; align-items: center; gap: 15px; }
+        
+        /* Cores dos Ícones */
+        .icon-folder { color: var(--folder-icon); font-size: 1.4rem; }
+        .icon-file { color: #ef4444; font-size: 1.4rem; }
 
         .hidden { display: none; }
 
-        /* CALCULADORA */
+        /* Calculadora */
         .calc-wrapper { max-width: 360px; margin: 0 auto; background: #1e293b; padding: 30px; border-radius: 30px; }
         .display { width: 100%; background: transparent; border: none; color: #fff; font-size: 2.8rem; text-align: right; margin-bottom: 25px; outline: none; }
         .btn-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
         .c-btn { height: 60px; border-radius: 15px; border: none; background: #334155; color: #fff; font-size: 1.3rem; font-weight: 700; cursor: pointer; }
-        .c-btn.op { background: var(--primary); }
     </style>
 </head>
 <body>
 
 <nav>
-    <div class="logo"><i class="fas fa-graduation-cap"></i> MENDEL</div>
-    <div class="nav-link active" onclick="changePage('materiais', this)"><i class="fas fa-folder-open"></i> Materiais</div>
-    <div class="nav-link" onclick="changePage('calculadora', this)"><i class="fas fa-calculator"></i> Calculadora</div>
+    <div class="logo"><i class="fas fa-dna"></i> MENDEL</div>
+    <div class="nav-link active" onclick="changeTab('materiais', this)"><i class="fas fa-folder-open"></i> Materiais</div>
+    <div class="nav-link" onclick="changeTab('calculadora', this)"><i class="fas fa-calculator"></i> Calculadora</div>
 </nav>
 
 <main>
     <div id="materiais">
-        <div class="header" id="main-header">
-            <h1>Disciplinas</h1>
-            <p>Selecione uma matéria para ver todos os arquivos.</p>
+        <div class="header">
+            <h1 id="view-title">Disciplinas</h1>
         </div>
 
-        <div id="folder-list-container" class="folder-list"></div>
-
-        <div id="file-view" class="hidden">
-            <button class="btn-back" onclick="back()"><i class="fas fa-arrow-left"></i> Voltar</button>
-            <h2 id="current-folder-name" style="margin-bottom: 25px; font-weight: 800;"></h2>
-            <div id="file-list-container" class="file-box"></div>
+        <div class="breadcrumb" id="breadcrumb">
+            <span onclick="goToPath('')">Início</span>
         </div>
+
+        <div id="list-container" class="item-list"></div>
     </div>
 
     <div id="calculadora" class="hidden">
@@ -109,21 +88,21 @@
             <input type="text" id="scr" class="display" readonly placeholder="0">
             <div class="btn-grid">
                 <button class="c-btn" onclick="clr()">C</button>
-                <button class="c-btn op" onclick="ins('/')">/</button>
-                <button class="c-btn op" onclick="ins('*')">×</button>
+                <button class="c-btn" style="background:var(--primary)" onclick="ins('/')">/</button>
+                <button class="c-btn" style="background:var(--primary)" onclick="ins('*')">×</button>
                 <button class="c-btn" onclick="bk()">⌫</button>
                 <button class="c-btn" onclick="ins('7')">7</button>
                 <button class="c-btn" onclick="ins('8')">8</button>
                 <button class="c-btn" onclick="ins('9')">9</button>
-                <button class="c-btn op" onclick="ins('-')">-</button>
+                <button class="c-btn" style="background:var(--primary)" onclick="ins('-')">-</button>
                 <button class="c-btn" onclick="ins('4')">4</button>
                 <button class="c-btn" onclick="ins('5')">5</button>
                 <button class="c-btn" onclick="ins('6')">6</button>
-                <button class="c-btn op" onclick="ins('+')">+</button>
+                <button class="c-btn" style="background:var(--primary)" onclick="ins('+')">+</button>
                 <button class="c-btn" onclick="ins('1')">1</button>
                 <button class="c-btn" onclick="ins('2')">2</button>
                 <button class="c-btn" onclick="ins('3')">3</button>
-                <button class="c-btn op" style="background:#10b981" onclick="res()">=</button>
+                <button class="c-btn" style="background:#10b981; grid-column: span 1;" onclick="res()">=</button>
                 <button class="c-btn" style="grid-column: span 2;" onclick="ins('0')">0</button>
                 <button class="c-btn" onclick="ins('.')">.</button>
             </div>
@@ -133,87 +112,89 @@
 
 <script>
     let db = [];
+    let currentPath = ""; // Ex: "Biologia/Croti"
 
     async function start() {
         const response = await fetch('dados.txt?v=' + Date.now());
         const text = await response.text();
-        db = text.split('\n').filter(l => l.trim() !== "");
-        renderMainFolders();
+        db = text.split('\n')
+                 .filter(l => l.trim() !== "")
+                 .map(l => l.replace(/\\/g, '/').replace("[ARQ]", "").replace("[DIR]", "").replace("Pasta:", "").trim());
+        render();
     }
 
-    function renderMainFolders() {
-        const container = document.getElementById('folder-list-container');
+    function render() {
+        const container = document.getElementById('list-container');
         container.innerHTML = "";
-        document.getElementById('file-view').classList.add('hidden');
-        document.getElementById('main-header').classList.remove('hidden');
-        container.classList.remove('hidden');
+        updateBreadcrumb();
 
-        let mainSubjects = new Set();
-        
+        let items = new Set();
+        let files = [];
+
         db.forEach(line => {
-            let path = line.replace("[DIR]", "").replace("[ARQ]", "").replace("Pasta:", "").trim();
-            let parts = path.split('/');
-            // Pega o primeiro nome da pasta (ex: Biologia)
-            if(parts[0]) mainSubjects.add(parts[0]);
+            let path = line;
+            if(path.startsWith("Estudos/")) path = path.replace("Estudos/", "");
+
+            // Se estamos na raiz ("") e o caminho é "Biologia/Aula.pdf"
+            // Se estamos em "Biologia" e o caminho é "Biologia/Croti/Doc.pdf"
+            if (currentPath === "" || path.startsWith(currentPath + "/")) {
+                let relativePath = currentPath === "" ? path : path.replace(currentPath + "/", "");
+                let parts = relativePath.split('/');
+
+                if (parts.length > 1) {
+                    // É uma subpasta
+                    items.add(parts[0]);
+                } else if (parts.length === 1 && line.toLowerCase().includes('.pdf')) {
+                    // É um arquivo nesta pasta
+                    files.push({ name: parts[0], full: line });
+                }
+            }
         });
 
-        mainSubjects.forEach(subject => {
-            if(subject.toLowerCase() === "estudos") return; // Ignora a pasta raiz se existir
-            
-            // Conta quantos arquivos tem dentro dessa matéria
-            let count = db.filter(l => l.includes('.pdf') && l.includes(subject)).length;
-            
+        // Renderiza Pastas
+        items.forEach(folder => {
             const div = document.createElement('div');
-            div.className = 'folder-item';
-            div.innerHTML = `
-                <div class="folder-info">
-                    <i class="fas fa-folder"></i>
-                    <span>${subject}</span>
-                </div>
-                <div class="file-count">${count} arquivos</div>
-            `;
-            div.onclick = () => openSubject(subject);
+            div.className = 'item';
+            div.innerHTML = `<div class="item-info"><i class="fas fa-folder icon-folder"></i><span>${folder}</span></div><i class="fas fa-chevron-right" style="color:#cbd5e1"></i>`;
+            div.onclick = () => {
+                currentPath = currentPath === "" ? folder : currentPath + "/" + folder;
+                render();
+            };
             container.appendChild(div);
         });
-    }
 
-    function openSubject(name) {
-        document.getElementById('folder-list-container').classList.add('hidden');
-        document.getElementById('main-header').classList.add('hidden');
-        document.getElementById('file-view').classList.remove('hidden');
-        document.getElementById('current-folder-name').innerText = name;
-
-        const list = document.getElementById('file-list-container');
-        list.innerHTML = "";
-
-        // Busca todos os arquivos que contenham o nome da matéria no caminho
-        const files = db.filter(l => l.includes('.pdf') && l.includes(name));
-
-        files.forEach(f => {
-            let fullPath = f.replace("[ARQ]", "").trim();
-            let parts = fullPath.split('/');
-            let fileName = parts.pop();
-            
-            // Cria o "sub-caminho" (ex: Croti > 1P)
-            let subPath = parts.slice(parts.indexOf(name) + 1).join(' ❯ ');
-
-            const row = document.createElement('a');
-            row.className = 'file-row';
-            row.href = encodeURI(fullPath);
-            row.target = "_blank";
-            row.innerHTML = `
-                <i class="fas fa-file-pdf file-icon"></i>
-                <div class="file-details">
-                    ${subPath ? `<span class="file-subpath">${subPath}</span>` : ''}
-                    <span class="file-name">${fileName}</span>
-                </div>
-            `;
-            list.appendChild(row);
+        // Renderiza Arquivos
+        files.forEach(file => {
+            const a = document.createElement('a');
+            a.className = 'item';
+            a.href = encodeURI(file.full);
+            a.target = "_blank";
+            a.innerHTML = `<div class="item-info"><i class="fas fa-file-pdf icon-file"></i><span>${file.name}</span></div><i class="fas fa-external-link-alt" style="color:#cbd5e1; font-size:0.8rem"></i>`;
+            container.appendChild(a);
         });
     }
 
-    function back() { renderMainFolders(); }
-    function changePage(id, el) {
+    function updateBreadcrumb() {
+        const bc = document.getElementById('breadcrumb');
+        bc.innerHTML = `<span onclick="goToPath('')">Início</span>`;
+        
+        if (currentPath !== "") {
+            let parts = currentPath.split('/');
+            let tempPath = "";
+            parts.forEach((p, i) => {
+                tempPath += (i === 0 ? p : "/" + p);
+                const pathCapture = tempPath; 
+                bc.innerHTML += ` <i class="fas fa-chevron-right"></i> <span onclick="goToPath('${pathCapture}')">${p}</span>`;
+            });
+        }
+    }
+
+    function goToPath(path) {
+        currentPath = path;
+        render();
+    }
+
+    function changeTab(id, el) {
         document.getElementById('materiais').classList.add('hidden');
         document.getElementById('calculadora').classList.add('hidden');
         document.getElementById(id).classList.remove('hidden');
