@@ -112,7 +112,7 @@
         } catch(e) { console.error("Erro:", e); }
     }
 
-   function render() {
+    function render() {
     const container = document.getElementById('list-container');
     if(!container) return;
     container.innerHTML = "";
@@ -121,38 +121,40 @@
     let folders = new Set();
     let files = [];
 
-    // Função interna para normalizar nomes (remove acentos e espaços extras)
+    // Função para limpar nomes e remover acentos na comparação
     const normalizar = (txt) => txt.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
 
     db.forEach(path => {
-        // Limpa a linha de prefixos e barras malucas
-        let cleanLine = path.replace("[DIR]", "").replace("[ARQ]", "").replace("[LINK]", "").trim();
+        // 1. Limpa a linha e garante que use barras normais /
+        let cleanLine = path.replace(/\\/g, '/').trim();
         
-        // Garante que o caminho comece com Estudos/ para o link funcionar
-        let fullPath = cleanLine.startsWith("Estudos/") ? cleanLine : "Estudos/" + cleanLine;
+        // 2. Divide o caminho para limpar espaços de cada pasta individualmente
+        // Ex: "História / Celcio / arquivo.pdf" -> ["História", "Celcio", "arquivo.pdf"]
+        let partsRaw = cleanLine.split('/').map(p => p.trim()).filter(p => p !== "");
         
-        // Caminho sem o "Estudos/" para a lógica de pastas
-        let displayPath = fullPath.replace("Estudos/", "");
+        // 3. Reconstrói o caminho limpo
+        let displayLine = partsRaw[0] === "Estudos" ? partsRaw.slice(1).join('/') : partsRaw.join('/');
+        let fullPath = partsRaw[0] === "Estudos" ? partsRaw.join('/') : "Estudos/" + partsRaw.join('/');
         
-        const extensoes = ['.pdf', '.docx', '.pptx', '.doc', '.ppt'];
-        const ehArquivo = extensoes.some(ext => displayPath.toLowerCase().endsWith(ext));
+        const extensoes = ['.pdf', '.docx', '.pptx', '.doc', '.ppt', '.jpg', '.png'];
+        const ehArquivo = extensoes.some(ext => displayLine.toLowerCase().endsWith(ext));
 
         let currentPathNorm = normalizar(currentPath);
 
         if (currentPath === "") {
-            let parts = displayPath.split('/');
+            let parts = displayLine.split('/');
             if (parts.length > 1) {
-                folders.add(parts[0].trim());
+                folders.add(parts[0]);
             } else if (ehArquivo) {
-                files.push({ name: displayPath, full: fullPath });
+                files.push({ name: displayLine, full: fullPath });
             }
         } else {
-            // Compara os caminhos de forma normalizada (ignora acentos)
-            if (normalizar(displayPath).startsWith(currentPathNorm + "/")) {
-                let relative = displayPath.substring(displayPath.toLowerCase().indexOf(currentPathNorm) + currentPath.length + 1);
-                let parts = relative.split('/');
-                if (parts.length > 1) {
-                    folders.add(parts[0].trim());
+            let displayPathNorm = normalizar(displayLine);
+            if (displayPathNorm.startsWith(currentPathNorm + "/")) {
+                let relative = displayLine.substring(displayLine.toLowerCase().indexOf(currentPathNorm) + currentPath.length + 1);
+                let p = relative.split('/');
+                if (p.length > 1) {
+                    folders.add(p[0]);
                 } else if (ehArquivo) {
                     files.push({ name: relative, full: fullPath });
                 }
@@ -173,18 +175,23 @@
     files.forEach(file => {
         const a = document.createElement('a');
         a.className = 'item';
+        
+        // O segredo está aqui: encodeURIComponent em cada parte do caminho separadamente
+        let linkSeguro = file.full.split('/').map(part => encodeURIComponent(part.trim())).join('/');
+
         let icone = "fa-file-pdf";
         if (file.name.toLowerCase().includes(".doc")) icone = "fa-file-word";
         if (file.name.toLowerCase().includes(".ppt")) icone = "fa-file-powerpoint";
+        if (file.name.toLowerCase().match(/\.(jpg|png)$/)) icone = "fa-file-image";
 
-        a.href = encodeURI(file.full);
+        a.href = linkSeguro;
         a.target = "_blank";
         a.innerHTML = `<div class="item-info"><i class="fas ${icone} icon-file"></i><span>${file.name}</span></div><i class="fas fa-external-link-alt"></i>`;
         container.appendChild(a);
     });
 
     if (container.innerHTML === "") {
-        container.innerHTML = "<p style='text-align:center;color:#94a3b8;padding:20px;'>Nenhum item compatível encontrado nesta pasta.</p>";
+        container.innerHTML = "<p style='text-align:center;color:#94a3b8;padding:20px;'>Pasta vazia ou arquivos não suportados.</p>";
     }
 }
 
