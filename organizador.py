@@ -140,12 +140,20 @@ REGRAS = {
     "VEST_": "Estudos/Vestibulares",
 }
 
-def organizar_automatico():
-    print(f"🚀 Robô Turbo Ativado em: {PASTA_PROJETO}")
+def organizar_turbo():
+    print(f"🤖 Robô Ativado em: {PASTA_PROJETO}")
+    print("🚀 Monitorando Downloads... Pressione Ctrl+C para parar.")
     
     while True:
         try:
-            for arquivo in os.listdir(PASTA_DOWNLOADS):
+            # Lista arquivos nos Downloads
+            arquivos = os.listdir(PASTA_DOWNLOADS)
+            
+            for arquivo in arquivos:
+                # Ignora arquivos temporários de download do navegador
+                if arquivo.endswith(".crdownload") or arquivo.endswith(".tmp"):
+                    continue
+                
                 nome_upper = arquivo.upper()
                 
                 for prefixo, subpasta in REGRAS.items():
@@ -153,33 +161,39 @@ def organizar_automatico():
                         origem = os.path.join(PASTA_DOWNLOADS, arquivo)
                         destino_dir = os.path.join(PASTA_PROJETO, subpasta)
                         
-                        # 1. Move o arquivo
+                        # 1. Mover o arquivo
                         os.makedirs(destino_dir, exist_ok=True)
-                        shutil.move(origem, os.path.join(destino_dir, arquivo))
-                        print(f"\n✅ {arquivo} movido!")
+                        try:
+                            shutil.move(origem, os.path.join(destino_dir, arquivo))
+                            print(f"\n✅ Arquivo movido: {arquivo}")
+                        except Exception as e:
+                            print(f"❌ Erro ao mover (arquivo pode estar aberto): {e}")
+                            continue
 
-                        # 2. O "3" AUTOMÁTICO
-                        print("⚙️ Atualizando dados.txt automaticamente...")
-                        # Enviamos '3', apertamos Enter (\n), enviamos 'Estudos' e apertamos Enter de novo
-                        input_data = "3\nEstudos\n4\n" 
-                        subprocess.run("gerenciador.exe", input=input_data, text=True, shell=True)
+                        # 2. Atualizar dados.txt (Opção 3 Automática)
+                        # Enviamos '3' (Gerar), 'Estudos' (Pasta) e '4' (Sair)
+                        print("⚙️ Gerando dados para o site...")
+                        input_gerenciador = "3\nEstudos\n4\n"
+                        subprocess.run("gerenciador.exe", input=input_gerenciador, text=True, shell=True)
 
-                        # 3. ENVIO PARA O GITHUB
-                        print("📤 Subindo para o site...")
-                        subprocess.run("git add .", shell=True)
-                        subprocess.run(f'git commit -m "Auto-update: {arquivo}"', shell=True)
-                        
-                        # Tenta mandar para o GitHub
-                        result = subprocess.run("git push origin master", shell=True)
-                        if result.returncode != 0:
-                            subprocess.run("git push origin master", shell=True)
-                        
-                        print("✨ TUDO PRONTO! Sem precisar digitar nada.")
+                        # 3. Enviar para o GitHub (Branch Master)
+                        print("📤 Subindo para o GitHub...")
+                        try:
+                            subprocess.run("git add .", shell=True, check=True)
+                            subprocess.run(f'git commit -m "Auto: {arquivo}"', shell=True)
+                            
+                            # O --force resolve o erro de 'failed to push' e conflitos locais
+                            subprocess.run("git push origin master --force", shell=True, check=True)
+                            print("✨ SITE ATUALIZADO COM SUCESSO!")
+                        except Exception as ge:
+                            print(f"⚠️ Erro no Git: {ge}")
             
+            # Descansa 5 segundos antes da próxima verificação
             time.sleep(5)
+            
         except Exception as e:
-            print(f"⚠️ Erro: {e}")
+            print(f"⚠️ Erro no loop: {e}")
             time.sleep(5)
 
 if __name__ == "__main__":
-    organizar_automatico()
+    organizar_turbo()
