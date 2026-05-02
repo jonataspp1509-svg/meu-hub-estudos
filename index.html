@@ -2,249 +2,202 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Hub de Estudos</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #1a1a2e; color: white; text-align: center; padding: 20px; }
-        .card { background: white; color: #333; padding: 20px; border-radius: 15px; display: inline-block; min-width: 400px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .pasta-titulo { color: #f39c12; font-weight: bold; margin-bottom: 10px; font-size: 1.2em; }
-        .file-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #eee; transition: 0.2s; }
-        .file-item:hover { background: #f8f9fa; }
-        .btn { background: #27ae60; color: white; border: none; padding: 5px 15px; cursor: pointer; border-radius: 5px; }
-        .btn-pasta { background: #ff9800; }
-        #viewer { margin-top: 20px; display: none; background: white; padding: 10px; border-radius: 10px; }
-        img { max-width: 100%; height: auto; border-radius: 5px; }
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e67e22;
+            --bg: #f4f7f6;
+            --text: #333;
+        }
 
-                /* Estilo da Calculadora */
-        .calc-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #2c3e50;
-            padding: 15px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-            width: 200px;
-            z-index: 1000;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            background-color: var(--bg);
         }
-        .calc-display {
-            width: 100%;
-            height: 40px;
-            background: #1a1a2e;
-            color: #00ff00;
-            text-align: right;
+
+        /* Área dos Arquivos */
+        #main-content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .folder {
+            background: #fff;
+            margin: 5px 0;
             padding: 10px;
-            box-sizing: border-box;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            font-family: 'Courier New', monospace;
-            font-size: 1.2em;
-            border: 1px solid #444;
-        }
-        .calc-buttons {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 5px;
-        }
-        .btn-calc {
-            padding: 10px;
-            background: #34495e;
-            border: none;
-            color: white;
             border-radius: 5px;
             cursor: pointer;
+            border-left: 5px solid var(--secondary);
             font-weight: bold;
+            transition: 0.2s;
         }
-        .btn-calc:hover { background: #456789; }
-        .btn-equal { background: #27ae60; grid-column: span 2; }
-        .btn-clear { background: #e74c3c; grid-column: span 2; }
+
+        .folder:hover { background: #fdf2e9; }
+
+        .file-link {
+            display: block;
+            margin: 5px 0 5px 25px;
+            color: var(--primary);
+            text-decoration: none;
+            padding: 5px;
+        }
+
+        .file-link:hover { text-decoration: underline; color: var(--secondary); }
+
+        /* Calculadora Lateral */
+        #calc-container {
+            width: 300px;
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+        }
+
+        #calc-display {
+            width: 100%;
+            height: 50px;
+            font-size: 1.5rem;
+            text-align: right;
+            margin-bottom: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 5px;
+            background: #ecf0f1;
+            color: #2c3e50;
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            padding: 15px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #34495e;
+            color: white;
+        }
+
+        button:hover { background: #456789; }
+        .btn-op { background: var(--secondary); }
+        .btn-equal { grid-column: span 2; background: #27ae60; }
     </style>
 </head>
 <body>
 
-    <h1>📚 Gerenciador Jojo v5</h1>
-
-    <div class="card">
-        <input type="file" id="fileInput">
-        <div id="statusPasta" class="pasta-titulo"></div>
-        <div id="lista"></div>
+    <div id="main-content">
+        <h1>📚 Meus Materiais de Estudo</h1>
+        <div id="lista-arquivos">Carregando dados...</div>
     </div>
 
-    <div id="viewer">
-        <h4 id="nomeDoc" style="color: black;"></h4>
-        <div id="conteudo"></div>
-        <button onclick="document.getElementById('viewer').style.display='none'">Fechar</button>
+    <div id="calc-container">
+        <h3>🧮 Calculadora</h3>
+        <input type="text" id="calc-display" readonly>
+        <div class="calc-grid">
+            <button onclick="clearCalc()">C</button>
+            <button onclick="addChar('/')">/</button>
+            <button onclick="addChar('*')">*</button>
+            <button onclick="backspace()">⌫</button>
+            
+            <button onclick="addChar('7')">7</button>
+            <button onclick="addChar('8')">8</button>
+            <button onclick="addChar('9')">9</button>
+            <button onclick="addChar('-')">-</button>
+            
+            <button onclick="addChar('4')">4</button>
+            <button onclick="addChar('5')">5</button>
+            <button onclick="addChar('6')">6</button>
+            <button onclick="addChar('+')">+</button>
+            
+            <button onclick="addChar('1')">1</button>
+            <button onclick="addChar('2')">2</button>
+            <button onclick="addChar('3')">3</button>
+            <button class="btn-equal" onclick="calculate()">=</button>
+            
+            <button onclick="addChar('0')" style="grid-column: span 2;">0</button>
+            <button onclick="addChar('.')">.</button>
+        </div>
     </div>
-
-    <div class="calc-container">
-    <div id="display" class="calc-display">0</div>
-    <div class="calc-buttons">
-        <button class="btn-calc btn-clear" onclick="limparCalc()">C</button>
-        <button class="btn-calc btn-equal" onclick="calcular()">=</button>
-        <button class="btn-calc" onclick="addNum('7')">7</button>
-        <button class="btn-calc" onclick="addNum('8')">8</button>
-        <button class="btn-calc" onclick="addNum('9')">9</button>
-        <button class="btn-calc" onclick="addNum('/')">/</button>
-        <button class="btn-calc" onclick="addNum('4')">4</button>
-        <button class="btn-calc" onclick="addNum('5')">5</button>
-        <button class="btn-calc" onclick="addNum('6')">6</button>
-        <button class="btn-calc" onclick="addNum('*')">*</button>
-        <button class="btn-calc" onclick="addNum('1')">1</button>
-        <button class="btn-calc" onclick="addNum('2')">2</button>
-        <button class="btn-calc" onclick="addNum('3')">3</button>
-        <button class="btn-calc" onclick="addNum('-')">-</button>
-        <button class="btn-calc" onclick="addNum('0')">0</button>
-        <button class="btn-calc" onclick="addNum('.')">.</button>
-        <button class="btn-calc" onclick="addNum('+')">+</button>
-    </div>
-</div>
 
     <script>
-        let todasAsLinhas = [];
-        let pastaRaizCpp = "";
-        let pastaAtualRelativa = ""; 
+        // --- LÓGICA DE CARREGAMENTO AUTOMÁTICO ---
+        window.onload = function() {
+            fetch('dados.txt')
+                .then(response => {
+                    if (!response.ok) throw new Error();
+                    return response.text();
+                })
+                .then(data => {
+                    const linhas = data.split('\n');
+                    processarDados(linhas);
+                })
+                .catch(() => {
+                    document.getElementById('lista-arquivos').innerHTML = 
+                    "Erro ao carregar dados.txt. Verifique se o arquivo está no GitHub!";
+                });
+        };
 
-        const fileInput = document.getElementById('fileInput');
-        const listaDiv = document.getElementById('lista');
-        const statusPasta = document.getElementById('statusPasta');
+        function processarDados(linhas) {
+            const container = document.getElementById('lista-arquivos');
+            container.innerHTML = ""; 
 
-        fileInput.addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            const reader = new FileReader();
+            linhas.forEach(linha => {
+                linha = linha.trim();
+                if (!linha || linha.startsWith("Pasta:")) return;
 
-            reader.onload = function(e) {
-                const conteudo = e.target.result;
-                todasAsLinhas = conteudo.split('\n');
-                
-                if (todasAsLinhas[0].startsWith("Pasta:")) {
-                    pastaRaizCpp = todasAsLinhas[0].replace("Pasta:", "").trim();
-                    statusPasta.innerHTML = "📁 Pasta: " + pastaRaizCpp;
-                }
-
-                pastaAtualRelativa = ""; 
-                renderizar();
-            };
-            reader.readAsText(file);
-        });
-
-        function renderizar() {
-            listaDiv.innerHTML = "";
-
-            if (pastaAtualRelativa !== "") {
-                listaDiv.innerHTML += `
-                    <div class="file-item" style="background: #eceff1; cursor:pointer" onclick="voltar()">
-                        <span>⬅️ <b>Voltar</b></span>
-                    </div>`;
-            }
-
-            todasAsLinhas.forEach(linha => {
-                let linhaLimpa = linha.trim();
-                if (!linhaLimpa || linhaLimpa.startsWith("Pasta:")) return;
-
-                let eDiretorio = linhaLimpa.startsWith("[DIR]");
-                let caminhoSemTag = linhaLimpa.replace("[DIR]", "");
-
-                let pertenceAPasta = false;
-                if (pastaAtualRelativa === "") {
-                    pertenceAPasta = !caminhoSemTag.includes("/") && !caminhoSemTag.includes("\\");
+                if (linha.startsWith("[DIR]")) {
+                    const nomePasta = linha.replace("[DIR]", "");
+                    const div = document.createElement('div');
+                    div.className = 'folder';
+                    div.innerText = "📁 " + nomePasta;
+                    container.appendChild(div);
                 } else {
-                    if (caminhoSemTag.startsWith(pastaAtualRelativa + "/") || caminhoSemTag.startsWith(pastaAtualRelativa + "\\")) {
-                        let resto = caminhoSemTag.substring(pastaAtualRelativa.length + 1);
-                        pertenceAPasta = !resto.includes("/") && !resto.includes("\\");
-                    }
-                }
-
-                if (pertenceAPasta) {
-                    let nomeParaExibir = caminhoSemTag.split(/[\\/]/).pop();
-                    let caminhoCompleto = pastaRaizCpp + "/" + caminhoSemTag;
-
-                    if (eDiretorio) {
-                        listaDiv.innerHTML += `
-                            <div class="file-item" style="background: #fff3e0; cursor:pointer" onclick="entrarNaPasta('${caminhoSemTag}')">
-                                <span>📁 <b>${nomeParaExibir}</b></span>
-                                <button class="btn btn-pasta">Abrir</button>
-                            </div>`;
-                    } else {
-                        let isPdf = nomeParaExibir.toLowerCase().endsWith('.pdf');
-                        listaDiv.innerHTML += `
-                            <div class="file-item">
-                                <span>${isPdf ? '📄' : '🖼️'} ${nomeParaExibir}</span>
-                                <button class="btn" onclick="abrir('${caminhoCompleto}', ${isPdf}, '${nomeParaExibir}')">Abrir</button>
-                            </div>`;
-                    }
+                    const link = document.createElement('a');
+                    link.className = 'file-link';
+                    // IMPORTANTE: O link aponta para a pasta Estudos no seu GitHub
+                    link.href = "Estudos/" + linha; 
+                    link.target = "_blank";
+                    link.innerText = "📄 " + linha.split('/').pop();
+                    container.appendChild(link);
                 }
             });
         }
 
-        function entrarNaPasta(caminho) {
-            pastaAtualRelativa = caminho;
-            renderizar();
-        }
+        // --- LÓGICA DA CALCULADORA ---
+        const display = document.getElementById('calc-display');
 
-        function voltar() {
-            let partes = pastaAtualRelativa.split(/[\\/]/);
-            partes.pop();
-            pastaAtualRelativa = partes.join('/');
-            renderizar();
-        }
-
-        function abrir(caminho, isPdf, nome) {
-            if (isPdf) {
-                window.open(caminho, '_blank');
-            } else {
-                const viewer = document.getElementById('viewer');
-                const conteudo = document.getElementById('conteudo');
-                document.getElementById('nomeDoc').innerText = nome;
-                conteudo.innerHTML = `<img src="${caminho}">`;
-                viewer.style.display = "block";
-            }
-        }
-
-        let expressao = "";
-
-        function addNum(num) {
-            expressao += num;
-            document.getElementById('display').innerText = expressao;
-        }
-
-        function limparCalc() {
-            expressao = "";
-            document.getElementById('display').innerText = "0";
-        }
-
-        function calcular() {
+        function addChar(char) { display.value += char; }
+        function clearCalc() { display.value = ""; }
+        function backspace() { display.value = display.value.slice(0, -1); }
+        function calculate() {
             try {
-                // eval faz a conta mágica baseada no texto
-                expressao = eval(expressao).toString();
-                document.getElementById('display').innerText = expressao;
-            } catch (e) {
-                document.getElementById('display').innerText = "Erro";
-                expressao = "";
+                display.value = eval(display.value);
+            } catch {
+                display.value = "Erro";
+                setTimeout(clearCalc, 1000);
             }
         }
 
-        // Faz a calculadora aceitar teclas do teclado físico
-        document.addEventListener('keydown', function(event) {
-            const tecla = event.key;
-
-            // Se for um número de 0 a 9 ou operadores
-            if ("0123456789+-*/.".includes(tecla)) {
-                addNum(tecla);
-            } 
-            // Se apertar Enter, calcula o resultado
-            else if (tecla === "Enter") {
-                event.preventDefault(); // Evita que a página recarregue
-                calcular();
-            } 
-            // Se apertar Backspace (apagar), limpa tudo
-            else if (tecla === "Backspace") {
-                limparCalc();
-            }
-            // Se apertar Esc, também limpa
-            else if (tecla === "Escape") {
-                limparCalc();
-            }
+        // Suporte ao teclado
+        document.addEventListener('keydown', (e) => {
+            if (e.key >= '0' && e.key <= '9' || ['+','-','*','/','.'].includes(e.key)) addChar(e.key);
+            if (e.key === 'Enter') calculate();
+            if (e.key === 'Backspace') backspace();
+            if (e.key === 'Escape') clearCalc();
         });
-
     </script>
 </body>
 </html>
