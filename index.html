@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mendel Hub | Dashboard</title>
+    <title>Mendel Hub | Organizado</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -13,7 +13,7 @@
             --sidebar: #ffffff;
             --text-main: #1e293b;
             --text-sub: #64748b;
-            --folder-icon: #ffca28; /* Amarelo clássico de pasta */
+            --folder-icon: #ffca28;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -39,48 +39,44 @@
         .header h1 { font-size: 2rem; font-weight: 800; margin-bottom: 5px; }
         .header p { color: var(--text-sub); }
 
-        /* --- LISTA DE PASTAS (Estilo solicitado) --- */
+        /* --- LISTA DE PASTAS (AGRUPADAS) --- */
         .folder-list { display: flex; flex-direction: column; gap: 12px; }
         .folder-item { 
             background: #fff; padding: 18px 25px; border-radius: 15px; 
-            display: flex; align-items: center; gap: 20px; cursor: pointer;
+            display: flex; align-items: center; justify-content: space-between; cursor: pointer;
             box-shadow: 0 2px 5px rgba(0,0,0,0.02); border: 1px solid #eef2f6; transition: 0.2s;
         }
         .folder-item:hover { transform: translateX(5px); border-color: var(--primary); background: #fcfdfe; }
-        .folder-item i { font-size: 1.6rem; color: var(--folder-icon); }
-        .folder-item span { font-weight: 700; font-size: 1rem; color: var(--text-main); }
+        .folder-info { display: flex; align-items: center; gap: 20px; }
+        .folder-info i { font-size: 1.6rem; color: var(--folder-icon); }
+        .folder-info span { font-weight: 700; font-size: 1.1rem; }
+        .file-count { font-size: 0.8rem; background: #f1f5f9; padding: 4px 10px; border-radius: 20px; color: var(--text-sub); }
 
         /* --- LISTA DE ARQUIVOS --- */
-        .file-view-container { animation: fadeIn 0.3s ease; }
         .file-box { background: #fff; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); overflow: hidden; }
         .file-row { 
             display: flex; align-items: center; padding: 20px 30px; border-bottom: 1px solid #f1f5f9; 
             text-decoration: none; color: inherit; transition: 0.2s;
         }
         .file-row:hover { background: #f8faff; }
-        .file-row:last-child { border-bottom: none; }
         .file-icon { font-size: 1.5rem; color: #ef4444; margin-right: 20px; }
+        .file-details { display: flex; flex-direction: column; }
         .file-name { font-weight: 600; font-size: 1rem; }
+        .file-subpath { font-size: 0.7rem; color: var(--primary); font-weight: 700; text-transform: uppercase; margin-bottom: 2px; }
 
         .btn-back { 
             background: #fff; border: 1px solid #e2e8f0; padding: 12px 20px; border-radius: 12px; 
             cursor: pointer; font-weight: 700; margin-bottom: 30px; display: inline-flex; align-items: center; gap: 10px;
-            transition: 0.2s;
         }
-        .btn-back:hover { background: #f1f5f9; border-color: var(--primary); }
-
-        /* --- CALCULADORA --- */
-        .calc-wrapper { max-width: 360px; margin: 0 auto; background: #1e293b; padding: 30px; border-radius: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
-        .display { width: 100%; background: transparent; border: none; color: #fff; font-size: 2.8rem; text-align: right; margin-bottom: 25px; outline: none; }
-        .btn-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-        .c-btn { height: 65px; border-radius: 15px; border: none; background: #334155; color: #fff; font-size: 1.3rem; font-weight: 700; cursor: pointer; transition: 0.2s; }
-        .c-btn:hover { background: #475569; }
-        .c-btn.op { background: var(--primary); }
-        .c-btn.eq { background: #10b981; grid-column: span 2; }
-        .c-btn.del { background: #f43f5e; }
 
         .hidden { display: none; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* CALCULADORA */
+        .calc-wrapper { max-width: 360px; margin: 0 auto; background: #1e293b; padding: 30px; border-radius: 30px; }
+        .display { width: 100%; background: transparent; border: none; color: #fff; font-size: 2.8rem; text-align: right; margin-bottom: 25px; outline: none; }
+        .btn-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+        .c-btn { height: 60px; border-radius: 15px; border: none; background: #334155; color: #fff; font-size: 1.3rem; font-weight: 700; cursor: pointer; }
+        .c-btn.op { background: var(--primary); }
     </style>
 </head>
 <body>
@@ -94,29 +90,25 @@
 <main>
     <div id="materiais">
         <div class="header" id="main-header">
-            <h1>Minhas Pastas</h1>
-            <p>Selecione uma categoria para visualizar os arquivos.</p>
+            <h1>Disciplinas</h1>
+            <p>Selecione uma matéria para ver todos os arquivos.</p>
         </div>
 
-        <div id="folder-list-container" class="folder-list">
-            </div>
+        <div id="folder-list-container" class="folder-list"></div>
 
-        <div id="file-view" class="hidden file-view-container">
-            <button class="btn-back" onclick="backToFolders()"><i class="fas fa-arrow-left"></i> Voltar para Pastas</button>
-            <h2 id="current-folder-name" style="margin-bottom: 25px; font-weight: 800; font-size: 1.8rem;"></h2>
+        <div id="file-view" class="hidden">
+            <button class="btn-back" onclick="back()"><i class="fas fa-arrow-left"></i> Voltar</button>
+            <h2 id="current-folder-name" style="margin-bottom: 25px; font-weight: 800;"></h2>
             <div id="file-list-container" class="file-box"></div>
         </div>
     </div>
 
     <div id="calculadora" class="hidden">
-        <div class="header">
-            <h1>Calculadora</h1>
-            <p>Use para cálculos rápidos.</p>
-        </div>
+        <div class="header"><h1>Calculadora</h1></div>
         <div class="calc-wrapper">
             <input type="text" id="scr" class="display" readonly placeholder="0">
             <div class="btn-grid">
-                <button class="c-btn del" onclick="clr()">C</button>
+                <button class="c-btn" onclick="clr()">C</button>
                 <button class="c-btn op" onclick="ins('/')">/</button>
                 <button class="c-btn op" onclick="ins('*')">×</button>
                 <button class="c-btn" onclick="bk()">⌫</button>
@@ -131,7 +123,7 @@
                 <button class="c-btn" onclick="ins('1')">1</button>
                 <button class="c-btn" onclick="ins('2')">2</button>
                 <button class="c-btn" onclick="ins('3')">3</button>
-                <button class="c-btn eq" onclick="res()">=</button>
+                <button class="c-btn op" style="background:#10b981" onclick="res()">=</button>
                 <button class="c-btn" style="grid-column: span 2;" onclick="ins('0')">0</button>
                 <button class="c-btn" onclick="ins('.')">.</button>
             </div>
@@ -142,81 +134,99 @@
 <script>
     let db = [];
 
-    // Carregamento dos dados com a sua lógica funcional
     async function start() {
-        try {
-            const response = await fetch('dados.txt?v=' + Date.now());
-            const text = await response.text();
-            db = text.split('\n').filter(line => line.trim() !== "");
-            renderFolders();
-        } catch (e) {
-            console.error("Erro ao ler dados.txt");
-        }
+        const response = await fetch('dados.txt?v=' + Date.now());
+        const text = await response.text();
+        db = text.split('\n').filter(l => l.trim() !== "");
+        renderMainFolders();
     }
 
-    function renderFolders() {
-        document.getElementById('folder-list-container').classList.remove('hidden');
-        document.getElementById('file-view').classList.add('hidden');
-        document.getElementById('main-header').classList.remove('hidden');
-        
+    function renderMainFolders() {
         const container = document.getElementById('folder-list-container');
         container.innerHTML = "";
+        document.getElementById('file-view').classList.add('hidden');
+        document.getElementById('main-header').classList.remove('hidden');
+        container.classList.remove('hidden');
 
-        // Pega as linhas que representam pastas (conforme sua lógica de antes)
-        const folders = db.filter(line => !line.includes('.pdf'));
+        let mainSubjects = new Set();
+        
+        db.forEach(line => {
+            let path = line.replace("[DIR]", "").replace("[ARQ]", "").replace("Pasta:", "").trim();
+            let parts = path.split('/');
+            // Pega o primeiro nome da pasta (ex: Biologia)
+            if(parts[0]) mainSubjects.add(parts[0]);
+        });
 
-        folders.forEach(f => {
-            let name = f.replace("Pasta:", "").replace("[DIR]", "").trim();
+        mainSubjects.forEach(subject => {
+            if(subject.toLowerCase() === "estudos") return; // Ignora a pasta raiz se existir
+            
+            // Conta quantos arquivos tem dentro dessa matéria
+            let count = db.filter(l => l.includes('.pdf') && l.includes(subject)).length;
+            
             const div = document.createElement('div');
             div.className = 'folder-item';
-            div.innerHTML = `<i class="fas fa-folder"></i><span>${name}</span>`;
-            div.onclick = () => openFolder(name);
+            div.innerHTML = `
+                <div class="folder-info">
+                    <i class="fas fa-folder"></i>
+                    <span>${subject}</span>
+                </div>
+                <div class="file-count">${count} arquivos</div>
+            `;
+            div.onclick = () => openSubject(subject);
             container.appendChild(div);
         });
     }
 
-    function openFolder(folderName) {
+    function openSubject(name) {
         document.getElementById('folder-list-container').classList.add('hidden');
         document.getElementById('main-header').classList.add('hidden');
         document.getElementById('file-view').classList.remove('hidden');
-        document.getElementById('current-folder-name').innerText = folderName;
+        document.getElementById('current-folder-name').innerText = name;
 
         const list = document.getElementById('file-list-container');
         list.innerHTML = "";
 
-        // Filtra os PDFs que pertencem à pasta clicada
-        const files = db.filter(line => line.includes('.pdf') && line.includes(folderName));
+        // Busca todos os arquivos que contenham o nome da matéria no caminho
+        const files = db.filter(l => l.includes('.pdf') && l.includes(name));
 
         files.forEach(f => {
             let fullPath = f.replace("[ARQ]", "").trim();
-            let fileName = fullPath.split('/').pop();
+            let parts = fullPath.split('/');
+            let fileName = parts.pop();
+            
+            // Cria o "sub-caminho" (ex: Croti > 1P)
+            let subPath = parts.slice(parts.indexOf(name) + 1).join(' ❯ ');
 
             const row = document.createElement('a');
             row.className = 'file-row';
             row.href = encodeURI(fullPath);
             row.target = "_blank";
-            row.innerHTML = `<i class="fas fa-file-pdf file-icon"></i><span class="file-name">${fileName}</span>`;
+            row.innerHTML = `
+                <i class="fas fa-file-pdf file-icon"></i>
+                <div class="file-details">
+                    ${subPath ? `<span class="file-subpath">${subPath}</span>` : ''}
+                    <span class="file-name">${fileName}</span>
+                </div>
+            `;
             list.appendChild(row);
         });
     }
 
-    function backToFolders() { renderFolders(); }
-
+    function back() { renderMainFolders(); }
     function changePage(id, el) {
         document.getElementById('materiais').classList.add('hidden');
         document.getElementById('calculadora').classList.add('hidden');
         document.getElementById(id).classList.remove('hidden');
         document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
         el.classList.add('active');
-        if(id === 'materiais') renderFolders();
     }
 
-    // Calculadora
+    // Calc
     const s = document.getElementById('scr');
     function ins(v) { s.value += v; }
     function clr() { s.value = ""; }
     function bk() { s.value = s.value.slice(0, -1); }
-    function res() { try { s.value = eval(s.value.replace('×','*')); } catch { s.value = "Erro"; } }
+    function res() { try { s.value = eval(s.value); } catch { s.value = "Erro"; } }
 
     start();
 </script>
