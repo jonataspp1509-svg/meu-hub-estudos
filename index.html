@@ -3,67 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Hub de Estudos - Hierárquico</title>
+    <title>Meu Hub de Estudos - Organizado</title>
     <style>
-        :root {
-            --primary: #2c3e50;
-            --secondary: #e67e22;
-            --bg: #f4f7f6;
-        }
-
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            margin: 0;
-            display: flex;
-            flex-direction: row;
-            height: 100vh;
-            background-color: var(--bg);
-        }
-
-        @media (max-width: 768px) {
-            body { flex-direction: column; height: auto; }
-            #calc-container { width: 100% !important; border-top: 2px solid #ddd; }
-            #main-content { height: auto; }
-        }
-
+        :root { --primary: #2c3e50; --secondary: #e67e22; --bg: #f4f7f6; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; flex-direction: row; height: 100vh; background-color: var(--bg); }
+        @media (max-width: 768px) { body { flex-direction: column; height: auto; } #calc-container { width: 100% !important; border-top: 2px solid #ddd; } }
         #main-content { flex: 1; padding: 20px; overflow-y: auto; }
-
-        /* Estilo das Pastas e Subpastas */
-        .folder-wrapper {
-            margin: 5px 0;
-            padding-left: 15px; /* Recuo para subpastas */
-        }
-
-        .folder-header {
-            background: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            border-left: 4px solid var(--secondary);
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        
+        .folder-wrapper { margin: 5px 0; padding-left: 15px; }
+        .folder-header { 
+            background: #fff; padding: 10px; border-radius: 5px; cursor: pointer; 
+            border-left: 4px solid var(--secondary); font-weight: bold; 
+            display: flex; align-items: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1); 
             user-select: none;
         }
-
-        .folder-content {
-            display: none; /* Começa fechado */
-            border-left: 1px dashed #ccc;
-            margin-left: 10px;
-        }
-
-        .file-link {
-            display: block;
-            margin: 3px 0 3px 20px;
-            color: var(--primary);
-            text-decoration: none;
-            padding: 6px;
-            background: #ebeef0;
-            border-radius: 4px;
-            font-size: 0.85rem;
-        }
+        .folder-content { display: none; border-left: 1px dashed #ccc; margin-left: 10px; }
+        
+        .file-link { display: block; margin: 3px 0 3px 20px; color: var(--primary); text-decoration: none; padding: 6px; background: #ebeef0; border-radius: 4px; font-size: 0.85rem; }
         .file-link:hover { background: #d5dbdf; }
+        .yt-link { background: #ffebee; color: #c0392b; border-left: 3px solid #c0392b; }
 
         /* Calculadora */
         #calc-container { width: 300px; background: var(--primary); color: white; padding: 20px; box-sizing: border-box; }
@@ -85,29 +43,17 @@
         <input type="text" id="calc-display" readonly placeholder="0">
         <div class="calc-grid">
             <button onclick="clearCalc()">C</button>
-            <button onclick="addChar('/')">/</button>
-            <button onclick="addChar('*')">*</button>
-            <button onclick="backspace()">⌫</button>
-            <button onclick="addChar('7')">7</button>
-            <button onclick="addChar('8')">8</button>
-            <button onclick="addChar('9')">9</button>
-            <button onclick="addChar('-')">-</button>
-            <button onclick="addChar('4')">4</button>
-            <button onclick="addChar('5')">5</button>
-            <button onclick="addChar('6')">6</button>
-            <button onclick="addChar('+')">+</button>
-            <button onclick="addChar('1')">1</button>
-            <button onclick="addChar('2')">2</button>
-            <button onclick="addChar('3')">3</button>
-            <button class="btn-equal" onclick="calculate()">=</button>
-            <button onclick="addChar('0')" style="grid-column: span 2;">0</button>
-            <button onclick="addChar('.')">.</button>
+            <button onclick="addChar('/')">/</button><button onclick="addChar('*')">*</button><button onclick="backspace()">⌫</button>
+            <button onclick="addChar('7')">7</button><button onclick="addChar('8')">8</button><button onclick="addChar('9')">9</button><button onclick="addChar('-')">-</button>
+            <button onclick="addChar('4')">4</button><button onclick="addChar('5')">5</button><button onclick="addChar('6')">6</button><button onclick="addChar('+')">+</button>
+            <button onclick="addChar('1')">1</button><button onclick="addChar('2')">2</button><button onclick="addChar('3')">3</button><button class="btn-equal" onclick="calculate()">=</button>
+            <button onclick="addChar('0')" style="grid-column: span 2;">0</button><button onclick="addChar('.')">.</button>
         </div>
     </div>
 
     <script>
         window.onload = function() {
-            fetch('dados.txt')
+            fetch('dados.txt?t=' + Date.now())
                 .then(res => res.text())
                 .then(data => {
                     const linhas = data.split('\n').map(l => l.trim()).filter(l => l && !l.startsWith("Pasta:"));
@@ -118,13 +64,12 @@
         function construirArvore(linhas) {
             const containerRaiz = document.getElementById('arvore-arquivos');
             containerRaiz.innerHTML = "";
-            
-            // Objeto para mapear os containers de cada caminho
             const caminhosSaves = { "": containerRaiz };
 
             linhas.forEach(linha => {
+                const eLink = linha.startsWith("[LINK]");
                 const eDiretorio = linha.startsWith("[DIR]");
-                const caminhoPuro = linha.replace("[DIR]", "").replace(/\\/g, '/');
+                const caminhoPuro = linha.replace("[DIR]", "").replace("[LINK]", "").replace(/\\/g, '/');
                 const partes = caminhoPuro.split('/');
                 
                 let caminhoAcumulado = "";
@@ -133,16 +78,14 @@
                     const pai = caminhoAcumulado;
                     caminhoAcumulado += (caminhoAcumulado ? "/" : "") + parte;
 
-                    // Se esse nível ainda não foi criado no HTML
                     if (!caminhosSaves[caminhoAcumulado]) {
                         if (eDiretorio || index < partes.length - 1) {
-                            // Criar Pasta
                             const wrapper = document.createElement('div');
                             wrapper.className = "folder-wrapper";
                             
                             const header = document.createElement('div');
                             header.className = "folder-header";
-                            header.innerHTML = "📁 " + parte;
+                            header.innerHTML = "<span>📁</span>&nbsp;" + parte;
                             
                             const content = document.createElement('div');
                             content.className = "folder-content";
@@ -150,8 +93,18 @@
                             header.onclick = (e) => {
                                 e.stopPropagation();
                                 const aberto = content.style.display === "block";
-                                content.style.display = aberto ? "none" : "block";
-                                header.innerHTML = (aberto ? "📁 " : "📂 ") + parte;
+                                
+                                if (aberto) {
+                                    // FECHAR: Esconde esta pasta e TODAS as subpastas dentro dela
+                                    content.style.display = "none";
+                                    header.querySelector('span').innerText = "📁";
+                                    content.querySelectorAll('.folder-content').forEach(sub => sub.style.display = "none");
+                                    content.querySelectorAll('.folder-header span').forEach(span => span.innerText = "📁");
+                                } else {
+                                    // ABRIR: Apenas esta pasta
+                                    content.style.display = "block";
+                                    header.querySelector('span').innerText = "📂";
+                                }
                             };
 
                             wrapper.appendChild(header);
@@ -159,12 +112,18 @@
                             caminhosSaves[pai].appendChild(wrapper);
                             caminhosSaves[caminhoAcumulado] = content;
                         } else {
-                            // Criar Arquivo
                             const a = document.createElement('a');
-                            a.className = "file-link";
-                            a.href = "Estudos/" + caminhoPuro;
+                            if (eLink) {
+                                const [nome, url] = parte.split('|');
+                                a.className = "file-link yt-link";
+                                a.href = url;
+                                a.innerHTML = "🎬 " + (nome || "Vídeo");
+                            } else {
+                                a.className = "file-link";
+                                a.href = "Estudos/" + caminhoPuro;
+                                a.innerText = "📄 " + parte;
+                            }
                             a.target = "_blank";
-                            a.innerText = "📄 " + parte;
                             caminhosSaves[pai].appendChild(a);
                         }
                     }
@@ -173,11 +132,11 @@
         }
 
         // Calculadora
-        const display = document.getElementById('calc-display');
-        function addChar(c) { display.value += c; }
-        function clearCalc() { display.value = ""; }
-        function backspace() { display.value = display.value.slice(0,-1); }
-        function calculate() { try { display.value = eval(display.value); } catch { display.value = "Erro"; } }
+        const disp = document.getElementById('calc-display');
+        function addChar(c) { disp.value += c; }
+        function clearCalc() { disp.value = ""; }
+        function backspace() { disp.value = disp.value.slice(0,-1); }
+        function calculate() { try { disp.value = eval(disp.value); } catch { disp.value = "Erro"; } }
     </script>
 </body>
 </html>
