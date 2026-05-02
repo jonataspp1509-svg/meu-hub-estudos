@@ -158,63 +158,65 @@
         let files = [];
 
         db.forEach(path => {
-            let cleanPath = path.startsWith("Estudos/") ? path.replace("Estudos/", "") : path;
+            // Limpa espaços extras que podem vir do dados.txt
+            let cleanPath = path.trim();
+            
+            // Remove "Estudos/" do início para a lógica de navegação
+            let displayPath = cleanPath.startsWith("Estudos/") ? cleanPath.replace("Estudos/", "") : cleanPath;
             
             if (currentPath === "") {
-                let parts = cleanPath.split('/');
-                if (parts.length > 1) folders.add(parts[0]);
-                else if (cleanPath.toLowerCase().includes('.pdf')) files.push({ name: cleanPath, full: path });
+                let parts = displayPath.split('/');
+                if (parts.length > 1) {
+                    folders.add(parts[0].trim());
+                } else if (displayPath.toLowerCase().endsWith('.pdf')) {
+                    files.push({ name: displayPath, full: cleanPath });
+                }
             } else {
-                if (cleanPath.startsWith(currentPath + "/")) {
-                    let relative = cleanPath.replace(currentPath + "/", "");
+                // Compara caminhos ignorando maiúsculas/minúsculas para evitar erros
+                if (displayPath.toLowerCase().startsWith(currentPath.toLowerCase() + "/")) {
+                    let relative = displayPath.substring(currentPath.length + 1);
                     let parts = relative.split('/');
-                    if (parts.length > 1) folders.add(parts[0]);
-                    else if (relative.toLowerCase().includes('.pdf')) files.push({ name: relative, full: path });
+                    if (parts.length > 1) {
+                        folders.add(parts[0].trim());
+                    } else if (relative.toLowerCase().endsWith('.pdf')) {
+                        files.push({ name: relative, full: cleanPath });
+                    }
                 }
             }
         });
 
+        // Renderiza as Pastas
         folders.forEach(f => {
             const div = document.createElement('div');
             div.className = 'item';
             div.innerHTML = `<div class="item-info"><i class="fas fa-folder icon-folder"></i><span>${f}</span></div><i class="fas fa-chevron-right" style="color:#cbd5e1"></i>`;
-            div.onclick = () => { currentPath = currentPath === "" ? f : currentPath + "/" + f; render(); };
+            div.onclick = () => { 
+                currentPath = currentPath === "" ? f : currentPath + "/" + f; 
+                render(); 
+            };
             container.appendChild(div);
         });
 
-       
+        // Renderiza os Arquivos
         files.forEach(file => {
             const a = document.createElement('a');
             a.className = 'item';
             
-            // --- ESTE É O TRECHO NOVO QUE CORRIGE O ERRO 404 ---
+            // Garante que o link comece com Estudos/ para o GitHub achar o PDF
             let linkFinal = file.full;
-            // Se o caminho no dados.txt não começar com "Estudos/", nós adicionamos
             if (!linkFinal.startsWith("Estudos/")) {
                 linkFinal = "Estudos/" + linkFinal;
             }
 
-            a.href = encodeURI(linkFinal); 
-            // --------------------------------------------------
-
+            a.href = encodeURI(linkFinal);
             a.target = "_blank";
             a.innerHTML = `<div class="item-info"><i class="fas fa-file-pdf icon-file"></i><span>${file.name}</span></div><i class="fas fa-external-link-alt" style="color:#cbd5e1; font-size:0.8rem"></i>`;
             container.appendChild(a);
         });
-
-    }
-
-    function updateBreadcrumb() {
-        const bc = document.getElementById('breadcrumb');
-        bc.innerHTML = `<span onclick="goToPath('')">Início</span>`;
-        if (currentPath !== "") {
-            let parts = currentPath.split('/');
-            let temp = "";
-            parts.forEach(p => {
-                temp += (temp === "" ? p : "/" + p);
-                const cap = temp;
-                bc.innerHTML += ` <i class="fas fa-chevron-right" style="font-size:0.7rem; color:#cbd5e1"></i> <span onclick="goToPath('${cap}')">${p}</span>`;
-            });
+        
+        // Se a pasta estiver vazia
+        if (container.innerHTML === "") {
+            container.innerHTML = "<p style='text-align:center; padding:20px; color:#94a3b8;'>Pasta vazia ou arquivos não encontrados.</p>";
         }
     }
 
