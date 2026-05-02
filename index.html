@@ -3,226 +3,301 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Hub de Estudos - Inteligente</title>
+    <title>Dashboard de Estudos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { 
-            --primary: #2c3e50; 
-            --secondary: #e67e22; 
-            --bg: #f4f7f6; 
-            --text: #333;
-        }
-        
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            margin: 0; 
-            display: flex; 
-            flex-direction: row; 
-            height: 100vh; 
-            background-color: var(--bg); 
-            color: var(--text);
+        :root {
+            --bg-body: #f0f2f5;
+            --sidebar-color: #ffffff;
+            --primary-color: #4a6cf7;
+            --text-main: #2d3436;
+            --card-bg: #ffffff;
+            --shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
-        @media (max-width: 768px) { 
-            body { flex-direction: column; height: auto; } 
-            #calc-container { width: 100% !important; border-top: 2px solid #ddd; } 
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            height: 100vh;
+            overflow: hidden;
         }
 
-        #main-content { flex: 1; padding: 25px; overflow-y: auto; }
-        
-        /* Estrutura de Pastas */
-        .folder-wrapper { margin: 8px 0; padding-left: 15px; }
-        
-        .folder-header { 
-            background: #fff; 
-            padding: 12px; 
-            border-radius: 6px; 
-            cursor: pointer; 
-            border-left: 5px solid var(--secondary); 
-            font-weight: 600; 
-            display: flex; 
-            align-items: center; 
-            box-shadow: 0 2px 4px rgba(0,0,0,0.08); 
-            transition: transform 0.2s;
-            user-select: none;
+        /* Menu Lateral (Abas estilo Colégio) */
+        nav {
+            width: 260px;
+            background: var(--sidebar-color);
+            border-right: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 0;
         }
-        .folder-header:hover { transform: translateX(5px); background: #fdfdfd; }
-        
-        .folder-content { 
-            display: none; 
-            border-left: 2px dashed #cbd5e0; 
-            margin-left: 12px; 
-            padding-top: 5px;
+
+        .brand {
+            padding: 0 25px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        
-        /* Links de Arquivos e Vídeos */
-        .file-link { 
-            display: block; 
-            margin: 5px 0 5px 25px; 
-            color: var(--primary); 
-            text-decoration: none; 
-            padding: 8px 12px; 
-            background: #e2e8f0; 
-            border-radius: 5px; 
-            font-size: 0.9rem;
-            transition: background 0.2s;
-        }
-        .file-link:hover { background: #cbd5e0; }
-        
-        .yt-link { 
-            background: #fff5f5; 
-            color: #c53030; 
-            border-left: 3px solid #f56565; 
+
+        .nav-item {
+            padding: 15px 25px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
             font-weight: 500;
+            color: #636e72;
+            transition: 0.3s;
         }
-        .yt-link:hover { background: #fed7d7; }
 
-        /* Calculadora Lateral */
-        #calc-container { width: 320px; background: var(--primary); color: white; padding: 25px; box-sizing: border-box; box-shadow: -2px 0 10px rgba(0,0,0,0.1); }
-        #calc-display { width: 100%; height: 60px; font-size: 1.8rem; text-align: right; margin-bottom: 15px; padding: 10px; border-radius: 8px; border: none; background: #34495e; color: #fff; box-sizing: border-box; }
+        .nav-item:hover, .nav-item.active {
+            background: #f1f3ff;
+            color: var(--primary-color);
+            border-right: 4px solid var(--primary-color);
+        }
+
+        /* Área de Conteúdo */
+        main {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.4s; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Estilo dos Cartões de Matéria (Grid) */
+        .grid-materias {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .folder-card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .folder-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 8px 20px rgba(74, 108, 247, 0.1);
+        }
+
+        .folder-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* Modal / Lista de Arquivos Interna */
+        .file-list {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .file-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px;
+            border-bottom: 1px solid #f1f1f1;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .file-item:hover { background: #fafafa; }
+
+        /* Calculadora Lateral (Agora dentro de uma aba) */
+        .calc-wrapper {
+            max-width: 400px;
+            margin: 0 auto;
+            background: #2d3436;
+            padding: 25px;
+            border-radius: 20px;
+            color: white;
+        }
+
+        .calc-display {
+            width: 100%;
+            height: 60px;
+            background: #1e272e;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            text-align: right;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
         .calc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-        button { padding: 18px 5px; border: none; border-radius: 8px; cursor: pointer; background: #4a5568; color: white; font-size: 1.1rem; font-weight: bold; transition: opacity 0.2s; }
-        button:hover { opacity: 0.8; }
-        .btn-equal { grid-column: span 2; background: #38a169; }
-        .btn-op { background: var(--secondary); }
+        .calc-grid button {
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: #4b6584;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .calc-grid button.op { background: #f39c12; }
+        .calc-grid button.eq { background: #27ae60; grid-column: span 2; }
+
     </style>
 </head>
 <body>
 
-    <div id="main-content">
-        <h1>📚 Hub de Estudos - 2026</h1>
-        <p>Acesse seus materiais de forma organizada e rápida.</p>
-        <hr style="opacity: 0.2; margin-bottom: 20px;">
-        <div id="arvore-arquivos">Carregando estrutura...</div>
-    </div>
-
-    <div id="calc-container">
-        <h3>🧮 Calculadora</h3>
-        <input type="text" id="calc-display" readonly placeholder="0">
-        <div class="calc-grid">
-            <button onclick="clearCalc()">C</button>
-            <button class="btn-op" onclick="addChar('/')">/</button>
-            <button class="btn-op" onclick="addChar('*')">*</button>
-            <button onclick="backspace()">⌫</button>
-            <button onclick="addChar('7')">7</button>
-            <button onclick="addChar('8')">8</button>
-            <button onclick="addChar('9')">9</button>
-            <button class="btn-op" onclick="addChar('-')">-</button>
-            <button onclick="addChar('4')">4</button>
-            <button onclick="addChar('5')">5</button>
-            <button onclick="addChar('6')">6</button>
-            <button class="btn-op" onclick="addChar('+')">+</button>
-            <button onclick="addChar('1')">1</button>
-            <button onclick="addChar('2')">2</button>
-            <button onclick="addChar('3')">3</button>
-            <button class="btn-equal" onclick="calculate()">=</button>
-            <button onclick="addChar('0')" style="grid-column: span 2;">0</button>
-            <button onclick="addChar('.')">.</button>
+    <nav>
+        <div class="brand"><i class="fas fa-graduation-cap"></i> Meu Hub</div>
+        <div class="nav-item active" onclick="switchTab('materias', this)">
+            <i class="fas fa-book-open"></i> Materiais
         </div>
-    </div>
+        <div class="nav-item" onclick="switchTab('ferramentas', this)">
+            <i class="fas fa-calculator"></i> Ferramentas
+        </div>
+        <div class="nav-item" onclick="window.open('https://pmais.p4ed.com/dashboard', '_blank')">
+            <i class="fas fa-link"></i> Portal Agostiniano
+        </div>
+    </nav>
+
+    <main>
+        <div id="materias" class="tab-content active">
+            <h2>📚 Meus Conteúdos</h2>
+            <div id="grid-folders" class="grid-materias">
+                Carregando matérias...
+            </div>
+            <div id="file-container" style="display:none;">
+                <button onclick="backToFolders()" style="margin-bottom:10px; cursor:pointer;">← Voltar</button>
+                <h3 id="current-folder-name">Matéria</h3>
+                <div id="file-list-inner" class="file-list"></div>
+            </div>
+        </div>
+
+        <div id="ferramentas" class="tab-content">
+            <h2>🧮 Calculadora Inteligente</h2>
+            <div class="calc-wrapper">
+                <input type="text" id="display" class="calc-display" readonly placeholder="0">
+                <div class="calc-grid">
+                    <button onclick="clearCalc()">C</button>
+                    <button class="op" onclick="add('/')">/</button>
+                    <button class="op" onclick="add('*')">*</button>
+                    <button onclick="backspace()">⌫</button>
+                    <button onclick="add('7')">7</button>
+                    <button onclick="add('8')">8</button>
+                    <button onclick="add('9')">9</button>
+                    <button class="op" onclick="add('-')">-</button>
+                    <button onclick="add('4')">4</button>
+                    <button onclick="add('5')">5</button>
+                    <button onclick="add('6')">6</button>
+                    <button class="op" onclick="add('+')">+</button>
+                    <button onclick="add('1')">1</button>
+                    <button onclick="add('2')">2</button>
+                    <button onclick="add('3')">3</button>
+                    <button class="eq" onclick="exec()">=</button>
+                    <button onclick="add('0')" style="grid-column: span 2;">0</button>
+                    <button onclick="add('.')">.</button>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <script>
-        // Evita cache ao carregar o arquivo de dados
+        // Troca de Abas
+        function switchTab(tabId, el) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            el.classList.add('active');
+        }
+
+        // Lógica de Carregamento de Dados (Dashboard)
+        let dadosOriginais = [];
+
         window.onload = function() {
             fetch('dados.txt?t=' + Date.now())
                 .then(res => res.text())
-                .then(data => {
-                    const linhas = data.split('\n')
-                                       .map(l => l.trim())
-                                       .filter(l => l && !l.startsWith("Pasta:"));
-                    construirArvore(linhas);
+                .then(text => {
+                    dadosOriginais = text.split('\n').filter(l => l.trim() !== "");
+                    renderFolders();
                 });
         };
 
-        function construirArvore(linhas) {
-            const containerRaiz = document.getElementById('arvore-arquivos');
-            containerRaiz.innerHTML = "";
-            const caminhosSaves = { "": containerRaiz };
+        function renderFolders() {
+            const grid = document.getElementById('grid-folders');
+            const fileContainer = document.getElementById('file-container');
+            grid.style.display = "grid";
+            fileContainer.style.display = "none";
+            grid.innerHTML = "";
 
-            linhas.forEach(linha => {
-                const eLink = linha.startsWith("[LINK]");
-                const eDiretorio = linha.startsWith("[DIR]");
-                
-                // Limpa o prefixo e normaliza barras
-                const caminhoPuro = linha.replace("[DIR]", "").replace("[LINK]", "").replace(/\\/g, '/');
-                const partes = caminhoPuro.split('/');
-                
-                let caminhoAcumulado = "";
-                
-                partes.forEach((parte, index) => {
-                    const pai = caminhoAcumulado;
-                    caminhoAcumulado += (caminhoAcumulado ? "/" : "") + parte;
+            // Pegamos apenas as matérias principais (primeiro nível de pasta)
+            let materias = new Set();
+            dadosOriginais.forEach(linha => {
+                const caminho = linha.replace("[DIR]", "").replace("[ARQ]", "").replace(/\\/g, '/');
+                const partes = caminho.split('/');
+                if(partes[0]) materias.add(partes[0]);
+            });
 
-                    if (!caminhosSaves[caminhoAcumulado]) {
-                        // Se for diretório ou se não for a última parte do caminho (é uma pasta pai)
-                        if (eDiretorio || index < partes.length - 1) {
-                            const wrapper = document.createElement('div');
-                            wrapper.className = "folder-wrapper";
-                            
-                            const header = document.createElement('div');
-                            header.className = "folder-header";
-                            header.innerHTML = "<span class='icon'>📁</span>&nbsp;" + parte;
-                            
-                            const content = document.createElement('div');
-                            content.className = "folder-content";
-                            
-                            header.onclick = (e) => {
-                                e.stopPropagation();
-                                const estaAberto = content.style.display === "block";
-                                
-                                if (estaAberto) {
-                                    // FECHAR: Esconde esta e TODAS as subpastas
-                                    content.style.display = "none";
-                                    header.querySelector('.icon').innerText = "📁";
-                                    content.querySelectorAll('.folder-content').forEach(sub => sub.style.display = "none");
-                                    content.querySelectorAll('.folder-header .icon').forEach(i => i.innerText = "📁");
-                                } else {
-                                    // ABRIR: Apenas esta pasta
-                                    content.style.display = "block";
-                                    header.querySelector('.icon').innerText = "📂";
-                                }
-                            };
-
-                            wrapper.appendChild(header);
-                            wrapper.appendChild(content);
-                            caminhosSaves[pai].appendChild(wrapper);
-                            caminhosSaves[caminhoAcumulado] = content;
-                        } else {
-                            // É UM ARQUIVO OU LINK
-                            const a = document.createElement('a');
-                            if (eLink) {
-                                // Formato esperado: [LINK]Nome do Video|URL
-                                const [nome, url] = parte.split('|');
-                                a.className = "file-link yt-link";
-                                a.href = url || "#";
-                                a.innerHTML = "🎬 " + (nome || "Vídeo");
-                            } else {
-                                a.className = "file-link";
-                                // EncodeURI trata espaços e acentos no link do PDF
-                                a.href = "Estudos/" + encodeURI(caminhoPuro);
-                                a.innerText = "📄 " + parte;
-                            }
-                            a.target = "_blank";
-                            caminhosSaves[pai].appendChild(a);
-                        }
-                    }
-                });
+            materias.forEach(mat => {
+                const card = document.createElement('div');
+                card.className = 'folder-card';
+                card.innerHTML = `<i class="fas fa-folder"></i><strong>${mat}</strong>`;
+                card.onclick = () => showFiles(mat);
+                grid.appendChild(card);
             });
         }
 
-        // Lógica da Calculadora
-        const disp = document.getElementById('calc-display');
-        function addChar(c) { disp.value += c; }
-        function clearCalc() { disp.value = ""; }
-        function backspace() { disp.value = disp.value.slice(0,-1); }
-        function calculate() { 
-            try { 
-                // eval é seguro aqui pois o input é apenas via botões
-                disp.value = eval(disp.value); 
-            } catch { 
-                disp.value = "Erro"; 
-                setTimeout(clearCalc, 1500);
-            } 
+        function showFiles(materia) {
+            const grid = document.getElementById('grid-folders');
+            const fileContainer = document.getElementById('file-container');
+            const inner = document.getElementById('file-list-inner');
+            
+            grid.style.display = "none";
+            fileContainer.style.display = "block";
+            document.getElementById('current-folder-name').innerText = materia;
+            inner.innerHTML = "";
+
+            dadosOriginais.forEach(linha => {
+                if(linha.includes(materia) && !linha.includes("[DIR]")) {
+                    const caminhoPuro = linha.replace("[ARQ]", "").trim();
+                    const nomeArq = caminhoPuro.split('/').pop();
+                    const link = document.createElement('a');
+                    link.className = "file-item";
+                    link.href = "Estudos/" + encodeURI(caminhoPuro);
+                    link.target = "_blank";
+                    link.innerHTML = `<span><i class="far fa-file-pdf"></i> ${nomeArq}</span> <i class="fas fa-external-link-alt"></i>`;
+                    inner.appendChild(link);
+                }
+            });
         }
+
+        function backToFolders() { renderFolders(); }
+
+        // Calculadora
+        const disp = document.getElementById('display');
+        function add(c) { disp.value += c; }
+        function clearCalc() { disp.value = ""; }
+        function backspace() { disp.value = disp.value.slice(0, -1); }
+        function exec() { try { disp.value = eval(disp.value); } catch { disp.value = "Erro"; } }
     </script>
 </body>
 </html>
