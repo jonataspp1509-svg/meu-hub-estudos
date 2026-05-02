@@ -10,7 +10,7 @@
         body { font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; background: var(--bg); height: 100vh; overflow: hidden; }
         
         nav { width: 250px; background: white; border-right: 1px solid #ddd; display: flex; flex-direction: column; padding: 20px 0; }
-        .nav-item { padding: 15px 25px; cursor: pointer; font-weight: 500; color: #666; transition: 0.3s; }
+        .nav-item { padding: 15px 25px; cursor: pointer; font-weight: 500; color: #666; transition: 0.3s; display: flex; align-items: center; gap: 10px; }
         .nav-item.active { background: #f1f3ff; color: var(--primary); border-right: 4px solid var(--primary); }
         
         main { flex: 1; padding: 40px; overflow-y: auto; }
@@ -25,13 +25,12 @@
         .file-list { background: white; border-radius: 15px; padding: 10px; margin-top: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .file-item { display: flex; align-items: center; justify-content: space-between; padding: 15px; border-bottom: 1px solid #f1f1f1; text-decoration: none; color: #333; }
         .file-item:hover { background: #fafafa; }
-        .sub-label { font-size: 0.75rem; color: #999; text-transform: uppercase; letter-spacing: 1px; }
+        .sub-label { font-size: 0.7rem; color: #4a6cf7; font-weight: bold; text-transform: uppercase; margin-bottom: 4px; }
 
-        /* Calculadora */
         .calc-box { max-width: 350px; margin: 0 auto; background: #2d3436; padding: 20px; border-radius: 20px; }
-        .display { width: 100%; height: 50px; background: #1e272e; border: none; color: white; font-size: 1.5rem; text-align: right; padding: 10px; border-radius: 10px; margin-bottom: 15px; }
+        .display { width: 100%; height: 50px; background: #1e272e; border: none; color: white; font-size: 1.5rem; text-align: right; padding: 10px; border-radius: 10px; margin-bottom: 15px; box-sizing: border-box; }
         .btns { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-        .btns button { padding: 15px; border: none; border-radius: 8px; background: #4b6584; color: white; cursor: pointer; font-weight: bold; }
+        .btns button { padding: 15px; border: none; border-radius: 8px; background: #4b6584; color: white; cursor: pointer; font-weight: bold; font-size: 1.1rem; }
         .btns .op { background: #f39c12; }
         .btns .eq { background: #27ae60; grid-column: span 2; }
     </style>
@@ -39,17 +38,17 @@
 <body>
 
     <nav>
-        <div style="padding: 0 25px 20px; font-weight: bold; color: var(--primary);">STUDY HUB</div>
-        <div class="nav-item active" onclick="switchTab('materias', this)">📂 Materiais</div>
-        <div class="nav-item" onclick="switchTab('ferramentas', this)">🧮 Calculadora</div>
+        <div style="padding: 0 25px 20px; font-weight: bold; color: var(--primary); font-size: 1.2rem;">STUDY HUB</div>
+        <div class="nav-item active" onclick="switchTab('materias', this)"><i class="fas fa-folder"></i> Materiais</div>
+        <div class="nav-item" onclick="switchTab('ferramentas', this)"><i class="fas fa-calculator"></i> Calculadora</div>
     </nav>
 
     <main>
         <div id="materias" class="tab-content active">
             <h2 id="view-title">Minhas Matérias</h2>
-            <div id="grid" class="grid-materias">Carregando...</div>
+            <div id="grid" class="grid-materias">Carregando conteúdo...</div>
             <div id="files-view" style="display:none;">
-                <button onclick="renderFolders()" style="padding: 10px; cursor: pointer; margin-bottom: 20px;">← Voltar</button>
+                <button onclick="renderFolders()" style="padding: 10px 20px; cursor: pointer; margin-bottom: 20px; border-radius: 8px; border: 1px solid #ddd; background: white;">← Voltar para Matérias</button>
                 <div id="list" class="file-list"></div>
             </div>
         </div>
@@ -57,7 +56,7 @@
         <div id="ferramentas" class="tab-content">
             <h2>Calculadora</h2>
             <div class="calc-box">
-                <input type="text" id="res" class="display" readonly>
+                <input type="text" id="res" class="display" readonly placeholder="0">
                 <div class="btns">
                     <button onclick="cl()">C</button>
                     <button class="op" onclick="v('/')">/</button>
@@ -96,10 +95,26 @@
             fetch('dados.txt?v=' + Date.now())
                 .then(r => r.text())
                 .then(t => {
-                    rawData = t.split('\n').filter(l => l.includes('/')).map(l => l.replace(/\\/g, '/'));
+                    // Limpa e padroniza os dados do arquivo
+                    rawData = t.split('\n')
+                               .map(l => l.trim())
+                               .filter(l => l !== "");
                     renderFolders();
+                })
+                .catch(err => {
+                    document.getElementById('grid').innerHTML = "Erro ao carregar dados.txt";
                 });
         };
+
+        function getCleanPath(line) {
+            // Remove prefixos e a pasta raiz 'Estudos/' se ela existir
+            return line.replace("[DIR]", "")
+                       .replace("[ARQ]", "")
+                       .replace("Pasta:", "")
+                       .replace(/\\/g, '/')
+                       .replace(/^Estudos\//, '') 
+                       .trim();
+        }
 
         function renderFolders() {
             const grid = document.getElementById('grid');
@@ -111,10 +126,10 @@
 
             let subjects = new Set();
             rawData.forEach(l => {
-                let p = l.replace("[DIR]", "").replace("[ARQ]", "").trim();
-                if(p.startsWith("Estudos/")) p = p.replace("Estudos/", "");
+                let p = getCleanPath(l);
                 let parts = p.split('/');
-                if(parts[0] && parts[0] !== "Estudos") subjects.add(parts[0]);
+                // A primeira parte após o 'Estudos/' é a matéria
+                if(parts[0]) subjects.add(parts[0]);
             });
 
             subjects.forEach(s => {
@@ -129,35 +144,43 @@
         function showFiles(sub) {
             document.getElementById('grid').style.display = "none";
             document.getElementById('files-view').style.display = "block";
-            document.getElementById('view-title').innerText = "Arquivos: " + sub;
+            document.getElementById('view-title').innerText = "Matéria: " + sub;
             const list = document.getElementById('list');
             list.innerHTML = "";
 
             rawData.forEach(l => {
-                if(l.includes(`/${sub}/`) && l.includes("[ARQ]")) {
-                    let path = l.replace("[ARQ]", "").trim();
-                    let parts = path.split('/');
-                    let name = parts.pop();
-                    // Cria a etiqueta da subpasta (ex: Croti > 1P)
-                    let subPath = parts.slice(parts.indexOf(sub) + 1).join(' ❯ ');
+                let fullPath = l.replace("[ARQ]", "").replace("[DIR]", "").replace("Pasta:", "").replace(/\\/g, '/').trim();
+                let cleanPath = getCleanPath(l);
+                
+                // Se o caminho limpo começa com a matéria selecionada e é um ARQUIVO
+                if(cleanPath.startsWith(sub + "/") && l.includes("[ARQ]")) {
+                    let parts = cleanPath.split('/');
+                    let fileName = parts.pop();
+                    
+                    // Subpastas são tudo o que sobrou entre a matéria e o arquivo
+                    let subInfo = parts.slice(1).join(' ❯ ');
                     
                     const item = document.createElement('a');
                     item.className = "file-item";
-                    item.href = encodeURI(path);
+                    item.href = encodeURI(fullPath);
                     item.target = "_blank";
                     item.innerHTML = `
                         <div>
-                            ${subPath ? `<div class="sub-label">${subPath}</div>` : ''}
-                            <span><i class="far fa-file-pdf"></i> ${name}</span>
+                            ${subInfo ? `<div class="sub-label">${subInfo}</div>` : ''}
+                            <span><i class="far fa-file-pdf"></i> ${fileName}</span>
                         </div>
                         <i class="fas fa-external-link-alt"></i>
                     `;
                     list.appendChild(item);
                 }
             });
+
+            if(list.innerHTML === "") {
+                list.innerHTML = "<div style='padding:20px; color:#666;'>Nenhum arquivo encontrado aqui.</div>";
+            }
         }
 
-        // Calc
+        // Funções da Calculadora
         const r = document.getElementById('res');
         function v(n) { r.value += n; }
         function cl() { r.value = ""; }
