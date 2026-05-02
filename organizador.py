@@ -170,7 +170,7 @@ def organizar_automatico():
                         subprocess.run(f'git commit -m "Auto-update: {arquivo}"', shell=True)
                         
                         # Tenta mandar para o GitHub
-                        result = subprocess.run("git push origin principal", shell=True)
+                        result = subprocess.run("git push origin master", shell=True)
                         if result.returncode != 0:
                             subprocess.run("git push origin master", shell=True)
                         
