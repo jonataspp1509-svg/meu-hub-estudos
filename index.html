@@ -103,115 +103,125 @@
 
     async function start() {
         try {
+            // O ?v= garante que o navegador não use uma versão velha (cache) do arquivo
             const response = await fetch('dados.txt?v=' + Date.now());
             const text = await response.text();
-            db = text.split('\n').filter(l => l.trim() !== "").map(l => {
-                return l.replace(/\\/g, '/').replace("[ARQ]", "").replace("[DIR]", "").replace("Pasta:", "").trim();
-            });
+            
+            // Transforma o texto em uma lista de caminhos limpos
+            db = text.split('\n')
+                .map(linha => linha.trim())
+                .filter(linha => linha !== "" && !linha.includes("Pasta:"));
+            
             render();
-        } catch(e) { console.error("Erro:", e); }
+        } catch (e) {
+            console.error("Erro ao carregar o arquivo de dados:", e);
+        }
     }
 
     function render() {
-    const container = document.getElementById('list-container');
-    if(!container) return;
-    container.innerHTML = "";
-    updateBreadcrumb();
+        const container = document.getElementById('list-container');
+        if (!container) return;
+        container.innerHTML = "";
+        updateBreadcrumb();
 
-    let folders = new Set();
-    let files = [];
+        let pastasEncontradas = new Set();
+        let arquivosEncontrados = [];
 
-    // Função para limpar nomes e remover acentos na comparação
-    const normalizar = (txt) => txt.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
-
-    db.forEach(path => {
-        // 1. Limpa a linha e garante que use barras normais /
-        let cleanLine = path.replace(/\\/g, '/').trim();
-        
-        // 2. Divide o caminho para limpar espaços de cada pasta individualmente
-        // Ex: "História / Celcio / arquivo.pdf" -> ["História", "Celcio", "arquivo.pdf"]
-        let partsRaw = cleanLine.split('/').map(p => p.trim()).filter(p => p !== "");
-        
-        // 3. Reconstrói o caminho limpo
-        let displayLine = partsRaw[0] === "Estudos" ? partsRaw.slice(1).join('/') : partsRaw.join('/');
-        let fullPath = partsRaw[0] === "Estudos" ? partsRaw.join('/') : "Estudos/" + partsRaw.join('/');
-        
-        const extensoes = ['.pdf', '.docx', '.pptx', '.doc', '.ppt', '.jpg', '.png'];
-        const ehArquivo = extensoes.some(ext => displayLine.toLowerCase().endsWith(ext));
-
-        let currentPathNorm = normalizar(currentPath);
-
-        if (currentPath === "") {
-            let parts = displayLine.split('/');
-            if (parts.length > 1) {
-                folders.add(parts[0]);
-            } else if (ehArquivo) {
-                files.push({ name: displayLine, full: fullPath });
-            }
-        } else {
-            let displayPathNorm = normalizar(displayLine);
-            if (displayPathNorm.startsWith(currentPathNorm + "/")) {
-                let relative = displayLine.substring(displayLine.toLowerCase().indexOf(currentPathNorm) + currentPath.length + 1);
-                let p = relative.split('/');
-                if (p.length > 1) {
-                    folders.add(p[0]);
-                } else if (ehArquivo) {
-                    files.push({ name: relative, full: fullPath });
+        db.forEach(caminhoBruto => {
+            // 1. Padroniza barras e remove o "Estudos/" do início para calcular a navegação
+            let caminho = caminhoBruto.replace(/\\/g, '/');
+            let caminhoSemRaiz = caminho.startsWith("Estudos/") ? caminho.replace("Estudos/", "") : caminho;
+            
+            // 2. Verifica se o item pertence à pasta onde o usuário está agora
+            if (currentPath === "") {
+                // Estamos na raiz
+                let partes = caminhoSemRaiz.split('/');
+                if (partes.length > 1) {
+                    pastasEncontradas.add(partes[0].trim());
+                } else {
+                    arquivosEncontrados.push({ nome: partes[0], link: caminho });
+                }
+            } else {
+                // Estamos dentro de alguma pasta
+                if (caminhoSemRaiz.startsWith(currentPath + "/")) {
+                    let resto = caminhoSemRaiz.substring(currentPath.length + 1);
+                    let partes = resto.split('/');
+                    if (partes.length > 1) {
+                        pastasEncontradas.add(partes[0].trim());
+                    } else {
+                        arquivosEncontrados.push({ nome: partes[0], link: caminho });
+                    }
                 }
             }
+        });
+
+        // Criar as Pastas na tela
+        pastasEncontradas.forEach(nomePasta => {
+            const div = document.createElement('div');
+            div.className = 'item';
+            div.innerHTML = `
+                <div class="item-info">
+                    <i class="fas fa-folder icon-folder"></i>
+                    <span>${nomePasta}</span>
+                </div>
+                <i class="fas fa-chevron-right" style="color:#cbd5e1"></i>`;
+            div.onclick = () => {
+                currentPath = (currentPath === "") ? nomePasta : currentPath + "/" + nomePasta;
+                render();
+            };
+            container.appendChild(div);
+        });
+
+        // Criar os Arquivos na tela
+        arquivosEncontrados.forEach(arq => {
+            const a = document.createElement('a');
+            a.className = 'item';
+            a.target = "_blank";
+            
+            // O segredo do link: codifica o caminho parte por parte para o GitHub entender
+            let linkFinal = arq.link.split('/').map(p => encodeURIComponent(p.trim())).join('/');
+            a.href = linkFinal.startsWith("Estudos") ? linkFinal : "Estudos/" + linkFinal;
+
+            // Define o ícone
+            let icone = "fa-file-pdf";
+            if (arq.nome.toLowerCase().includes(".doc")) icone = "fa-file-word";
+            if (arq.nome.toLowerCase().includes(".ppt")) icone = "fa-file-powerpoint";
+
+            a.innerHTML = `
+                <div class="item-info">
+                    <i class="fas ${icone} icon-file"></i>
+                    <span>${arq.nome}</span>
+                </div>
+                <i class="fas fa-external-link-alt" style="color:#cbd5e1; font-size:0.8rem"></i>`;
+            container.appendChild(a);
+        });
+
+        if (container.innerHTML === "") {
+            container.innerHTML = "<p style='text-align:center; padding:20px; color:#94a3b8;'>Nenhum arquivo nesta pasta.</p>";
         }
-    });
-
-    // Renderizar Pastas
-    folders.forEach(f => {
-        const div = document.createElement('div');
-        div.className = 'item';
-        div.innerHTML = `<div class="item-info"><i class="fas fa-folder icon-folder"></i><span>${f}</span></div><i class="fas fa-chevron-right"></i>`;
-        div.onclick = () => { currentPath = currentPath === "" ? f : currentPath + "/" + f; render(); };
-        container.appendChild(div);
-    });
-
-    // Renderizar Arquivos
-    files.forEach(file => {
-        const a = document.createElement('a');
-        a.className = 'item';
-        
-        // O segredo está aqui: encodeURIComponent em cada parte do caminho separadamente
-        let linkSeguro = file.full.split('/').map(part => encodeURIComponent(part.trim())).join('/');
-
-        let icone = "fa-file-pdf";
-        if (file.name.toLowerCase().includes(".doc")) icone = "fa-file-word";
-        if (file.name.toLowerCase().includes(".ppt")) icone = "fa-file-powerpoint";
-        if (file.name.toLowerCase().match(/\.(jpg|png)$/)) icone = "fa-file-image";
-
-        a.href = linkSeguro;
-        a.target = "_blank";
-        a.innerHTML = `<div class="item-info"><i class="fas ${icone} icon-file"></i><span>${file.name}</span></div><i class="fas fa-external-link-alt"></i>`;
-        container.appendChild(a);
-    });
-
-    if (container.innerHTML === "") {
-        container.innerHTML = "<p style='text-align:center;color:#94a3b8;padding:20px;'>Pasta vazia ou arquivos não suportados.</p>";
     }
-}
 
     function updateBreadcrumb() {
         const bc = document.getElementById('breadcrumb');
-        if(!bc) return;
+        if (!bc) return;
         bc.innerHTML = `<span onclick="goToPath('')">Início</span>`;
+        
         if (currentPath !== "") {
-            let parts = currentPath.split('/');
-            let temp = "";
-            parts.forEach(p => {
-                temp += (temp === "" ? p : "/" + p);
-                const cap = temp;
-                bc.innerHTML += ` <i class="fas fa-chevron-right" style="font-size:0.7rem; opacity:0.5"></i> <span onclick="goToPath('${cap}')">${p}</span>`;
+            let acumulado = "";
+            currentPath.split('/').forEach(parte => {
+                acumulado = (acumulado === "") ? parte : acumulado + "/" + parte;
+                const caminhoParaIr = acumulado;
+                bc.innerHTML += ` <i class="fas fa-chevron-right" style="font-size:0.7rem; color:#cbd5e1"></i> `;
+                bc.innerHTML += `<span onclick="goToPath('${caminhoParaIr}')">${parte}</span>`;
             });
         }
     }
 
-    function goToPath(p) { currentPath = p; render(); }
-    
+    function goToPath(p) {
+        currentPath = p;
+        render();
+    }
+
     function changeTab(id, el) {
         document.getElementById('materiais').classList.toggle('hidden', id !== 'materiais');
         document.getElementById('calculadora').classList.toggle('hidden', id !== 'calculadora');
@@ -219,14 +229,18 @@
         el.classList.add('active');
     }
 
-    // Calculadora
-    const s = document.getElementById('scr');
-    function ins(v) { s.value += v; }
-    function clr() { s.value = ""; }
-    function bk() { s.value = s.value.slice(0, -1); }
-    function res() { try { s.value = eval(s.value); } catch { s.value = "Erro"; } }
+    // Funções da Calculadora
+    const display = document.getElementById('scr');
+    function ins(v) { display.value += v; }
+    function clr() { display.value = ""; }
+    function bk() { display.value = display.value.slice(0, -1); }
+    function res() {
+        try { display.value = eval(display.value); } 
+        catch { display.value = "Erro"; }
+    }
 
     start();
 </script>
+
 </body>
 </html>
