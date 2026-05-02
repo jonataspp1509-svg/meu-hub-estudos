@@ -112,52 +112,81 @@
         } catch(e) { console.error("Erro:", e); }
     }
 
-    function render() {
-        const container = document.getElementById('list-container');
-        if(!container) return;
-        container.innerHTML = "";
-        updateBreadcrumb();
+   function render() {
+    const container = document.getElementById('list-container');
+    if(!container) return;
+    container.innerHTML = "";
+    updateBreadcrumb();
 
-        let folders = new Set();
-        let files = [];
+    let folders = new Set();
+    let files = [];
 
-        db.forEach(path => {
-            let cleanPath = path.startsWith("Estudos/") ? path.replace("Estudos/", "") : path;
-            
-            if (currentPath === "") {
-                let parts = cleanPath.split('/');
-                if (parts.length > 1) folders.add(parts[0]);
-                else if (cleanPath.toLowerCase().endsWith('.pdf')) files.push({ name: cleanPath, full: path });
-            } else {
-                if (cleanPath.toLowerCase().startsWith(currentPath.toLowerCase() + "/")) {
-                    let relative = cleanPath.substring(currentPath.length + 1);
-                    let parts = relative.split('/');
-                    if (parts.length > 1) folders.add(parts[0]);
-                    else if (relative.toLowerCase().endsWith('.pdf')) files.push({ name: relative, full: path });
+    // Função interna para normalizar nomes (remove acentos e espaços extras)
+    const normalizar = (txt) => txt.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+
+    db.forEach(path => {
+        // Limpa a linha de prefixos e barras malucas
+        let cleanLine = path.replace("[DIR]", "").replace("[ARQ]", "").replace("[LINK]", "").trim();
+        
+        // Garante que o caminho comece com Estudos/ para o link funcionar
+        let fullPath = cleanLine.startsWith("Estudos/") ? cleanLine : "Estudos/" + cleanLine;
+        
+        // Caminho sem o "Estudos/" para a lógica de pastas
+        let displayPath = fullPath.replace("Estudos/", "");
+        
+        const extensoes = ['.pdf', '.docx', '.pptx', '.doc', '.ppt'];
+        const ehArquivo = extensoes.some(ext => displayPath.toLowerCase().endsWith(ext));
+
+        let currentPathNorm = normalizar(currentPath);
+
+        if (currentPath === "") {
+            let parts = displayPath.split('/');
+            if (parts.length > 1) {
+                folders.add(parts[0].trim());
+            } else if (ehArquivo) {
+                files.push({ name: displayPath, full: fullPath });
+            }
+        } else {
+            // Compara os caminhos de forma normalizada (ignora acentos)
+            if (normalizar(displayPath).startsWith(currentPathNorm + "/")) {
+                let relative = displayPath.substring(displayPath.toLowerCase().indexOf(currentPathNorm) + currentPath.length + 1);
+                let parts = relative.split('/');
+                if (parts.length > 1) {
+                    folders.add(parts[0].trim());
+                } else if (ehArquivo) {
+                    files.push({ name: relative, full: fullPath });
                 }
             }
-        });
+        }
+    });
 
-        folders.forEach(f => {
-            const div = document.createElement('div');
-            div.className = 'item';
-            div.innerHTML = `<div class="item-info"><i class="fas fa-folder icon-folder"></i><span>${f}</span></div><i class="fas fa-chevron-right"></i>`;
-            div.onclick = () => { currentPath = currentPath === "" ? f : currentPath + "/" + f; render(); };
-            container.appendChild(div);
-        });
+    // Renderizar Pastas
+    folders.forEach(f => {
+        const div = document.createElement('div');
+        div.className = 'item';
+        div.innerHTML = `<div class="item-info"><i class="fas fa-folder icon-folder"></i><span>${f}</span></div><i class="fas fa-chevron-right"></i>`;
+        div.onclick = () => { currentPath = currentPath === "" ? f : currentPath + "/" + f; render(); };
+        container.appendChild(div);
+    });
 
-        files.forEach(file => {
-            const a = document.createElement('a');
-            a.className = 'item';
-            let linkFinal = file.full.startsWith("Estudos/") ? file.full : "Estudos/" + file.full;
-            a.href = encodeURI(linkFinal);
-            a.target = "_blank";
-            a.innerHTML = `<div class="item-info"><i class="fas fa-file-pdf icon-file"></i><span>${file.name}</span></div><i class="fas fa-external-link-alt"></i>`;
-            container.appendChild(a);
-        });
+    // Renderizar Arquivos
+    files.forEach(file => {
+        const a = document.createElement('a');
+        a.className = 'item';
+        let icone = "fa-file-pdf";
+        if (file.name.toLowerCase().includes(".doc")) icone = "fa-file-word";
+        if (file.name.toLowerCase().includes(".ppt")) icone = "fa-file-powerpoint";
 
-        if (container.innerHTML === "") container.innerHTML = "<p style='text-align:center;color:#94a3b8;padding:20px;'>Pasta vazia.</p>";
+        a.href = encodeURI(file.full);
+        a.target = "_blank";
+        a.innerHTML = `<div class="item-info"><i class="fas ${icone} icon-file"></i><span>${file.name}</span></div><i class="fas fa-external-link-alt"></i>`;
+        container.appendChild(a);
+    });
+
+    if (container.innerHTML === "") {
+        container.innerHTML = "<p style='text-align:center;color:#94a3b8;padding:20px;'>Nenhum item compatível encontrado nesta pasta.</p>";
     }
+}
 
     function updateBreadcrumb() {
         const bc = document.getElementById('breadcrumb');
