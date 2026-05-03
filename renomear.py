@@ -22,8 +22,12 @@ def limpar_nome(nome):
     return nome
 
 def renomear_pasta(caminho_base):
-    # Caminha de baixo pra cima (IMPORTANTE pra não quebrar caminhos)
+    
+    print("Rodando script...")
+
     for raiz, dirs, files in os.walk(caminho_base, topdown=False):
+
+        print("Entrou na pasta:", raiz)
 
         # Renomeia arquivos
         for nome in files:
@@ -46,6 +50,6 @@ def renomear_pasta(caminho_base):
                 os.rename(caminho_antigo, caminho_novo)
 
 # 🔧 COLOQUE AQUI O CAMINHO DA SUA PASTA
-pasta = r"C:\Users\jonatas\Downloads\Projeto jojo\Estudos"
+pasta = r"C:\Users\DELL\Downloads\Projeto jojo\Estudos"
 
 renomear_pasta(pasta)

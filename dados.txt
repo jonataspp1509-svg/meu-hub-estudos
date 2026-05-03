@@ -1,326 +1,176 @@
-Pasta:Estudos
-[DIR]Biologia
-[DIR]Biologia/Croti
-[DIR]Biologia/Croti/1P
-[DIR]Biologia/Croti/1P/2EM - RECUPERAÇÃO
-[DIR]Biologia/Croti/1P/2EM - RECUPERAÇÃO/2EM - 1º PERÍODO
-Biologia/Croti/1P/2EM - RECUPERAÇÃO/2EM - 1º PERÍODO/REC 01 - Ciclo Celular, Mitose e Meiose - gabarito.pdf
-Biologia/Croti/1P/2EM - RECUPERAÇÃO/2EM - 1º PERÍODO/REC 02 - Replicação e Transcrição do DNA - Ciclos Reprodutivos - gabarito.pdf
-Biologia/Croti/1P/Aula 01 - Biodiversidade.pdf
-Biologia/Croti/1P/Aula 02 - Algas microscópicas.pdf
-Biologia/Croti/1P/Aula 03 - Algas Macroscópicas.pdf
-Biologia/Croti/1P/Aula 04 - Ciclos Reprodutivos.pdf
-Biologia/Croti/1P/Aula 05 - Archaeplastida.pdf
-Biologia/Croti/1P/Aula 06 - Agrupamentos.pdf
-Biologia/Croti/1P/Aula 07 - Briófitas - Ciclo Reprodutivo - Gabarito.pdf
-Biologia/Croti/1P/Aula 07 - Briófitas - Ciclo Reprodutivo.pdf
-Biologia/Croti/1P/Aula 07 - Briófitas.pdf
-Biologia/Croti/1P/Aula 08 - Pteridófitas - Ciclo Reprodutivo - Gabarito.pdf
-Biologia/Croti/1P/Aula 08 - Pteridófitas - Ciclo Reprodutivo.pdf
-Biologia/Croti/1P/Aula 08 - Pteridófitas.pdf
-[DIR]Biologia/Croti/2P
-Biologia/Croti/2P/Aula 09 - Gimnospermas - Ciclo Reprodutivo - Gabarito.pdf
-Biologia/Croti/2P/Aula 09 - Gimnospermas - Ciclo Reprodutivo.pdf
-Biologia/Croti/2P/Aula 09 - Gimnospermas.pdf
-Biologia/Croti/2P/Aula 10 - Angiospermas - Ciclo Reprodutivo - Gabarito.pdf
-Biologia/Croti/2P/Aula 10 - Angiospermas - Ciclo Reprodutivo.pdf
-Biologia/Croti/2P/Aula 10 - Angiospermas.pdf
-Biologia/Croti/2P/Aula 11 - Angiospermas (Monocotiledôneas e Dicotiledôneas).pdf
-[DIR]Biologia/Croti/3P
-[DIR]Biologia/Croti/4P
-[DIR]Biologia/Murilo
-[DIR]Biologia/Murilo/1P
-Biologia/Murilo/1P/DNA, RNA e síntese proteica 2026.pptx
-Biologia/Murilo/1P/Histórico - Câncer - Cópia.pdf
-Biologia/Murilo/1P/Meiose (2).pdf
-Biologia/Murilo/1P/Prova Genética 2 serie 1 periodo 1 etapa 2026 P+.docx
-Biologia/Murilo/1P/Tarefa março 2026  - 2serie com respostas.docx
-Biologia/Murilo/1P/Tumores e câncer - Cópia.pptx
-[DIR]Biologia/Murilo/2P
-[DIR]Biologia/Murilo/3P
-[DIR]Biologia/Murilo/4P
-[DIR]Filosofia
-[DIR]Filosofia/2 ANO M
-[DIR]Filosofia/2 ANO M/1P
-Filosofia/2 ANO M/1P/2EM_Filosofia_1ªEtapa_1ºPeríodo_2026.docx
-Filosofia/2 ANO M/1P/A filosofia de Aristóteles (parte 1).pptx
-Filosofia/2 ANO M/1P/A filosofia de Aristóteles (parte 2).pptx
-Filosofia/2 ANO M/1P/Mímesis em Platão.pdf
-Filosofia/2 ANO M/1P/Origens da Filosofia e o caminho até Sócrates.pdf
-Filosofia/2 ANO M/1P/Platão.pdf
-Filosofia/2 ANO M/1P/SUB_2EM_Filosofia_1ªEtapa_1ºPeríodo_2026 - Copia.docx
-[DIR]Filosofia/2 ANO M/2P
-[DIR]Filosofia/2 ANO M/3P
-[DIR]Filosofia/2 ANO M/4P
-[DIR]Fisica
-[DIR]Fisica/2 ANO M
-[DIR]Fisica/2 ANO M/Fabio
-[DIR]Fisica/2 ANO M/Fabio/1P
-Fisica/2 ANO M/Fabio/1P/Lista 01 – Densidade e Pressão - Gabarito.pdf
-Fisica/2 ANO M/Fabio/1P/Lista 01 – Densidade e Pressão.pdf
-Fisica/2 ANO M/Fabio/1P/Lista 02 - Pressão Hidrostática e Teorema de Stevin - Aluno.pdf
-Fisica/2 ANO M/Fabio/1P/Lista 02 - Pressão Hidrostática e Teorema de Stevin - Gabarito.pdf
-Fisica/2 ANO M/Fabio/1P/Lista 03 - Pressão Hidrostática e Teorema de Stevin - Aluno.pdf
-Fisica/2 ANO M/Fabio/1P/Lista 03 – Pressão Hidrostática e Teorema de Stevin - Gabarito.pdf
-Fisica/2 ANO M/Fabio/1P/Lista 04 – Aplicações da Lei de Stevin - Aluno.pdf
-[DIR]Fisica/2 ANO M/Fabio/2P
-Fisica/2 ANO M/Fabio/2P/Lista 05 – Princípio de Pascal - Aluno.pdf
-[DIR]Fisica/2 ANO M/Fabio/3P
-[DIR]Fisica/2 ANO M/Fabio/4P
-[DIR]Fisica/2 ANO M/Padua
-[DIR]Fisica/2 ANO M/Padua/1P
-[DIR]Fisica/2 ANO M/Padua/2P
-[DIR]Fisica/2 ANO M/Padua/3P
-[DIR]Fisica/2 ANO M/Padua/4P
-[DIR]Fisica/2 ANO M/Rocris
-[DIR]Fisica/2 ANO M/Rocris/1P
-[DIR]Fisica/2 ANO M/Rocris/1P/2EM - 1º PERÍODO
-[DIR]Fisica/2 ANO M/Rocris/1P/2EM - 1º PERÍODO/Exercícios 1 Série - Dinâmica
-Fisica/2 ANO M/Rocris/1P/2EM - 1º PERÍODO/Exercícios 1 Série - Dinâmica/Plano Inclinado - Exercícios - Resolução.pdf
-Fisica/2 ANO M/Rocris/1P/2EM - 1º PERÍODO/Exercícios 1 Série - Dinâmica/Plano Inclinado - Exercícios.pdf
-Fisica/2 ANO M/Rocris/1P/2EM - 1º PERÍODO/Exercícios 1 Série - Dinâmica/Sistemas de Blocos - Ex - Modelos  - Resolução.pdf
-Fisica/2 ANO M/Rocris/1P/2EM - 1º PERÍODO/Exercícios 1 Série - Dinâmica/Sistemas de Blocos - Exercícios - Modelos.pdf
-Fisica/2 ANO M/Rocris/1P/2EM - 1º PERÍODO/Força de Atrito I - Exercícios - Aula.pdf
-Fisica/2 ANO M/Rocris/1P/2EM - 1º PERÍODO/Força de Atrito I - Exercícios Aula - Resolução.pdf
-Fisica/2 ANO M/Rocris/1P/2EM - 1º PERÍODO/Força de Atrito II - Exercícios para treinar - Resolução.pdf
-Fisica/2 ANO M/Rocris/1P/2EM - 1º PERÍODO/Força de Atrito II - Exercícios para treinar.pdf
-Fisica/2 ANO M/Rocris/1P/2EM - 1º PERÍODO/Força Elástica - Exercícios - Resolução .pdf
-Fisica/2 ANO M/Rocris/1P/2EM - 1º PERÍODO/Força Elástica - Exercícios.pdf
-Fisica/2 ANO M/Rocris/1P/2EM - 1º PERÍODO/Trabalho - Exercícios para treinar - Livro - Resolução.pdf
-Fisica/2 ANO M/Rocris/1P/2EM - 1º PERÍODO/Trabalho da Força Elástica - Sinal.pdf
-Fisica/2 ANO M/Rocris/1P/2EM - 1º PERÍODO/Trabalho de uma Força  - Exercícios - Resolução.pdf
-Fisica/2 ANO M/Rocris/1P/2EM - 1º PERÍODO/Trabalho de uma Força  - Exercícios.pdf
-[DIR]Fisica/2 ANO M/Rocris/1P/PROVAS
-Fisica/2 ANO M/Rocris/1P/PROVAS/1º Período - 1 Etapa - Resolução.pdf
-[DIR]Fisica/2 ANO M/Rocris/1P/RECUPERAÇÃO
-[DIR]Fisica/2 ANO M/Rocris/1P/RECUPERAÇÃO/2EM - 1º PERÍODO
-Fisica/2 ANO M/Rocris/1P/RECUPERAÇÃO/2EM - 1º PERÍODO/Densidade - Massa Específica - Pressão- Força de Atrito.pdf
-Fisica/2 ANO M/Rocris/1P/RECUPERAÇÃO/2EM - 1º PERÍODO/Força de Atrito.pdf
-Fisica/2 ANO M/Rocris/1P/RECUPERAÇÃO/2EM - 1º PERÍODO/Força Elástica.pdf
-Fisica/2 ANO M/Rocris/1P/RECUPERAÇÃO/2EM - 1º PERÍODO/Pressão Hidrostática (Teorema de Stevin) e Refração(Lei de Snell).pdf
-Fisica/2 ANO M/Rocris/1P/RECUPERAÇÃO/2EM - 1º PERÍODO/Sistemas de Blocos sem Atrito - Revisão.pdf
-[DIR]Fisica/2 ANO M/Rocris/2P
-Fisica/2 ANO M/Rocris/2P/Potência e Rendimento - Exercícios - Resolução.pdf
-Fisica/2 ANO M/Rocris/2P/Potência e Rendimento - Exercícios.pdf
-Fisica/2 ANO M/Rocris/2P/TEC - Exercícios.pdf
-[DIR]Fisica/2 ANO M/Rocris/3P
-[DIR]Fisica/2 ANO M/Rocris/4P
-[DIR]Geografia
-[DIR]Geografia/2 ANO M
-[DIR]Geografia/2 ANO M/Alex
-[DIR]Geografia/2 ANO M/Alex/1P
-Geografia/2 ANO M/Alex/1P/Exercícios Transportes.pdf
-Geografia/2 ANO M/Alex/1P/Industrialização brasileira.pptx
-Geografia/2 ANO M/Alex/1P/Sistemas de Comunicação no Brasil e no Mundo.pptx
-Geografia/2 ANO M/Alex/1P/Sistemas de Transporte no Brasil.pptx
-Geografia/2 ANO M/Alex/1P/Sistemas de Transporte no Mundo.pptx
-[DIR]Geografia/2 ANO M/Alex/2P
-[DIR]Geografia/2 ANO M/Alex/3P
-[DIR]Geografia/2 ANO M/Alex/4P
-[DIR]Geografia/2 ANO M/Bruno
-[DIR]Geografia/2 ANO M/Bruno/1P
-Geografia/2 ANO M/Bruno/1P/Gabarito_2EM_Geo_Geral_1ª Etapa_1º Período_2026.pdf
-Geografia/2 ANO M/Bruno/1P/Gabarito_2EM_Geo_Geral_2ª Etapa_1º Período_2026.pdf
-Geografia/2 ANO M/Bruno/1P/[Tema 01] Evolução da População Mundial.pdf
-Geografia/2 ANO M/Bruno/1P/[Tema 02] Conceitos e Termos Demográficos.pdf
-Geografia/2 ANO M/Bruno/1P/[Tema 03] Teorias Demográficas.pdf
-Geografia/2 ANO M/Bruno/1P/[Tema 04] Estrutura Etária da População.pdf
-[DIR]Geografia/2 ANO M/Bruno/2P
-[DIR]Geografia/2 ANO M/Bruno/3P
-[DIR]Geografia/2 ANO M/Bruno/4P
-[DIR]Historia
-[DIR]Historia/2 ANO M
-[DIR]Historia/2 ANO M/Celcio
-[DIR]Historia/2 ANO M/Celcio/1P
-Historia/2 ANO M/Celcio/1P/1P - 1o REINADO E PERÍODO REGENCIAL -CAP.pptx
-Historia/2 ANO M/Celcio/1P/1P - A Corte Portuguesa no Brasil e a Independência -  pág.pptx
-Historia/2 ANO M/Celcio/1P/1P - Rebeliões Coloniais- Revoltas Nativistas e as Inconfidências.pptx
-Historia/2 ANO M/Celcio/1P/1P- Napoleão Bonaparte e o Congresso de Viena - Vol.pptx
-Historia/2 ANO M/Celcio/1P/América Pré colonial Introdução P+.pptx
-[DIR]Historia/2 ANO M/Celcio/1P/Conteúdos das Provas
-Historia/2 ANO M/Celcio/1P/Conteúdos das Provas/1P - História - Conteúdos da Prova de História da 1ª Etapa do 1º Período.docx
-Historia/2 ANO M/Celcio/1P/Conteúdos das Provas/1P - História - Conteúdos da Prova de História da 2ª Etapa do 1º Período.docx
-[DIR]Historia/2 ANO M/Celcio/2P
-[DIR]Historia/2 ANO M/Celcio/2P/1a Etapa
-Historia/2 ANO M/Celcio/2P/1a Etapa/2P - As Independências na América Espanhola.pptx
-[DIR]Historia/2 ANO M/Celcio/3P
-[DIR]Historia/2 ANO M/Celcio/4P
-[DIR]Historia/2 ANO M/Luciano
-[DIR]Historia/2 ANO M/Luciano/1P
-Historia/2 ANO M/Luciano/1P/Material 13 - O Renascimento.pdf
-Historia/2 ANO M/Luciano/1P/Material 14 - O estilo Barroco.pdf
-Historia/2 ANO M/Luciano/1P/Material 15 - O estilo Rococó.pdf
-[DIR]Historia/2 ANO M/Luciano/2P
-Historia/2 ANO M/Luciano/2P/Material 16 - O Barroco no Brasil.pdf
-Historia/2 ANO M/Luciano/2P/Material 17 - Neoclassicismo, Romantismo e Realismo.pdf
-[DIR]Historia/2 ANO M/Luciano/3P
-[DIR]Historia/2 ANO M/Luciano/4P
-[DIR]Ingles
-[DIR]Ingles/2 ANO M
-[DIR]Ingles/2 ANO M/1P
-Ingles/2 ANO M/1P/2S - Aula 1 - Connectors.pdf
-Ingles/2 ANO M/1P/2S - Connectors.pdf
-Ingles/2 ANO M/1P/Connectives.pptx
-Ingles/2 ANO M/1P/Connectors (Marcadores do Discurso).pdf
-Ingles/2 ANO M/1P/Present Perfect & Present Perfect Continuous.pdf
-Ingles/2 ANO M/1P/Review - Verb Tenses - Access 1.pdf
-Ingles/2 ANO M/1P/Simple Past, Past Continuous, Past Perfect and Used to.pdf
-Ingles/2 ANO M/1P/Simple Present & Present Continuous.pdf
-[DIR]Ingles/2 ANO M/2P
-[DIR]Ingles/2 ANO M/3P
-[DIR]Ingles/2 ANO M/4P
-[DIR]Matematica
-[DIR]Matematica/2 ANO M
-[DIR]Matematica/2 ANO M/Fagundes
-[DIR]Matematica/2 ANO M/Fagundes/1P
-Matematica/2 ANO M/Fagundes/1P/Arcos Geomtricos.pdf
-Matematica/2 ANO M/Fagundes/1P/Ciclo com seno e cosseno.pdf
-Matematica/2 ANO M/Fagundes/1P/Ciclo trigonométrico –Determinações.pdf
-Matematica/2 ANO M/Fagundes/1P/Lista 1 - Trigonometria (revisão).pdf
-Matematica/2 ANO M/Fagundes/1P/Lista Extra (1) P1.pdf
-[DIR]Matematica/2 ANO M/Fagundes/2P
-[DIR]Matematica/2 ANO M/Fagundes/3P
-[DIR]Matematica/2 ANO M/Fagundes/4P
-[DIR]Matematica/2 ANO M/Larissa
-[DIR]Matematica/2 ANO M/Larissa/1P
-Matematica/2 ANO M/Larissa/1P/Fatorial - Lista com Resolução.pdf
-Matematica/2 ANO M/Larissa/1P/Permutação - Lista.pdf
-Matematica/2 ANO M/Larissa/1P/PFC - Lista.pdf
-Matematica/2 ANO M/Larissa/1P/Slides - Exercícios e Exemplos.pdf
-[DIR]Matematica/2 ANO M/Larissa/2P
-Matematica/2 ANO M/Larissa/2P/Triângulo de Pascal.pdf
-[DIR]Matematica/2 ANO M/Larissa/3P
-[DIR]Matematica/2 ANO M/Larissa/4P
-[DIR]Matematica/2 ANO M/Walter
-[DIR]Matematica/2 ANO M/Walter/1P
-Matematica/2 ANO M/Walter/1P/Gabarito APV´s.pdf
-Matematica/2 ANO M/Walter/1P/RESOLUÇÃO EXERCÍCIOS PÁGINA 332 LIVRO 4.docx
-[DIR]Matematica/2 ANO M/Walter/2P
-[DIR]Matematica/2 ANO M/Walter/3P
-[DIR]Matematica/2 ANO M/Walter/4P
-[DIR]Portugues
-[DIR]Portugues/2 ANO M
-[DIR]Portugues/2 ANO M/Ivan
-[DIR]Portugues/2 ANO M/Ivan/1P
-Portugues/2 ANO M/Ivan/1P/EXERCÍCIOS SUJEITO - GABARITO.docx
-[DIR]Portugues/2 ANO M/Ivan/2P
-Portugues/2 ANO M/Ivan/2P/2a EM GRAMÁTICA Informativo APVs   2º período.docx
-Portugues/2 ANO M/Ivan/2P/zeluiz,+03_radicalismos+a¦Ç+brasileira.pdf
-[DIR]Portugues/2 ANO M/Ivan/3P
-[DIR]Portugues/2 ANO M/Ivan/4P
-[DIR]Portugues/2 ANO M/Odete
-[DIR]Portugues/2 ANO M/Odete/1P
-Portugues/2 ANO M/Odete/1P/2 - Aula 03 - Realismo em Portugal - Cópia.pdf
-Portugues/2 ANO M/Odete/1P/2 - Aula 03 - Realismo em Portugal.pdf
-Portugues/2 ANO M/Odete/1P/2 - Aula 04 - Realismo em Portugal.pdf
-Portugues/2 ANO M/Odete/1P/2 - Aula 3 - Memórias Póstumas de Brás Cubas.pptx
-Portugues/2 ANO M/Odete/1P/Gabarito Recuperação março 26.docx
-Portugues/2 ANO M/Odete/1P/Recuperação- março de 26.docx
-[DIR]Portugues/2 ANO M/Odete/2P
-[DIR]Portugues/2 ANO M/Odete/3P
-[DIR]Portugues/2 ANO M/Odete/4P
-[DIR]Quimica
-[DIR]Quimica/2 ANO M
-[DIR]Quimica/2 ANO M/Gabriel
-[DIR]Quimica/2 ANO M/Gabriel/1P
-[DIR]Quimica/2 ANO M/Gabriel/1P/MATERIAIS 1ª SÉRIE
-Quimica/2 ANO M/Gabriel/1P/MATERIAIS 1ª SÉRIE/(2025) Slides 1.pdf
-Quimica/2 ANO M/Gabriel/1P/MATERIAIS 1ª SÉRIE/(2025) tnv_1EM_1.pdf
-Quimica/2 ANO M/Gabriel/1P/MATERIAIS 1ª SÉRIE/(2025) tnv_1EM_10.pdf
-Quimica/2 ANO M/Gabriel/1P/MATERIAIS 1ª SÉRIE/(2025) tnv_1EM_2.pdf
-Quimica/2 ANO M/Gabriel/1P/MATERIAIS 1ª SÉRIE/(2025) tnv_1EM_3.pdf
-Quimica/2 ANO M/Gabriel/1P/MATERIAIS 1ª SÉRIE/(2025) tnv_1EM_4 (PDF).pdf
-Quimica/2 ANO M/Gabriel/1P/MATERIAIS 1ª SÉRIE/(2025) tnv_1EM_5.pdf
-Quimica/2 ANO M/Gabriel/1P/MATERIAIS 1ª SÉRIE/(2025) tnv_1EM_6.pdf
-Quimica/2 ANO M/Gabriel/1P/MATERIAIS 1ª SÉRIE/(2025) tnv_1EM_7.pdf
-Quimica/2 ANO M/Gabriel/1P/MATERIAIS 1ª SÉRIE/(2025) tnv_1EM_8.pdf
-Quimica/2 ANO M/Gabriel/1P/MATERIAIS 1ª SÉRIE/(2025) tnv_1EM_9 (Versão 2).pdf
-Quimica/2 ANO M/Gabriel/1P/MATERIAIS 1ª SÉRIE/Extra_regras_organicas (NOVO).pdf
-Quimica/2 ANO M/Gabriel/1P/MATERIAIS 1ª SÉRIE/Slides - Hidrocarbonetos 1 (1EM).pdf
-[DIR]Quimica/2 ANO M/Gabriel/1P/TAREFAS
-[DIR]Quimica/2 ANO M/Gabriel/1P/TAREFAS/12
-Quimica/2 ANO M/Gabriel/1P/TAREFAS/12/02 - Tarefa - Lista 1 - Funções oxigenadas anteriores + exercícios extras.pdf
-[DIR]Quimica/2 ANO M/Gabriel/1P/TAREFAS/16
-Quimica/2 ANO M/Gabriel/1P/TAREFAS/16/03 - Tarefa - Lista 3 - Carboxiladas I.pdf
-[DIR]Quimica/2 ANO M/Gabriel/1P/TAREFAS/17
-Quimica/2 ANO M/Gabriel/1P/TAREFAS/17/02 - Tarefa - Lista 2 - Aldeído e Cetona + exercícios extras.pdf
-[DIR]Quimica/2 ANO M/Gabriel/1P/TAREFAS/29
-Quimica/2 ANO M/Gabriel/1P/TAREFAS/29/03 -  Lista 4 - Ácido Carboxílico e Éster (extra).pdf
-[DIR]Quimica/2 ANO M/Gabriel/2P
-[DIR]Quimica/2 ANO M/Gabriel/3P
-[DIR]Quimica/2 ANO M/Gabriel/4P
-[DIR]Quimica/2 ANO M/Renato
-[DIR]Quimica/2 ANO M/Renato/1P
-[DIR]Quimica/2 ANO M/Renato/1P/Exercicios
-Quimica/2 ANO M/Renato/1P/Exercicios/LISTA EXTRA - SOLUÇÕES - PARTE 1.pdf
-Quimica/2 ANO M/Renato/1P/Exercicios/LISTA EXTRA - SOLUÇÕES - PARTE 2 - CONCENTRAÇÃO DE SOLUÇÕES.pdf
-Quimica/2 ANO M/Renato/1P/Exercicios/LISTA EXTRA - SOLUÇÕES - PARTE 3 - CONCENTRAÇÃO DE SOLUÇÕES (1).pdf
-Quimica/2 ANO M/Renato/1P/Exercicios/LISTA EXTRA - SOLUÇÕES - PARTE 4 - CONCENTRAÇÕES E OPERAÇÕES.pdf
-[DIR]Quimica/2 ANO M/Renato/1P/Sala
-Quimica/2 ANO M/Renato/1P/Sala/Capítulo 2 - Solubilidade.pdf
-Quimica/2 ANO M/Renato/1P/Sala/Capítulo 3 - Concentração Comum.pdf
-Quimica/2 ANO M/Renato/1P/Sala/Capítulo 3 - Concentração Molar.pdf
-Quimica/2 ANO M/Renato/1P/Sala/Capítulo 3 - Relações entre concentrações.pdf
-Quimica/2 ANO M/Renato/1P/Sala/Capítulo 3 - Título, ppm e ppb.pdf
-[DIR]Quimica/2 ANO M/Renato/1P/slides
-Quimica/2 ANO M/Renato/1P/slides/SLIDE - CAPÍTULO 2 - SOLUÇÕES - SOLUBILIDADE.pdf
-Quimica/2 ANO M/Renato/1P/slides/SLIDE - CAPÍTULO 3 - SOLUÇÕES - CONCENTRAÇÃO COMUM E DENSIDADE.pdf
-Quimica/2 ANO M/Renato/1P/slides/SLIDE - CAPÍTULO 3 - SOLUÇÕES - CONCENTRAÇÃO MOLAR.pdf
-Quimica/2 ANO M/Renato/1P/slides/SLIDE - CAPÍTULO 3 - SOLUÇÕES - TÍTULO.pdf
-[DIR]Quimica/2 ANO M/Renato/2P
-[DIR]Quimica/2 ANO M/Renato/2P/LISTA DE EXERCÍCIOS
-Quimica/2 ANO M/Renato/2P/LISTA DE EXERCÍCIOS/LISTA EXTRA - SOLUÇÕES - PARTE 4 - CONCENTRAÇÕES E OPERAÇÕES.pdf
-[DIR]Quimica/2 ANO M/Renato/2P/SLIDES
-Quimica/2 ANO M/Renato/2P/SLIDES/CAPÍTULO 4 - PROCESSOS COM SOLUÇÕES - DILUIÇÃO.pdf
-[DIR]Quimica/2 ANO M/Renato/3P
-[DIR]Quimica/2 ANO M/Renato/4P
-[DIR]Quimica/2 ANO M/Thati
-[DIR]Quimica/2 ANO M/Thati/1P
-Quimica/2 ANO M/Thati/1P/2 ANO EN MOLEC REAC¸A~O SIMPLES TROCA EXTRAS.pdf
-Quimica/2 ANO M/Thati/1P/2 ANO EN MOLEC REAÇÕES DUPLA TROCA E FUNÇÕES EXTRAS.pdf
-Quimica/2 ANO M/Thati/1P/2 ANO EN MOLEC TERMOQUI´MICA 1 EXTRAS.pdf
-Quimica/2 ANO M/Thati/1P/2 ANO EN MOLEC TERMOQUI´MICA 2 EXTRAS.pdf
-[DIR]Quimica/2 ANO M/Thati/2P
-[DIR]Quimica/2 ANO M/Thati/3P
-[DIR]Quimica/2 ANO M/Thati/4P
-[DIR]Redação
-[DIR]Redação/2 ANO M
-[DIR]Redação/2 ANO M/1P
-Redação/2 ANO M/1P/cronicas_2026_exemplos.pdf
-Redação/2 ANO M/1P/cronica_2026 .pdf
-Redação/2 ANO M/1P/cronica_exercicio2_fuvestsimulado.pdf
-Redação/2 ANO M/1P/resenha2026_exemplos.docx
-Redação/2 ANO M/1P/resenha2026_exercicio2.docx
-Redação/2 ANO M/1P/resenha_critica_1obi_2026.pptx
-Redação/2 ANO M/1P/resenha_exercicio1(unicamp)_exemplos .docx
-[DIR]Redação/2 ANO M/2P
-[DIR]Redação/2 ANO M/3P
-[DIR]Redação/2 ANO M/4P
-[DIR]Sociologia
-[DIR]Sociologia/2 ANO M
-[DIR]Sociologia/2 ANO M/1P
-[DIR]Sociologia/2 ANO M/1P/Lista de Exercícios
-Sociologia/2 ANO M/1P/Lista de Exercícios/Lista 1 - A Natureza da Política (sem gabarito).pdf
-Sociologia/2 ANO M/1P/Lista de Exercícios/Lista 1 - A Natureza da Política - gabarito partes 1 e 2.doc
-Sociologia/2 ANO M/1P/Lista de Exercícios/Lista 1 - A Natureza da Política.doc
-Sociologia/2 ANO M/1P/Lista de Exercícios/Lista 2 - Teorias Políticas e Estado Moderno (sem gabarito).pdf
-[DIR]Sociologia/2 ANO M/1P/Provas 2026 (Gabarito)
-Sociologia/2 ANO M/1P/Provas 2026 (Gabarito)/Sociabilidades Contemporâneas - 2ª Se´rie - 1ª Etapa - 1º Peri´odo.docx
-Sociologia/2 ANO M/1P/Provas 2026 (Gabarito)/Sociabilidades Contemporâneas - 2ª Se´rie - 2ª Etapa - 1º Peri´odo.docx
-[DIR]Sociologia/2 ANO M/1P/Slides
-Sociologia/2 ANO M/1P/Slides/Material 1 - A Natureza da Política.pdf
-Sociologia/2 ANO M/1P/Slides/Material 2 - Teorias Políticas e Estado Moderno.pptx
-[DIR]Sociologia/2 ANO M/1P/Textos Complementares
-Sociologia/2 ANO M/1P/Textos Complementares/TC1 - Política, Poder e Estado + Estado e Legitimidade do Poder.pdf
-Sociologia/2 ANO M/1P/Textos Complementares/TC2 - Povo e Nação.pdf
-[DIR]Sociologia/2 ANO M/2P
-[DIR]Sociologia/2 ANO M/3P
-[DIR]Sociologia/2 ANO M/4P
-[DIR]Vestuibulares
-[DIR]Vestuibulares/ITA
-[DIR]Vestuibulares/ITA/2026
-Vestuibulares/ITA/2026/Prova ITA 1ª Fase - 2026__95bd2cae-b04f-412e-92f5-6d87db489fd0.pdf
-Vestuibulares/ITA/2026/Prova ITA 2ª Fase Dia 2_Química 2026__cab8504d-3690-40d0-a062-b6554230261b.pdf
-Vestuibulares/ITA/2026/Prova ITA 2ª Fase Dia 3_Física 2026__1c7a3947-6757-4c55-b9c0-fbfc9dcbbace.pdf
-Vestuibulares/ITA/2026/Prova ITA 2ª Fase Dia 4_Língua Portuguesa e Inglesa 2026__caf370d5-2ffe-4117-aae6-70e3477a037f.pdf
-Vestuibulares/ITA/2026/Prova ITA 2ª Fase_Dia 1_Matemática 2026__0e8821eb-f2ad-4b39-885d-5e27a135cdc7.pdf
+biologia/croti/1p/2em_-_recuperacao/2em_-_1o_periodo/rec_01_-_ciclo_celular_mitose_e_meiose_-_gabarito.pdf
+biologia/croti/1p/2em_-_recuperacao/2em_-_1o_periodo/rec_02_-_replicacao_e_transcricao_do_dna_-_ciclos_reprodutivos_-_gabarito.pdf
+biologia/croti/1p/aula_01_-_biodiversidade.pdf
+biologia/croti/1p/aula_02_-_algas_microscopicas.pdf
+biologia/croti/1p/aula_03_-_algas_macroscopicas.pdf
+biologia/croti/1p/aula_04_-_ciclos_reprodutivos.pdf
+biologia/croti/1p/aula_05_-_archaeplastida.pdf
+biologia/croti/1p/aula_06_-_agrupamentos.pdf
+biologia/croti/1p/aula_07_-_briofitas.pdf
+biologia/croti/1p/aula_07_-_briofitas_-_ciclo_reprodutivo.pdf
+biologia/croti/1p/aula_07_-_briofitas_-_ciclo_reprodutivo_-_gabarito.pdf
+biologia/croti/1p/aula_08_-_pteridofitas.pdf
+biologia/croti/1p/aula_08_-_pteridofitas_-_ciclo_reprodutivo.pdf
+biologia/croti/1p/aula_08_-_pteridofitas_-_ciclo_reprodutivo_-_gabarito.pdf
+biologia/croti/2p/aula_09_-_gimnospermas.pdf
+biologia/croti/2p/aula_09_-_gimnospermas_-_ciclo_reprodutivo.pdf
+biologia/croti/2p/aula_09_-_gimnospermas_-_ciclo_reprodutivo_-_gabarito.pdf
+biologia/croti/2p/aula_10_-_angiospermas.pdf
+biologia/croti/2p/aula_10_-_angiospermas_-_ciclo_reprodutivo.pdf
+biologia/croti/2p/aula_10_-_angiospermas_-_ciclo_reprodutivo_-_gabarito.pdf
+biologia/croti/2p/aula_11_-_angiospermas_monocotiledoneas_e_dicotiledoneas.pdf
+biologia/murilo/1p/dna_rna_e_sintese_proteica_2026.pptx
+biologia/murilo/1p/historico_-_cancer_-_copia.pdf
+biologia/murilo/1p/meiose_2.pdf
+biologia/murilo/1p/prova_genetica_2_serie_1_periodo_1_etapa_2026_p.docx
+biologia/murilo/1p/tarefa_marco_2026_-_2serie_com_respostas.docx
+biologia/murilo/1p/tumores_e_cancer_-_copia.pptx
+filosofia/2_ano_m/1p/2em_filosofia_1aetapa_1operiodo_2026.docx
+filosofia/2_ano_m/1p/a_filosofia_de_aristoteles_parte_1.pptx
+filosofia/2_ano_m/1p/a_filosofia_de_aristoteles_parte_2.pptx
+filosofia/2_ano_m/1p/mimesis_em_platao.pdf
+filosofia/2_ano_m/1p/origens_da_filosofia_e_o_caminho_ate_socrates.pdf
+filosofia/2_ano_m/1p/platao.pdf
+filosofia/2_ano_m/1p/sub_2em_filosofia_1aetapa_1operiodo_2026_-_copia.docx
+fisica/2_ano_m/fabio/1p/lista_01_densidade_e_pressao.pdf
+fisica/2_ano_m/fabio/1p/lista_01_densidade_e_pressao_-_gabarito.pdf
+fisica/2_ano_m/fabio/1p/lista_02_-_pressao_hidrostatica_e_teorema_de_stevin_-_aluno.pdf
+fisica/2_ano_m/fabio/1p/lista_02_-_pressao_hidrostatica_e_teorema_de_stevin_-_gabarito.pdf
+fisica/2_ano_m/fabio/1p/lista_03_-_pressao_hidrostatica_e_teorema_de_stevin_-_aluno.pdf
+fisica/2_ano_m/fabio/1p/lista_03_pressao_hidrostatica_e_teorema_de_stevin_-_gabarito.pdf
+fisica/2_ano_m/fabio/1p/lista_04_aplicacoes_da_lei_de_stevin_-_aluno.pdf
+fisica/2_ano_m/fabio/2p/lista_05_principio_de_pascal_-_aluno.pdf
+fisica/2_ano_m/rocris/1p/2em_-_1o_periodo/exercicios_1_serie_-_dinamica/plano_inclinado_-_exercicios.pdf
+fisica/2_ano_m/rocris/1p/2em_-_1o_periodo/exercicios_1_serie_-_dinamica/plano_inclinado_-_exercicios_-_resolucao.pdf
+fisica/2_ano_m/rocris/1p/2em_-_1o_periodo/exercicios_1_serie_-_dinamica/sistemas_de_blocos_-_ex_-_modelos_-_resolucao.pdf
+fisica/2_ano_m/rocris/1p/2em_-_1o_periodo/exercicios_1_serie_-_dinamica/sistemas_de_blocos_-_exercicios_-_modelos.pdf
+fisica/2_ano_m/rocris/1p/2em_-_1o_periodo/forca_de_atrito_i_-_exercicios_-_aula.pdf
+fisica/2_ano_m/rocris/1p/2em_-_1o_periodo/forca_de_atrito_i_-_exercicios_aula_-_resolucao.pdf
+fisica/2_ano_m/rocris/1p/2em_-_1o_periodo/forca_de_atrito_ii_-_exercicios_para_treinar.pdf
+fisica/2_ano_m/rocris/1p/2em_-_1o_periodo/forca_de_atrito_ii_-_exercicios_para_treinar_-_resolucao.pdf
+fisica/2_ano_m/rocris/1p/2em_-_1o_periodo/forca_elastica_-_exercicios.pdf
+fisica/2_ano_m/rocris/1p/2em_-_1o_periodo/forca_elastica_-_exercicios_-_resolucao_.pdf
+fisica/2_ano_m/rocris/1p/2em_-_1o_periodo/trabalho_-_exercicios_para_treinar_-_livro_-_resolucao.pdf
+fisica/2_ano_m/rocris/1p/2em_-_1o_periodo/trabalho_da_forca_elastica_-_sinal.pdf
+fisica/2_ano_m/rocris/1p/2em_-_1o_periodo/trabalho_de_uma_forca_-_exercicios.pdf
+fisica/2_ano_m/rocris/1p/2em_-_1o_periodo/trabalho_de_uma_forca_-_exercicios_-_resolucao.pdf
+fisica/2_ano_m/rocris/1p/provas/1o_periodo_-_1_etapa_-_resolucao.pdf
+fisica/2_ano_m/rocris/1p/recuperacao/2em_-_1o_periodo/densidade_-_massa_especifica_-_pressao-_forca_de_atrito.pdf
+fisica/2_ano_m/rocris/1p/recuperacao/2em_-_1o_periodo/forca_de_atrito.pdf
+fisica/2_ano_m/rocris/1p/recuperacao/2em_-_1o_periodo/forca_elastica.pdf
+fisica/2_ano_m/rocris/1p/recuperacao/2em_-_1o_periodo/pressao_hidrostatica_teorema_de_stevin_e_refracaolei_de_snell.pdf
+fisica/2_ano_m/rocris/1p/recuperacao/2em_-_1o_periodo/sistemas_de_blocos_sem_atrito_-_revisao.pdf
+fisica/2_ano_m/rocris/2p/potencia_e_rendimento_-_exercicios.pdf
+fisica/2_ano_m/rocris/2p/potencia_e_rendimento_-_exercicios_-_resolucao.pdf
+fisica/2_ano_m/rocris/2p/tec_-_exercicios.pdf
+geografia/2_ano_m/alex/1p/exercicios_transportes.pdf
+geografia/2_ano_m/alex/1p/industrializacao_brasileira.pptx
+geografia/2_ano_m/alex/1p/sistemas_de_comunicacao_no_brasil_e_no_mundo.pptx
+geografia/2_ano_m/alex/1p/sistemas_de_transporte_no_brasil.pptx
+geografia/2_ano_m/alex/1p/sistemas_de_transporte_no_mundo.pptx
+geografia/2_ano_m/bruno/1p/gabarito_2em_geo_geral_1a_etapa_1o_periodo_2026.pdf
+geografia/2_ano_m/bruno/1p/gabarito_2em_geo_geral_2a_etapa_1o_periodo_2026.pdf
+geografia/2_ano_m/bruno/1p/tema_01_evolucao_da_populacao_mundial.pdf
+geografia/2_ano_m/bruno/1p/tema_02_conceitos_e_termos_demograficos.pdf
+geografia/2_ano_m/bruno/1p/tema_03_teorias_demograficas.pdf
+geografia/2_ano_m/bruno/1p/tema_04_estrutura_etaria_da_populacao.pdf
+historia/2_ano_m/celcio/1p/1p-_napoleao_bonaparte_e_o_congresso_de_viena_-_vol.pptx
+historia/2_ano_m/celcio/1p/1p_-_1o_reinado_e_periodo_regencial_-cap.pptx
+historia/2_ano_m/celcio/1p/1p_-_a_corte_portuguesa_no_brasil_e_a_independencia_-_pag.pptx
+historia/2_ano_m/celcio/1p/1p_-_rebelioes_coloniais-_revoltas_nativistas_e_as_inconfidencias.pptx
+historia/2_ano_m/celcio/1p/america_pre_colonial_introducao_p.pptx
+historia/2_ano_m/celcio/1p/conteudos_das_provas/1p_-_historia_-_conteudos_da_prova_de_historia_da_1a_etapa_do_1o_periodo.docx
+historia/2_ano_m/celcio/1p/conteudos_das_provas/1p_-_historia_-_conteudos_da_prova_de_historia_da_2a_etapa_do_1o_periodo.docx
+historia/2_ano_m/celcio/2p/1a_etapa/2p_-_as_independencias_na_america_espanhola.pptx
+historia/2_ano_m/luciano/1p/material_13_-_o_renascimento.pdf
+historia/2_ano_m/luciano/1p/material_14_-_o_estilo_barroco.pdf
+historia/2_ano_m/luciano/1p/material_15_-_o_estilo_rococo.pdf
+historia/2_ano_m/luciano/2p/material_16_-_o_barroco_no_brasil.pdf
+historia/2_ano_m/luciano/2p/material_17_-_neoclassicismo_romantismo_e_realismo.pdf
+ingles/2_ano_m/1p/2s_-_aula_1_-_connectors.pdf
+ingles/2_ano_m/1p/2s_-_connectors.pdf
+ingles/2_ano_m/1p/connectives.pptx
+ingles/2_ano_m/1p/connectors_marcadores_do_discurso.pdf
+ingles/2_ano_m/1p/present_perfect_present_perfect_continuous.pdf
+ingles/2_ano_m/1p/review_-_verb_tenses_-_access_1.pdf
+ingles/2_ano_m/1p/simple_past_past_continuous_past_perfect_and_used_to.pdf
+ingles/2_ano_m/1p/simple_present_present_continuous.pdf
+matematica/2_ano_m/fagundes/1p/arcos_geomtricos.pdf
+matematica/2_ano_m/fagundes/1p/ciclo_com_seno_e_cosseno.pdf
+matematica/2_ano_m/fagundes/1p/ciclo_trigonometrico_determinacoes.pdf
+matematica/2_ano_m/fagundes/1p/lista_1_-_trigonometria_revisao.pdf
+matematica/2_ano_m/fagundes/1p/lista_extra_1_p1.pdf
+matematica/2_ano_m/larissa/1p/fatorial_-_lista_com_resolucao.pdf
+matematica/2_ano_m/larissa/1p/permutacao_-_lista.pdf
+matematica/2_ano_m/larissa/1p/pfc_-_lista.pdf
+matematica/2_ano_m/larissa/1p/slides_-_exercicios_e_exemplos.pdf
+matematica/2_ano_m/larissa/2p/triangulo_de_pascal.pdf
+matematica/2_ano_m/walter/1p/gabarito_apv_s.pdf
+matematica/2_ano_m/walter/1p/resolucao_exercicios_pagina_332_livro_4.docx
+portugues/2_ano_m/ivan/1p/exercicios_sujeito_-_gabarito.docx
+portugues/2_ano_m/ivan/2p/2a_em_gramatica_informativo_apvs_2o_periodo.docx
+portugues/2_ano_m/ivan/2p/zeluiz03_radicalismosacbrasileira.pdf
+portugues/2_ano_m/odete/1p/2_-_aula_03_-_realismo_em_portugal.pdf
+portugues/2_ano_m/odete/1p/2_-_aula_03_-_realismo_em_portugal_-_copia.pdf
+portugues/2_ano_m/odete/1p/2_-_aula_04_-_realismo_em_portugal.pdf
+portugues/2_ano_m/odete/1p/2_-_aula_3_-_memorias_postumas_de_bras_cubas.pptx
+portugues/2_ano_m/odete/1p/gabarito_recuperacao_marco_26.docx
+portugues/2_ano_m/odete/1p/recuperacao-_marco_de_26.docx
+quimica/2_ano_m/gabriel/1p/materiais_1a_serie/2025_slides_1.pdf
+quimica/2_ano_m/gabriel/1p/materiais_1a_serie/2025_tnv_1em_1.pdf
+quimica/2_ano_m/gabriel/1p/materiais_1a_serie/2025_tnv_1em_10.pdf
+quimica/2_ano_m/gabriel/1p/materiais_1a_serie/2025_tnv_1em_2.pdf
+quimica/2_ano_m/gabriel/1p/materiais_1a_serie/2025_tnv_1em_3.pdf
+quimica/2_ano_m/gabriel/1p/materiais_1a_serie/2025_tnv_1em_4_pdf.pdf
+quimica/2_ano_m/gabriel/1p/materiais_1a_serie/2025_tnv_1em_5.pdf
+quimica/2_ano_m/gabriel/1p/materiais_1a_serie/2025_tnv_1em_6.pdf
+quimica/2_ano_m/gabriel/1p/materiais_1a_serie/2025_tnv_1em_7.pdf
+quimica/2_ano_m/gabriel/1p/materiais_1a_serie/2025_tnv_1em_8.pdf
+quimica/2_ano_m/gabriel/1p/materiais_1a_serie/2025_tnv_1em_9_versao_2.pdf
+quimica/2_ano_m/gabriel/1p/materiais_1a_serie/extra_regras_organicas_novo.pdf
+quimica/2_ano_m/gabriel/1p/materiais_1a_serie/slides_-_hidrocarbonetos_1_1em.pdf
+quimica/2_ano_m/gabriel/1p/tarefas/12/02_-_tarefa_-_lista_1_-_funcoes_oxigenadas_anteriores_exercicios_extras.pdf
+quimica/2_ano_m/gabriel/1p/tarefas/16/03_-_tarefa_-_lista_3_-_carboxiladas_i.pdf
+quimica/2_ano_m/gabriel/1p/tarefas/17/02_-_tarefa_-_lista_2_-_aldeido_e_cetona_exercicios_extras.pdf
+quimica/2_ano_m/gabriel/1p/tarefas/29/03_-_lista_4_-_acido_carboxilico_e_ester_extra.pdf
+quimica/2_ano_m/renato/1p/exercicios/lista_extra_-_solucoes_-_parte_1.pdf
+quimica/2_ano_m/renato/1p/exercicios/lista_extra_-_solucoes_-_parte_2_-_concentracao_de_solucoes.pdf
+quimica/2_ano_m/renato/1p/exercicios/lista_extra_-_solucoes_-_parte_3_-_concentracao_de_solucoes_1.pdf
+quimica/2_ano_m/renato/1p/exercicios/lista_extra_-_solucoes_-_parte_4_-_concentracoes_e_operacoes.pdf
+quimica/2_ano_m/renato/1p/sala/capitulo_2_-_solubilidade.pdf
+quimica/2_ano_m/renato/1p/sala/capitulo_3_-_concentracao_comum.pdf
+quimica/2_ano_m/renato/1p/sala/capitulo_3_-_concentracao_molar.pdf
+quimica/2_ano_m/renato/1p/sala/capitulo_3_-_relacoes_entre_concentracoes.pdf
+quimica/2_ano_m/renato/1p/sala/capitulo_3_-_titulo_ppm_e_ppb.pdf
+quimica/2_ano_m/renato/1p/slides/slide_-_capitulo_2_-_solucoes_-_solubilidade.pdf
+quimica/2_ano_m/renato/1p/slides/slide_-_capitulo_3_-_solucoes_-_concentracao_comum_e_densidade.pdf
+quimica/2_ano_m/renato/1p/slides/slide_-_capitulo_3_-_solucoes_-_concentracao_molar.pdf
+quimica/2_ano_m/renato/1p/slides/slide_-_capitulo_3_-_solucoes_-_titulo.pdf
+quimica/2_ano_m/renato/2p/lista_de_exercicios/lista_extra_-_solucoes_-_parte_4_-_concentracoes_e_operacoes.pdf
+quimica/2_ano_m/renato/2p/slides/capitulo_4_-_processos_com_solucoes_-_diluicao.pdf
+quimica/2_ano_m/thati/1p/2_ano_en_molec_reac_ao_simples_troca_extras.pdf
+quimica/2_ano_m/thati/1p/2_ano_en_molec_reacoes_dupla_troca_e_funcoes_extras.pdf
+quimica/2_ano_m/thati/1p/2_ano_en_molec_termoqui_mica_1_extras.pdf
+quimica/2_ano_m/thati/1p/2_ano_en_molec_termoqui_mica_2_extras.pdf
+redacao/2_ano_m/1p/cronica_2026_.pdf
+redacao/2_ano_m/1p/cronica_exercicio2_fuvestsimulado.pdf
+redacao/2_ano_m/1p/cronicas_2026_exemplos.pdf
+redacao/2_ano_m/1p/resenha2026_exemplos.docx
+redacao/2_ano_m/1p/resenha2026_exercicio2.docx
+redacao/2_ano_m/1p/resenha_critica_1obi_2026.pptx
+redacao/2_ano_m/1p/resenha_exercicio1unicamp_exemplos_.docx
+sociologia/2_ano_m/1p/lista_de_exercicios/lista_1_-_a_natureza_da_politica.doc
+sociologia/2_ano_m/1p/lista_de_exercicios/lista_1_-_a_natureza_da_politica_-_gabarito_partes_1_e_2.doc
+sociologia/2_ano_m/1p/lista_de_exercicios/lista_1_-_a_natureza_da_politica_sem_gabarito.pdf
+sociologia/2_ano_m/1p/lista_de_exercicios/lista_2_-_teorias_politicas_e_estado_moderno_sem_gabarito.pdf
+sociologia/2_ano_m/1p/provas_2026_gabarito/sociabilidades_contemporaneas_-_2a_se_rie_-_1a_etapa_-_1o_peri_odo.docx
+sociologia/2_ano_m/1p/provas_2026_gabarito/sociabilidades_contemporaneas_-_2a_se_rie_-_2a_etapa_-_1o_peri_odo.docx
+sociologia/2_ano_m/1p/slides/material_1_-_a_natureza_da_politica.pdf
+sociologia/2_ano_m/1p/slides/material_2_-_teorias_politicas_e_estado_moderno.pptx
+sociologia/2_ano_m/1p/textos_complementares/tc1_-_politica_poder_e_estado_estado_e_legitimidade_do_poder.pdf
+sociologia/2_ano_m/1p/textos_complementares/tc2_-_povo_e_nacao.pdf
+vestuibulares/ita/2026/prova_ita_1a_fase_-_2026_95bd2cae-b04f-412e-92f5-6d87db489fd0.pdf
+vestuibulares/ita/2026/prova_ita_2a_fase_dia_1_matematica_2026_0e8821eb-f2ad-4b39-885d-5e27a135cdc7.pdf
+vestuibulares/ita/2026/prova_ita_2a_fase_dia_2_quimica_2026_cab8504d-3690-40d0-a062-b6554230261b.pdf
+vestuibulares/ita/2026/prova_ita_2a_fase_dia_3_fisica_2026_1c7a3947-6757-4c55-b9c0-fbfc9dcbbace.pdf
+vestuibulares/ita/2026/prova_ita_2a_fase_dia_4_lingua_portuguesa_e_inglesa_2026_caf370d5-2ffe-4117-aae6-70e3477a037f.pdf
