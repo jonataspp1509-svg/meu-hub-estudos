@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>StudyFlow</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -17,9 +18,12 @@
   --green:#16a34a;
   --red:#dc2626;
   --orange:#f97316;
+  --yellow:#facc15;
+  --blue:#0ea5e9;
   --text:#0f172a;
   --muted:#64748b;
   --border:#e2e8f0;
+  --shadow:0 10px 25px rgba(15,23,42,.08);
 }
 
 *{
@@ -30,7 +34,10 @@
 
 body{
   font-family:Poppins,sans-serif;
-  background:linear-gradient(135deg,#eef2ff,#f8fafc);
+  background:
+    radial-gradient(circle at top left,#c7d2fe,transparent 30%),
+    radial-gradient(circle at bottom right,#ddd6fe,transparent 30%),
+    linear-gradient(135deg,#eef2ff,#f8fafc);
   min-height:100vh;
   padding:26px;
   color:var(--text);
@@ -41,7 +48,7 @@ header{
 }
 
 .logo{
-  font-size:2.4rem;
+  font-size:2.6rem;
   font-weight:800;
   color:var(--primary);
 }
@@ -53,19 +60,19 @@ header{
 
 .dashboard{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
   gap:18px;
   margin-bottom:24px;
 }
 
 .dash-card{
   background:white;
-  padding:26px;
+  padding:25px;
   border-radius:22px;
   text-align:center;
   font-weight:800;
   cursor:pointer;
-  box-shadow:0 10px 25px rgba(15,23,42,.08);
+  box-shadow:var(--shadow);
   transition:.2s;
   border:2px solid transparent;
 }
@@ -92,7 +99,7 @@ header{
   background:rgba(255,255,255,.92);
   padding:22px;
   border-radius:24px;
-  box-shadow:0 10px 25px rgba(15,23,42,.08);
+  box-shadow:var(--shadow);
 }
 
 .section-title{
@@ -140,13 +147,6 @@ header{
   padding:10px 16px;
   border-radius:12px;
   font-weight:800;
-}
-
-.drive-message{
-  margin-top:8px;
-  color:#065f46;
-  font-size:.95rem;
-  font-weight:600;
 }
 
 .list{
@@ -211,6 +211,12 @@ button{
   font-weight:800;
   cursor:pointer;
   font-family:inherit;
+  transition:.2s;
+}
+
+button:hover{
+  opacity:.9;
+  transform:translateY(-2px);
 }
 
 .calc-grid button{
@@ -238,13 +244,14 @@ button{
   margin-bottom:18px;
 }
 
-input{
+input, select{
   width:100%;
   padding:10px;
   border:1px solid var(--border);
   border-radius:12px;
   outline:none;
   font-family:inherit;
+  background:white;
 }
 
 .subject-grid{
@@ -354,10 +361,158 @@ input{
   color:var(--orange);
 }
 
+.alert-box{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  background:linear-gradient(135deg,#eef2ff,#e0e7ff);
+  border-left:6px solid var(--primary);
+  padding:16px;
+  border-radius:16px;
+  box-shadow:0 8px 20px rgba(79,70,229,.15);
+  animation:fadeIn .5s ease;
+  margin-bottom:18px;
+}
+
+.alert-icon{
+  font-size:1.6rem;
+}
+
+.alert-title{
+  font-weight:800;
+  color:#3730a3;
+  margin-bottom:4px;
+}
+
+.alert-text{
+  color:#1e293b;
+  font-weight:600;
+  font-size:.95rem;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(-10px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* JOGO */
+.game-layout{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:18px;
+}
+
+.game-card{
+  background:white;
+  border-radius:22px;
+  padding:18px;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+}
+
+.game-options{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:10px;
+  margin:14px 0;
+}
+
+.option-btn{
+  background:#eef2ff;
+  color:var(--primary);
+  border:2px solid #c7d2fe;
+  text-align:left;
+}
+
+.option-btn:hover{
+  background:var(--primary);
+  color:white;
+}
+
+.game-question{
+  font-size:1.2rem;
+  font-weight:800;
+  margin:16px 0;
+}
+
+.stars{
+  font-size:1.3rem;
+  color:var(--yellow);
+  font-weight:800;
+}
+
+.rank-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:12px;
+}
+
+.rank-item{
+  background:#f8fafc;
+  border:1px solid var(--border);
+  padding:12px;
+  border-radius:14px;
+  display:flex;
+  justify-content:space-between;
+  font-weight:800;
+}
+
+.feedback{
+  margin-top:12px;
+  padding:12px;
+  border-radius:14px;
+  font-weight:800;
+}
+
+.feedback.correct{
+  background:#dcfce7;
+  color:#166534;
+}
+
+.feedback.wrong{
+  background:#fee2e2;
+  color:#991b1b;
+}
+
+.progress-bar{
+  height:12px;
+  background:#e2e8f0;
+  border-radius:999px;
+  overflow:hidden;
+  margin-top:10px;
+}
+
+.progress-fill{
+  height:100%;
+  background:linear-gradient(90deg,var(--green),var(--blue));
+  width:0%;
+}
+
+@media(max-width:900px){
+  .game-layout{
+    grid-template-columns:1fr;
+  }
+}
+
 @media(max-width:760px){
-  body{padding:15px}
-  .top-actions{grid-template-columns:1fr}
-  .period-tabs{grid-template-columns:repeat(2,1fr)}
+  body{
+    padding:15px;
+  }
+
+  .top-actions{
+    grid-template-columns:1fr;
+  }
+
+  .period-tabs{
+    grid-template-columns:repeat(2,1fr);
+  }
 }
 </style>
 </head>
@@ -366,13 +521,14 @@ input{
 
 <header>
   <div class="logo">StudyFlow</div>
-  <div class="subtitle">Jonatas — materiais, notas, calculadora e boletim online</div>
+  <div class="subtitle">Jonatas — materiais, boletim, calculadora e desafios escolares</div>
 </header>
 
 <div class="dashboard">
   <div class="dash-card active" onclick="abrirSecao('materiais',this)">📁 Materiais</div>
   <div class="dash-card" onclick="abrirSecao('calculadora',this)">🧮 Calculadora</div>
   <div class="dash-card" onclick="abrirSecao('boletim',this)">📊 Boletim</div>
+  <div class="dash-card" onclick="abrirSecao('desafios',this); carregarRanking()">🎮 Desafios</div>
 </div>
 
 <section id="materiais" class="section active panel">
@@ -382,7 +538,7 @@ input{
   <div class="drive-box">
     <div>
       <strong>➕ Enviar novo arquivo</strong>
-      <div class="drive-message">
+      <div>
         Caso você queira enviar um arquivo para adicionar no StudyFlow, anexe no Google Drive.
       </div>
     </div>
@@ -433,7 +589,21 @@ input{
 
 <section id="boletim" class="section panel">
   <div class="section-title">Boletim por período</div>
-  <div class="help-text">Clique na matéria para adicionar suas notas.</div>
+
+  <div class="help-text">
+    Clique na matéria para adicionar suas notas.
+  </div>
+
+  <div class="alert-box">
+    <div class="alert-icon">📘</div>
+    <div>
+      <div class="alert-title">Importante</div>
+      <div class="alert-text">
+        A nota da <strong>P1</strong> e <strong>P2</strong>, tanto de teste quanto de escrita,
+        é formada pela <strong>soma das subdivisões da matéria</strong>.
+      </div>
+    </div>
+  </div>
 
   <div class="top-actions">
     <input id="nomeAluno" placeholder="Nome do aluno">
@@ -441,14 +611,6 @@ input{
     <button onclick="carregarOnline()">📂 Carregar</button>
     <button onclick="exportarExcel()">📥 Excel</button>
   </div>
-
-  <div class="result-box">
-    Cada período possui: P1 escrita, P1 teste, P2 escrita, P2 teste e valorada.
-    A média do período é a soma das notas dividida por 2.
-    Verde = acima ou igual a 5. Vermelho = abaixo de 5.
-  </div>
-
-  <br>
 
   <div id="subjects" class="subject-grid"></div>
 
@@ -458,9 +620,49 @@ input{
   </div>
 </section>
 
+<section id="desafios" class="section panel">
+  <div class="section-title">Desafios StudyFlow</div>
+  <div class="help-text">
+    Escolha Matemática, Física ou Química. Responda perguntas, ganhe estrelas e suba no ranking.
+  </div>
+
+  <div class="game-layout">
+    <div class="game-card">
+      <input id="nomeJogador" placeholder="Seu nome para o ranking">
+
+      <br><br>
+
+      <select id="materiaJogo">
+        <option value="matematica">📐 Matemática — Pascal e ângulo duplo</option>
+        <option value="fisica">⚙️ Física — Potência, rendimento e TEC</option>
+        <option value="quimica">🧪 Química — Soluções</option>
+      </select>
+
+      <br><br>
+
+      <button onclick="iniciarJogo()">Começar desafio</button>
+
+      <div id="areaJogo"></div>
+    </div>
+
+    <div class="game-card">
+      <h2>🏆 Top 5 Ranking</h2>
+      <div class="help-text">Mais estrelas no StudyFlow</div>
+      <div id="rankingJogo" class="rank-list"></div>
+    </div>
+  </div>
+</section>
+
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  getDoc,
+  collection,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAGKQBoVgIDJzYOOkzukhTc6eRSXwJEv5I",
@@ -475,6 +677,8 @@ window.firestore = firestore;
 window.firebaseDoc = doc;
 window.firebaseSetDoc = setDoc;
 window.firebaseGetDoc = getDoc;
+window.firebaseCollection = collection;
+window.firebaseGetDocs = getDocs;
 </script>
 
 <script>
@@ -496,6 +700,96 @@ const materias = [
   {id:"fil",nome:"Filosofia"},
   {id:"soc",nome:"Sociologia"}
 ];
+
+const perguntas = {
+  matematica:[
+    {
+      q:"No Triângulo de Pascal, qual é a linha 4 começando por linha 0?",
+      a:["1 4 6 4 1","1 3 3 1","1 5 10 10 5 1","1 2 1"],
+      c:0
+    },
+    {
+      q:"Qual é a fórmula de sen(2a)?",
+      a:["2sen(a)cos(a)","sen²(a)-cos²(a)","cos²(a)-sen²(a)","2tg(a)"],
+      c:0
+    },
+    {
+      q:"Qual é uma forma correta de cos(2a)?",
+      a:["cos²(a)-sen²(a)","2sen(a)cos(a)","sen(a)+cos(a)","tg(a)/2"],
+      c:0
+    },
+    {
+      q:"Qual é a fórmula de tg(2a)?",
+      a:["2tg(a)/(1-tg²(a))","tg²(a)-1","sen(a)/cos(a)","2sen(a)"],
+      c:0
+    },
+    {
+      q:"Na linha 5 do Triângulo de Pascal, quais são os coeficientes?",
+      a:["1 5 10 10 5 1","1 4 6 4 1","1 6 15 20 15 6 1","1 3 3 1"],
+      c:0
+    }
+  ],
+
+  fisica:[
+    {
+      q:"Um corpo de 60 kg é içado 8 m em 10 s. Com g=10 m/s², qual é a potência?",
+      a:["480 W","4800 W","48 W","600 W"],
+      c:0
+    },
+    {
+      q:"Um motor recebe 200 W e fornece 180 W úteis. Qual é o rendimento?",
+      a:["90%","80%","72%","20%"],
+      c:0
+    },
+    {
+      q:"Pelo Teorema da Energia Cinética, o trabalho resultante é igual a:",
+      a:["variação da energia cinética","força vezes massa","potência vezes velocidade","massa vezes altura"],
+      c:0
+    },
+    {
+      q:"Se a potência útil é 144 W e a potência recebida é 200 W, o rendimento é:",
+      a:["72%","90%","50%","80%"],
+      c:0
+    },
+    {
+      q:"Um motor eleva um bloco de 20 kg com velocidade 2 m/s. g=10. Potência útil:",
+      a:["400 W","200 W","100 W","500 W"],
+      c:0
+    }
+  ],
+
+  quimica:[
+    {
+      q:"Uma solução tem 0,250 mol/L e volume 0,500 L. Quantos mols há?",
+      a:["0,125 mol","0,500 mol","0,250 mol","2 mol"],
+      c:0
+    },
+    {
+      q:"ppm significa aproximadamente:",
+      a:["mg de soluto por kg de solução","mol por litro","grama por litro","litro por mol"],
+      c:0
+    },
+    {
+      q:"Na diluição, a relação mais usada é:",
+      a:["C1·V1 = C2·V2","m·a = F","P = E/t","Q = m·c·ΔT"],
+      c:0
+    },
+    {
+      q:"Misturar soluções sem reação química muda principalmente:",
+      a:["a concentração final","a massa molar","o número atômico","a fórmula do soluto"],
+      c:0
+    },
+    {
+      q:"Se 10 mL de solução estoque são diluídos até 1 L, o volume final é:",
+      a:["1000 mL","10 mL","100 mL","1 mL"],
+      c:0
+    }
+  ]
+};
+
+let jogoAtual = [];
+let perguntaAtual = 0;
+let estrelas = 0;
 
 function abrirSecao(id,card){
   document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
@@ -866,8 +1160,129 @@ function exportarExcel(){
   XLSX.writeFile(wb,`Boletim_${nome}.xlsx`);
 }
 
+/* JOGO */
+function iniciarJogo(){
+  const nome = document.getElementById("nomeJogador").value.trim();
+  const materia = document.getElementById("materiaJogo").value;
+
+  if(!nome){
+    alert("Digite seu nome para jogar.");
+    return;
+  }
+
+  jogoAtual = perguntas[materia];
+  perguntaAtual = 0;
+  estrelas = 0;
+
+  mostrarPergunta();
+}
+
+function mostrarPergunta(){
+  const area = document.getElementById("areaJogo");
+
+  if(perguntaAtual >= jogoAtual.length){
+    finalizarJogo();
+    return;
+  }
+
+  const p = jogoAtual[perguntaAtual];
+  const progresso = (perguntaAtual / jogoAtual.length) * 100;
+
+  area.innerHTML = `
+    <div class="stars">⭐ ${estrelas}</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:${progresso}%"></div></div>
+    <div class="game-question">${p.q}</div>
+    <div class="game-options">
+      ${p.a.map((op,i)=>`
+        <button class="option-btn" onclick="responder(${i})">${op}</button>
+      `).join("")}
+    </div>
+    <div id="feedback"></div>
+  `;
+}
+
+function responder(i){
+  const p = jogoAtual[perguntaAtual];
+  const fb = document.getElementById("feedback");
+
+  if(i === p.c){
+    estrelas++;
+    fb.innerHTML = `<div class="feedback correct">✅ Acertou! +1 estrela</div>`;
+  }else{
+    fb.innerHTML = `<div class="feedback wrong">❌ Errou! Resposta correta: ${p.a[p.c]}</div>`;
+  }
+
+  perguntaAtual++;
+
+  setTimeout(mostrarPergunta,900);
+}
+
+async function finalizarJogo(){
+  const nome = document.getElementById("nomeJogador").value.trim();
+
+  const ref = window.firebaseDoc(window.firestore,"ranking",nome);
+  const snap = await window.firebaseGetDoc(ref);
+
+  let antigas = 0;
+
+  if(snap.exists()){
+    antigas = snap.data().estrelas || 0;
+  }
+
+  const total = antigas + estrelas;
+
+  await window.firebaseSetDoc(ref,{
+    nome:nome,
+    estrelas:total
+  });
+
+  document.getElementById("areaJogo").innerHTML = `
+    <div class="feedback correct">
+      🎉 Fim do desafio! Você ganhou ${estrelas} estrela(s).<br>
+      Total no ranking: ${total} ⭐
+    </div>
+  `;
+
+  carregarRanking();
+}
+
+async function carregarRanking(){
+  const ranking = document.getElementById("rankingJogo");
+
+  if(!ranking) return;
+
+  ranking.innerHTML = `<div class="rank-item">Carregando...</div>`;
+
+  const snap = await window.firebaseGetDocs(
+    window.firebaseCollection(window.firestore,"ranking")
+  );
+
+  const jogadores = [];
+
+  snap.forEach(doc=>{
+    jogadores.push(doc.data());
+  });
+
+  jogadores.sort((a,b)=>(b.estrelas||0)-(a.estrelas||0));
+
+  const top5 = jogadores.slice(0,5);
+
+  if(!top5.length){
+    ranking.innerHTML = `<div class="rank-item">Ninguém jogou ainda.</div>`;
+    return;
+  }
+
+  ranking.innerHTML = top5.map((j,i)=>`
+    <div class="rank-item">
+      <span>${i+1}º ${j.nome}</span>
+      <span>${"⭐".repeat(Math.min(j.estrelas,10))} ${j.estrelas}</span>
+    </div>
+  `).join("");
+}
+
 montarBoletim();
 calcularTudo();
+carregarRanking();
 </script>
 
 </body>
