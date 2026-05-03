@@ -1290,13 +1290,16 @@ function responder(i){
   const p = jogoAtual[perguntaAtual];
   const fb = document.getElementById("feedback");
 
-  if(i === p.c){
+  let acertou = i === p.c;
+
+  if(acertou){
     estrelas++;
 
     fb.innerHTML = `
       <div class="feedback correct">
         ✅ Acertou! +1 estrela
       </div>
+      <button onclick="proximaPergunta()">➡️ Próxima pergunta</button>
     `;
   }else{
     fb.innerHTML = `
@@ -1304,14 +1307,16 @@ function responder(i){
         ❌ Errou!<br>
         Resposta correta: <strong>${p.a[p.c]}</strong><br><br>
         📘 <strong>Resolução:</strong><br>
-        ${p.explicacao || "Revise esse conteúdo no material da matéria."}
+        ${p.explicacao || "Revise o conteúdo no material."}
       </div>
+      <button onclick="proximaPergunta()">➡️ Próxima pergunta</button>
     `;
   }
+}
 
+function proximaPergunta(){
   perguntaAtual++;
-
-  setTimeout(mostrarPergunta,3500);
+  mostrarPergunta();
 }
 
 async function finalizarJogo(){

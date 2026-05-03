@@ -89,17 +89,21 @@ def escolher_destino():
     periodo_id = escolher_opcao("🗓️ Escolha o período:", PERIODOS)
     periodo = PERIODOS[periodo_id]
 
+    SEM_SERIE = ["Biologia"]
+
     if professores:
-        destino = os.path.join(PASTA_ESTUDOS, materia, "2_ano_m", professor, periodo)
+        if materia in SEM_SERIE:
+            destino = os.path.join(PASTA_ESTUDOS, materia, professor, periodo)
+        else:
+            destino = os.path.join(PASTA_ESTUDOS, materia, "2 ANO M", professor, periodo)
+
     elif materia == "Vestibulares":
         destino = os.path.join(PASTA_ESTUDOS, materia)
-    elif materia == "Biologia":
-        destino = os.path.join(PASTA_ESTUDOS, materia, professor, periodo)
+
     else:
         destino = os.path.join(PASTA_ESTUDOS, materia, "2 ANO M", periodo)
 
     return destino
-
 
 def gerar_dados_txt():
     caminho_dados = os.path.join(PASTA_PROJETO, "dados.txt")
