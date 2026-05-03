@@ -2,54 +2,70 @@ import os
 import unicodedata
 import re
 
+# 🔧 LIMPA NOMES
 def limpar_nome(nome):
-    # Remove acentos
     nome = unicodedata.normalize('NFKD', nome)
     nome = nome.encode('ASCII', 'ignore').decode('ASCII')
-
-    # Minúsculo
     nome = nome.lower()
-
-    # Substitui espaços por _
     nome = nome.replace(' ', '_')
-
-    # Remove caracteres inválidos
-    nome = re.sub(r'[^a-z0-9._-]', '', nome)
-
-    # Remove múltiplos _
+    nome = re.sub(r'[^a-z0-9._/-]', '', nome)
     nome = re.sub(r'_+', '_', nome)
-
     return nome
 
-def renomear_pasta(caminho_base):
-    
-    print("Rodando script...")
+# 🔄 RENOMEIA TUDO
+def renomear_tudo(base):
+    for raiz, dirs, files in os.walk(base, topdown=False):
 
-    for raiz, dirs, files in os.walk(caminho_base, topdown=False):
-
-        print("Entrou na pasta:", raiz)
-
-        # Renomeia arquivos
+        # arquivos
         for nome in files:
-            caminho_antigo = os.path.join(raiz, nome)
+            antigo = os.path.join(raiz, nome)
             novo_nome = limpar_nome(nome)
-            caminho_novo = os.path.join(raiz, novo_nome)
+            novo = os.path.join(raiz, novo_nome)
 
-            if caminho_antigo != caminho_novo:
-                print(f"Arquivo: {caminho_antigo} -> {caminho_novo}")
-                os.rename(caminho_antigo, caminho_novo)
+            if antigo != novo:
+                print(f"Arquivo: {antigo} -> {novo}")
+                os.rename(antigo, novo)
 
-        # Renomeia pastas
+        # pastas
         for nome in dirs:
-            caminho_antigo = os.path.join(raiz, nome)
+            antigo = os.path.join(raiz, nome)
             novo_nome = limpar_nome(nome)
-            caminho_novo = os.path.join(raiz, novo_nome)
+            novo = os.path.join(raiz, novo_nome)
 
-            if caminho_antigo != caminho_novo:
-                print(f"Pasta: {caminho_antigo} -> {caminho_novo}")
-                os.rename(caminho_antigo, caminho_novo)
+            if antigo != novo:
+                print(f"Pasta: {antigo} -> {novo}")
+                os.rename(antigo, novo)
 
-# 🔧 COLOQUE AQUI O CAMINHO DA SUA PASTA
-pasta = r"C:\Users\DELL\Downloads\Projeto jojo\Estudos"
+# 📄 GERA dados.txt
+def gerar_dados(base, arquivo_saida):
+    lista = []
 
-renomear_pasta(pasta)
+    for raiz, dirs, files in os.walk(base):
+        for file in files:
+            caminho = os.path.join(raiz, file)
+
+            # transforma em caminho relativo
+            rel = os.path.relpath(caminho, base)
+
+            # padroniza barra
+            rel = rel.replace("\\", "/")
+
+            lista.append(rel)
+
+    with open(arquivo_saida, "w", encoding="utf-8") as f:
+        for item in sorted(lista):
+            f.write(item + "\n")
+
+    print("\n✅ dados.txt gerado com sucesso!")
+
+# 🚀 EXECUÇÃO
+base = r"C:\Users\DELL\Downloads\Projeto jojo\Estudos"
+saida = r"C:\Users\DELL\Downloads\Projeto jojo\dados.txt"
+
+print("🔄 Renomeando arquivos e pastas...\n")
+renomear_tudo(base)
+
+print("\n📄 Gerando dados.txt...\n")
+gerar_dados(base, saida)
+
+print("\n🎉 Tudo pronto!")
