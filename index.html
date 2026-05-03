@@ -703,6 +703,29 @@ input, select{
   font-family:Consolas,monospace;
 }
 
+@media (max-width: 700px){
+  #menuEscolha{
+    flex-direction: column !important;
+    gap: 18px !important;
+    padding: 20px !important;
+  }
+
+  #menuEscolha > div{
+    width: 92% !important;
+    max-width: 340px !important;
+    height: 150px !important;
+  }
+
+  #menuEscolha h2{
+    font-size: 1.3rem !important;
+  }
+
+  #menuEscolha p{
+    font-size: .9rem !important;
+    text-align: center !important;
+  }
+}
+
 </style>
 </head>
 
@@ -763,7 +786,7 @@ input, select{
 </header>
 
 <div class="dashboard">
-  <div class="dash-card active" onclick="abrirSecao('materiais',this)">📁 Materiais</div>
+  <div class="dash-card active" onclick="voltarInicioMateriais(); abrirSecao('materiais', this)">📁 Materiais</div>
   <div class="dash-card" onclick="abrirSecao('calculadora',this)">🧮 Calculadora</div>
   <div class="dash-card" onclick="abrirSecao('boletim',this)">📊 Boletim</div>
   <div class="dash-card" onclick="abrirSecao('desafios',this); carregarRanking()">🎮 Desafios</div>
@@ -1659,15 +1682,19 @@ async function carregarRanking(){
 }
 
 function verificarLogin(){
-  const codigo = document.getElementById("codigoAcesso").value.trim();
-  const erro = document.getElementById("loginErro");
+  const codigo = document.getElementById("codigoAcesso").value;
 
   if(codigo === "150909"){
+    const agora = Date.now();
+    const umDia = 24 * 60 * 60 * 1000;
+
+    localStorage.setItem("studyflow_login", "ok");
+    localStorage.setItem("studyflow_login_expira", agora + umDia);
+
     document.getElementById("loginScreen").style.display = "none";
     document.getElementById("menuEscolha").style.display = "flex";
-    erro.style.display = "none";
   }else{
-    erro.style.display = "block";
+    alert("Código errado!");
   }
 }
 
@@ -1738,6 +1765,24 @@ function voltarMenu(){
   document.getElementById("siteContent").style.display = "none";
   document.getElementById("programacao").style.display = "none";
   document.getElementById("menuEscolha").style.display = "flex";
+}
+
+window.addEventListener("load", () => {
+  const login = localStorage.getItem("studyflow_login");
+  const expira = Number(localStorage.getItem("studyflow_login_expira"));
+
+  if(login === "ok" && Date.now() < expira){
+    document.getElementById("loginScreen").style.display = "none";
+    document.getElementById("menuEscolha").style.display = "flex";
+  }else{
+    localStorage.removeItem("studyflow_login");
+    localStorage.removeItem("studyflow_login_expira");
+  }
+});
+
+function voltarInicioMateriais(){
+  caminhoAtual = "Inicio"; // ou "" dependendo do seu sistema
+  carregarArquivos(); // recarrega lista
 }
 
 </script>
