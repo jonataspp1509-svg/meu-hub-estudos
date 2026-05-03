@@ -1,656 +1,998 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>JN_PP</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+  <title>StudyFlow</title>
 
-<style>
-:root{
-  --bg:#eef2ff;
-  --card:#ffffff;
-  --primary:#4f46e5;
-  --primary2:#7c3aed;
-  --green:#22c55e;
-  --blue:#0ea5e9;
-  --text:#0f172a;
-  --muted:#64748b;
-  --border:#e2e8f0;
-}
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
 
-body{
-  font-family:'Poppins',sans-serif;
-  background:linear-gradient(135deg,#eef2ff,#f8fafc);
-  color:var(--text);
-  min-height:100vh;
-  padding:28px;
-}
+  <style>
+    :root {
+      --bg-main: #eef2ff;
+      --bg-soft: #f8fafc;
+      --card: #ffffff;
+      --primary: #4f46e5;
+      --primary-dark: #3730a3;
+      --purple: #7c3aed;
+      --blue: #0ea5e9;
+      --green: #16a34a;
+      --red: #dc2626;
+      --orange: #f97316;
+      --yellow: #facc15;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+      --radius: 22px;
+    }
 
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:25px;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.logo{
-  font-size:2rem;
-  font-weight:800;
-  color:var(--primary);
-}
+    body {
+      min-height: 100vh;
+      font-family: "Poppins", sans-serif;
+      background:
+        radial-gradient(circle at top left, #c7d2fe, transparent 30%),
+        radial-gradient(circle at bottom right, #ddd6fe, transparent 30%),
+        linear-gradient(135deg, var(--bg-main), var(--bg-soft));
+      color: var(--text);
+      padding: 28px;
+    }
 
-.subtitle{
-  color:var(--muted);
-  font-size:.9rem;
-}
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 26px;
+      flex-wrap: wrap;
+    }
 
-.dashboard{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:18px;
-  margin-bottom:28px;
-}
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
 
-.dash-card{
-  background:var(--card);
-  padding:26px;
-  border-radius:22px;
-  box-shadow:0 10px 25px rgba(15,23,42,.08);
-  cursor:pointer;
-  transition:.25s;
-  border:2px solid transparent;
-  text-align:center;
-  font-weight:700;
-  font-size:1.1rem;
-}
+    .logo {
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -1px;
+    }
 
-.dash-card:hover{
-  transform:translateY(-6px);
-  border-color:var(--primary);
-}
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
 
-.dash-card.active{
-  background:linear-gradient(135deg,var(--primary),var(--primary2));
-  color:white;
-}
+    .drive-btn {
+      border: none;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--green), #22c55e);
+      color: white;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: 0.2s;
+    }
 
-.section{
-  display:none;
-}
+    .drive-btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.95;
+    }
 
-.section.active{
-  display:block;
-}
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-bottom: 24px;
+    }
 
-.panel{
-  background:rgba(255,255,255,.8);
-  backdrop-filter:blur(8px);
-  border-radius:22px;
-  padding:22px;
-  box-shadow:0 10px 25px rgba(15,23,42,.07);
-}
+    .dash-card {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(10px);
+      padding: 25px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: 0.22s;
+      text-align: center;
+      font-weight: 800;
+      font-size: 1.08rem;
+    }
 
-.breadcrumb{
-  margin-bottom:16px;
-  font-weight:700;
-}
+    .dash-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--primary);
+    }
 
-.breadcrumb span{
-  color:var(--primary);
-  cursor:pointer;
-}
+    .dash-card.active {
+      background: linear-gradient(135deg, var(--primary), var(--purple));
+      color: white;
+    }
 
-.list{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
+    .section {
+      display: none;
+    }
 
-.item{
-  background:white;
-  padding:15px 18px;
-  border-radius:15px;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  text-decoration:none;
-  color:var(--text);
-  font-weight:600;
-  box-shadow:0 5px 14px rgba(15,23,42,.06);
-  border:1px solid var(--border);
-  cursor:pointer;
-  transition:.2s;
-  width:100%;
-}
+    .section.active {
+      display: block;
+    }
 
-.item:hover{
-  background:#e0e7ff;
-  transform:translateX(5px);
-}
+    .panel {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(8px);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,0.8);
+    }
 
-.calculator{
-  max-width:360px;
-  margin:auto;
-  background:#111827;
-  padding:22px;
-  border-radius:24px;
-  box-shadow:0 15px 35px rgba(15,23,42,.25);
-}
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: var(--primary-dark);
+    }
 
-.calculator input{
-  width:100%;
-  padding:18px;
-  border:none;
-  border-radius:14px;
-  margin-bottom:14px;
-  font-size:1.6rem;
-  text-align:right;
-  background:#1f2937;
-  color:white;
-}
+    .breadcrumb {
+      margin-bottom: 16px;
+      font-weight: 700;
+      color: var(--muted);
+    }
 
-.calc-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
-}
+    .breadcrumb span {
+      color: var(--primary);
+      cursor: pointer;
+    }
 
-button{
-  border:none;
-  border-radius:12px;
-  padding:12px;
-  background:var(--primary);
-  color:white;
-  font-weight:700;
-  cursor:pointer;
-  transition:.2s;
-}
+    .breadcrumb span:hover {
+      text-decoration: underline;
+    }
 
-button:hover{
-  opacity:.9;
-  transform:translateY(-2px);
-}
+    .material-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
 
-.calc-grid button{
-  height:55px;
-  font-size:1.1rem;
-  background:#374151;
-}
+    .material-info {
+      color: var(--muted);
+      font-weight: 600;
+    }
 
-.calc-grid .op{
-  background:var(--primary);
-}
+    .list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
 
-.calc-grid .eq{
-  background:var(--green);
-}
+    .item {
+      background: white;
+      padding: 15px 18px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 650;
+      box-shadow: 0 5px 14px rgba(15, 23, 42, 0.06);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: 0.18s;
+      width: 100%;
+    }
 
-.form-top{
-  display:grid;
-  grid-template-columns:1fr auto auto auto;
-  gap:10px;
-  margin-bottom:18px;
-}
+    .item:hover {
+      background: #e0e7ff;
+      transform: translateX(5px);
+      border-color: var(--primary);
+    }
 
-input{
-  width:100%;
-  padding:10px;
-  border:1px solid var(--border);
-  border-radius:10px;
-  outline:none;
-  font-family:inherit;
-}
+    .calculator-wrap {
+      max-width: 400px;
+      margin: 0 auto;
+      background: #111827;
+      padding: 24px;
+      border-radius: 28px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.25);
+    }
 
-.subject-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:15px;
-}
+    .calculator-display {
+      width: 100%;
+      padding: 20px;
+      border: none;
+      border-radius: 18px;
+      margin-bottom: 16px;
+      font-size: 1.7rem;
+      text-align: right;
+      background: #1f2937;
+      color: white;
+      outline: none;
+    }
 
-.subject{
-  background:white;
-  border-radius:18px;
-  padding:16px;
-  border:1px solid var(--border);
-  box-shadow:0 5px 14px rgba(15,23,42,.05);
-}
+    .calc-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
 
-.subject h3{
-  margin-bottom:10px;
-  color:var(--primary);
-}
+    button {
+      border: none;
+      border-radius: 14px;
+      padding: 12px;
+      background: var(--primary);
+      color: white;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.18s;
+      font-family: inherit;
+    }
 
-.subject label{
-  font-size:.78rem;
-  color:var(--muted);
-  font-weight:600;
-}
+    button:hover {
+      opacity: 0.92;
+      transform: translateY(-2px);
+    }
 
-.result-box{
-  margin-top:18px;
-  background:white;
-  padding:18px;
-  border-radius:18px;
-  border:1px solid var(--border);
-  font-weight:700;
-}
+    .calc-grid button {
+      height: 58px;
+      font-size: 1.1rem;
+      background: #374151;
+    }
 
-@media(max-width:700px){
-  body{
-    padding:16px;
-  }
+    .calc-grid .op {
+      background: var(--primary);
+    }
 
-  header{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:5px;
-  }
+    .calc-grid .eq {
+      background: var(--green);
+    }
 
-  .form-top{
-    grid-template-columns:1fr;
-  }
-}
-</style>
+    .calc-grid .danger {
+      background: var(--red);
+    }
+
+    .top-actions {
+      display: grid;
+      grid-template-columns: 1fr auto auto auto;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      outline: none;
+      font-family: inherit;
+      background: white;
+    }
+
+    input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+    }
+
+    .subject-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 15px;
+    }
+
+    .subject {
+      background: white;
+      border-radius: 20px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 5px 14px rgba(15, 23, 42, 0.05);
+    }
+
+    .subject-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      gap: 10px;
+    }
+
+    .subject-title {
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .subject-score {
+      font-weight: 800;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #f1f5f9;
+    }
+
+    .subject-body {
+      display: none;
+      margin-top: 14px;
+    }
+
+    .subject-body.open {
+      display: block;
+    }
+
+    .period-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .period-tab {
+      background: #eef2ff;
+      color: var(--primary);
+      padding: 9px;
+      border-radius: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      text-align: center;
+      border: 1px solid #c7d2fe;
+    }
+
+    .period-tab.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    .period-content {
+      display: none;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .period-content.active {
+      display: block;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .field label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .period-result {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 12px;
+      font-weight: 800;
+      background: white;
+    }
+
+    .annual-result {
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 14px;
+      font-weight: 800;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+    }
+
+    .ok {
+      color: var(--green);
+    }
+
+    .bad {
+      color: var(--red);
+    }
+
+    .warn {
+      color: var(--orange);
+    }
+
+    .result-box {
+      margin-top: 18px;
+      background: white;
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      font-weight: 800;
+      line-height: 1.7;
+    }
+
+    .small-note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    @media(max-width: 760px) {
+      body {
+        padding: 15px;
+      }
+
+      header {
+        align-items: flex-start;
+      }
+
+      .top-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .period-tabs {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <div>
-    <div class="logo">JN_PP</div>
-    <div class="subtitle">Materiais, calculadora e boletim online</div>
-  </div>
-</header>
-
-<div class="dashboard">
-  <div class="dash-card active" onclick="abrirSecao('materiais', this)">📁 Materiais</div>
-  <div class="dash-card" onclick="abrirSecao('calculadora', this)">🧮 Calculadora</div>
-  <div class="dash-card" onclick="abrirSecao('boletim', this)">📊 Boletim</div>
-</div>
-
-<section id="materiais" class="section active panel">
-  <div id="breadcrumb" class="breadcrumb"></div>
-  <div id="lista" class="list"></div>
-</section>
-
-<section id="calculadora" class="section panel">
-  <div class="calculator">
-    <input id="calcDisplay" readonly placeholder="0">
-    <div class="calc-grid">
-      <button onclick="limparCalc()">C</button>
-      <button onclick="apagarCalc()">⌫</button>
-      <button class="op" onclick="digitarCalc('/')">/</button>
-      <button class="op" onclick="digitarCalc('*')">×</button>
-
-      <button onclick="digitarCalc('7')">7</button>
-      <button onclick="digitarCalc('8')">8</button>
-      <button onclick="digitarCalc('9')">9</button>
-      <button class="op" onclick="digitarCalc('-')">-</button>
-
-      <button onclick="digitarCalc('4')">4</button>
-      <button onclick="digitarCalc('5')">5</button>
-      <button onclick="digitarCalc('6')">6</button>
-      <button class="op" onclick="digitarCalc('+')">+</button>
-
-      <button onclick="digitarCalc('1')">1</button>
-      <button onclick="digitarCalc('2')">2</button>
-      <button onclick="digitarCalc('3')">3</button>
-      <button class="eq" onclick="resultadoCalc()">=</button>
-
-      <button onclick="digitarCalc('0')">0</button>
-      <button onclick="digitarCalc('.')">.</button>
-      <button onclick="digitarCalc('(')">(</button>
-      <button onclick="digitarCalc(')')">)</button>
+  <header>
+    <div class="brand">
+      <div class="logo">StudyFlow</div>
+      <div class="subtitle">Materiais, calculadora, boletim, Firebase e Google Drive</div>
     </div>
+
+    <button class="drive-btn" onclick="abrirUploadDrive()">➕ Enviar arquivo</button>
+  </header>
+
+  <div class="dashboard">
+    <div class="dash-card active" onclick="abrirSecao('materiais', this)">📁 Materiais</div>
+    <div class="dash-card" onclick="abrirSecao('calculadora', this)">🧮 Calculadora</div>
+    <div class="dash-card" onclick="abrirSecao('boletim', this)">📊 Boletim</div>
   </div>
-</section>
 
-<section id="boletim" class="section panel">
-  <div class="form-top">
-    <input id="nomeAluno" placeholder="Nome do aluno">
-    <button onclick="salvarOnline()">💾 Salvar online</button>
-    <button onclick="carregarOnline()">📂 Carregar</button>
-    <button onclick="exportarExcel()">📥 Excel</button>
-  </div>
+  <section id="materiais" class="section active panel">
+    <div class="material-actions">
+      <div>
+        <div class="section-title">Gerenciador de materiais</div>
+        <div class="material-info">Use o caminho acima para voltar entre as pastas.</div>
+      </div>
 
-  <div class="subject-grid" id="subjects"></div>
+      <button onclick="abrirUploadDrive()">➕ Enviar pelo Drive</button>
+    </div>
 
-  <div class="result-box" id="resultadoBoletim">
-    Média geral: --
-  </div>
-</section>
+    <div id="breadcrumb" class="breadcrumb"></div>
+    <div id="lista" class="list"></div>
+  </section>
 
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+  <section id="calculadora" class="section panel">
+    <div class="section-title">Calculadora</div>
 
-/* COLE A CONFIG DO FIREBASE AQUI */
-const firebaseConfig = {
-    apiKey: "AIzaSyAGKQBoVgIDJzYOOkzukhTc6eRSXwJEv5I",
-    authDomain: "estudos-ec2cf.firebaseapp.com",
-    projectId: "estudos-ec2cf",
+    <div class="calculator-wrap">
+      <input id="calcDisplay" class="calculator-display" readonly placeholder="0">
 
-};
+      <div class="calc-grid">
+        <button class="danger" onclick="limparCalc()">C</button>
+        <button onclick="apagarCalc()">⌫</button>
+        <button class="op" onclick="digitarCalc('/')">/</button>
+        <button class="op" onclick="digitarCalc('*')">×</button>
 
-const app = initializeApp(firebaseConfig);
-const firestore = getFirestore(app);
+        <button onclick="digitarCalc('7')">7</button>
+        <button onclick="digitarCalc('8')">8</button>
+        <button onclick="digitarCalc('9')">9</button>
+        <button class="op" onclick="digitarCalc('-')">-</button>
 
-window.firestore = firestore;
-window.firebaseDoc = doc;
-window.firebaseSetDoc = setDoc;
-window.firebaseGetDoc = getDoc;
-</script>
+        <button onclick="digitarCalc('4')">4</button>
+        <button onclick="digitarCalc('5')">5</button>
+        <button onclick="digitarCalc('6')">6</button>
+        <button class="op" onclick="digitarCalc('+')">+</button>
 
-<script>
-/* ABAS */
-function abrirSecao(id, card){
-  document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
+        <button onclick="digitarCalc('1')">1</button>
+        <button onclick="digitarCalc('2')">2</button>
+        <button onclick="digitarCalc('3')">3</button>
+        <button class="eq" onclick="resultadoCalc()">=</button>
 
-  document.querySelectorAll(".dash-card").forEach(c => c.classList.remove("active"));
-  card.classList.add("active");
-}
+        <button onclick="digitarCalc('0')">0</button>
+        <button onclick="digitarCalc('.')">.</button>
+        <button onclick="digitarCalc('(')">(</button>
+        <button onclick="digitarCalc(')')">)</button>
+      </div>
+    </div>
+  </section>
 
-/* MATERIAIS */
-const BASE = window.location.origin + "/meu-hub-estudos/";
-let arquivos = [];
-let caminhoAtual = "";
+  <section id="boletim" class="section panel">
+    <div class="section-title">Boletim por período</div>
 
-function caminhoSeguro(path){
-  return path.split("/").map(p => encodeURIComponent(p)).join("/");
-}
+    <div class="top-actions">
+      <input id="nomeAluno" placeholder="Nome do aluno">
+      <button onclick="salvarOnline()">💾 Salvar online</button>
+      <button onclick="carregarOnline()">📂 Carregar</button>
+      <button onclick="exportarExcel()">📥 Excel</button>
+    </div>
 
-fetch("dados.txt?v=" + Date.now())
-  .then(r => r.text())
-  .then(texto => {
-    arquivos = texto
-      .split("\n")
-      .map(l => l.trim())
-      .filter(l => l && !l.includes("[DIR]") && l.includes("/"));
+    <div class="small-note">
+      Regra: 1P e 2P têm peso 2. 3P e 4P têm peso 3. Para passar, precisa somar pelo menos 47,5 pontos no ano.
+    </div>
 
-    renderMateriais();
-  });
+    <br>
 
-function renderMateriais(){
-  const lista = document.getElementById("lista");
-  const bc = document.getElementById("breadcrumb");
+    <div id="subjects" class="subject-grid"></div>
 
-  lista.innerHTML = "";
-  bc.innerHTML = `<span onclick="irPara('')">Início</span>`;
+    <div id="resultadoFinal" class="result-box">
+      Pontuação anual geral: --<br>
+      Situação: --
+    </div>
+  </section>
 
-  if(caminhoAtual){
-    let acumulado = "";
-    caminhoAtual.split("/").forEach(parte => {
-      acumulado = acumulado ? acumulado + "/" + parte : parte;
-      bc.innerHTML += ` > <span onclick="irPara('${acumulado}')">${parte}</span>`;
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAGKQBoVgIDJzYOOkzukhTc6eRSXwJEv5I",
+      authDomain: "estudos-ec2cf.firebaseapp.com",
+      projectId: "estudos-ec2cf"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const firestore = getFirestore(app);
+
+    window.firestore = firestore;
+    window.firebaseDoc = doc;
+    window.firebaseSetDoc = setDoc;
+    window.firebaseGetDoc = getDoc;
+  </script>
+
+  <script>
+    const DRIVE_LINK = "https://drive.google.com/drive/folders/1uIxIkbZmjycrylbR4_ypku6wIUN8s2x9?usp=drive_link";
+
+    const BASE = window.location.origin + "/meu-hub-estudos/";
+
+    let arquivos = [];
+    let caminhoAtual = "";
+
+    const materias = [
+      { id: "mat", nome: "Matemática" },
+      { id: "fis", nome: "Física" },
+      { id: "qui", nome: "Química" },
+      { id: "bio", nome: "Biologia" },
+      { id: "his", nome: "História" },
+      { id: "geo", nome: "Geografia" },
+      { id: "por", nome: "Português" },
+      { id: "ing", nome: "Inglês" },
+      { id: "red", nome: "Redação" },
+      { id: "fil", nome: "Filosofia" },
+      { id: "soc", nome: "Sociologia" }
+    ];
+
+    const pesos = {
+      p1: 2,
+      p2: 2,
+      p3: 3,
+      p4: 3
+    };
+
+    function abrirSecao(id, card) {
+      document.querySelectorAll(".section").forEach(sec => {
+        sec.classList.remove("active");
+      });
+
+      document.getElementById(id).classList.add("active");
+
+      document.querySelectorAll(".dash-card").forEach(c => {
+        c.classList.remove("active");
+      });
+
+      card.classList.add("active");
+    }
+
+    function abrirUploadDrive() {
+      const pasta = caminhoAtual || "Início";
+
+      alert(
+        "Pasta atual no site: " + pasta +
+        "\n\nEnvie o arquivo no Google Drive." +
+        "\nDepois ele precisa ser colocado na pasta correta do GitHub para aparecer automaticamente no site."
+      );
+
+      window.open(DRIVE_LINK, "_blank");
+    }
+
+    function caminhoSeguro(path) {
+      return path.split("/").map(parte => encodeURIComponent(parte)).join("/");
+    }
+
+    fetch("dados.txt?v=" + Date.now())
+      .then(resp => resp.text())
+      .then(texto => {
+        arquivos = texto
+          .split("\n")
+          .map(linha => linha.trim())
+          .filter(linha => linha && !linha.includes("[DIR]") && linha.includes("/"));
+
+        renderMateriais();
+      })
+      .catch(() => {
+        document.getElementById("lista").innerHTML =
+          `<div class="item">Erro ao carregar dados.txt</div>`;
+      });
+
+    function renderMateriais() {
+      const lista = document.getElementById("lista");
+      const breadcrumb = document.getElementById("breadcrumb");
+
+      lista.innerHTML = "";
+
+      breadcrumb.innerHTML = `<span onclick="irPara('')">Início</span>`;
+
+      if (caminhoAtual) {
+        let acumulado = "";
+
+        caminhoAtual.split("/").forEach(parte => {
+          acumulado = acumulado ? acumulado + "/" + parte : parte;
+          breadcrumb.innerHTML += ` > <span onclick="irPara('${acumulado}')">${parte}</span>`;
+        });
+      }
+
+      const pastas = new Set();
+      const files = [];
+
+      arquivos.forEach(path => {
+        if (caminhoAtual && !path.startsWith(caminhoAtual + "/")) return;
+
+        const resto = caminhoAtual
+          ? path.slice(caminhoAtual.length).replace(/^\/+/, "")
+          : path;
+
+        const partes = resto.split("/");
+        const primeiro = partes[0];
+
+        if (partes.length > 1) {
+          pastas.add(primeiro);
+        } else {
+          files.push(path);
+        }
+      });
+
+      [...pastas].sort().forEach(pasta => {
+        const div = document.createElement("div");
+        div.className = "item";
+        div.innerHTML = `📁 <span>${pasta}</span>`;
+        div.onclick = () => irPara(caminhoAtual ? caminhoAtual + "/" + pasta : pasta);
+        lista.appendChild(div);
+      });
+
+      files.sort().forEach(file => {
+        const a = document.createElement("a");
+        a.className = "item";
+        a.href = BASE + "Estudos/" + caminhoSeguro(file);
+        a.target = "_blank";
+        a.innerHTML = `📄 <span>${file.split("/").pop()}</span>`;
+        lista.appendChild(a);
+      });
+
+      if (!pastas.size && !files.length) {
+        lista.innerHTML = `<div class="item">Pasta vazia</div>`;
+      }
+    }
+
+    function irPara(path) {
+      caminhoAtual = path;
+      renderMateriais();
+    }
+
+    function digitarCalc(valor) {
+      document.getElementById("calcDisplay").value += valor;
+    }
+
+    function limparCalc() {
+      document.getElementById("calcDisplay").value = "";
+    }
+
+    function apagarCalc() {
+      const display = document.getElementById("calcDisplay");
+      display.value = display.value.slice(0, -1);
+    }
+
+    function resultadoCalc() {
+      const display = document.getElementById("calcDisplay");
+
+      try {
+        display.value = Function('"use strict"; return (' + display.value + ')')();
+      } catch {
+        display.value = "Erro";
+      }
+    }
+
+    function montarBoletim() {
+      const container = document.getElementById("subjects");
+
+      container.innerHTML = "";
+
+      materias.forEach(materia => {
+        const card = document.createElement("div");
+        card.className = "subject";
+
+        card.innerHTML = `
+          <div class="subject-header" onclick="toggleMateria('${materia.id}')">
+            <div class="subject-title">${materia.nome}</div>
+            <div id="${materia.id}_resumo" class="subject-score">--</div>
+          </div>
+
+          <div id="${materia.id}_body" class="subject-body">
+            <div class="period-tabs">
+              <div class="period-tab active" onclick="abrirPeriodo(event,'${materia.id}','p1')">1P</div>
+              <div class="period-tab" onclick="abrirPeriodo(event,'${materia.id}','p2')">2P</div>
+              <div class="period-tab" onclick="abrirPeriodo(event,'${materia.id}','p3')">3P</div>
+              <div class="period-tab" onclick="abrirPeriodo(event,'${materia.id}','p4')">4P</div>
+            </div>
+
+            ${criarPeriodo(materia.id, "p1", "1º Período", 2, true)}
+            ${criarPeriodo(materia.id, "p2", "2º Período", 2, false)}
+            ${criarPeriodo(materia.id, "p3", "3º Período", 3, false)}
+            ${criarPeriodo(materia.id, "p4", "4º Período", 3, false)}
+          </div>
+
+          <div id="${materia.id}_anual" class="annual-result">
+            Pontuação anual: --
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function criarPeriodo(id, periodo, titulo, peso, ativo) {
+      return `
+        <div id="${id}_${periodo}_content" class="period-content ${ativo ? "active" : ""}">
+          <h4>${titulo} — peso ${peso}</h4>
+
+          <div class="field-grid">
+            <div class="field">
+              <label>Escrita</label>
+              <input id="${id}_${periodo}_e" type="number" step="0.01">
+            </div>
+
+            <div class="field">
+              <label>Teste</label>
+              <input id="${id}_${periodo}_t" type="number" step="0.01">
+            </div>
+
+            <div class="field">
+              <label>Valorada</label>
+              <input id="${id}_${periodo}_v" type="number" step="0.01">
+            </div>
+          </div>
+
+          <div id="${id}_${periodo}_resultado" class="period-result">
+            Média do período: --
+          </div>
+        </div>
+      `;
+    }
+
+    function toggleMateria(id) {
+      const body = document.getElementById(id + "_body");
+      body.classList.toggle("open");
+    }
+
+    function abrirPeriodo(event, id, periodo) {
+      event.stopPropagation();
+
+      const body = document.getElementById(id + "_body");
+
+      body.querySelectorAll(".period-tab").forEach(tab => {
+        tab.classList.remove("active");
+      });
+
+      event.target.classList.add("active");
+
+      ["p1", "p2", "p3", "p4"].forEach(p => {
+        document.getElementById(`${id}_${p}_content`).classList.remove("active");
+      });
+
+      document.getElementById(`${id}_${periodo}_content`).classList.add("active");
+    }
+
+    function valor(id) {
+      return Number(document.getElementById(id)?.value) || 0;
+    }
+
+    function mediaPeriodo(id, periodo) {
+      return (
+        valor(`${id}_${periodo}_e`) +
+        valor(`${id}_${periodo}_t`) +
+        valor(`${id}_${periodo}_v`)
+      );
+    }
+
+    function pontuacaoMateria(id) {
+      const p1 = mediaPeriodo(id, "p1");
+      const p2 = mediaPeriodo(id, "p2");
+      const p3 = mediaPeriodo(id, "p3");
+      const p4 = mediaPeriodo(id, "p4");
+
+      return {
+        p1,
+        p2,
+        p3,
+        p4,
+        total: p1 * 2 + p2 * 2 + p3 * 3 + p4 * 3
+      };
+    }
+
+    function calcularTudo() {
+      let soma = 0;
+
+      materias.forEach(materia => {
+        const r = pontuacaoMateria(materia.id);
+
+        soma += r.total;
+
+        ["p1", "p2", "p3", "p4"].forEach(periodo => {
+          const media = r[periodo];
+          const el = document.getElementById(`${materia.id}_${periodo}_resultado`);
+
+          el.innerHTML = `Média do período: ${media.toFixed(2)}`;
+          el.className = "period-result " + (media >= 5 ? "ok" : "bad");
+        });
+
+        const falta = Math.max(0, 47.5 - r.total);
+        const anual = document.getElementById(`${materia.id}_anual`);
+        const resumo = document.getElementById(`${materia.id}_resumo`);
+
+        let texto = `Pontuação anual: ${r.total.toFixed(2)} / 100`;
+
+        if (r.total >= 47.5) {
+          texto += `<br><span class="ok">Acima da média anual</span>`;
+        } else {
+          texto += `<br><span class="bad">Faltam ${falta.toFixed(2)} pontos para 47.5</span>`;
+          texto += `<br><span class="warn">Se for no próximo período com peso 3, precisa de ${(falta / 3).toFixed(2)}</span>`;
+        }
+
+        anual.innerHTML = texto;
+        anual.className = "annual-result " + (r.total >= 47.5 ? "ok" : "bad");
+
+        resumo.innerHTML = r.total.toFixed(1);
+        resumo.className = "subject-score " + (r.total >= 47.5 ? "ok" : "bad");
+      });
+
+      const mediaGeral = soma / materias.length;
+
+      document.getElementById("resultadoFinal").innerHTML =
+        `Pontuação anual geral: ${mediaGeral.toFixed(2)}<br>` +
+        (
+          mediaGeral >= 47.5
+            ? `<span class="ok">Situação geral: acima da média</span>`
+            : `<span class="bad">Situação geral: abaixo da média</span>`
+        );
+    }
+
+    document.addEventListener("input", event => {
+      if (event.target.closest("#boletim")) {
+        calcularTudo();
+      }
     });
-  }
 
-  const pastas = new Set();
-  const files = [];
+    function coletarDados() {
+      const dados = {
+        nome: document.getElementById("nomeAluno").value,
+        notas: {}
+      };
 
-  arquivos.forEach(path => {
-    if(caminhoAtual && !path.startsWith(caminhoAtual + "/")) return;
+      materias.forEach(materia => {
+        dados.notas[materia.id] = {};
 
-    const resto = caminhoAtual
-      ? path.slice(caminhoAtual.length).replace(/^\/+/, "")
-      : path;
+        ["p1", "p2", "p3", "p4"].forEach(periodo => {
+          dados.notas[materia.id][periodo] = {
+            e: document.getElementById(`${materia.id}_${periodo}_e`).value,
+            t: document.getElementById(`${materia.id}_${periodo}_t`).value,
+            v: document.getElementById(`${materia.id}_${periodo}_v`).value
+          };
+        });
+      });
 
-    const partes = resto.split("/");
-    const primeiro = partes[0];
-
-    if(partes.length > 1){
-      pastas.add(primeiro);
-    }else{
-      files.push(path);
-    }
-  });
-
-  [...pastas].sort().forEach(pasta => {
-    const div = document.createElement("div");
-    div.className = "item";
-    div.innerHTML = `📁 <span>${pasta}</span>`;
-    div.onclick = () => irPara(caminhoAtual ? caminhoAtual + "/" + pasta : pasta);
-    lista.appendChild(div);
-  });
-
-  files.sort().forEach(file => {
-    const a = document.createElement("a");
-    a.className = "item";
-    a.href = BASE + "Estudos/" + caminhoSeguro(file);
-    a.target = "_blank";
-    a.innerHTML = `📄 <span>${file.split("/").pop()}</span>`;
-    lista.appendChild(a);
-  });
-
-  if(!pastas.size && !files.length){
-    lista.innerHTML = `<div class="item">Pasta vazia</div>`;
-  }
-}
-
-function irPara(path){
-  caminhoAtual = path;
-  renderMateriais();
-}
-
-/* CALCULADORA */
-function digitarCalc(v){
-  document.getElementById("calcDisplay").value += v;
-}
-
-function limparCalc(){
-  document.getElementById("calcDisplay").value = "";
-}
-
-function apagarCalc(){
-  const d = document.getElementById("calcDisplay");
-  d.value = d.value.slice(0,-1);
-}
-
-function resultadoCalc(){
-  const d = document.getElementById("calcDisplay");
-  try{
-    d.value = Function('"use strict"; return (' + d.value + ')')();
-  }catch{
-    d.value = "Erro";
-  }
-}
-
-/* BOLETIM */
-const materias = [
-  { id:"mat", nome:"Matemática", tipo:"normal" },
-  { id:"fis", nome:"Física", tipo:"normal" },
-  { id:"qui", nome:"Química", tipo:"normal" },
-  { id:"bio", nome:"Biologia", tipo:"normal" },
-  { id:"his", nome:"História", tipo:"normal" },
-  { id:"geo", nome:"Geografia", tipo:"normal" },
-  { id:"por", nome:"Português", tipo:"normal" },
-  { id:"ing", nome:"Inglês", tipo:"normal" },
-  { id:"red", nome:"Redação", tipo:"normal" },
-  { id:"fil", nome:"Filosofia", tipo:"soma" },
-  { id:"soc", nome:"Sociologia", tipo:"soma" }
-];
-
-function montarBoletim(){
-  const container = document.getElementById("subjects");
-  container.innerHTML = "";
-
-  materias.forEach(m => {
-    const div = document.createElement("div");
-    div.className = "subject";
-
-    if(m.tipo === "soma"){
-      div.innerHTML = `
-        <h3>${m.nome}</h3>
-        <label>Nota 1</label>
-        <input id="${m.id}_n1" type="number" step="0.01">
-        <label>Nota 2</label>
-        <input id="${m.id}_n2" type="number" step="0.01">
-      `;
-    }else{
-      div.innerHTML = `
-        <h3>${m.nome}</h3>
-        <label>1º período — escrita</label>
-        <input id="${m.id}_p1e" type="number" step="0.01">
-        <label>1º período — teste</label>
-        <input id="${m.id}_p1t" type="number" step="0.01">
-        <label>2º período — escrita</label>
-        <input id="${m.id}_p2e" type="number" step="0.01">
-        <label>2º período — teste</label>
-        <input id="${m.id}_p2t" type="number" step="0.01">
-        <label>Valorada</label>
-        <input id="${m.id}_v" type="number" step="0.01">
-      `;
+      return dados;
     }
 
-    container.appendChild(div);
-  });
-}
+    function preencherDados(dados) {
+      document.getElementById("nomeAluno").value = dados.nome || "";
 
-function valor(id){
-  return Number(document.getElementById(id)?.value) || 0;
-}
+      materias.forEach(materia => {
+        ["p1", "p2", "p3", "p4"].forEach(periodo => {
+          const d = dados.notas?.[materia.id]?.[periodo] || {};
 
-function mediaMateria(m){
-  if(m.tipo === "soma"){
-    return valor(`${m.id}_n1`) + valor(`${m.id}_n2`);
-  }
+          document.getElementById(`${materia.id}_${periodo}_e`).value = d.e || "";
+          document.getElementById(`${materia.id}_${periodo}_t`).value = d.t || "";
+          document.getElementById(`${materia.id}_${periodo}_v`).value = d.v || "";
+        });
+      });
 
-  return (
-    valor(`${m.id}_p1e`) +
-    valor(`${m.id}_p1t`) +
-    valor(`${m.id}_p2e`) +
-    valor(`${m.id}_p2t`) +
-    valor(`${m.id}_v`)
-  ) / 2;
-}
-
-function calcularBoletim(){
-  const resultados = materias.map(m => ({
-    nome:m.nome,
-    media:mediaMateria(m)
-  }));
-
-  const geral = resultados.reduce((s,m) => s + m.media, 0) / resultados.length;
-
-  document.getElementById("resultadoBoletim").innerHTML =
-    `Média geral: ${geral.toFixed(2)}<br>` +
-    resultados.map(r => `${r.nome}: ${r.media.toFixed(2)}`).join("<br>");
-
-  return { resultados, geral };
-}
-
-document.addEventListener("input", e => {
-  if(e.target.closest("#boletim")){
-    calcularBoletim();
-  }
-});
-
-function coletarDados(){
-  const dados = {
-    nome: document.getElementById("nomeAluno").value,
-    notas:{}
-  };
-
-  materias.forEach(m => {
-    dados.notas[m.id] = {};
-
-    if(m.tipo === "soma"){
-      dados.notas[m.id].n1 = document.getElementById(`${m.id}_n1`).value;
-      dados.notas[m.id].n2 = document.getElementById(`${m.id}_n2`).value;
-    }else{
-      dados.notas[m.id].p1e = document.getElementById(`${m.id}_p1e`).value;
-      dados.notas[m.id].p1t = document.getElementById(`${m.id}_p1t`).value;
-      dados.notas[m.id].p2e = document.getElementById(`${m.id}_p2e`).value;
-      dados.notas[m.id].p2t = document.getElementById(`${m.id}_p2t`).value;
-      dados.notas[m.id].v = document.getElementById(`${m.id}_v`).value;
+      calcularTudo();
     }
-  });
 
-  return dados;
-}
+    async function salvarOnline() {
+      const dados = coletarDados();
 
-function preencherDados(dados){
-  document.getElementById("nomeAluno").value = dados.nome || "";
+      if (!dados.nome) {
+        alert("Digite o nome do aluno.");
+        return;
+      }
 
-  materias.forEach(m => {
-    const n = dados.notas?.[m.id] || {};
+      await window.firebaseSetDoc(
+        window.firebaseDoc(window.firestore, "alunos", dados.nome),
+        dados
+      );
 
-    if(m.tipo === "soma"){
-      document.getElementById(`${m.id}_n1`).value = n.n1 || "";
-      document.getElementById(`${m.id}_n2`).value = n.n2 || "";
-    }else{
-      document.getElementById(`${m.id}_p1e`).value = n.p1e || "";
-      document.getElementById(`${m.id}_p1t`).value = n.p1t || "";
-      document.getElementById(`${m.id}_p2e`).value = n.p2e || "";
-      document.getElementById(`${m.id}_p2t`).value = n.p2t || "";
-      document.getElementById(`${m.id}_v`).value = n.v || "";
+      alert("Salvo online!");
     }
-  });
 
-  calcularBoletim();
-}
+    async function carregarOnline() {
+      const nome = document.getElementById("nomeAluno").value;
 
-async function salvarOnline(){
-  const dados = coletarDados();
-  if(!dados.nome) return alert("Digite o nome do aluno.");
+      if (!nome) {
+        alert("Digite o nome do aluno.");
+        return;
+      }
 
-  await window.firebaseSetDoc(
-    window.firebaseDoc(window.firestore, "alunos", dados.nome),
-    dados
-  );
+      const snap = await window.firebaseGetDoc(
+        window.firebaseDoc(window.firestore, "alunos", nome)
+      );
 
-  alert("Salvo online!");
-}
+      if (!snap.exists()) {
+        alert("Aluno não encontrado.");
+        return;
+      }
 
-async function carregarOnline(){
-  const nome = document.getElementById("nomeAluno").value;
-  if(!nome) return alert("Digite o nome do aluno.");
+      preencherDados(snap.data());
+    }
 
-  const snap = await window.firebaseGetDoc(
-    window.firebaseDoc(window.firestore, "alunos", nome)
-  );
+    function exportarExcel() {
+      const nome = document.getElementById("nomeAluno").value || "Aluno";
 
-  if(!snap.exists()){
-    alert("Aluno não encontrado.");
-    return;
-  }
+      const linhas = [
+        ["Boletim JN_PP"],
+        ["Aluno", nome],
+        [],
+        ["Matéria", "1P", "2P", "3P", "4P", "Pontuação anual", "Situação"]
+      ];
 
-  preencherDados(snap.data());
-}
+      materias.forEach(materia => {
+        const r = pontuacaoMateria(materia.id);
 
-function exportarExcel(){
-  const nome = document.getElementById("nomeAluno").value || "Aluno";
-  const { resultados, geral } = calcularBoletim();
+        linhas.push([
+          materia.nome,
+          Number(r.p1.toFixed(2)),
+          Number(r.p2.toFixed(2)),
+          Number(r.p3.toFixed(2)),
+          Number(r.p4.toFixed(2)),
+          Number(r.total.toFixed(2)),
+          r.total >= 47.5 ? "Acima da média" : "Recuperação"
+        ]);
+      });
 
-  const linhas = [
-    ["Boletim JN_PP"],
-    ["Aluno", nome],
-    [],
-    ["Matéria", "Média"],
-    ...resultados.map(r => [r.nome, Number(r.media.toFixed(2))]),
-    [],
-    ["Média geral", Number(geral.toFixed(2))]
-  ];
+      const wb = XLSX.utils.book_new();
+      const ws = XLSX.utils.aoa_to_sheet(linhas);
 
-  const wb = XLSX.utils.book_new();
-  const ws = XLSX.utils.aoa_to_sheet(linhas);
-  XLSX.utils.book_append_sheet(wb, ws, "Boletim");
-  XLSX.writeFile(wb, `Boletim_${nome}.xlsx`);
-}
+      XLSX.utils.book_append_sheet(wb, ws, "Boletim");
+      XLSX.writeFile(wb, `Boletim_${nome}.xlsx`);
+    }
 
-montarBoletim();
-calcularBoletim();
-</script>
+    montarBoletim();
+    calcularTudo();
+  </script>
 
 </body>
 </html>
