@@ -1,124 +1,339 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>JN_PP</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
 
 <style>
+:root{
+  --bg:#eef2ff;
+  --card:#ffffff;
+  --primary:#4f46e5;
+  --primary2:#7c3aed;
+  --green:#22c55e;
+  --blue:#0ea5e9;
+  --text:#0f172a;
+  --muted:#64748b;
+  --border:#e2e8f0;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
 body{
-font-family:Poppins;
-background:#eef2ff;
-padding:20px;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#eef2ff,#f8fafc);
+  color:var(--text);
+  min-height:100vh;
+  padding:28px;
 }
 
-h1{
-text-align:center;
-color:#4f46e5;
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:25px;
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:15px;
-margin-top:20px;
+.logo{
+  font-size:2rem;
+  font-weight:800;
+  color:var(--primary);
 }
 
-.card{
-background:white;
-padding:20px;
-border-radius:15px;
-text-align:center;
-cursor:pointer;
-box-shadow:0 5px 10px rgba(0,0,0,0.05);
+.subtitle{
+  color:var(--muted);
+  font-size:.9rem;
 }
 
-.card:hover{
-background:#6366f1;
-color:white;
+.dashboard{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:18px;
+  margin-bottom:28px;
 }
 
-.section{display:none;margin-top:20px}
-
-input{
-width:100%;
-padding:8px;
-margin:4px 0;
+.dash-card{
+  background:var(--card);
+  padding:26px;
+  border-radius:22px;
+  box-shadow:0 10px 25px rgba(15,23,42,.08);
+  cursor:pointer;
+  transition:.25s;
+  border:2px solid transparent;
+  text-align:center;
+  font-weight:700;
+  font-size:1.1rem;
 }
 
-button{
-background:#4f46e5;
-color:white;
-padding:10px;
-border:none;
-border-radius:8px;
-margin-top:10px;
-cursor:pointer;
+.dash-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--primary);
 }
 
-.item{
-background:white;
-padding:10px;
-border-radius:10px;
-margin:5px 0;
+.dash-card.active{
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  color:white;
+}
+
+.section{
+  display:none;
+}
+
+.section.active{
+  display:block;
+}
+
+.panel{
+  background:rgba(255,255,255,.8);
+  backdrop-filter:blur(8px);
+  border-radius:22px;
+  padding:22px;
+  box-shadow:0 10px 25px rgba(15,23,42,.07);
+}
+
+.breadcrumb{
+  margin-bottom:16px;
+  font-weight:700;
 }
 
 .breadcrumb span{
-color:#4f46e5;
-cursor:pointer;
+  color:var(--primary);
+  cursor:pointer;
+}
+
+.list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.item{
+  background:white;
+  padding:15px 18px;
+  border-radius:15px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:var(--text);
+  font-weight:600;
+  box-shadow:0 5px 14px rgba(15,23,42,.06);
+  border:1px solid var(--border);
+  cursor:pointer;
+  transition:.2s;
+  width:100%;
+}
+
+.item:hover{
+  background:#e0e7ff;
+  transform:translateX(5px);
+}
+
+.calculator{
+  max-width:360px;
+  margin:auto;
+  background:#111827;
+  padding:22px;
+  border-radius:24px;
+  box-shadow:0 15px 35px rgba(15,23,42,.25);
+}
+
+.calculator input{
+  width:100%;
+  padding:18px;
+  border:none;
+  border-radius:14px;
+  margin-bottom:14px;
+  font-size:1.6rem;
+  text-align:right;
+  background:#1f2937;
+  color:white;
+}
+
+.calc-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+button{
+  border:none;
+  border-radius:12px;
+  padding:12px;
+  background:var(--primary);
+  color:white;
+  font-weight:700;
+  cursor:pointer;
+  transition:.2s;
+}
+
+button:hover{
+  opacity:.9;
+  transform:translateY(-2px);
+}
+
+.calc-grid button{
+  height:55px;
+  font-size:1.1rem;
+  background:#374151;
+}
+
+.calc-grid .op{
+  background:var(--primary);
+}
+
+.calc-grid .eq{
+  background:var(--green);
+}
+
+.form-top{
+  display:grid;
+  grid-template-columns:1fr auto auto auto;
+  gap:10px;
+  margin-bottom:18px;
+}
+
+input{
+  width:100%;
+  padding:10px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  outline:none;
+  font-family:inherit;
+}
+
+.subject-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:15px;
+}
+
+.subject{
+  background:white;
+  border-radius:18px;
+  padding:16px;
+  border:1px solid var(--border);
+  box-shadow:0 5px 14px rgba(15,23,42,.05);
+}
+
+.subject h3{
+  margin-bottom:10px;
+  color:var(--primary);
+}
+
+.subject label{
+  font-size:.78rem;
+  color:var(--muted);
+  font-weight:600;
+}
+
+.result-box{
+  margin-top:18px;
+  background:white;
+  padding:18px;
+  border-radius:18px;
+  border:1px solid var(--border);
+  font-weight:700;
+}
+
+@media(max-width:700px){
+  body{
+    padding:16px;
+  }
+
+  header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:5px;
+  }
+
+  .form-top{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<h1>JN_PP</h1>
+<header>
+  <div>
+    <div class="logo">JN_PP</div>
+    <div class="subtitle">Materiais, calculadora e boletim online</div>
+  </div>
+</header>
 
-<div class="grid">
-<div class="card" onclick="openSec('mat')">📁 Materiais</div>
-<div class="card" onclick="openSec('calc')">🧮 Calculadora</div>
-<div class="card" onclick="openSec('bol')">📊 Boletim</div>
+<div class="dashboard">
+  <div class="dash-card active" onclick="abrirSecao('materiais', this)">📁 Materiais</div>
+  <div class="dash-card" onclick="abrirSecao('calculadora', this)">🧮 Calculadora</div>
+  <div class="dash-card" onclick="abrirSecao('boletim', this)">📊 Boletim</div>
 </div>
 
-<!-- MATERIAIS -->
-<div id="mat" class="section">
-<div id="bc"></div>
-<div id="lista"></div>
-</div>
+<section id="materiais" class="section active panel">
+  <div id="breadcrumb" class="breadcrumb"></div>
+  <div id="lista" class="list"></div>
+</section>
 
-<!-- CALC -->
-<div id="calc" class="section">
-<input id="scr">
-<button onclick="calc()">=</button>
-</div>
+<section id="calculadora" class="section panel">
+  <div class="calculator">
+    <input id="calcDisplay" readonly placeholder="0">
+    <div class="calc-grid">
+      <button onclick="limparCalc()">C</button>
+      <button onclick="apagarCalc()">⌫</button>
+      <button class="op" onclick="digitarCalc('/')">/</button>
+      <button class="op" onclick="digitarCalc('*')">×</button>
 
-<!-- BOLETIM -->
-<div id="bol" class="section">
+      <button onclick="digitarCalc('7')">7</button>
+      <button onclick="digitarCalc('8')">8</button>
+      <button onclick="digitarCalc('9')">9</button>
+      <button class="op" onclick="digitarCalc('-')">-</button>
 
-<input id="nome" placeholder="Nome">
+      <button onclick="digitarCalc('4')">4</button>
+      <button onclick="digitarCalc('5')">5</button>
+      <button onclick="digitarCalc('6')">6</button>
+      <button class="op" onclick="digitarCalc('+')">+</button>
 
-<h3>Matemática</h3>
-<input id="mat1e" placeholder="P1 Escrita">
-<input id="mat1t" placeholder="P1 Teste">
-<input id="mat2e" placeholder="P2 Escrita">
-<input id="mat2t" placeholder="P2 Teste">
-<input id="matv" placeholder="Valorada">
+      <button onclick="digitarCalc('1')">1</button>
+      <button onclick="digitarCalc('2')">2</button>
+      <button onclick="digitarCalc('3')">3</button>
+      <button class="eq" onclick="resultadoCalc()">=</button>
 
-<button onclick="calcular()">Calcular</button>
-<button onclick="salvar()">Salvar Online</button>
+      <button onclick="digitarCalc('0')">0</button>
+      <button onclick="digitarCalc('.')">.</button>
+      <button onclick="digitarCalc('(')">(</button>
+      <button onclick="digitarCalc(')')">)</button>
+    </div>
+  </div>
+</section>
 
-<h2 id="res"></h2>
+<section id="boletim" class="section panel">
+  <div class="form-top">
+    <input id="nomeAluno" placeholder="Nome do aluno">
+    <button onclick="salvarOnline()">💾 Salvar online</button>
+    <button onclick="carregarOnline()">📂 Carregar</button>
+    <button onclick="exportarExcel()">📥 Excel</button>
+  </div>
 
-</div>
+  <div class="subject-grid" id="subjects"></div>
+
+  <div class="result-box" id="resultadoBoletim">
+    Média geral: --
+  </div>
+</section>
 
 <script type="module">
-
-/* FIREBASE */
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
+/* COLE A CONFIG DO FIREBASE AQUI */
 const firebaseConfig = {
     apiKey: "AIzaSyAGKQBoVgIDJzYOOkzukhTc6eRSXwJEv5I",
     authDomain: "estudos-ec2cf.firebaseapp.com",
@@ -127,88 +342,314 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const firestore = getFirestore(app);
 
-/* UI */
-window.openSec=(id)=>{
-document.querySelectorAll(".section").forEach(s=>s.style.display="none");
-document.getElementById(id).style.display="block";
+window.firestore = firestore;
+window.firebaseDoc = doc;
+window.firebaseSetDoc = setDoc;
+window.firebaseGetDoc = getDoc;
+</script>
+
+<script>
+/* ABAS */
+function abrirSecao(id, card){
+  document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+
+  document.querySelectorAll(".dash-card").forEach(c => c.classList.remove("active"));
+  card.classList.add("active");
 }
-
-/* CALC */
-window.calc=()=>{
-scr.value=eval(scr.value)
-}
-
-/* BASE */
-const BASE = window.location.origin + "/meu-hub-estudos/";
 
 /* MATERIAIS */
-let dados=[], path="";
+const BASE = window.location.origin + "/meu-hub-estudos/";
+let arquivos = [];
+let caminhoAtual = "";
 
-fetch("dados.txt?v="+Date.now())
-.then(r=>r.text())
-.then(t=>{
-dados=t.split("\n").filter(l=>l.includes("/"));
-render();
-});
-
-function render(){
-lista.innerHTML="";
-bc.innerHTML=`<span onclick="go('')">Início</span>`;
-
-let past=new Set(), files=[];
-
-dados.forEach(p=>{
-if(!p.startsWith(path))return;
-
-let rest=p.slice(path.length).replace(/^\/+/,'');
-let next=rest.split("/")[0];
-
-if(rest.includes("/")) past.add(next);
-else files.push(p);
-});
-
-/* breadcrumb */
-if(path){
-let acc="";
-path.split("/").forEach(p=>{
-acc+=(acc?"/":"")+p;
-bc.innerHTML+=` > <span onclick="go('${acc}')">${p}</span>`;
-});
+function caminhoSeguro(path){
+  return path.split("/").map(p => encodeURIComponent(p)).join("/");
 }
 
-/* pastas */
-past.forEach(p=>{
-lista.innerHTML+=`<div class="item" onclick="go('${path?path+'/':''}${p}')">📁 ${p}</div>`;
-});
+fetch("dados.txt?v=" + Date.now())
+  .then(r => r.text())
+  .then(texto => {
+    arquivos = texto
+      .split("\n")
+      .map(l => l.trim())
+      .filter(l => l && !l.includes("[DIR]") && l.includes("/"));
 
-/* arquivos */
-files.forEach(f=>{
-let link = BASE + "Estudos/" + encodeURI(f);
-lista.innerHTML+=`<a class="item" target="_blank" href="${link}">📄 ${f.split('/').pop()}</a>`;
-});
+    renderMateriais();
+  });
+
+function renderMateriais(){
+  const lista = document.getElementById("lista");
+  const bc = document.getElementById("breadcrumb");
+
+  lista.innerHTML = "";
+  bc.innerHTML = `<span onclick="irPara('')">Início</span>`;
+
+  if(caminhoAtual){
+    let acumulado = "";
+    caminhoAtual.split("/").forEach(parte => {
+      acumulado = acumulado ? acumulado + "/" + parte : parte;
+      bc.innerHTML += ` > <span onclick="irPara('${acumulado}')">${parte}</span>`;
+    });
+  }
+
+  const pastas = new Set();
+  const files = [];
+
+  arquivos.forEach(path => {
+    if(caminhoAtual && !path.startsWith(caminhoAtual + "/")) return;
+
+    const resto = caminhoAtual
+      ? path.slice(caminhoAtual.length).replace(/^\/+/, "")
+      : path;
+
+    const partes = resto.split("/");
+    const primeiro = partes[0];
+
+    if(partes.length > 1){
+      pastas.add(primeiro);
+    }else{
+      files.push(path);
+    }
+  });
+
+  [...pastas].sort().forEach(pasta => {
+    const div = document.createElement("div");
+    div.className = "item";
+    div.innerHTML = `📁 <span>${pasta}</span>`;
+    div.onclick = () => irPara(caminhoAtual ? caminhoAtual + "/" + pasta : pasta);
+    lista.appendChild(div);
+  });
+
+  files.sort().forEach(file => {
+    const a = document.createElement("a");
+    a.className = "item";
+    a.href = BASE + "Estudos/" + caminhoSeguro(file);
+    a.target = "_blank";
+    a.innerHTML = `📄 <span>${file.split("/").pop()}</span>`;
+    lista.appendChild(a);
+  });
+
+  if(!pastas.size && !files.length){
+    lista.innerHTML = `<div class="item">Pasta vazia</div>`;
+  }
 }
 
-window.go=(p)=>{path=p;render();}
+function irPara(path){
+  caminhoAtual = path;
+  renderMateriais();
+}
+
+/* CALCULADORA */
+function digitarCalc(v){
+  document.getElementById("calcDisplay").value += v;
+}
+
+function limparCalc(){
+  document.getElementById("calcDisplay").value = "";
+}
+
+function apagarCalc(){
+  const d = document.getElementById("calcDisplay");
+  d.value = d.value.slice(0,-1);
+}
+
+function resultadoCalc(){
+  const d = document.getElementById("calcDisplay");
+  try{
+    d.value = Function('"use strict"; return (' + d.value + ')')();
+  }catch{
+    d.value = "Erro";
+  }
+}
 
 /* BOLETIM */
-function v(id){return Number(document.getElementById(id).value)||0;}
+const materias = [
+  { id:"mat", nome:"Matemática", tipo:"normal" },
+  { id:"fis", nome:"Física", tipo:"normal" },
+  { id:"qui", nome:"Química", tipo:"normal" },
+  { id:"bio", nome:"Biologia", tipo:"normal" },
+  { id:"his", nome:"História", tipo:"normal" },
+  { id:"geo", nome:"Geografia", tipo:"normal" },
+  { id:"por", nome:"Português", tipo:"normal" },
+  { id:"ing", nome:"Inglês", tipo:"normal" },
+  { id:"red", nome:"Redação", tipo:"normal" },
+  { id:"fil", nome:"Filosofia", tipo:"soma" },
+  { id:"soc", nome:"Sociologia", tipo:"soma" }
+];
 
-window.calcular=()=>{
-let media=(v("mat1e")+v("mat1t")+v("mat2e")+v("mat2t")+v("matv"))/2;
-res.innerText="Média: "+media.toFixed(2);
+function montarBoletim(){
+  const container = document.getElementById("subjects");
+  container.innerHTML = "";
+
+  materias.forEach(m => {
+    const div = document.createElement("div");
+    div.className = "subject";
+
+    if(m.tipo === "soma"){
+      div.innerHTML = `
+        <h3>${m.nome}</h3>
+        <label>Nota 1</label>
+        <input id="${m.id}_n1" type="number" step="0.01">
+        <label>Nota 2</label>
+        <input id="${m.id}_n2" type="number" step="0.01">
+      `;
+    }else{
+      div.innerHTML = `
+        <h3>${m.nome}</h3>
+        <label>1º período — escrita</label>
+        <input id="${m.id}_p1e" type="number" step="0.01">
+        <label>1º período — teste</label>
+        <input id="${m.id}_p1t" type="number" step="0.01">
+        <label>2º período — escrita</label>
+        <input id="${m.id}_p2e" type="number" step="0.01">
+        <label>2º período — teste</label>
+        <input id="${m.id}_p2t" type="number" step="0.01">
+        <label>Valorada</label>
+        <input id="${m.id}_v" type="number" step="0.01">
+      `;
+    }
+
+    container.appendChild(div);
+  });
 }
 
-/* FIREBASE SAVE */
-window.salvar=async()=>{
-await setDoc(doc(db,"alunos",nome.value),{
-nome:nome.value,
-media:res.innerText
+function valor(id){
+  return Number(document.getElementById(id)?.value) || 0;
+}
+
+function mediaMateria(m){
+  if(m.tipo === "soma"){
+    return valor(`${m.id}_n1`) + valor(`${m.id}_n2`);
+  }
+
+  return (
+    valor(`${m.id}_p1e`) +
+    valor(`${m.id}_p1t`) +
+    valor(`${m.id}_p2e`) +
+    valor(`${m.id}_p2t`) +
+    valor(`${m.id}_v`)
+  ) / 2;
+}
+
+function calcularBoletim(){
+  const resultados = materias.map(m => ({
+    nome:m.nome,
+    media:mediaMateria(m)
+  }));
+
+  const geral = resultados.reduce((s,m) => s + m.media, 0) / resultados.length;
+
+  document.getElementById("resultadoBoletim").innerHTML =
+    `Média geral: ${geral.toFixed(2)}<br>` +
+    resultados.map(r => `${r.nome}: ${r.media.toFixed(2)}`).join("<br>");
+
+  return { resultados, geral };
+}
+
+document.addEventListener("input", e => {
+  if(e.target.closest("#boletim")){
+    calcularBoletim();
+  }
 });
-alert("Salvo no Firebase!");
+
+function coletarDados(){
+  const dados = {
+    nome: document.getElementById("nomeAluno").value,
+    notas:{}
+  };
+
+  materias.forEach(m => {
+    dados.notas[m.id] = {};
+
+    if(m.tipo === "soma"){
+      dados.notas[m.id].n1 = document.getElementById(`${m.id}_n1`).value;
+      dados.notas[m.id].n2 = document.getElementById(`${m.id}_n2`).value;
+    }else{
+      dados.notas[m.id].p1e = document.getElementById(`${m.id}_p1e`).value;
+      dados.notas[m.id].p1t = document.getElementById(`${m.id}_p1t`).value;
+      dados.notas[m.id].p2e = document.getElementById(`${m.id}_p2e`).value;
+      dados.notas[m.id].p2t = document.getElementById(`${m.id}_p2t`).value;
+      dados.notas[m.id].v = document.getElementById(`${m.id}_v`).value;
+    }
+  });
+
+  return dados;
 }
 
+function preencherDados(dados){
+  document.getElementById("nomeAluno").value = dados.nome || "";
+
+  materias.forEach(m => {
+    const n = dados.notas?.[m.id] || {};
+
+    if(m.tipo === "soma"){
+      document.getElementById(`${m.id}_n1`).value = n.n1 || "";
+      document.getElementById(`${m.id}_n2`).value = n.n2 || "";
+    }else{
+      document.getElementById(`${m.id}_p1e`).value = n.p1e || "";
+      document.getElementById(`${m.id}_p1t`).value = n.p1t || "";
+      document.getElementById(`${m.id}_p2e`).value = n.p2e || "";
+      document.getElementById(`${m.id}_p2t`).value = n.p2t || "";
+      document.getElementById(`${m.id}_v`).value = n.v || "";
+    }
+  });
+
+  calcularBoletim();
+}
+
+async function salvarOnline(){
+  const dados = coletarDados();
+  if(!dados.nome) return alert("Digite o nome do aluno.");
+
+  await window.firebaseSetDoc(
+    window.firebaseDoc(window.firestore, "alunos", dados.nome),
+    dados
+  );
+
+  alert("Salvo online!");
+}
+
+async function carregarOnline(){
+  const nome = document.getElementById("nomeAluno").value;
+  if(!nome) return alert("Digite o nome do aluno.");
+
+  const snap = await window.firebaseGetDoc(
+    window.firebaseDoc(window.firestore, "alunos", nome)
+  );
+
+  if(!snap.exists()){
+    alert("Aluno não encontrado.");
+    return;
+  }
+
+  preencherDados(snap.data());
+}
+
+function exportarExcel(){
+  const nome = document.getElementById("nomeAluno").value || "Aluno";
+  const { resultados, geral } = calcularBoletim();
+
+  const linhas = [
+    ["Boletim JN_PP"],
+    ["Aluno", nome],
+    [],
+    ["Matéria", "Média"],
+    ...resultados.map(r => [r.nome, Number(r.media.toFixed(2))]),
+    [],
+    ["Média geral", Number(geral.toFixed(2))]
+  ];
+
+  const wb = XLSX.utils.book_new();
+  const ws = XLSX.utils.aoa_to_sheet(linhas);
+  XLSX.utils.book_append_sheet(wb, ws, "Boletim");
+  XLSX.writeFile(wb, `Boletim_${nome}.xlsx`);
+}
+
+montarBoletim();
+calcularBoletim();
 </script>
 
 </body>
