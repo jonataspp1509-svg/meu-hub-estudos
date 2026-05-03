@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StudyFlow | JN_PP</title>
+<title>StudyFlow</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
@@ -37,22 +37,18 @@ body{
 }
 
 header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
   margin-bottom:24px;
-  gap:15px;
-  flex-wrap:wrap;
 }
 
 .logo{
-  font-size:2.2rem;
+  font-size:2.4rem;
   font-weight:800;
   color:var(--primary);
 }
 
 .subtitle{
   color:var(--muted);
+  font-size:1rem;
 }
 
 .dashboard{
@@ -93,7 +89,7 @@ header{
 }
 
 .panel{
-  background:rgba(255,255,255,.9);
+  background:rgba(255,255,255,.92);
   padding:22px;
   border-radius:24px;
   box-shadow:0 10px 25px rgba(15,23,42,.08);
@@ -103,7 +99,13 @@ header{
   font-size:1.4rem;
   font-weight:800;
   color:var(--primary);
-  margin-bottom:14px;
+  margin-bottom:8px;
+}
+
+.help-text{
+  color:var(--muted);
+  font-weight:600;
+  margin-bottom:16px;
 }
 
 .breadcrumb{
@@ -117,21 +119,12 @@ header{
   cursor:pointer;
 }
 
-.actions{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-bottom:18px;
-}
-
 .drive-box{
   background:#ecfdf5;
   border:1px solid #bbf7d0;
   color:#166534;
-  padding:14px;
-  border-radius:16px;
+  padding:16px;
+  border-radius:18px;
   margin-bottom:18px;
   display:flex;
   justify-content:space-between;
@@ -144,9 +137,16 @@ header{
   background:var(--green);
   color:white;
   text-decoration:none;
-  padding:10px 14px;
+  padding:10px 16px;
   border-radius:12px;
   font-weight:800;
+}
+
+.drive-message{
+  margin-top:8px;
+  color:#065f46;
+  font-size:.95rem;
+  font-weight:600;
 }
 
 .list{
@@ -211,10 +211,6 @@ button{
   font-weight:800;
   cursor:pointer;
   font-family:inherit;
-}
-
-button:hover{
-  opacity:.9;
 }
 
 .calc-grid button{
@@ -346,9 +342,17 @@ input{
   border:1px solid var(--border);
 }
 
-.ok{color:var(--green)}
-.bad{color:var(--red)}
-.warn{color:var(--orange)}
+.ok{
+  color:var(--green);
+}
+
+.bad{
+  color:var(--red);
+}
+
+.warn{
+  color:var(--orange);
+}
 
 @media(max-width:760px){
   body{padding:15px}
@@ -361,10 +365,8 @@ input{
 <body>
 
 <header>
-  <div>
-    <div class="logo">StudyFlow</div>
-    <div class="subtitle">JN_PP — materiais, notas, calculadora e boletim online</div>
-  </div>
+  <div class="logo">StudyFlow</div>
+  <div class="subtitle">Jonatas — materiais, notas, calculadora e boletim online</div>
 </header>
 
 <div class="dashboard">
@@ -374,18 +376,17 @@ input{
 </div>
 
 <section id="materiais" class="section active panel">
-  <div class="actions">
-    <div>
-      <div class="section-title">Gerenciador de materiais</div>
-      <div id="pastaAtualTexto">Pasta atual: Início</div>
-    </div>
-  </div>
+  <div class="section-title">Gerenciador de materiais</div>
+  <div id="pastaAtualTexto" class="help-text">Pasta atual: Início</div>
 
   <div class="drive-box">
     <div>
-      <strong>➕ Enviar novo arquivo</strong><br>
-      Envie pelo Google Drive. Depois o arquivo precisa ser colocado na pasta correta do GitHub para aparecer no site.
+      <strong>➕ Enviar novo arquivo</strong>
+      <div class="drive-message">
+        Caso você queira enviar um arquivo para adicionar no StudyFlow, anexe no Google Drive.
+      </div>
     </div>
+
     <a target="_blank" href="https://drive.google.com/drive/folders/1uIxIkbZmjycrylbR4_ypku6wIUN8s2x9?usp=drive_link">
       Abrir Drive
     </a>
@@ -432,6 +433,7 @@ input{
 
 <section id="boletim" class="section panel">
   <div class="section-title">Boletim por período</div>
+  <div class="help-text">Clique na matéria para adicionar suas notas.</div>
 
   <div class="top-actions">
     <input id="nomeAluno" placeholder="Nome do aluno">
@@ -441,7 +443,9 @@ input{
   </div>
 
   <div class="result-box">
-    Regra: 1P e 2P peso 2. 3P e 4P peso 3. Para passar: 47,5 pontos.
+    Cada período possui: P1 escrita, P1 teste, P2 escrita, P2 teste e valorada.
+    A média do período é a soma das notas dividida por 2.
+    Verde = acima ou igual a 5. Vermelho = abaixo de 5.
   </div>
 
   <br>
@@ -449,7 +453,7 @@ input{
   <div id="subjects" class="subject-grid"></div>
 
   <div id="resultadoFinal" class="result-box">
-    Pontuação anual geral: --<br>
+    Média anual geral: --<br>
     Situação: --
   </div>
 </section>
@@ -475,6 +479,7 @@ window.firebaseGetDoc = getDoc;
 
 <script>
 const BASE = window.location.origin + "/meu-hub-estudos/";
+
 let arquivos = [];
 let caminhoAtual = "";
 
@@ -495,6 +500,7 @@ const materias = [
 function abrirSecao(id,card){
   document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
   document.getElementById(id).classList.add("active");
+
   document.querySelectorAll(".dash-card").forEach(c=>c.classList.remove("active"));
   card.classList.add("active");
 }
@@ -506,9 +512,11 @@ function caminhoSeguro(path){
 fetch("dados.txt?v="+Date.now())
 .then(r=>r.text())
 .then(texto=>{
-  arquivos = texto.split("\n")
+  arquivos = texto
+    .split("\n")
     .map(l=>l.trim())
     .filter(l=>l && !l.includes("[DIR]") && l.includes("/"));
+
   renderMateriais();
 });
 
@@ -523,6 +531,7 @@ function renderMateriais(){
 
   if(caminhoAtual){
     let acumulado = "";
+
     caminhoAtual.split("/").forEach(parte=>{
       acumulado = acumulado ? acumulado + "/" + parte : parte;
       bc.innerHTML += ` > <span onclick="irPara('${acumulado}')">${parte}</span>`;
@@ -584,6 +593,7 @@ function apagarCalc(){
 
 function resultadoCalc(){
   const d = document.getElementById("calcDisplay");
+
   try{
     d.value = Function('"use strict"; return (' + d.value + ')')();
   }catch{
@@ -613,15 +623,14 @@ function montarBoletim(){
           <div class="period-tab" onclick="abrirPeriodo(event,'${m.id}','p4')">4P</div>
         </div>
 
-        ${periodoHTML(m.id,"p1","1º Período",2,true)}
-        ${periodoHTML(m.id,"p2","2º Período",2,false)}
-        ${periodoHTML(m.id,"p3","3º Período",3,false)}
-        ${periodoHTML(m.id,"p4","4º Período",3,false)}
+        ${periodoHTML(m.id,"p1","1º Período",true)}
+        ${periodoHTML(m.id,"p2","2º Período",false)}
+        ${periodoHTML(m.id,"p3","3º Período",false)}
+        ${periodoHTML(m.id,"p4","4º Período",false)}
       </div>
 
       <div id="${m.id}_anual" class="annual-result bad">
-        Pontuação anual: 0.00 /100<br>
-        Faltam 47.50 pontos para 47.5
+        Média anual: 0.00
       </div>
     `;
 
@@ -629,19 +638,29 @@ function montarBoletim(){
   });
 }
 
-function periodoHTML(id,p,titulo,peso,ativo){
+function periodoHTML(id,p,titulo,ativo){
   return `
     <div id="${id}_${p}_content" class="period-content ${ativo ? "active" : ""}">
-      <h4>${titulo} — peso ${peso}</h4>
+      <h4>${titulo}</h4>
 
       <div class="field">
-        <label>Escrita</label>
-        <input id="${id}_${p}_e" type="number" step="0.01">
+        <label>P1 escrita</label>
+        <input id="${id}_${p}_p1e" type="number" step="0.01">
       </div>
 
       <div class="field">
-        <label>Teste</label>
-        <input id="${id}_${p}_t" type="number" step="0.01">
+        <label>P1 teste</label>
+        <input id="${id}_${p}_p1t" type="number" step="0.01">
+      </div>
+
+      <div class="field">
+        <label>P2 escrita</label>
+        <input id="${id}_${p}_p2e" type="number" step="0.01">
+      </div>
+
+      <div class="field">
+        <label>P2 teste</label>
+        <input id="${id}_${p}_p2t" type="number" step="0.01">
       </div>
 
       <div class="field">
@@ -681,10 +700,16 @@ function valor(id){
 }
 
 function mediaPeriodo(id,p){
-  return valor(`${id}_${p}_e`) + valor(`${id}_${p}_t`) + valor(`${id}_${p}_v`);
+  return (
+    valor(`${id}_${p}_p1e`) +
+    valor(`${id}_${p}_p1t`) +
+    valor(`${id}_${p}_p2e`) +
+    valor(`${id}_${p}_p2t`) +
+    valor(`${id}_${p}_v`)
+  ) / 2;
 }
 
-function pontuacaoMateria(id){
+function mediaMateria(id){
   const p1 = mediaPeriodo(id,"p1");
   const p2 = mediaPeriodo(id,"p2");
   const p3 = mediaPeriodo(id,"p3");
@@ -692,7 +717,7 @@ function pontuacaoMateria(id){
 
   return {
     p1,p2,p3,p4,
-    total:p1*2 + p2*2 + p3*3 + p4*3
+    media:(p1+p2+p3+p4)/4
   };
 }
 
@@ -700,8 +725,8 @@ function calcularTudo(){
   let soma = 0;
 
   materias.forEach(m=>{
-    const r = pontuacaoMateria(m.id);
-    soma += r.total;
+    const r = mediaMateria(m.id);
+    soma += r.media;
 
     ["p1","p2","p3","p4"].forEach(p=>{
       const el = document.getElementById(`${m.id}_${p}_resultado`);
@@ -709,31 +734,21 @@ function calcularTudo(){
       el.className = "period-result " + (r[p] >= 5 ? "ok" : "bad");
     });
 
-    const falta = Math.max(0,47.5 - r.total);
-
     const anual = document.getElementById(`${m.id}_anual`);
-    anual.innerHTML = `
-      Pontuação anual: ${r.total.toFixed(2)} /100<br>
-      ${
-        r.total >= 47.5
-        ? `<span class="ok">Acima da média anual</span>`
-        : `<span class="bad">Faltam ${falta.toFixed(2)} pontos para 47.5</span><br>
-           <span class="warn">Se for no próximo período com peso 3, precisa de ${(falta/3).toFixed(2)}</span>`
-      }
-    `;
-    anual.className = "annual-result " + (r.total >= 47.5 ? "ok" : "bad");
+    anual.innerHTML = `Média anual: ${r.media.toFixed(2)}`;
+    anual.className = "annual-result " + (r.media >= 5 ? "ok" : "bad");
 
     const resumo = document.getElementById(`${m.id}_resumo`);
-    resumo.innerHTML = r.total.toFixed(1);
-    resumo.className = "subject-score " + (r.total >= 47.5 ? "ok" : "bad");
+    resumo.innerHTML = r.media.toFixed(1);
+    resumo.className = "subject-score " + (r.media >= 5 ? "ok" : "bad");
   });
 
   const mediaGeral = soma / materias.length;
 
   document.getElementById("resultadoFinal").innerHTML =
-    `Pontuação anual geral: ${mediaGeral.toFixed(2)}<br>` +
+    `Média anual geral: ${mediaGeral.toFixed(2)}<br>` +
     (
-      mediaGeral >= 47.5
+      mediaGeral >= 5
       ? `<span class="ok">Situação geral: acima da média</span>`
       : `<span class="bad">Situação geral: abaixo da média</span>`
     );
@@ -754,8 +769,10 @@ function coletarDados(){
 
     ["p1","p2","p3","p4"].forEach(p=>{
       dados.notas[m.id][p] = {
-        e:document.getElementById(`${m.id}_${p}_e`).value,
-        t:document.getElementById(`${m.id}_${p}_t`).value,
+        p1e:document.getElementById(`${m.id}_${p}_p1e`).value,
+        p1t:document.getElementById(`${m.id}_${p}_p1t`).value,
+        p2e:document.getElementById(`${m.id}_${p}_p2e`).value,
+        p2t:document.getElementById(`${m.id}_${p}_p2t`).value,
         v:document.getElementById(`${m.id}_${p}_v`).value
       };
     });
@@ -771,8 +788,10 @@ function preencherDados(dados){
     ["p1","p2","p3","p4"].forEach(p=>{
       const d = dados.notas?.[m.id]?.[p] || {};
 
-      document.getElementById(`${m.id}_${p}_e`).value = d.e || "";
-      document.getElementById(`${m.id}_${p}_t`).value = d.t || "";
+      document.getElementById(`${m.id}_${p}_p1e`).value = d.p1e || "";
+      document.getElementById(`${m.id}_${p}_p1t`).value = d.p1t || "";
+      document.getElementById(`${m.id}_${p}_p2e`).value = d.p2e || "";
+      document.getElementById(`${m.id}_${p}_p2t`).value = d.p2t || "";
       document.getElementById(`${m.id}_${p}_v`).value = d.v || "";
     });
   });
@@ -820,14 +839,14 @@ function exportarExcel(){
   const nome = document.getElementById("nomeAluno").value || "Aluno";
 
   const linhas = [
-    ["StudyFlow - JN_PP"],
+    ["StudyFlow"],
     ["Aluno",nome],
     [],
-    ["Matéria","1P","2P","3P","4P","Pontuação anual","Situação"]
+    ["Matéria","1P","2P","3P","4P","Média anual","Situação"]
   ];
 
   materias.forEach(m=>{
-    const r = pontuacaoMateria(m.id);
+    const r = mediaMateria(m.id);
 
     linhas.push([
       m.nome,
@@ -835,8 +854,8 @@ function exportarExcel(){
       Number(r.p2.toFixed(2)),
       Number(r.p3.toFixed(2)),
       Number(r.p4.toFixed(2)),
-      Number(r.total.toFixed(2)),
-      r.total >= 47.5 ? "Acima da média" : "Recuperação"
+      Number(r.media.toFixed(2)),
+      r.media >= 5 ? "Acima da média" : "Abaixo da média"
     ]);
   });
 
