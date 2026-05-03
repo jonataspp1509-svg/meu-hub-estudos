@@ -862,9 +862,14 @@ input, select{
   color:#2563eb !important;
 }
 
-.feedback pre{
+.feedback{
   white-space: pre-line;
+  line-height: 1.6;
+  font-family: monospace;
 }
+
+
+
 
 </style>
 </head>
@@ -1826,7 +1831,7 @@ function responder(i){
       <button class="btn-continuar" onclick="proximaPergunta()">➡️ Continuar</button>
     `;
   }else{
-    fb.innerHTML = `
+    fb.innerText = `
       <div class="feedback wrong">
         ❌ Errou!<br>
         Resposta correta: <strong>${p.a[p.c]}</strong><br><br>
