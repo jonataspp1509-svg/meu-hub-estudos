@@ -90,9 +90,11 @@ def escolher_destino():
     periodo = PERIODOS[periodo_id]
 
     if professores:
-        destino = os.path.join(PASTA_ESTUDOS, materia, "2 ANO M", professor, periodo)
+        destino = os.path.join(PASTA_ESTUDOS, materia, "2_ano_m", professor, periodo)
     elif materia == "Vestibulares":
         destino = os.path.join(PASTA_ESTUDOS, materia)
+    elif materia == "Biologia":
+        destino = os.path.join(PASTA_ESTUDOS, materia, professor, periodo)
     else:
         destino = os.path.join(PASTA_ESTUDOS, materia, "2 ANO M", periodo)
 
