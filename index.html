@@ -1198,37 +1198,132 @@ const perguntas = {
     }
   ],
 
-  quimica:[
+  quimica: [
+
     {
-      q:"Uma solução tem 0,250 mol/L e volume 0,500 L. Quantos mols há?",
-      a:["0,125 mol","0,500 mol","0,250 mol","2 mol"],
-      c:0,
-      explicacao:"Use n=C·V. Então n=0,250·0,500=0,125 mol."
+      q:"Um vinagre possui 4 g de ácido em 100 mL. Quantos gramas existem em 500 mL?",
+      a:["4 g","10 g","20 g","40 g"],
+      c:2,
+      explicacao:`
+      🧪 Regra de 3:
+
+      100 mL → 4 g  
+      500 mL → x  
+
+      x = (500 × 4) / 100  
+      x = 2000 / 100  
+      x = 20 g  
+
+      ✅ RESPOSTA: 20 g
+      `
     },
+
     {
-      q:"ppm significa aproximadamente:",
-      a:["mg de soluto por kg de solução","mol por litro","grama por litro","litro por mol"],
-      c:0,
-      explicacao:"ppm significa partes por milhão. Em soluções diluídas, costuma ser tratado como mg/kg ou mg/L em água."
+      q:"Um produto contém 390 mg de sódio em 1 g. Quantos mg existem em 25 g?",
+      a:["390 mg","975 mg","9750 mg","3900 mg"],
+      c:2,
+      explicacao:`
+      🧪 Regra de 3:
+
+      1 g → 390 mg  
+      25 g → x  
+
+      x = (25 × 390) / 1  
+      x = 9750 mg  
+
+      ✅ RESPOSTA: 9750 mg
+      `
+      },
+
+      {
+        q:"Um líquido contém 11 mg em 0,1 mL. Quantos mg existem em 2 mL?",
+        a:["110 mg","220 mg","22 mg","55 mg"],
+        c:1,
+        explicacao:`
+      🧪 Regra de 3:
+
+      0,1 mL → 11 mg  
+      2 mL → x  
+
+      x = (2 × 11) / 0,1  
+      x = 22 / 0,1  
+      x = 220 mg  
+
+      ✅ RESPOSTA: 220 mg
+      `
     },
+
     {
-      q:"Na diluição, a relação mais usada é:",
-      a:["C1·V1 = C2·V2","m·a = F","P = E/t","Q = m·c·ΔT"],
-      c:0,
-      explicacao:"Na diluição, a quantidade de soluto permanece constante: C1V1=C2V2."
+      q:"01. (Udesc 2012) Suponha que um analista químico precise preparar 500 mL de uma solução de amônia de concentração 0,250 mol/L. Ele dispõe de uma solução estoque cuja porcentagem em massa e densidade é de 28,0% e 0,90 g/mL, respectivamente. Assinale a alternativa que contém o volume da solução estoque que o analista deve utilizar para preparar a solução desejada.",
+      a:["7,6 mL","14,8 mL","2,1 mL","12,6 mL","8,4 mL"],
+      c:4,
+      explicacao:`
+      🧪 PASSO A PASSO:
+
+      1) Quantidade de matéria:
+      0,250 mol → 1000 mL  
+      x → 500 mL  
+
+      x = 0,125 mol  
+
+      ---
+
+      2) Massa:
+      1 mol → 17 g  
+      0,125 → x  
+
+      x = 2,125 g  
+
+      ---
+
+      3) Solução 28%:
+      28 g → 100 g  
+      2,125 → x  
+
+      x ≈ 7,59 g  
+
+      ---
+
+      4) Densidade:
+      0,90 g → 1 mL  
+      7,59 g → x  
+
+      x ≈ 8,4 mL  
+
+      ✅ RESPOSTA: 8,4 mL
+      `
     },
+
     {
-      q:"Misturar soluções sem reação química muda principalmente:",
-      a:["a concentração final","a massa molar","o número atômico","a fórmula do soluto"],
-      c:0,
-      explicacao:"Se não há reação, o soluto continua o mesmo. O que muda é o volume total e, portanto, a concentração final."
-    },
-    {
-      q:"Se 10 mL de solução estoque são diluídos até 1 L, o volume final é:",
-      a:["1000 mL","10 mL","100 mL","1 mL"],
-      c:0,
-      explicacao:"1 L equivale a 1000 mL. O volume final da solução diluída é 1000 mL."
+      q:"19. (Uerj 2024) Para a produção de uma solução antisséptica à base de iodo, foram empregados 0,02 mol de I₂, 0,06 mol de KI e determinada quantidade de água. A massa total de iodo, em gramas, presente nessa solução é igual a:",
+      a:["5,08 g","7,62 g","12,70 g","15,00 g"],
+      c:2,
+      explicacao:`
+      🧪 PASSO A PASSO:
+
+      1) I₂:
+      1 mol → 254 g  
+      0,02 → x  
+
+      x = 5,08 g  
+
+      ---
+
+      2) KI:
+      1 mol → 127 g  
+      0,06 → x  
+
+      x = 7,62 g  
+
+      ---
+
+      3) Soma:
+      5,08 + 7,62 = 12,70 g  
+
+      ✅ RESPOSTA: 12,70 g
+      `
     }
+
   ]
 };
 
