@@ -330,6 +330,59 @@ ol,ul{
   padding:30px;
 }
 
+
+
+.lesson-detail-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:14px;
+  margin:14px 0;
+}
+
+.detail-card{
+  background:#f8fafc;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:16px;
+  line-height:1.6;
+}
+
+.detail-card h3{
+  color:var(--primary);
+  margin-bottom:8px;
+}
+
+.code-explain{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px;
+  margin-top:12px;
+}
+
+.code-row{
+  background:#f8fafc;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:14px;
+  line-height:1.65;
+}
+
+.code-row code{
+  background:#e0e7ff;
+  color:#1d4ed8;
+  padding:2px 6px;
+  border-radius:8px;
+  font-weight:800;
+}
+
+.term{
+  background:#eef2ff;
+  border:1px solid #c7d2fe;
+  border-radius:14px;
+  padding:12px;
+  margin:8px 0;
+}
+
 @media(max-width:760px){
   header{
     padding:16px;
@@ -679,8 +732,39 @@ function abrirAula(tipo, card){
   if(tipo === "inicio"){
     area.innerHTML = `
       <div class="panel">
-        <div class="section-title">🚀 Estrutura básica do C++</div>
-        <p>Todo programa C++ normalmente começa importando bibliotecas, depois vem a função main.</p>
+        <div class="section-title">🚀 Começo: como um programa C++ nasce</div>
+
+        <div class="note">
+          Antes de decorar comandos, pense no programa como uma receita. O computador só faz aquilo que você manda,
+          na ordem em que você escreveu. Em C++, essa receita precisa ter uma estrutura mínima para funcionar.
+        </div>
+
+        <div class="lesson-detail-grid">
+          <div class="detail-card">
+            <h3>1. Biblioteca</h3>
+            <p>
+              Uma biblioteca é como uma caixa de ferramentas. Quando escrevemos
+              <code>#include &lt;iostream&gt;</code>, estamos pegando as ferramentas de entrada e saída,
+              como <code>cout</code> e <code>cin</code>.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <h3>2. main</h3>
+            <p>
+              A função <code>main</code> é o ponto de partida. Quando o programa roda, ele começa lendo
+              o que está dentro das chaves <code>{ }</code> do <code>main</code>.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <h3>3. Comandos</h3>
+            <p>
+              Cada linha importante normalmente termina com <code>;</code>. O ponto e vírgula avisa:
+              “esse comando terminou”.
+            </p>
+          </div>
+        </div>
 
         <pre><code>#include &lt;iostream&gt;
 using namespace std;
@@ -690,11 +774,16 @@ int main(){
     return 0;
 }</code></pre>
 
-        <div class="note">
-          <strong>Explicando:</strong><br>
-          <code>#include &lt;iostream&gt;</code> permite usar entrada e saída.<br>
-          <code>int main()</code> é onde o programa começa.<br>
-          <code>return 0;</code> indica que terminou corretamente.
+        <div class="code-explain">
+          <div class="code-row"><code>#include &lt;iostream&gt;</code><br>Inclui a biblioteca que permite usar <code>cout</code> e <code>cin</code>.</div>
+          <div class="code-row"><code>using namespace std;</code><br>Permite escrever <code>cout</code> em vez de <code>std::cout</code>. É uma forma de deixar o código mais curto no começo.</div>
+          <div class="code-row"><code>int main(){ }</code><br>É a função principal. Tudo que você quer executar primeiro fica dentro dela.</div>
+          <div class="code-row"><code>cout &lt;&lt; "Olá, mundo!";</code><br>Mostra uma mensagem na tela. O texto precisa ficar entre aspas.</div>
+          <div class="code-row"><code>return 0;</code><br>Indica que o programa terminou corretamente.</div>
+        </div>
+
+        <div class="goodbox">
+          <strong>Resumo:</strong> para começar, lembre desta ordem: biblioteca → main → comandos → return.
         </div>
 
         ${gerarDesafios("inicio")}
@@ -705,11 +794,45 @@ int main(){
   if(tipo === "coutcin"){
     area.innerHTML = `
       <div class="panel">
-        <div class="section-title">🖨️ cout e cin</div>
+        <div class="section-title">🖨️ cout e cin: conversar com o usuário</div>
 
         <div class="note">
-          <strong>cout</strong> serve para mostrar informações na tela.<br>
-          <strong>cin</strong> serve para receber dados digitados pelo usuário.
+          Programar não é só fazer conta. Muitas vezes o programa precisa <strong>mostrar informações</strong>
+          e também <strong>receber respostas</strong> de quem está usando. Em C++, usamos principalmente
+          <code>cout</code> para saída e <code>cin</code> para entrada.
+        </div>
+
+        <div class="lesson-detail-grid">
+          <div class="detail-card">
+            <h3>cout</h3>
+            <p>
+              O <code>cout</code> significa “character output”, ou seja, saída de caracteres.
+              Ele envia algo para a tela. Exemplo: mostrar uma frase, número ou resultado.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <h3>cin</h3>
+            <p>
+              O <code>cin</code> significa “character input”, ou seja, entrada de caracteres.
+              Ele pega algo que o usuário digitou e guarda em uma variável.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <h3>Variável</h3>
+            <p>
+              Uma variável é uma “caixinha” com nome. Se você cria <code>string nome;</code>,
+              está criando uma caixa chamada nome para guardar texto.
+            </p>
+          </div>
+        </div>
+
+        <div class="warning">
+          <strong>Por que usamos &lt;&lt; e &gt;&gt;?</strong><br><br>
+          Pense nas setas como direção do dado:
+          <div class="term"><code>cout &lt;&lt; "Olá";</code><br>A informação vai para a tela. A seta aponta para o <code>cout</code>, como se você estivesse empurrando a mensagem para a saída.</div>
+          <div class="term"><code>cin &gt;&gt; nome;</code><br>A informação vem do teclado e entra na variável <code>nome</code>. A seta aponta para a variável, mostrando onde o dado será guardado.</div>
         </div>
 
         <pre><code>#include &lt;iostream&gt;
@@ -726,6 +849,17 @@ int main(){
     return 0;
 }</code></pre>
 
+        <div class="code-explain">
+          <div class="code-row"><code>string nome;</code><br>Cria uma variável chamada <code>nome</code> para guardar texto.</div>
+          <div class="code-row"><code>cout &lt;&lt; "Digite seu nome: ";</code><br>Mostra uma instrução para o usuário saber o que precisa digitar.</div>
+          <div class="code-row"><code>cin &gt;&gt; nome;</code><br>Pega o texto digitado e guarda dentro da variável <code>nome</code>.</div>
+          <div class="code-row"><code>cout &lt;&lt; "Olá, " &lt;&lt; nome;</code><br>Mostra uma frase e depois mostra o conteúdo guardado na variável.</div>
+        </div>
+
+        <div class="goodbox">
+          <strong>Dica de ouro:</strong> se você quiser mostrar texto, use aspas. Se quiser mostrar uma variável, escreva o nome dela sem aspas.
+        </div>
+
         ${gerarDesafios("coutcin")}
       </div>
     `;
@@ -734,17 +868,32 @@ int main(){
   if(tipo === "variaveis"){
     area.innerHTML = `
       <div class="panel">
-        <div class="section-title">📦 Variáveis</div>
-        <p>Variáveis guardam informações durante o programa.</p>
+        <div class="section-title">📦 Variáveis: guardando informações</div>
+
+        <p>
+          Variáveis são espaços na memória do computador onde você guarda valores. Cada variável tem um tipo,
+          porque o computador precisa saber se aquilo é número inteiro, número decimal, texto etc.
+        </p>
+
+        <div class="lesson-detail-grid">
+          <div class="detail-card"><h3>int</h3><p>Guarda números inteiros, como <code>10</code>, <code>15</code> ou <code>-3</code>.</p></div>
+          <div class="detail-card"><h3>double</h3><p>Guarda números com casas decimais, como <code>7.5</code> ou <code>3.14</code>.</p></div>
+          <div class="detail-card"><h3>string</h3><p>Guarda texto, como nomes e frases. Exemplo: <code>"Jonatas"</code>.</p></div>
+        </div>
 
         <pre><code>int idade = 15;
 double nota = 8.5;
 string nome = "Jonatas";</code></pre>
 
-        <div class="note">
-          <strong>int:</strong> número inteiro.<br>
-          <strong>double:</strong> número com vírgula.<br>
-          <strong>string:</strong> texto.
+        <div class="code-explain">
+          <div class="code-row"><code>int idade = 15;</code><br>Cria uma variável inteira chamada idade e já guarda o valor 15.</div>
+          <div class="code-row"><code>double nota = 8.5;</code><br>Cria uma variável decimal chamada nota.</div>
+          <div class="code-row"><code>string nome = "Jonatas";</code><br>Cria uma variável de texto. Texto sempre fica entre aspas.</div>
+        </div>
+
+        <div class="warning">
+          Em programação, <code>=</code> não significa “igual” como na matemática. Ele significa “recebe”.
+          Então <code>idade = 15</code> quer dizer: a variável idade recebe o valor 15.
         </div>
 
         ${gerarDesafios("variaveis")}
@@ -755,8 +904,12 @@ string nome = "Jonatas";</code></pre>
   if(tipo === "ifelse"){
     area.innerHTML = `
       <div class="panel">
-        <div class="section-title">🔀 if e else</div>
-        <p>O if permite tomar decisões no programa.</p>
+        <div class="section-title">🔀 if e else: fazendo escolhas</div>
+
+        <p>
+          O <code>if</code> permite que o programa tome decisões. Ele testa uma condição.
+          Se a condição for verdadeira, executa um bloco. Se for falsa, pode executar o <code>else</code>.
+        </p>
 
         <pre><code>double nota;
 
@@ -769,6 +922,17 @@ if(nota &gt;= 5){
     cout &lt;&lt; "Recuperação";
 }</code></pre>
 
+        <div class="code-explain">
+          <div class="code-row"><code>if(nota &gt;= 5)</code><br>O programa pergunta: a nota é maior ou igual a 5?</div>
+          <div class="code-row"><code>{ cout &lt;&lt; "Aprovado"; }</code><br>Se a condição for verdadeira, mostra “Aprovado”.</div>
+          <div class="code-row"><code>else</code><br>Significa “senão”. É usado quando a condição do if não foi verdadeira.</div>
+        </div>
+
+        <div class="note">
+          Comparações comuns: <code>&gt;</code> maior, <code>&lt;</code> menor, <code>&gt;=</code> maior ou igual,
+          <code>&lt;=</code> menor ou igual, <code>==</code> igual, <code>!=</code> diferente.
+        </div>
+
         ${gerarDesafios("ifelse")}
       </div>
     `;
@@ -778,14 +942,20 @@ if(nota &gt;= 5){
     area.innerHTML = `
       <div class="panel">
         <div class="section-title">🔁 Repetição: for e while</div>
-        <p>Laços servem para repetir ações sem escrever a mesma coisa várias vezes.</p>
+        <p>
+          Laços de repetição servem para repetir comandos automaticamente. Eles são úteis quando você quer
+          contar, fazer tabuadas, ler vários valores ou repetir uma ação até uma condição acontecer.
+        </p>
 
         <pre><code>for(int i = 1; i &lt;= 10; i++){
     cout &lt;&lt; i &lt;&lt; endl;
 }</code></pre>
 
-        <div class="note">
-          Esse código mostra os números de 1 até 10.
+        <div class="code-explain">
+          <div class="code-row"><code>int i = 1</code><br>Cria a variável de controle começando em 1.</div>
+          <div class="code-row"><code>i &lt;= 10</code><br>Enquanto isso for verdadeiro, o laço continua.</div>
+          <div class="code-row"><code>i++</code><br>Aumenta o valor de i em 1 a cada repetição.</div>
+          <div class="code-row"><code>endl</code><br>Quebra a linha depois de mostrar o número.</div>
         </div>
 
         ${gerarDesafios("loops")}
@@ -796,8 +966,11 @@ if(nota &gt;= 5){
   if(tipo === "vetores"){
     area.innerHTML = `
       <div class="panel">
-        <div class="section-title">📚 Vetores</div>
-        <p>Vetores guardam vários valores do mesmo tipo.</p>
+        <div class="section-title">📚 Vetores: vários valores em uma variável</div>
+        <p>
+          Um vetor é como uma fileira de caixinhas com o mesmo nome. Em vez de criar <code>nota1</code>,
+          <code>nota2</code>, <code>nota3</code>, você pode criar <code>notas[5]</code>.
+        </p>
 
         <pre><code>double notas[5];
 
@@ -805,12 +978,21 @@ for(int i = 0; i &lt; 5; i++){
     cin &gt;&gt; notas[i];
 }</code></pre>
 
+        <div class="code-explain">
+          <div class="code-row"><code>double notas[5];</code><br>Cria um vetor com 5 posições para guardar notas.</div>
+          <div class="code-row"><code>i = 0</code><br>Em C++, a primeira posição do vetor é 0, não 1.</div>
+          <div class="code-row"><code>notas[i]</code><br>Acessa a posição atual do vetor dentro do laço.</div>
+        </div>
+
+        <div class="warning">
+          Se o vetor tem 5 posições, elas são: <code>0, 1, 2, 3, 4</code>. Não existe posição 5 nesse caso.
+        </div>
+
         ${gerarDesafios("vetores")}
       </div>
     `;
   }
 }
-
 function gerarDesafios(tipo){
   return desafios[tipo].map((d, index)=>`
     <div class="challenge-box">
