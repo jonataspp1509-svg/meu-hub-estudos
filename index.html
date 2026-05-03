@@ -703,28 +703,104 @@ input, select{
   font-family:Consolas,monospace;
 }
 
+
 @media (max-width: 700px){
-  #menuEscolha{
-    flex-direction: column !important;
-    gap: 18px !important;
-    padding: 20px !important;
+  .menu-cards{
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
   }
 
-  #menuEscolha > div{
-    width: 92% !important;
-    max-width: 340px !important;
-    height: 150px !important;
+  .menu-card{
+    width:100%;
+    max-width:320px;
+    min-height:150px;
   }
 
-  #menuEscolha h2{
-    font-size: 1.3rem !important;
-  }
-
-  #menuEscolha p{
-    font-size: .9rem !important;
-    text-align: center !important;
+  .menu-box{
+    margin-top:20px;
+    padding:20px;
   }
 }
+
+.menu-escolha{
+  backdrop-filter: blur(10px);
+  animation: fadeMenu .35s ease;
+}
+
+.menu-box{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:28px;
+  padding:28px;
+  box-shadow:0 25px 60px rgba(0,0,0,.35);
+}
+
+.menu-title{
+  color:white;
+  font-size:2rem;
+  font-weight:900;
+  text-align:center;
+  margin-bottom:8px;
+}
+
+.menu-subtitle{
+  color:#cbd5e1;
+  text-align:center;
+  font-weight:600;
+  margin-bottom:24px;
+}
+
+.menu-card{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
+  box-shadow:0 18px 35px rgba(37,99,235,.28);
+  transition:.25s ease;
+}
+
+.menu-card:hover{
+  transform:translateY(-8px) scale(1.03);
+  box-shadow:0 25px 55px rgba(37,99,235,.45);
+}
+
+.menu-card::before{
+  content:"";
+  position:absolute;
+  width:140px;
+  height:140px;
+  background:rgba(255,255,255,.18);
+  border-radius:50%;
+  top:-60px;
+  right:-50px;
+}
+
+.menu-icon{
+  font-size:2.3rem;
+  margin-bottom:8px;
+}
+
+.menu-action{
+  margin-top:14px;
+  background:white;
+  color:#2563eb;
+  padding:10px 14px;
+  border-radius:999px;
+  font-weight:900;
+  text-align:center;
+}
+
+@keyframes fadeMenu{
+  from{
+    opacity:0;
+    transform:scale(.97);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
 
 </style>
 </head>
@@ -762,7 +838,7 @@ input, select{
           <h2>Escola</h2>
           <p>Acesse materiais, calculadora, boletim e desafios do StudyFlow.</p>
         </div>
-        <div class="menu-action">Entrar na Escola</div>
+        <div class="menu-action">Hub de Estudos</div>
       </div>
 
       <div class="menu-card" onclick="entrarProgramacao()">
@@ -782,11 +858,11 @@ input, select{
 
 <header>
   <div class="logo" onclick="voltarMenu()" style="cursor:pointer;">StudyFlow</div>
-  <div class="subtitle">Jonatas — materiais, boletim, calculadora e desafios escolares</div>
+  <div class="subtitle">Desenvolvido por Jonatas — materiais, boletim, calculadora e desafios escolares</div>
 </header>
 
 <div class="dashboard">
-  <div class="dash-card active" onclick="voltarInicioMateriais(); abrirSecao('materiais', this)">📁 Materiais</div>
+  <div class="dash-card active" onclick="voltarInicioMateriais(); abrirSecao('materiais',this)">📁 Materiais</div>
   <div class="dash-card" onclick="abrirSecao('calculadora',this)">🧮 Calculadora</div>
   <div class="dash-card" onclick="abrirSecao('boletim',this)">📊 Boletim</div>
   <div class="dash-card" onclick="abrirSecao('desafios',this); carregarRanking()">🎮 Desafios</div>
@@ -1780,9 +1856,10 @@ window.addEventListener("load", () => {
   }
 });
 
+
 function voltarInicioMateriais(){
-  caminhoAtual = "Inicio"; // ou "" dependendo do seu sistema
-  carregarArquivos(); // recarrega lista
+  caminhoAtual = "";
+  renderMateriais();
 }
 
 </script>
