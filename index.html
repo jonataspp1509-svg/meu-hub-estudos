@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>StudyFlow</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -469,6 +468,7 @@ input, select{
   padding:12px;
   border-radius:14px;
   font-weight:800;
+  line-height:1.5;
 }
 
 .feedback.correct{
@@ -493,6 +493,16 @@ input, select{
   height:100%;
   background:linear-gradient(90deg,var(--green),var(--blue));
   width:0%;
+}
+
+.cooldown-box{
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  padding:14px;
+  border-radius:14px;
+  margin-top:12px;
+  font-weight:800;
 }
 
 @media(max-width:900px){
@@ -624,6 +634,7 @@ input, select{
   <div class="section-title">Desafios StudyFlow</div>
   <div class="help-text">
     Escolha Matemática, Física ou Química. Responda perguntas, ganhe estrelas e suba no ranking.
+    Cada pessoa só pode tentar a mesma matéria novamente depois de 3 dias.
   </div>
 
   <div class="game-layout">
@@ -706,27 +717,32 @@ const perguntas = {
     {
       q:"No Triângulo de Pascal, qual é a linha 4 começando por linha 0?",
       a:["1 4 6 4 1","1 3 3 1","1 5 10 10 5 1","1 2 1"],
-      c:0
+      c:0,
+      explicacao:"Começando na linha 0: linha 0 = 1, linha 1 = 1 1, linha 2 = 1 2 1, linha 3 = 1 3 3 1, linha 4 = 1 4 6 4 1."
     },
     {
       q:"Qual é a fórmula de sen(2a)?",
       a:["2sen(a)cos(a)","sen²(a)-cos²(a)","cos²(a)-sen²(a)","2tg(a)"],
-      c:0
+      c:0,
+      explicacao:"A identidade de ângulo duplo do seno é sen(2a)=2sen(a)cos(a)."
     },
     {
       q:"Qual é uma forma correta de cos(2a)?",
       a:["cos²(a)-sen²(a)","2sen(a)cos(a)","sen(a)+cos(a)","tg(a)/2"],
-      c:0
+      c:0,
+      explicacao:"Uma das fórmulas de ângulo duplo é cos(2a)=cos²(a)-sen²(a)."
     },
     {
       q:"Qual é a fórmula de tg(2a)?",
       a:["2tg(a)/(1-tg²(a))","tg²(a)-1","sen(a)/cos(a)","2sen(a)"],
-      c:0
+      c:0,
+      explicacao:"A fórmula correta é tg(2a)=2tg(a)/(1-tg²(a)), desde que o denominador não seja zero."
     },
     {
       q:"Na linha 5 do Triângulo de Pascal, quais são os coeficientes?",
       a:["1 5 10 10 5 1","1 4 6 4 1","1 6 15 20 15 6 1","1 3 3 1"],
-      c:0
+      c:0,
+      explicacao:"A linha 5 é formada somando os termos vizinhos da linha 4: 1, 5, 10, 10, 5, 1."
     }
   ],
 
@@ -734,27 +750,32 @@ const perguntas = {
     {
       q:"Um corpo de 60 kg é içado 8 m em 10 s. Com g=10 m/s², qual é a potência?",
       a:["480 W","4800 W","48 W","600 W"],
-      c:0
+      c:0,
+      explicacao:"O trabalho é W=mgh=60·10·8=4800 J. A potência é P=W/t=4800/10=480 W."
     },
     {
       q:"Um motor recebe 200 W e fornece 180 W úteis. Qual é o rendimento?",
       a:["90%","80%","72%","20%"],
-      c:0
+      c:0,
+      explicacao:"Rendimento η = potência útil / potência total = 180/200 = 0,9 = 90%."
     },
     {
       q:"Pelo Teorema da Energia Cinética, o trabalho resultante é igual a:",
       a:["variação da energia cinética","força vezes massa","potência vezes velocidade","massa vezes altura"],
-      c:0
+      c:0,
+      explicacao:"O TEC diz que o trabalho da força resultante é igual à variação da energia cinética: τ = ΔEc."
     },
     {
       q:"Se a potência útil é 144 W e a potência recebida é 200 W, o rendimento é:",
       a:["72%","90%","50%","80%"],
-      c:0
+      c:0,
+      explicacao:"η = Pu/Pt = 144/200 = 0,72 = 72%."
     },
     {
       q:"Um motor eleva um bloco de 20 kg com velocidade 2 m/s. g=10. Potência útil:",
       a:["400 W","200 W","100 W","500 W"],
-      c:0
+      c:0,
+      explicacao:"Em velocidade constante, a força é o peso: F=mg=20·10=200 N. Potência P=F·v=200·2=400 W."
     }
   ],
 
@@ -762,27 +783,32 @@ const perguntas = {
     {
       q:"Uma solução tem 0,250 mol/L e volume 0,500 L. Quantos mols há?",
       a:["0,125 mol","0,500 mol","0,250 mol","2 mol"],
-      c:0
+      c:0,
+      explicacao:"Use n=C·V. Então n=0,250·0,500=0,125 mol."
     },
     {
       q:"ppm significa aproximadamente:",
       a:["mg de soluto por kg de solução","mol por litro","grama por litro","litro por mol"],
-      c:0
+      c:0,
+      explicacao:"ppm significa partes por milhão. Em soluções diluídas, costuma ser tratado como mg/kg ou mg/L em água."
     },
     {
       q:"Na diluição, a relação mais usada é:",
       a:["C1·V1 = C2·V2","m·a = F","P = E/t","Q = m·c·ΔT"],
-      c:0
+      c:0,
+      explicacao:"Na diluição, a quantidade de soluto permanece constante: C1V1=C2V2."
     },
     {
       q:"Misturar soluções sem reação química muda principalmente:",
       a:["a concentração final","a massa molar","o número atômico","a fórmula do soluto"],
-      c:0
+      c:0,
+      explicacao:"Se não há reação, o soluto continua o mesmo. O que muda é o volume total e, portanto, a concentração final."
     },
     {
       q:"Se 10 mL de solução estoque são diluídos até 1 L, o volume final é:",
       a:["1000 mL","10 mL","100 mL","1 mL"],
-      c:0
+      c:0,
+      explicacao:"1 L equivale a 1000 mL. O volume final da solução diluída é 1000 mL."
     }
   ]
 };
@@ -790,6 +816,7 @@ const perguntas = {
 let jogoAtual = [];
 let perguntaAtual = 0;
 let estrelas = 0;
+let materiaAtualJogo = "";
 
 function abrirSecao(id,card){
   document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
@@ -1161,7 +1188,33 @@ function exportarExcel(){
 }
 
 /* JOGO */
-function iniciarJogo(){
+function limparId(texto){
+  return texto
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"")
+    .replace(/[^a-z0-9_-]/g,"_");
+}
+
+function embaralharPerguntas(lista){
+  return lista.map(pergunta=>{
+    const alternativas = pergunta.a.map((texto,index)=>({
+      texto:texto,
+      correta:index === pergunta.c
+    }));
+
+    alternativas.sort(()=>Math.random()-0.5);
+
+    return {
+      q:pergunta.q,
+      a:alternativas.map(x=>x.texto),
+      c:alternativas.findIndex(x=>x.correta),
+      explicacao:pergunta.explicacao
+    };
+  });
+}
+
+async function iniciarJogo(){
   const nome = document.getElementById("nomeJogador").value.trim();
   const materia = document.getElementById("materiaJogo").value;
 
@@ -1170,7 +1223,39 @@ function iniciarJogo(){
     return;
   }
 
-  jogoAtual = perguntas[materia];
+  const idTentativa = limparId(`${nome}_${materia}`);
+  const ref = window.firebaseDoc(window.firestore,"tentativas",idTentativa);
+  const snap = await window.firebaseGetDoc(ref);
+
+  const agora = Date.now();
+  const tresDias = 3 * 24 * 60 * 60 * 1000;
+
+  if(snap.exists()){
+    const ultima = snap.data().data || 0;
+
+    if(agora - ultima < tresDias){
+      const falta = tresDias - (agora - ultima);
+      const horas = Math.ceil(falta / (1000 * 60 * 60));
+
+      document.getElementById("areaJogo").innerHTML = `
+        <div class="cooldown-box">
+          ⏳ Você já tentou esse desafio.<br>
+          Só poderá tentar novamente depois de 3 dias.<br>
+          Tempo aproximado restante: ${horas} hora(s).
+        </div>
+      `;
+      return;
+    }
+  }
+
+  await window.firebaseSetDoc(ref,{
+    nome:nome,
+    materia:materia,
+    data:agora
+  });
+
+  materiaAtualJogo = materia;
+  jogoAtual = embaralharPerguntas(perguntas[materia]);
   perguntaAtual = 0;
   estrelas = 0;
 
@@ -1207,20 +1292,32 @@ function responder(i){
 
   if(i === p.c){
     estrelas++;
-    fb.innerHTML = `<div class="feedback correct">✅ Acertou! +1 estrela</div>`;
+
+    fb.innerHTML = `
+      <div class="feedback correct">
+        ✅ Acertou! +1 estrela
+      </div>
+    `;
   }else{
-    fb.innerHTML = `<div class="feedback wrong">❌ Errou! Resposta correta: ${p.a[p.c]}</div>`;
+    fb.innerHTML = `
+      <div class="feedback wrong">
+        ❌ Errou!<br>
+        Resposta correta: <strong>${p.a[p.c]}</strong><br><br>
+        📘 <strong>Resolução:</strong><br>
+        ${p.explicacao || "Revise esse conteúdo no material da matéria."}
+      </div>
+    `;
   }
 
   perguntaAtual++;
 
-  setTimeout(mostrarPergunta,900);
+  setTimeout(mostrarPergunta,3500);
 }
 
 async function finalizarJogo(){
   const nome = document.getElementById("nomeJogador").value.trim();
 
-  const ref = window.firebaseDoc(window.firestore,"ranking",nome);
+  const ref = window.firebaseDoc(window.firestore,"ranking",limparId(nome));
   const snap = await window.firebaseGetDoc(ref);
 
   let antigas = 0;
@@ -1240,6 +1337,11 @@ async function finalizarJogo(){
     <div class="feedback correct">
       🎉 Fim do desafio! Você ganhou ${estrelas} estrela(s).<br>
       Total no ranking: ${total} ⭐
+    </div>
+
+    <div class="cooldown-box">
+      ⏳ Você já fez essa tentativa.<br>
+      Agora só poderá tentar novamente essa mesma matéria depois de <strong>3 dias</strong>.
     </div>
   `;
 
