@@ -1,257 +1,161 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mendel Hub | Oficial</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root { --primary: #4361ee; --bg: #f8faff; --sidebar: #ffffff; --text-main: #1e293b; --text-sub: #64748b; --folder-icon: #ffca28; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text-main); display: flex; height: 100vh; overflow: hidden; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mendel Hub | Oficial</title>
 
-        /* Sidebar Desktop */
-        nav { width: 260px; background: var(--sidebar); border-right: 1px solid #e2e8f0; display: flex; flex-direction: column; padding: 40px 20px; flex-shrink: 0; }
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); margin-bottom: 40px; display: flex; align-items: center; gap: 10px; }
-        .nav-group { display: flex; flex-direction: column; gap: 8px; }
-        .nav-link { padding: 14px 18px; border-radius: 12px; cursor: pointer; display: flex; align-items: center; gap: 12px; font-weight: 600; color: var(--text-sub); transition: 0.3s; text-decoration: none; }
-        .nav-link:hover { background: #f1f5f9; color: var(--primary); }
-        .nav-link.active { background: var(--primary); color: #fff; }
-        .nav-divider { height: 1px; background: #e2e8f0; margin: 15px 0; }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-        /* Conteúdo */
-        main { flex: 1; padding: 40px; overflow-y: auto; }
-        .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 25px; color: var(--text-sub); font-weight: 600; font-size: 0.9rem; }
-        .breadcrumb span { cursor: pointer; }
-        .item-list { display: flex; flex-direction: column; gap: 10px; }
-        .item { background: #fff; padding: 18px; border-radius: 15px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; border: 1px solid #eef2f6; transition: 0.2s; text-decoration: none; color: inherit; }
-        .item:hover { transform: translateX(5px); border-color: var(--primary); }
-        .item-info { display: flex; align-items: center; gap: 12px; overflow: hidden; }
-        .item-info span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 600; }
-        .icon-folder { color: var(--folder-icon); font-size: 1.4rem; }
-        .icon-file { color: #ef4444; font-size: 1.4rem; }
-        .hidden { display: none !important; }
+<style>
+:root {
+--primary:#4361ee;
+--bg:#f8faff;
+--sidebar:#ffffff;
+--text-main:#1e293b;
+--text-sub:#64748b;
+--folder-icon:#ffca28;
+}
 
-        /* Calculadora */
-        .calc-wrapper { width: 100%; max-width: 320px; margin: 0 auto; background: #1e293b; padding: 25px; border-radius: 25px; }
-        .display { width: 100%; background: transparent; border: none; color: #fff; font-size: 2rem; text-align: right; margin-bottom: 20px; outline: none; }
-        .btn-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-        .c-btn { height: 50px; border-radius: 10px; border: none; background: #334155; color: #fff; font-weight: 700; cursor: pointer; }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text-main);display:flex;height:100vh;overflow:hidden;}
 
-        /* Mobile */
-        @media (max-width: 768px) {
-            body { flex-direction: column; }
-            nav { width: 100%; height: 70px; padding: 0 15px; border-right: none; border-bottom: 1px solid #e2e8f0; flex-direction: row; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-            .logo { display: none; }
-            .nav-group { flex-direction: row; width: 100%; justify-content: space-around; gap: 5px; }
-            .nav-link { padding: 8px; flex-direction: column; font-size: 0.6rem; gap: 4px; flex: 1; align-items: center; }
-            .nav-link span { display: block; }
-            .nav-divider { display: none; }
-            main { padding: 20px 15px; height: calc(100vh - 70px); }
-        }
-    </style>
+nav{width:260px;background:#fff;border-right:1px solid #e2e8f0;padding:40px 20px;}
+.logo{font-size:1.5rem;font-weight:800;color:var(--primary);margin-bottom:40px;}
+.nav-link{padding:12px;border-radius:10px;cursor:pointer;}
+
+main{flex:1;padding:40px;overflow-y:auto;}
+
+.item{background:#fff;padding:15px;border-radius:10px;margin-bottom:10px;cursor:pointer;display:flex;justify-content:space-between;}
+.item:hover{border:1px solid var(--primary);}
+
+.icon-folder{color:var(--folder-icon);}
+.icon-file{color:#ef4444;}
+</style>
 </head>
+
 <body>
 
 <nav>
-    <div class="logo"><i class="fas fa-dna"></i> MENDEL</div>
-    <div class="nav-group">
-        <div class="nav-link active" id="tab-mat" onclick="changeTab('materiais', this)"><i class="fas fa-folder-open"></i><span>Materiais</span></div>
-        <div class="nav-link" id="tab-calc" onclick="changeTab('calculadora', this)"><i class="fas fa-calculator"></i><span>Calculadora</span></div>
-        <div class="nav-divider"></div>
-        <a href="https://pmais.p4ed.com/dashboard" target="_blank" class="nav-link"><i class="fas fa-graduation-cap"></i><span>Portal P+</span></a>
-    </div>
+<div class="logo">MENDEL</div>
+<div class="nav-link" onclick="changeTab('materiais')">Materiais</div>
+<div class="nav-link" onclick="changeTab('calculadora')">Calculadora</div>
 </nav>
 
 <main>
-    <div id="materiais">
-        <div class="breadcrumb" id="breadcrumb">
-            <span onclick="goToPath('')">Início</span>
-        </div>
-        <div id="list-container" class="item-list"></div>
-    </div>
 
-    <div id="calculadora" class="hidden">
-        <div class="calc-wrapper">
-            <input type="text" id="scr" class="display" readonly placeholder="0">
-            <div class="btn-grid">
-                <button class="c-btn" onclick="clr()">C</button>
-                <button class="c-btn" style="background:var(--primary)" onclick="ins('/')">/</button>
-                <button class="c-btn" style="background:var(--primary)" onclick="ins('*')">×</button>
-                <button class="c-btn" onclick="bk()">⌫</button>
-                <button class="c-btn" onclick="ins('7')">7</button>
-                <button class="c-btn" onclick="ins('8')">8</button>
-                <button class="c-btn" onclick="ins('9')">9</button>
-                <button class="c-btn" style="background:var(--primary)" onclick="ins('-')">-</button>
-                <button class="c-btn" onclick="ins('4')">4</button>
-                <button class="c-btn" onclick="ins('5')">5</button>
-                <button class="c-btn" onclick="ins('6')">6</button>
-                <button class="c-btn" style="background:var(--primary)" onclick="ins('+')">+</button>
-                <button class="c-btn" onclick="ins('1')">1</button>
-                <button class="c-btn" onclick="ins('2')">2</button>
-                <button class="c-btn" onclick="ins('3')">3</button>
-                <button class="c-btn" style="background:#10b981" onclick="res()">=</button>
-            </div>
-        </div>
-    </div>
+<div id="materiais">
+<div id="breadcrumb">Início</div>
+<div id="list-container"></div>
+</div>
+
+<div id="calculadora" style="display:none;">
+<input id="scr" readonly>
+<button onclick="ins(1)">1</button>
+<button onclick="res()">=</button>
+</div>
+
 </main>
 
 <script>
-    let db = [];
-    let currentPath = "";
 
-    async function start() {
-        try {
-            // O ?v= garante que o navegador não use uma versão velha (cache) do arquivo
-            const response = await fetch('dados.txt?v=' + Date.now());
-            const text = await response.text();
-            
-            // Transforma o texto em uma lista de caminhos limpos
-          db = [...new Set(
-                text.split('\n')
-                    .map(linha => linha.trim())
-                    .filter(linha => linha !== "" && !linha.includes("Pasta:"))
-                    .map(linha => linha.replace('[DIR]', '').trim())
-                    .map(linha => linha.replace(/\s+/g, ' ')) // remove espaços duplicados
-            )];
-            
-            render();
-        } catch (e) {
-            console.error("Erro ao carregar o arquivo de dados:", e);
-        }
-    }
+let db = [];
+let currentPath = "";
 
-    function render() {
-        const container = document.getElementById('list-container');
-        if (!container) return;
+/* 🔥 PEGA O NOME DO REPOSITÓRIO AUTOMATICAMENTE */
+const repo = window.location.pathname.split("/")[1];
 
-        container.innerHTML = "";
-        updateBreadcrumb();
+/* 🔥 BASE CORRETA DO GITHUB */
+const BASE = "/" + repo + "/";
 
-        let folders = new Set();
-        let files = [];
+/* -------------------- */
 
-        db.forEach(path => {
-            let clean = path.replace(/\\/g, '/').trim();
-            let parts = clean.split('/').map(p => p.trim()).filter(Boolean);
+async function start(){
+const res = await fetch("dados.txt?v=" + Date.now());
+const txt = await res.text();
 
-            if (parts.length === 0) return;
+db = txt.split("\n")
+.map(l => l.trim())
+.filter(l => l !== "");
 
-            let fileName = parts[parts.length - 1];
-            let folderPath = parts.slice(0, -1).join('/');
+render();
+}
 
-            const isFile = fileName.includes('.');
+function render(){
+const container = document.getElementById("list-container");
+container.innerHTML = "";
 
-            // ROOT
-            if (currentPath === "") {
-                if (parts.length > 1) {
-                    folders.add(parts[0]);
-                } else if (isFile) {
-                    files.push({ name: fileName, full: clean });
-                }
-            } 
-            // SUBPASTA
-            else {
-                if (folderPath.startsWith(currentPath)) {
-                    let rest = folderPath.slice(currentPath.length).replace(/^\/+/, '');
-                    let next = rest.split('/')[0];
+let folders = new Set();
+let files = [];
 
-                    if (next) {
-                        folders.add(next);
-                    } else if (isFile) {
-                        files.push({ name: fileName, full: clean });
-                    }
-                }
-            }
-        });
+db.forEach(path => {
 
-        // Pastas
-        folders.forEach(f => {
-            const div = document.createElement('div');
-            div.className = 'item';
-            div.innerHTML = `
-                <div class="item-info">
-                    <i class="fas fa-folder icon-folder"></i>
-                    <span>${f}</span>
-                </div>
-                <i class="fas fa-chevron-right"></i>
-            `;
-            div.onclick = () => {
-                currentPath = currentPath ? currentPath + "/" + f : f;
-                render();
-            };
-            container.appendChild(div);
-        });
+let parts = path.split("/");
 
-        // Arquivos
-        files.forEach(file => {
-            const a = document.createElement('a');
-            a.className = 'item';
+if(currentPath === ""){
+if(parts.length > 1){
+folders.add(parts[0]);
+}else{
+files.push(path);
+}
+}else{
+if(path.startsWith(currentPath)){
+let rest = path.replace(currentPath,"").replace(/^\/+/,"");
+let next = rest.split("/")[0];
 
-            let linkSeguro = file.full
-                .split('/')
-                .map(p => encodeURIComponent(p))
-                .join('/');
+if(next && !next.includes(".")){
+folders.add(next);
+}else{
+files.push(path);
+}
+}
+}
 
-            a.href = "/" + window.location.pathname.split("/")[1] + "/" + linkSeguro;
-            a.target = "_blank";
+});
 
-            a.innerHTML = `
-                <div class="item-info">
-                    <i class="fas fa-file icon-file"></i>
-                    <span>${file.name}</span>
-                </div>
-                <i class="fas fa-external-link-alt"></i>
-            `;
+/* Pastas */
+folders.forEach(f=>{
+let div = document.createElement("div");
+div.className="item";
+div.innerHTML = `<span><i class="fas fa-folder icon-folder"></i> ${f}</span>`;
+div.onclick=()=>{
+currentPath = currentPath ? currentPath + "/" + f : f;
+render();
+};
+container.appendChild(div);
+});
 
-            container.appendChild(a);
-        });
+/* Arquivos */
+files.forEach(f=>{
 
-        if (container.innerHTML === "") {
-            container.innerHTML = "<p style='text-align:center;color:#94a3b8;padding:20px;'>Pasta vazia.</p>";
-        }
-    }   
+let a = document.createElement("a");
+a.className="item";
 
-    function updateBreadcrumb() {
-        const bc = document.getElementById('breadcrumb');
-        if (!bc) return;
-        bc.innerHTML = `<span onclick="goToPath('')">Início</span>`;
-        
-        if (currentPath !== "") {
-            let acumulado = "";
-            currentPath.split('/').forEach(parte => {
-                acumulado = (acumulado === "") ? parte : acumulado + "/" + parte;
-                const caminhoParaIr = acumulado;
-                bc.innerHTML += ` <i class="fas fa-chevron-right" style="font-size:0.7rem; color:#cbd5e1"></i> `;
-                bc.innerHTML += `<span onclick="goToPath('${caminhoParaIr}')">${parte}</span>`;
-            });
-        }
-    }
+/* 🔥 LINK CORRIGIDO AQUI */
+a.href = BASE + f;
 
-    function goToPath(p) {
-        currentPath = p;
-        render();
-    }
+a.target="_blank";
+a.innerHTML = `<span><i class="fas fa-file icon-file"></i> ${f.split("/").pop()}</span>`;
 
-    function changeTab(id, el) {
-        document.getElementById('materiais').classList.toggle('hidden', id !== 'materiais');
-        document.getElementById('calculadora').classList.toggle('hidden', id !== 'calculadora');
-        document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
-        el.classList.add('active');
-    }
+container.appendChild(a);
+});
 
-    // Funções da Calculadora
-    const display = document.getElementById('scr');
-    function ins(v) { display.value += v; }
-    function clr() { display.value = ""; }
-    function bk() { display.value = display.value.slice(0, -1); }
-    function res() {
-        try { display.value = eval(display.value); } 
-        catch { display.value = "Erro"; }
-    }
+}
 
-    start();
+/* -------------------- */
+
+function changeTab(tab){
+document.getElementById("materiais").style.display = tab==="materiais"?"block":"none";
+document.getElementById("calculadora").style.display = tab==="calculadora"?"block":"none";
+}
+
+/* calculadora */
+function ins(v){scr.value+=v;}
+function res(){scr.value=eval(scr.value);}
+
+start();
+
 </script>
 
 </body>
