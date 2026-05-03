@@ -2,265 +2,1737 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>StudyFlow Ultimate</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudyFlow</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
 
 <style>
+:root{
+  --bg:#eef2ff;
+  --card:#ffffff;
+  --primary:#4f46e5;
+  --purple:#7c3aed;
+  --green:#16a34a;
+  --red:#dc2626;
+  --orange:#f97316;
+  --yellow:#facc15;
+  --blue:#0ea5e9;
+  --text:#0f172a;
+  --muted:#64748b;
+  --border:#e2e8f0;
+  --shadow:0 10px 25px rgba(15,23,42,.08);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
 body{
-margin:0;
-font-family:Arial;
-background:#eef2ff;
+  font-family:Poppins,sans-serif;
+  background:
+    radial-gradient(circle at top left,#c7d2fe,transparent 30%),
+    radial-gradient(circle at bottom right,#ddd6fe,transparent 30%),
+    linear-gradient(135deg,#eef2ff,#f8fafc);
+  min-height:100vh;
+  padding:26px;
+  color:var(--text);
 }
 
-/* LOGIN */
-#loginScreen{
-position:fixed;
-top:0;left:0;
-width:100%;height:100%;
-background:linear-gradient(135deg,#4f46e5,#7c3aed);
-display:flex;
-align-items:center;
-justify-content:center;
-z-index:9999;
-}
-.login-box{
-background:white;
-padding:40px;
-border-radius:20px;
-text-align:center;
-box-shadow:0 20px 40px rgba(0,0,0,0.2);
+header{
+  margin-bottom:24px;
 }
 
-/* NAV */
-nav{
-display:flex;
-gap:10px;
-padding:10px;
-flex-wrap:wrap;
+.logo{
+  font-size:2.6rem;
+  font-weight:800;
+  color:var(--primary);
 }
+
+.subtitle{
+  color:var(--muted);
+  font-size:1rem;
+}
+
+.dashboard{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:18px;
+  margin-bottom:24px;
+}
+
+.dash-card{
+  background:white;
+  padding:25px;
+  border-radius:22px;
+  text-align:center;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:var(--shadow);
+  transition:.2s;
+  border:2px solid transparent;
+}
+
+.dash-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--primary);
+}
+
+.dash-card.active{
+  background:linear-gradient(135deg,var(--primary),var(--purple));
+  color:white;
+}
+
+.section{
+  display:none;
+}
+
+.section.active{
+  display:block;
+}
+
+.panel{
+  background:rgba(255,255,255,.92);
+  padding:22px;
+  border-radius:24px;
+  box-shadow:var(--shadow);
+}
+
+.section-title{
+  font-size:1.4rem;
+  font-weight:800;
+  color:var(--primary);
+  margin-bottom:8px;
+}
+
+.help-text{
+  color:var(--muted);
+  font-weight:600;
+  margin-bottom:16px;
+}
+
+.breadcrumb{
+  margin:14px 0;
+  font-weight:700;
+  color:var(--muted);
+}
+
+.breadcrumb span{
+  color:var(--primary);
+  cursor:pointer;
+}
+
+.drive-box{
+  background:#ecfdf5;
+  border:1px solid #bbf7d0;
+  color:#166534;
+  padding:16px;
+  border-radius:18px;
+  margin-bottom:18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.drive-box a{
+  background:var(--green);
+  color:white;
+  text-decoration:none;
+  padding:10px 16px;
+  border-radius:12px;
+  font-weight:800;
+}
+
+.list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.item{
+  background:white;
+  padding:15px 18px;
+  border-radius:15px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:var(--text);
+  font-weight:650;
+  border:1px solid var(--border);
+  box-shadow:0 5px 14px rgba(15,23,42,.06);
+  cursor:pointer;
+  transition:.2s;
+}
+
+.item:hover{
+  background:#e0e7ff;
+  transform:translateX(5px);
+}
+
+.calculator{
+  max-width:390px;
+  margin:auto;
+  background:#111827;
+  padding:22px;
+  border-radius:26px;
+}
+
+.calculator input{
+  width:100%;
+  padding:18px;
+  border:none;
+  border-radius:16px;
+  margin-bottom:14px;
+  font-size:1.6rem;
+  text-align:right;
+  background:#1f2937;
+  color:white;
+}
+
+.calc-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
 button{
-padding:10px;
-border:none;
-background:#4f46e5;
-color:white;
-border-radius:10px;
-cursor:pointer;
+  border:none;
+  border-radius:12px;
+  padding:12px;
+  background:var(--primary);
+  color:white;
+  font-weight:800;
+  cursor:pointer;
+  font-family:inherit;
+  transition:.2s;
 }
 
-/* PAGES */
-.page{
-display:none;
-padding:20px;
-}
-.active{
-display:block;
-}
-.card{
-background:white;
-padding:15px;
-margin:10px;
-border-radius:10px;
+button:hover{
+  opacity:.9;
+  transform:translateY(-2px);
 }
 
-/* GAME */
-.correct{color:green;font-weight:bold;}
-.wrong{color:red;font-weight:bold;}
+.calc-grid button{
+  height:55px;
+  background:#374151;
+  font-size:1.1rem;
+}
+
+.calc-grid .op{
+  background:var(--primary);
+}
+
+.calc-grid .eq{
+  background:var(--green);
+}
+
+.calc-grid .danger{
+  background:var(--red);
+}
+
+.top-actions{
+  display:grid;
+  grid-template-columns:1fr auto auto auto;
+  gap:10px;
+  margin-bottom:18px;
+}
+
+input, select{
+  width:100%;
+  padding:10px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  outline:none;
+  font-family:inherit;
+  background:white;
+}
+
+.subject-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+  gap:15px;
+}
+
+.subject{
+  background:white;
+  border-radius:20px;
+  padding:16px;
+  border:1px solid var(--border);
+  box-shadow:0 5px 14px rgba(15,23,42,.05);
+}
+
+.subject-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  cursor:pointer;
+  gap:12px;
+}
+
+.subject-title{
+  color:var(--primary);
+  font-size:1.15rem;
+  font-weight:800;
+}
+
+.subject-score{
+  background:#f1f5f9;
+  padding:6px 10px;
+  border-radius:999px;
+  font-weight:800;
+}
+
+.subject-body{
+  display:none;
+  margin-top:14px;
+}
+
+.period-tabs{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  margin-bottom:12px;
+}
+
+.period-tab{
+  background:#eef2ff;
+  color:var(--primary);
+  padding:9px;
+  border-radius:12px;
+  font-weight:800;
+  text-align:center;
+  cursor:pointer;
+}
+
+.period-tab.active{
+  background:var(--primary);
+  color:white;
+}
+
+.period-content{
+  display:none;
+  background:#f8fafc;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:14px;
+}
+
+.period-content.active{
+  display:block;
+}
+
+.field{
+  margin-bottom:8px;
+}
+
+.field label{
+  font-size:.8rem;
+  color:var(--muted);
+  font-weight:800;
+}
+
+.period-result,
+.annual-result,
+.result-box{
+  margin-top:12px;
+  padding:12px;
+  border-radius:14px;
+  font-weight:800;
+  background:#f8fafc;
+  border:1px solid var(--border);
+}
+
+.ok{
+  color:var(--green);
+}
+
+.bad{
+  color:var(--red);
+}
+
+.warn{
+  color:var(--orange);
+}
+
+.alert-box{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  background:linear-gradient(135deg,#eef2ff,#e0e7ff);
+  border-left:6px solid var(--primary);
+  padding:16px;
+  border-radius:16px;
+  box-shadow:0 8px 20px rgba(79,70,229,.15);
+  animation:fadeIn .5s ease;
+  margin-bottom:18px;
+}
+
+.alert-icon{
+  font-size:1.6rem;
+}
+
+.alert-title{
+  font-weight:800;
+  color:#3730a3;
+  margin-bottom:4px;
+}
+
+.alert-text{
+  color:#1e293b;
+  font-weight:600;
+  font-size:.95rem;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(-10px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* JOGO */
+.game-layout{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:18px;
+}
+
+.game-card{
+  background:white;
+  border-radius:22px;
+  padding:18px;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+}
+
+.game-options{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:10px;
+  margin:14px 0;
+}
+
+.option-btn{
+  background:#eef2ff;
+  color:var(--primary);
+  border:2px solid #c7d2fe;
+  text-align:left;
+}
+
+.option-btn:hover{
+  background:var(--primary);
+  color:white;
+}
+
+.game-question{
+  font-size:1.2rem;
+  font-weight:800;
+  margin:16px 0;
+}
+
+.stars{
+  font-size:1.3rem;
+  color:var(--yellow);
+  font-weight:800;
+}
+
+.rank-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:12px;
+}
+
+.rank-item{
+  background:#f8fafc;
+  border:1px solid var(--border);
+  padding:12px;
+  border-radius:14px;
+  display:flex;
+  justify-content:space-between;
+  font-weight:800;
+}
+
+.feedback{
+  margin-top:12px;
+  padding:12px;
+  border-radius:14px;
+  font-weight:800;
+  line-height:1.5;
+}
+
+.feedback.correct{
+  background:#dcfce7;
+  color:#166534;
+}
+
+.feedback.wrong{
+  background:#fee2e2;
+  color:#991b1b;
+}
+
+.progress-bar{
+  height:12px;
+  background:#e2e8f0;
+  border-radius:999px;
+  overflow:hidden;
+  margin-top:10px;
+}
+
+.progress-fill{
+  height:100%;
+  background:linear-gradient(90deg,var(--green),var(--blue));
+  width:0%;
+}
+
+.cooldown-box{
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  padding:14px;
+  border-radius:14px;
+  margin-top:12px;
+  font-weight:800;
+}
+
+@media(max-width:900px){
+  .game-layout{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:760px){
+  body{
+    padding:15px;
+  }
+
+  .top-actions{
+    grid-template-columns:1fr;
+  }
+
+  .period-tabs{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+/* LOGIN POR CÓDIGO - ADICIONADO */
+.login-screen{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(135deg,#e0e7ff,#f8fafc);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  padding:20px;
+}
+.login-card{
+  width:min(420px,92vw);
+  background:white;
+  border:1px solid var(--border);
+  border-radius:28px;
+  padding:30px;
+  text-align:center;
+  box-shadow:0 22px 60px rgba(15,23,42,.16);
+}
+.login-logo{
+  font-size:2.2rem;
+  font-weight:800;
+  color:var(--primary);
+  margin-bottom:6px;
+}
+.login-text{
+  color:var(--muted);
+  font-weight:600;
+  margin-bottom:18px;
+}
+.login-code{
+  text-align:center;
+  font-size:1.4rem;
+  font-weight:800;
+  letter-spacing:7px;
+  padding:15px;
+  margin-bottom:14px;
+}
+.login-error{
+  display:none;
+  color:var(--red);
+  font-weight:800;
+  margin-top:12px;
+}
+.site-content{
+  display:none;
+}
+.btn-continuar{
+  margin-top:12px;
+  background:linear-gradient(135deg,var(--primary),var(--purple));
+}
+
+
+/* MENU DE ESCOLHA APÓS LOGIN */
+.menu-escolha{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:9998;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  background:
+    radial-gradient(circle at top left,#c7d2fe,transparent 30%),
+    radial-gradient(circle at bottom right,#bfdbfe,transparent 30%),
+    linear-gradient(135deg,#eff6ff,#eef2ff);
+}
+.menu-box{ width:min(960px,100%); }
+.menu-title{
+  text-align:center;
+  color:var(--primary);
+  font-size:2.4rem;
+  font-weight:900;
+  margin-bottom:8px;
+}
+.menu-subtitle{
+  text-align:center;
+  color:var(--muted);
+  font-weight:700;
+  margin-bottom:24px;
+}
+.menu-cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;
+}
+.menu-card{
+  background:white;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  border-radius:28px;
+  padding:30px;
+  min-height:210px;
+  cursor:pointer;
+  transition:.25s;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.menu-card:hover{
+  transform:translateY(-8px) scale(1.01);
+  border-color:var(--primary);
+}
+.menu-icon{ font-size:2.4rem; margin-bottom:8px; }
+.menu-card h2{ color:var(--text); margin-bottom:8px; }
+.menu-card p{ color:var(--muted); font-weight:600; }
+.menu-action{
+  margin-top:20px;
+  background:linear-gradient(135deg,var(--primary),var(--purple));
+  color:white;
+  border-radius:999px;
+  padding:10px 14px;
+  text-align:center;
+  font-weight:900;
+}
+
+/* ÁREA APRENDER PROGRAMAÇÃO */
+.programacao-site{
+  display:none;
+  min-height:100vh;
+  padding:26px;
+  background:
+    radial-gradient(circle at top left,#dbeafe,transparent 32%),
+    radial-gradient(circle at bottom right,#c7d2fe,transparent 34%),
+    linear-gradient(135deg,#f8fafc,#eff6ff);
+}
+.prog-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+  margin-bottom:22px;
+}
+.prog-title{
+  font-size:2.3rem;
+  color:var(--primary);
+  font-weight:900;
+}
+.prog-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:18px;
+  margin-bottom:20px;
+}
+.prog-card{
+  background:white;
+  border-radius:22px;
+  padding:24px;
+  box-shadow:var(--shadow);
+  border:1px solid var(--border);
+  cursor:pointer;
+  transition:.25s;
+}
+.prog-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--primary);
+}
+.prog-card h3{ color:var(--primary); margin-bottom:8px; }
+.aula-box{
+  background:white;
+  border-radius:24px;
+  padding:24px;
+  box-shadow:var(--shadow);
+  border:1px solid var(--border);
+  line-height:1.7;
+}
+.code-demo{
+  background:#0f172a;
+  color:#e2e8f0;
+  padding:16px;
+  border-radius:16px;
+  overflow:auto;
+  margin-top:12px;
+  font-family:Consolas,monospace;
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN -->
-<div id="loginScreen">
-<div class="login-box">
-<h1>StudyFlow</h1>
-<p>Login escolar obrigatório</p>
-<button onclick="loginGoogle()">Entrar com Google</button>
-</div>
-</div>
+<div id="loginScreen" class="login-screen">
+  <div class="login-card">
+    <div class="login-logo">StudyFlow</div>
+    <div class="login-text">Digite o código de 6 dígitos para acessar.</div>
 
-<!-- APP -->
-<div id="app" style="display:none;">
+    <input
+      id="codigoAcesso"
+      class="login-code"
+      maxlength="6"
+      inputmode="numeric"
+      placeholder="000000"
+      autocomplete="off"
+    >
 
-<nav>
-<button onclick="abrir('materiais')">📁 Materiais</button>
-<button onclick="abrir('calc')">🧮 Calculadora</button>
-<button onclick="abrir('boletim')">📊 Boletim</button>
-<button onclick="abrir('jogo')">🎮 Jogo</button>
-<button onclick="abrir('ranking')">🏆 Ranking</button>
-</nav>
-
-<!-- MATERIAIS -->
-<section id="materiais" class="page active">
-<div class="card"><b>Arquivos:</b></div>
-<div id="lista"></div>
-</section>
-
-<!-- CALCULADORA -->
-<section id="calc" class="page">
-<input id="calcDisplay"><br>
-<button onclick="add('7')">7</button>
-<button onclick="add('8')">8</button>
-<button onclick="add('9')">9</button>
-<button onclick="add('+')">+</button>
-<button onclick="calc()">=</button>
-</section>
-
-<!-- BOLETIM -->
-<section id="boletim" class="page">
-<h3>Notas</h3>
-
-<div id="notas"></div>
-<button onclick="calcularTudo()">Calcular Média</button>
-<div id="resultado"></div>
-
-</section>
-
-<!-- JOGO -->
-<section id="jogo" class="page">
-<input id="nomeJogador" placeholder="Seu nome">
-<div id="pergunta"></div>
-<div id="respostas"></div>
-<div id="feedback"></div>
-</section>
-
-<!-- RANKING -->
-<section id="ranking" class="page">
-<h2>Top 5</h2>
-<div id="rankingLista"></div>
-</section>
-
+    <button onclick="verificarLogin()">Entrar</button>
+    <div id="loginErro" class="login-error">Código incorreto.</div>
+  </div>
 </div>
 
-<!-- FIREBASE -->
+<div id="menuEscolha" class="menu-escolha">
+  <div class="menu-box">
+    <div class="menu-title">Escolha seu ambiente</div>
+    <div class="menu-subtitle">Entre na área escolar ou comece a aprender programação.</div>
+
+    <div class="menu-cards">
+      <div class="menu-card" onclick="entrarEscola()">
+        <div>
+          <div class="menu-icon">🏫</div>
+          <h2>Escola</h2>
+          <p>Acesse materiais, calculadora, boletim e desafios do StudyFlow.</p>
+        </div>
+        <div class="menu-action">Entrar na Escola</div>
+      </div>
+
+      <div class="menu-card" onclick="entrarProgramacao()">
+        <div>
+          <div class="menu-icon">💻</div>
+          <h2>Aprender Programação</h2>
+          <p>Aulas rápidas de HTML, CSS e JavaScript para começar do zero.</p>
+        </div>
+        <div class="menu-action">Começar a Programar</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="siteContent" class="site-content">
+
+
+<header>
+  <div class="logo">StudyFlow</div>
+  <div class="subtitle">Jonatas — materiais, boletim, calculadora e desafios escolares</div>
+</header>
+
+<div class="dashboard">
+  <div class="dash-card active" onclick="abrirSecao('materiais',this)">📁 Materiais</div>
+  <div class="dash-card" onclick="abrirSecao('calculadora',this)">🧮 Calculadora</div>
+  <div class="dash-card" onclick="abrirSecao('boletim',this)">📊 Boletim</div>
+  <div class="dash-card" onclick="abrirSecao('desafios',this); carregarRanking()">🎮 Desafios</div>
+</div>
+
+<section id="materiais" class="section active panel">
+  <div class="section-title">Gerenciador de materiais</div>
+  <div id="pastaAtualTexto" class="help-text">Pasta atual: Início</div>
+
+  <div class="drive-box">
+    <div>
+      <strong>➕ Enviar novo arquivo</strong>
+      <div>
+        Caso você queira enviar um arquivo para adicionar no StudyFlow, anexe no Google Drive.
+      </div>
+    </div>
+
+    <a target="_blank" href="https://drive.google.com/drive/folders/1uIxIkbZmjycrylbR4_ypku6wIUN8s2x9?usp=drive_link">
+      Abrir Drive
+    </a>
+  </div>
+
+  <div id="breadcrumb" class="breadcrumb"></div>
+  <div id="lista" class="list"></div>
+</section>
+
+<section id="calculadora" class="section panel">
+  <div class="section-title">Calculadora</div>
+
+  <div class="calculator">
+    <input id="calcDisplay" readonly placeholder="0">
+
+    <div class="calc-grid">
+      <button class="danger" onclick="limparCalc()">C</button>
+      <button onclick="apagarCalc()">⌫</button>
+      <button class="op" onclick="digitarCalc('/')">/</button>
+      <button class="op" onclick="digitarCalc('*')">×</button>
+
+      <button onclick="digitarCalc('7')">7</button>
+      <button onclick="digitarCalc('8')">8</button>
+      <button onclick="digitarCalc('9')">9</button>
+      <button class="op" onclick="digitarCalc('-')">-</button>
+
+      <button onclick="digitarCalc('4')">4</button>
+      <button onclick="digitarCalc('5')">5</button>
+      <button onclick="digitarCalc('6')">6</button>
+      <button class="op" onclick="digitarCalc('+')">+</button>
+
+      <button onclick="digitarCalc('1')">1</button>
+      <button onclick="digitarCalc('2')">2</button>
+      <button onclick="digitarCalc('3')">3</button>
+      <button class="eq" onclick="resultadoCalc()">=</button>
+
+      <button onclick="digitarCalc('0')">0</button>
+      <button onclick="digitarCalc('.')">.</button>
+      <button onclick="digitarCalc('(')">(</button>
+      <button onclick="digitarCalc(')')">)</button>
+    </div>
+  </div>
+</section>
+
+<section id="boletim" class="section panel">
+  <div class="section-title">Boletim por período</div>
+
+  <div class="help-text">
+    Clique na matéria para adicionar suas notas.
+  </div>
+
+  <div class="alert-box">
+    <div class="alert-icon">📘</div>
+    <div>
+      <div class="alert-title">Importante</div>
+      <div class="alert-text">
+        A nota da <strong>P1</strong> e <strong>P2</strong>, tanto de teste quanto de escrita,
+        é formada pela <strong>soma das subdivisões da matéria</strong>.
+      </div>
+    </div>
+  </div>
+
+  <div class="top-actions">
+    <input id="nomeAluno" placeholder="Nome do aluno">
+    <button onclick="salvarOnline()">💾 Salvar</button>
+    <button onclick="carregarOnline()">📂 Carregar</button>
+    <button onclick="exportarExcel()">📥 Excel</button>
+  </div>
+
+  <div id="subjects" class="subject-grid"></div>
+
+  <div id="resultadoFinal" class="result-box">
+    Média anual geral: --<br>
+    Situação: --
+  </div>
+</section>
+
+<section id="desafios" class="section panel">
+  <div class="section-title">Desafios StudyFlow</div>
+  <div class="help-text">
+    Escolha Matemática, Física ou Química. Responda perguntas, ganhe estrelas e suba no ranking.
+    Cada pessoa só pode tentar a mesma matéria novamente depois de 3 dias.
+  </div>
+
+  <div class="game-layout">
+    <div class="game-card">
+      <input id="nomeJogador" placeholder="Seu nome para o ranking">
+
+      <br><br>
+
+      <select id="materiaJogo">
+        <option value="matematica">📐 Matemática — Pascal e ângulo duplo</option>
+        <option value="fisica">⚙️ Física — Potência, rendimento e TEC</option>
+        <option value="quimica">🧪 Química — Soluções</option>
+      </select>
+
+      <br><br>
+
+      <button onclick="iniciarJogo()">Começar desafio</button>
+
+      <div id="areaJogo"></div>
+    </div>
+
+    <div class="game-card">
+      <h2>🏆 Top 5 Ranking</h2>
+      <div class="help-text">Mais estrelas no StudyFlow</div>
+      <div id="rankingJogo" class="rank-list"></div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<div id="programacao" class="programacao-site">
+  <div class="prog-header">
+    <div>
+      <div class="prog-title">Aprender Programação</div>
+      <div class="help-text">Escolha uma aula e pratique os conceitos principais.</div>
+    </div>
+    <button onclick="voltarMenuEscolha()">⬅ Voltar</button>
+  </div>
+
+  <div class="prog-grid">
+    <div class="prog-card" onclick="mostrarAula('html')">
+      <h3>🌐 HTML</h3>
+      <p>Aprenda a estrutura de uma página.</p>
+    </div>
+    <div class="prog-card" onclick="mostrarAula('css')">
+      <h3>🎨 CSS</h3>
+      <p>Aprenda a deixar o site bonito.</p>
+    </div>
+    <div class="prog-card" onclick="mostrarAula('js')">
+      <h3>⚙️ JavaScript</h3>
+      <p>Aprenda interação e lógica.</p>
+    </div>
+  </div>
+
+  <div id="conteudoAula" class="aula-box">
+    <h2>Bem-vindo!</h2>
+    <p>Clique em uma aula acima para começar.</p>
+  </div>
+</div>
+
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-import { getFirestore, collection, getDocs, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  getDoc,
+  collection,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-const config={
-apiKey:"AIzaSyAGKQBoVgIDJzYOOkzukhTc6eRSXwJEv5I",
-authDomain:"estudos-ec2cf.firebaseapp.com",
-projectId:"estudos-ec2cf"
+const firebaseConfig = {
+  apiKey: "AIzaSyAGKQBoVgIDJzYOOkzukhTc6eRSXwJEv5I",
+  authDomain: "estudos-ec2cf.firebaseapp.com",
+  projectId: "estudos-ec2cf"
 };
 
-const app=initializeApp(config);
-const auth=getAuth(app);
-const provider=new GoogleAuthProvider();
-const db=getFirestore(app);
+const app = initializeApp(firebaseConfig);
+const firestore = getFirestore(app);
 
-window.loginGoogle=async()=>{
-let r=await signInWithPopup(auth,provider);
-if(!r.user.email.endsWith("@p4ed.com")) return alert("Use email escolar");
-loginScreen.style.display="none";
-appDiv.style.display="block";
-};
-
-window.salvarRanking=async(n,e)=>{
-const ref=doc(db,"ranking",n);
-const snap=await getDoc(ref);
-let total=e;
-if(snap.exists()) total+=snap.data().estrelas||0;
-await setDoc(ref,{nome:n,estrelas:total});
-};
-
-window.carregarRanking=async()=>{
-let q=await getDocs(collection(db,"ranking"));
-let arr=[];
-q.forEach(d=>arr.push(d.data()));
-arr.sort((a,b)=>b.estrelas-a.estrelas);
-rankingLista.innerHTML=arr.slice(0,5).map(x=>x.nome+" ⭐"+x.estrelas).join("<br>");
-};
+window.firestore = firestore;
+window.firebaseDoc = doc;
+window.firebaseSetDoc = setDoc;
+window.firebaseGetDoc = getDoc;
+window.firebaseCollection = collection;
+window.firebaseGetDocs = getDocs;
 </script>
 
 <script>
-const appDiv=document.getElementById("app");
+const BASE = window.location.origin + "/meu-hub-estudos/";
 
-/* NAV */
-function abrir(id){
-document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
-document.getElementById(id).classList.add("active");
-if(id==="ranking") carregarRanking();
-}
+let arquivos = [];
+let caminhoAtual = "";
 
-/* CALC */
-function add(v){calcDisplay.value+=v}
-function calc(){calcDisplay.value=eval(calcDisplay.value)}
-
-/* BOLETIM */
-const materias=["Mat","Fis","Qui","Bio"];
-function montarBoletim(){
-let html="";
-materias.forEach(m=>{
-html+=`${m}: <input id="${m}"><br>`;
-});
-notas.innerHTML=html;
-}
-function calcularTudo(){
-let soma=0;
-materias.forEach(m=>{soma+=Number(document.getElementById(m).value)||0});
-resultado.innerText="Média: "+(soma/materias.length);
-}
-montarBoletim();
-
-/* MATERIAIS */
-fetch("dados.txt").then(r=>r.text()).then(t=>{
-lista.innerHTML=t.split("\n").map(f=>`<div>${f}</div>`).join("");
-});
-
-/* JOGO */
-let perguntas=[
-{q:"sen(2a)?",a:["2sen(a)cos(a)","sen²"],c:0,exp:"fórmula"},
-{q:"cos(2a)?",a:["cos²-sen²","2cos"],c:0,exp:"fórmula"}
+const materias = [
+  {id:"mat",nome:"Matemática"},
+  {id:"fis",nome:"Física"},
+  {id:"qui",nome:"Química"},
+  {id:"bio",nome:"Biologia"},
+  {id:"his",nome:"História"},
+  {id:"geo",nome:"Geografia"},
+  {id:"por",nome:"Português"},
+  {id:"ing",nome:"Inglês"},
+  {id:"red",nome:"Redação"},
+  {id:"fil",nome:"Filosofia"},
+  {id:"soc",nome:"Sociologia"}
 ];
 
-function shuffle(p){
-let correta=p.a[p.c];
-let arr=p.a.map((x,i)=>({x,c:i==p.c}));
-arr.sort(()=>Math.random()-0.5);
-return{q:p.q,a:arr.map(x=>x.x),c:arr.findIndex(x=>x.c),exp:p.exp};
+const perguntas = {
+  matematica:[
+    {
+      q:"No Triângulo de Pascal, qual é a linha 4 começando por linha 0?",
+      a:["1 4 6 4 1","1 3 3 1","1 5 10 10 5 1","1 2 1"],
+      c:0,
+      explicacao:"Começando na linha 0: linha 0 = 1, linha 1 = 1 1, linha 2 = 1 2 1, linha 3 = 1 3 3 1, linha 4 = 1 4 6 4 1."
+    },
+    {
+      q:"Qual é a fórmula de sen(2a)?",
+      a:["2sen(a)cos(a)","sen²(a)-cos²(a)","cos²(a)-sen²(a)","2tg(a)"],
+      c:0,
+      explicacao:"A identidade de ângulo duplo do seno é sen(2a)=2sen(a)cos(a)."
+    },
+    {
+      q:"Qual é uma forma correta de cos(2a)?",
+      a:["cos²(a)-sen²(a)","2sen(a)cos(a)","sen(a)+cos(a)","tg(a)/2"],
+      c:0,
+      explicacao:"Uma das fórmulas de ângulo duplo é cos(2a)=cos²(a)-sen²(a)."
+    },
+    {
+      q:"Qual é a fórmula de tg(2a)?",
+      a:["2tg(a)/(1-tg²(a))","tg²(a)-1","sen(a)/cos(a)","2sen(a)"],
+      c:0,
+      explicacao:"A fórmula correta é tg(2a)=2tg(a)/(1-tg²(a)), desde que o denominador não seja zero."
+    },
+    {
+      q:"Na linha 5 do Triângulo de Pascal, quais são os coeficientes?",
+      a:["1 5 10 10 5 1","1 4 6 4 1","1 6 15 20 15 6 1","1 3 3 1"],
+      c:0,
+      explicacao:"A linha 5 é formada somando os termos vizinhos da linha 4: 1, 5, 10, 10, 5, 1."
+    }
+  ],
+
+  fisica:[
+    {
+      q:"Um corpo de 60 kg é içado 8 m em 10 s. Com g=10 m/s², qual é a potência?",
+      a:["480 W","4800 W","48 W","600 W"],
+      c:0,
+      explicacao:"O trabalho é W=mgh=60·10·8=4800 J. A potência é P=W/t=4800/10=480 W."
+    },
+    {
+      q:"Um motor recebe 200 W e fornece 180 W úteis. Qual é o rendimento?",
+      a:["90%","80%","72%","20%"],
+      c:0,
+      explicacao:"Rendimento η = potência útil / potência total = 180/200 = 0,9 = 90%."
+    },
+    {
+      q:"Pelo Teorema da Energia Cinética, o trabalho resultante é igual a:",
+      a:["variação da energia cinética","força vezes massa","potência vezes velocidade","massa vezes altura"],
+      c:0,
+      explicacao:"O TEC diz que o trabalho da força resultante é igual à variação da energia cinética: τ = ΔEc."
+    },
+    {
+      q:"Se a potência útil é 144 W e a potência recebida é 200 W, o rendimento é:",
+      a:["72%","90%","50%","80%"],
+      c:0,
+      explicacao:"η = Pu/Pt = 144/200 = 0,72 = 72%."
+    },
+    {
+      q:"Um motor eleva um bloco de 20 kg com velocidade 2 m/s. g=10. Potência útil:",
+      a:["400 W","200 W","100 W","500 W"],
+      c:0,
+      explicacao:"Em velocidade constante, a força é o peso: F=mg=20·10=200 N. Potência P=F·v=200·2=400 W."
+    }
+  ],
+
+  quimica:[
+    {
+      q:"Uma solução tem 0,250 mol/L e volume 0,500 L. Quantos mols há?",
+      a:["0,125 mol","0,500 mol","0,250 mol","2 mol"],
+      c:0,
+      explicacao:"Use n=C·V. Então n=0,250·0,500=0,125 mol."
+    },
+    {
+      q:"ppm significa aproximadamente:",
+      a:["mg de soluto por kg de solução","mol por litro","grama por litro","litro por mol"],
+      c:0,
+      explicacao:"ppm significa partes por milhão. Em soluções diluídas, costuma ser tratado como mg/kg ou mg/L em água."
+    },
+    {
+      q:"Na diluição, a relação mais usada é:",
+      a:["C1·V1 = C2·V2","m·a = F","P = E/t","Q = m·c·ΔT"],
+      c:0,
+      explicacao:"Na diluição, a quantidade de soluto permanece constante: C1V1=C2V2."
+    },
+    {
+      q:"Misturar soluções sem reação química muda principalmente:",
+      a:["a concentração final","a massa molar","o número atômico","a fórmula do soluto"],
+      c:0,
+      explicacao:"Se não há reação, o soluto continua o mesmo. O que muda é o volume total e, portanto, a concentração final."
+    },
+    {
+      q:"Se 10 mL de solução estoque são diluídos até 1 L, o volume final é:",
+      a:["1000 mL","10 mL","100 mL","1 mL"],
+      c:0,
+      explicacao:"1 L equivale a 1000 mL. O volume final da solução diluída é 1000 mL."
+    }
+  ]
+};
+
+let jogoAtual = [];
+let perguntaAtual = 0;
+let estrelas = 0;
+let materiaAtualJogo = "";
+
+function abrirSecao(id,card){
+  document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+
+  document.querySelectorAll(".dash-card").forEach(c=>c.classList.remove("active"));
+  card.classList.add("active");
 }
-perguntas=perguntas.map(shuffle);
 
-let atual=0,estrelas=0;
-
-function mostrar(){
-let p=perguntas[atual];
-pergunta.innerText=p.q;
-respostas.innerHTML=p.a.map((x,i)=>`<button onclick="resp(${i})">${x}</button>`).join("");
+function caminhoSeguro(path){
+  return path.split("/").map(p=>encodeURIComponent(p)).join("/");
 }
 
-function resp(i){
-let p=perguntas[atual];
-if(i===p.c){
-estrelas++;
-feedback.innerHTML=`<div class='correct'>Acertou</div><button onclick='prox()'>Próxima</button>`;
-}else{
-feedback.innerHTML=`<div class='wrong'>Errado<br>${p.exp}</div><button onclick='prox()'>Próxima</button>`;
-}
+fetch("dados.txt?v="+Date.now())
+.then(r=>r.text())
+.then(texto=>{
+  arquivos = texto
+    .split("\n")
+    .map(l=>l.trim())
+    .filter(l=>l && !l.includes("[DIR]") && l.includes("/"));
+
+  renderMateriais();
+});
+
+function renderMateriais(){
+  const lista = document.getElementById("lista");
+  const bc = document.getElementById("breadcrumb");
+  const pastaTexto = document.getElementById("pastaAtualTexto");
+
+  lista.innerHTML = "";
+  bc.innerHTML = `<span onclick="irPara('')">Início</span>`;
+  pastaTexto.innerText = "Pasta atual: " + (caminhoAtual || "Início");
+
+  if(caminhoAtual){
+    let acumulado = "";
+
+    caminhoAtual.split("/").forEach(parte=>{
+      acumulado = acumulado ? acumulado + "/" + parte : parte;
+      bc.innerHTML += ` > <span onclick="irPara('${acumulado}')">${parte}</span>`;
+    });
+  }
+
+  const pastas = new Set();
+  const files = [];
+
+  arquivos.forEach(path=>{
+    if(caminhoAtual && !path.startsWith(caminhoAtual + "/")) return;
+
+    const resto = caminhoAtual ? path.slice(caminhoAtual.length).replace(/^\/+/,"") : path;
+    const partes = resto.split("/");
+
+    if(partes.length > 1) pastas.add(partes[0]);
+    else files.push(path);
+  });
+
+  [...pastas].sort().forEach(pasta=>{
+    const div = document.createElement("div");
+    div.className = "item";
+    div.innerHTML = `📁 <span>${pasta}</span>`;
+    div.onclick = () => irPara(caminhoAtual ? caminhoAtual + "/" + pasta : pasta);
+    lista.appendChild(div);
+  });
+
+  files.sort().forEach(file=>{
+    const a = document.createElement("a");
+    a.className = "item";
+    a.href = BASE + "Estudos/" + caminhoSeguro(file);
+    a.target = "_blank";
+    a.innerHTML = `📄 <span>${file.split("/").pop()}</span>`;
+    lista.appendChild(a);
+  });
+
+  if(!pastas.size && !files.length){
+    lista.innerHTML = `<div class="item">Pasta vazia</div>`;
+  }
 }
 
-async function prox(){
-atual++;
-if(atual>=perguntas.length){
-
-let nome=nomeJogador.value;
-let ref=`tent_${nome}`;
-let ultima=localStorage.getItem(ref);
-
-if(ultima && Date.now()-ultima<3*86400000){
-feedback.innerText="Espere 3 dias";
-return;
+function irPara(path){
+  caminhoAtual = path;
+  renderMateriais();
 }
 
-localStorage.setItem(ref,Date.now());
-await salvarRanking(nome,estrelas);
+function digitarCalc(v){
+  document.getElementById("calcDisplay").value += v;
+}
 
-feedback.innerText="Fim: "+estrelas;
-return;
+function limparCalc(){
+  document.getElementById("calcDisplay").value = "";
 }
-mostrar();
+
+function apagarCalc(){
+  const d = document.getElementById("calcDisplay");
+  d.value = d.value.slice(0,-1);
 }
-mostrar();
+
+function resultadoCalc(){
+  const d = document.getElementById("calcDisplay");
+
+  try{
+    d.value = Function('"use strict"; return (' + d.value + ')')();
+  }catch{
+    d.value = "Erro";
+  }
+}
+
+function montarBoletim(){
+  const container = document.getElementById("subjects");
+  container.innerHTML = "";
+
+  materias.forEach(m=>{
+    const card = document.createElement("div");
+    card.className = "subject";
+
+    card.innerHTML = `
+      <div class="subject-header" onclick="toggleMateria('${m.id}')">
+        <div class="subject-title">${m.nome}</div>
+        <div id="${m.id}_resumo" class="subject-score bad">0.0</div>
+      </div>
+
+      <div id="${m.id}_body" class="subject-body">
+        <div class="period-tabs">
+          <div class="period-tab active" onclick="abrirPeriodo(event,'${m.id}','p1')">1P</div>
+          <div class="period-tab" onclick="abrirPeriodo(event,'${m.id}','p2')">2P</div>
+          <div class="period-tab" onclick="abrirPeriodo(event,'${m.id}','p3')">3P</div>
+          <div class="period-tab" onclick="abrirPeriodo(event,'${m.id}','p4')">4P</div>
+        </div>
+
+        ${periodoHTML(m.id,"p1","1º Período",true)}
+        ${periodoHTML(m.id,"p2","2º Período",false)}
+        ${periodoHTML(m.id,"p3","3º Período",false)}
+        ${periodoHTML(m.id,"p4","4º Período",false)}
+      </div>
+
+      <div id="${m.id}_anual" class="annual-result bad">
+        Média anual: 0.00
+      </div>
+    `;
+
+    container.appendChild(card);
+  });
+}
+
+function periodoHTML(id,p,titulo,ativo){
+  return `
+    <div id="${id}_${p}_content" class="period-content ${ativo ? "active" : ""}">
+      <h4>${titulo}</h4>
+
+      <div class="field">
+        <label>P1 escrita</label>
+        <input id="${id}_${p}_p1e" type="number" step="0.01">
+      </div>
+
+      <div class="field">
+        <label>P1 teste</label>
+        <input id="${id}_${p}_p1t" type="number" step="0.01">
+      </div>
+
+      <div class="field">
+        <label>P2 escrita</label>
+        <input id="${id}_${p}_p2e" type="number" step="0.01">
+      </div>
+
+      <div class="field">
+        <label>P2 teste</label>
+        <input id="${id}_${p}_p2t" type="number" step="0.01">
+      </div>
+
+      <div class="field">
+        <label>Valorada</label>
+        <input id="${id}_${p}_v" type="number" step="0.01">
+      </div>
+
+      <div id="${id}_${p}_resultado" class="period-result bad">
+        Média do período: 0.00
+      </div>
+    </div>
+  `;
+}
+
+function toggleMateria(id){
+  const body = document.getElementById(id + "_body");
+  body.style.display = body.style.display === "block" ? "none" : "block";
+}
+
+function abrirPeriodo(event,id,p){
+  event.stopPropagation();
+
+  const body = document.getElementById(id + "_body");
+
+  body.querySelectorAll(".period-tab").forEach(t=>t.classList.remove("active"));
+  event.target.classList.add("active");
+
+  ["p1","p2","p3","p4"].forEach(periodo=>{
+    document.getElementById(`${id}_${periodo}_content`).classList.remove("active");
+  });
+
+  document.getElementById(`${id}_${p}_content`).classList.add("active");
+}
+
+function valor(id){
+  return Number(document.getElementById(id)?.value) || 0;
+}
+
+function mediaPeriodo(id,p){
+  return (
+    valor(`${id}_${p}_p1e`) +
+    valor(`${id}_${p}_p1t`) +
+    valor(`${id}_${p}_p2e`) +
+    valor(`${id}_${p}_p2t`) +
+    valor(`${id}_${p}_v`)
+  ) / 2;
+}
+
+function mediaMateria(id){
+  const p1 = mediaPeriodo(id,"p1");
+  const p2 = mediaPeriodo(id,"p2");
+  const p3 = mediaPeriodo(id,"p3");
+  const p4 = mediaPeriodo(id,"p4");
+
+  return {
+    p1,p2,p3,p4,
+    media:(p1+p2+p3+p4)/4
+  };
+}
+
+function calcularTudo(){
+  let soma = 0;
+
+  materias.forEach(m=>{
+    const r = mediaMateria(m.id);
+    soma += r.media;
+
+    ["p1","p2","p3","p4"].forEach(p=>{
+      const el = document.getElementById(`${m.id}_${p}_resultado`);
+      el.innerHTML = `Média do período: ${r[p].toFixed(2)}`;
+      el.className = "period-result " + (r[p] >= 5 ? "ok" : "bad");
+    });
+
+    const anual = document.getElementById(`${m.id}_anual`);
+    anual.innerHTML = `Média anual: ${r.media.toFixed(2)}`;
+    anual.className = "annual-result " + (r.media >= 5 ? "ok" : "bad");
+
+    const resumo = document.getElementById(`${m.id}_resumo`);
+    resumo.innerHTML = r.media.toFixed(1);
+    resumo.className = "subject-score " + (r.media >= 5 ? "ok" : "bad");
+  });
+
+  const mediaGeral = soma / materias.length;
+
+  document.getElementById("resultadoFinal").innerHTML =
+    `Média anual geral: ${mediaGeral.toFixed(2)}<br>` +
+    (
+      mediaGeral >= 5
+      ? `<span class="ok">Situação geral: acima da média</span>`
+      : `<span class="bad">Situação geral: abaixo da média</span>`
+    );
+}
+
+document.addEventListener("input",e=>{
+  if(e.target.closest("#boletim")) calcularTudo();
+});
+
+function coletarDados(){
+  const dados = {
+    nome:document.getElementById("nomeAluno").value,
+    notas:{}
+  };
+
+  materias.forEach(m=>{
+    dados.notas[m.id] = {};
+
+    ["p1","p2","p3","p4"].forEach(p=>{
+      dados.notas[m.id][p] = {
+        p1e:document.getElementById(`${m.id}_${p}_p1e`).value,
+        p1t:document.getElementById(`${m.id}_${p}_p1t`).value,
+        p2e:document.getElementById(`${m.id}_${p}_p2e`).value,
+        p2t:document.getElementById(`${m.id}_${p}_p2t`).value,
+        v:document.getElementById(`${m.id}_${p}_v`).value
+      };
+    });
+  });
+
+  return dados;
+}
+
+function preencherDados(dados){
+  document.getElementById("nomeAluno").value = dados.nome || "";
+
+  materias.forEach(m=>{
+    ["p1","p2","p3","p4"].forEach(p=>{
+      const d = dados.notas?.[m.id]?.[p] || {};
+
+      document.getElementById(`${m.id}_${p}_p1e`).value = d.p1e || "";
+      document.getElementById(`${m.id}_${p}_p1t`).value = d.p1t || "";
+      document.getElementById(`${m.id}_${p}_p2e`).value = d.p2e || "";
+      document.getElementById(`${m.id}_${p}_p2t`).value = d.p2t || "";
+      document.getElementById(`${m.id}_${p}_v`).value = d.v || "";
+    });
+  });
+
+  calcularTudo();
+}
+
+async function salvarOnline(){
+  const dados = coletarDados();
+
+  if(!dados.nome){
+    alert("Digite o nome do aluno.");
+    return;
+  }
+
+  await window.firebaseSetDoc(
+    window.firebaseDoc(window.firestore,"alunos",dados.nome),
+    dados
+  );
+
+  alert("Salvo online!");
+}
+
+async function carregarOnline(){
+  const nome = document.getElementById("nomeAluno").value;
+
+  if(!nome){
+    alert("Digite o nome do aluno.");
+    return;
+  }
+
+  const snap = await window.firebaseGetDoc(
+    window.firebaseDoc(window.firestore,"alunos",nome)
+  );
+
+  if(!snap.exists()){
+    alert("Aluno não encontrado.");
+    return;
+  }
+
+  preencherDados(snap.data());
+}
+
+function exportarExcel(){
+  const nome = document.getElementById("nomeAluno").value || "Aluno";
+
+  const linhas = [
+    ["StudyFlow"],
+    ["Aluno",nome],
+    [],
+    ["Matéria","1P","2P","3P","4P","Média anual","Situação"]
+  ];
+
+  materias.forEach(m=>{
+    const r = mediaMateria(m.id);
+
+    linhas.push([
+      m.nome,
+      Number(r.p1.toFixed(2)),
+      Number(r.p2.toFixed(2)),
+      Number(r.p3.toFixed(2)),
+      Number(r.p4.toFixed(2)),
+      Number(r.media.toFixed(2)),
+      r.media >= 5 ? "Acima da média" : "Abaixo da média"
+    ]);
+  });
+
+  const wb = XLSX.utils.book_new();
+  const ws = XLSX.utils.aoa_to_sheet(linhas);
+
+  XLSX.utils.book_append_sheet(wb,ws,"Boletim");
+  XLSX.writeFile(wb,`Boletim_${nome}.xlsx`);
+}
+
+/* JOGO */
+function limparId(texto){
+  return texto
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"")
+    .replace(/[^a-z0-9_-]/g,"_");
+}
+
+function embaralharPerguntas(lista){
+  return lista.map(pergunta=>{
+    const alternativas = pergunta.a.map((texto,index)=>({
+      texto:texto,
+      correta:index === pergunta.c
+    }));
+
+    alternativas.sort(()=>Math.random()-0.5);
+
+    return {
+      q:pergunta.q,
+      a:alternativas.map(x=>x.texto),
+      c:alternativas.findIndex(x=>x.correta),
+      explicacao:pergunta.explicacao
+    };
+  });
+}
+
+async function iniciarJogo(){
+  const nome = document.getElementById("nomeJogador").value.trim();
+  const materia = document.getElementById("materiaJogo").value;
+
+  if(!nome){
+    alert("Digite seu nome para jogar.");
+    return;
+  }
+
+  const idTentativa = limparId(`${nome}_${materia}`);
+  const ref = window.firebaseDoc(window.firestore,"tentativas",idTentativa);
+  const snap = await window.firebaseGetDoc(ref);
+
+  const agora = Date.now();
+  const tresDias = 3 * 24 * 60 * 60 * 1000;
+
+  if(snap.exists()){
+    const ultima = snap.data().data || 0;
+
+    if(agora - ultima < tresDias){
+      const falta = tresDias - (agora - ultima);
+      const horas = Math.ceil(falta / (1000 * 60 * 60));
+
+      document.getElementById("areaJogo").innerHTML = `
+        <div class="cooldown-box">
+          ⏳ Você já tentou esse desafio.<br>
+          Só poderá tentar novamente depois de 3 dias.<br>
+          Tempo aproximado restante: ${horas} hora(s).
+        </div>
+      `;
+      return;
+    }
+  }
+
+  await window.firebaseSetDoc(ref,{
+    nome:nome,
+    materia:materia,
+    data:agora
+  });
+
+  materiaAtualJogo = materia;
+  jogoAtual = embaralharPerguntas(perguntas[materia]);
+  perguntaAtual = 0;
+  estrelas = 0;
+
+  mostrarPergunta();
+}
+
+function mostrarPergunta(){
+  const area = document.getElementById("areaJogo");
+
+  if(perguntaAtual >= jogoAtual.length){
+    finalizarJogo();
+    return;
+  }
+
+  const p = jogoAtual[perguntaAtual];
+  const progresso = (perguntaAtual / jogoAtual.length) * 100;
+
+  area.innerHTML = `
+    <div class="stars">⭐ ${estrelas}</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:${progresso}%"></div></div>
+    <div class="game-question">${p.q}</div>
+    <div class="game-options">
+      ${p.a.map((op,i)=>`
+        <button class="option-btn" onclick="responder(${i})">${op}</button>
+      `).join("")}
+    </div>
+    <div id="feedback"></div>
+  `;
+}
+
+function responder(i){
+  const p = jogoAtual[perguntaAtual];
+  const fb = document.getElementById("feedback");
+
+  const botoes = document.querySelectorAll(".option-btn");
+  botoes.forEach(botao=>{
+    botao.disabled = true;
+    botao.style.opacity = "0.65";
+    botao.style.cursor = "not-allowed";
+  });
+
+  if(i === p.c){
+    estrelas++;
+
+    fb.innerHTML = `
+      <div class="feedback correct">
+        ✅ Acertou! +1 estrela<br>
+        <span>Resposta correta: <strong>${p.a[p.c]}</strong></span>
+      </div>
+      <button class="btn-continuar" onclick="proximaPergunta()">➡️ Continuar</button>
+    `;
+  }else{
+    fb.innerHTML = `
+      <div class="feedback wrong">
+        ❌ Errou!<br>
+        Resposta correta: <strong>${p.a[p.c]}</strong><br><br>
+        📘 <strong>Resolução:</strong><br>
+        ${p.explicacao || "Revise esse conteúdo no material da matéria."}
+      </div>
+      <button class="btn-continuar" onclick="proximaPergunta()">➡️ Continuar</button>
+    `;
+  }
+}
+
+function proximaPergunta(){
+  perguntaAtual++;
+  mostrarPergunta();
+}
+
+async function finalizarJogo(){
+  const nome = document.getElementById("nomeJogador").value.trim();
+
+  const ref = window.firebaseDoc(window.firestore,"ranking",limparId(nome));
+  const snap = await window.firebaseGetDoc(ref);
+
+  let antigas = 0;
+
+  if(snap.exists()){
+    antigas = snap.data().estrelas || 0;
+  }
+
+  const total = antigas + estrelas;
+
+  await window.firebaseSetDoc(ref,{
+    nome:nome,
+    estrelas:total
+  });
+
+  document.getElementById("areaJogo").innerHTML = `
+    <div class="feedback correct">
+      🎉 Fim do desafio! Você ganhou ${estrelas} estrela(s).<br>
+      Total no ranking: ${total} ⭐
+    </div>
+
+    <div class="cooldown-box">
+      ⏳ Você já fez essa tentativa.<br>
+      Agora só poderá tentar novamente essa mesma matéria depois de <strong>3 dias</strong>.
+    </div>
+  `;
+
+  carregarRanking();
+}
+
+async function carregarRanking(){
+  const ranking = document.getElementById("rankingJogo");
+
+  if(!ranking) return;
+
+  ranking.innerHTML = `<div class="rank-item">Carregando...</div>`;
+
+  if(typeof window.firebaseGetDocs !== "function" || typeof window.firebaseCollection !== "function"){
+    ranking.innerHTML = `<div class="rank-item">Ranking indisponível no momento.</div>`;
+    return;
+  }
+
+  const snap = await window.firebaseGetDocs(
+    window.firebaseCollection(window.firestore,"ranking")
+  );
+
+  const jogadores = [];
+
+  snap.forEach(doc=>{
+    jogadores.push(doc.data());
+  });
+
+  jogadores.sort((a,b)=>(b.estrelas||0)-(a.estrelas||0));
+
+  const top5 = jogadores.slice(0,5);
+
+  if(!top5.length){
+    ranking.innerHTML = `<div class="rank-item">Ninguém jogou ainda.</div>`;
+    return;
+  }
+
+  ranking.innerHTML = top5.map((j,i)=>`
+    <div class="rank-item">
+      <span>${i+1}º ${j.nome}</span>
+      <span>${"⭐".repeat(Math.min(j.estrelas,10))} ${j.estrelas}</span>
+    </div>
+  `).join("");
+}
+
+function verificarLogin(){
+  const codigo = document.getElementById("codigoAcesso").value.trim();
+  const erro = document.getElementById("loginErro");
+
+  if(codigo === "150909"){
+    document.getElementById("loginScreen").style.display = "none";
+    document.getElementById("menuEscolha").style.display = "flex";
+    erro.style.display = "none";
+  }else{
+    erro.style.display = "block";
+  }
+}
+
+function entrarEscola(){
+  document.getElementById("menuEscolha").style.display = "none";
+  document.getElementById("programacao").style.display = "none";
+  document.getElementById("siteContent").style.display = "block";
+}
+
+function entrarProgramacao(){
+  document.getElementById("menuEscolha").style.display = "none";
+  document.getElementById("siteContent").style.display = "none";
+  document.getElementById("programacao").style.display = "block";
+}
+
+function voltarMenuEscolha(){
+  document.getElementById("siteContent").style.display = "none";
+  document.getElementById("programacao").style.display = "none";
+  document.getElementById("menuEscolha").style.display = "flex";
+}
+
+function mostrarAula(tipo){
+  const aula = document.getElementById("conteudoAula");
+  const aulas = {
+    html: `
+      <h2>🌐 Aula 1 — HTML</h2>
+      <p>HTML é a estrutura do site. Ele cria títulos, textos, botões, imagens e links.</p>
+      <div class="code-demo">&lt;h1&gt;Meu primeiro site&lt;/h1&gt;<br>&lt;p&gt;Estou aprendendo programação.&lt;/p&gt;<br>&lt;button&gt;Clique aqui&lt;/button&gt;</div>
+      <p><strong>Desafio:</strong> crie um título, um parágrafo e um botão no seu próprio HTML.</p>
+    `,
+    css: `
+      <h2>🎨 Aula 2 — CSS</h2>
+      <p>CSS é a parte visual. Com ele você muda cores, tamanhos, sombras e layout.</p>
+      <div class="code-demo">body {<br>&nbsp;&nbsp;background: #eef2ff;<br>&nbsp;&nbsp;font-family: Arial;<br>}<br>button {<br>&nbsp;&nbsp;background: blue;<br>&nbsp;&nbsp;color: white;<br>}</div>
+      <p><strong>Desafio:</strong> deixe um botão com fundo azul, texto branco e borda arredondada.</p>
+    `,
+    js: `
+      <h2>⚙️ Aula 3 — JavaScript</h2>
+      <p>JavaScript faz o site reagir. Ele detecta cliques, calcula valores e altera a tela.</p>
+      <div class="code-demo">function ola(){<br>&nbsp;&nbsp;alert("Olá, mundo!");<br>}</div>
+      <p><strong>Desafio:</strong> crie um botão que mostre uma mensagem quando clicado.</p>
+    `
+  };
+
+  aula.innerHTML = aulas[tipo] || "<p>Aula não encontrada.</p>";
+}
+
+document.addEventListener("DOMContentLoaded",()=>{
+  const campoCodigo = document.getElementById("codigoAcesso");
+
+  if(campoCodigo){
+    campoCodigo.addEventListener("input",()=>{
+      campoCodigo.value = campoCodigo.value.replace(/\D/g,"").slice(0,6);
+      document.getElementById("loginErro").style.display = "none";
+    });
+
+    campoCodigo.addEventListener("keydown",e=>{
+      if(e.key === "Enter") verificarLogin();
+    });
+  }
+});
+
+montarBoletim();
+calcularTudo();
+carregarRanking();
 </script>
 
 </body>
