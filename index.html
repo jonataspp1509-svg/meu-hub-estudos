@@ -194,7 +194,7 @@
                 .map(p => encodeURIComponent(p))
                 .join('/');
 
-            a.href = "./" + linkSeguro;
+            a.href = "/" + window.location.pathname.split("/")[1] + "/" + linkSeguro;
             a.target = "_blank";
 
             a.innerHTML = `
