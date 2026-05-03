@@ -2,22 +2,68 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>StudyFlow</title>
+<title>StudyFlow Ultimate</title>
 
 <style>
-body{margin:0;font-family:Arial;background:#eef2ff}
-#loginScreen{
-  position:fixed;inset:0;
-  background:linear-gradient(135deg,#4f46e5,#7c3aed);
-  display:flex;align-items:center;justify-content:center;z-index:9999;
+body{
+margin:0;
+font-family:Arial;
+background:#eef2ff;
 }
-.login-box{background:#fff;padding:30px;border-radius:20px;text-align:center}
-button{padding:10px;border:none;background:#4f46e5;color:#fff;border-radius:10px;cursor:pointer;margin:5px}
-nav{display:flex;gap:10px;padding:10px}
-.page{display:none;padding:20px}
-.active{display:block}
-.card{background:#fff;padding:20px;margin:10px;border-radius:15px}
-.calc input{width:100%;padding:10px;margin-bottom:10px}
+
+/* LOGIN */
+#loginScreen{
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:linear-gradient(135deg,#4f46e5,#7c3aed);
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:9999;
+}
+.login-box{
+background:white;
+padding:40px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* NAV */
+nav{
+display:flex;
+gap:10px;
+padding:10px;
+flex-wrap:wrap;
+}
+button{
+padding:10px;
+border:none;
+background:#4f46e5;
+color:white;
+border-radius:10px;
+cursor:pointer;
+}
+
+/* PAGES */
+.page{
+display:none;
+padding:20px;
+}
+.active{
+display:block;
+}
+.card{
+background:white;
+padding:15px;
+margin:10px;
+border-radius:10px;
+}
+
+/* GAME */
+.correct{color:green;font-weight:bold;}
+.wrong{color:red;font-weight:bold;}
 </style>
 </head>
 
@@ -25,80 +71,62 @@ nav{display:flex;gap:10px;padding:10px}
 
 <!-- LOGIN -->
 <div id="loginScreen">
-  <div class="login-box">
-    <h1>StudyFlow</h1>
-    <button onclick="loginGoogle()">Entrar com Google</button>
-  </div>
+<div class="login-box">
+<h1>StudyFlow</h1>
+<p>Login escolar obrigatório</p>
+<button onclick="loginGoogle()">Entrar com Google</button>
+</div>
 </div>
 
 <!-- APP -->
 <div id="app" style="display:none;">
 
 <nav>
-  <button onclick="abrir('materiais')">📁 Materiais</button>
-  <button onclick="abrir('calc')">🧮 Calculadora</button>
-  <button onclick="abrir('boletim')">📊 Boletim</button>
-  <button onclick="abrir('jogo')">🎮 Jogo</button>
-  <button onclick="abrir('ranking')">🏆 Ranking</button>
+<button onclick="abrir('materiais')">📁 Materiais</button>
+<button onclick="abrir('calc')">🧮 Calculadora</button>
+<button onclick="abrir('boletim')">📊 Boletim</button>
+<button onclick="abrir('jogo')">🎮 Jogo</button>
+<button onclick="abrir('ranking')">🏆 Ranking</button>
 </nav>
 
 <!-- MATERIAIS -->
 <section id="materiais" class="page active">
-  <div class="card">📁 Aqui você coloca seus PDFs (usa seu sistema atual)</div>
+<div class="card"><b>Arquivos:</b></div>
+<div id="lista"></div>
 </section>
 
 <!-- CALCULADORA -->
 <section id="calc" class="page">
-  <div class="card calc">
-    <input id="calcDisplay" readonly>
-    <button onclick="calc('7')">7</button>
-    <button onclick="calc('8')">8</button>
-    <button onclick="calc('9')">9</button>
-    <button onclick="calc('/')">÷</button><br>
-    <button onclick="calc('4')">4</button>
-    <button onclick="calc('5')">5</button>
-    <button onclick="calc('6')">6</button>
-    <button onclick="calc('*')">×</button><br>
-    <button onclick="calc('1')">1</button>
-    <button onclick="calc('2')">2</button>
-    <button onclick="calc('3')">3</button>
-    <button onclick="calc('-')">-</button><br>
-    <button onclick="calc('0')">0</button>
-    <button onclick="calc('.')">.</button>
-    <button onclick="resultado()">=</button>
-    <button onclick="calc('+')">+</button>
-  </div>
+<input id="calcDisplay"><br>
+<button onclick="add('7')">7</button>
+<button onclick="add('8')">8</button>
+<button onclick="add('9')">9</button>
+<button onclick="add('+')">+</button>
+<button onclick="calc()">=</button>
 </section>
 
 <!-- BOLETIM -->
 <section id="boletim" class="page">
-  <div class="card">
-    <h2>Boletim</h2>
-    <input placeholder="P1" id="p1">
-    <input placeholder="P2" id="p2">
-    <input placeholder="P3" id="p3">
-    <input placeholder="P4" id="p4">
-    <button onclick="media()">Calcular</button>
-    <div id="resMedia"></div>
-  </div>
+<h3>Notas</h3>
+
+<div id="notas"></div>
+<button onclick="calcularTudo()">Calcular Média</button>
+<div id="resultado"></div>
+
 </section>
 
 <!-- JOGO -->
 <section id="jogo" class="page">
-  <div class="card">
-    <input id="nomeJogador" placeholder="Seu nome">
-    <div id="pergunta"></div>
-    <div id="respostas"></div>
-    <div id="feedback"></div>
-  </div>
+<input id="nomeJogador" placeholder="Seu nome">
+<div id="pergunta"></div>
+<div id="respostas"></div>
+<div id="feedback"></div>
 </section>
 
 <!-- RANKING -->
 <section id="ranking" class="page">
-  <div class="card">
-    <h2>Top 5</h2>
-    <div id="rankingLista"></div>
-  </div>
+<h2>Top 5</h2>
+<div id="rankingLista"></div>
 </section>
 
 </div>
@@ -106,15 +134,13 @@ nav{display:flex;gap:10px;padding:10px}
 <!-- FIREBASE -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getAuth, signInWithPopup, GoogleAuthProvider } 
-from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-import { getFirestore, collection, getDocs, doc, setDoc, getDoc } 
-from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { getFirestore, collection, getDocs, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 const config={
-  apiKey:"AIzaSyAGKQBoVgIDJzYOOkzukhTc6eRSXwJEv5I",
-  authDomain:"estudos-ec2cf.firebaseapp.com",
-  projectId:"estudos-ec2cf"
+apiKey:"AIzaSyAGKQBoVgIDJzYOOkzukhTc6eRSXwJEv5I",
+authDomain:"estudos-ec2cf.firebaseapp.com",
+projectId:"estudos-ec2cf"
 };
 
 const app=initializeApp(config);
@@ -123,48 +149,63 @@ const provider=new GoogleAuthProvider();
 const db=getFirestore(app);
 
 window.loginGoogle=async()=>{
-  const r=await signInWithPopup(auth,provider);
-  if(!r.user.email.endsWith("@p4ed.com")) return alert("Use email escolar");
-  loginScreen.style.display="none";
-  appDiv.style.display="block";
+let r=await signInWithPopup(auth,provider);
+if(!r.user.email.endsWith("@p4ed.com")) return alert("Use email escolar");
+loginScreen.style.display="none";
+appDiv.style.display="block";
 };
 
 window.salvarRanking=async(n,e)=>{
-  const ref=doc(db,"ranking",n);
-  const snap=await getDoc(ref);
-  let total=e;
-  if(snap.exists()) total+=snap.data().estrelas||0;
-  await setDoc(ref,{nome:n,estrelas:total});
+const ref=doc(db,"ranking",n);
+const snap=await getDoc(ref);
+let total=e;
+if(snap.exists()) total+=snap.data().estrelas||0;
+await setDoc(ref,{nome:n,estrelas:total});
 };
 
 window.carregarRanking=async()=>{
-  const q=await getDocs(collection(db,"ranking"));
-  let arr=[];
-  q.forEach(d=>arr.push(d.data()));
-  arr.sort((a,b)=>b.estrelas-a.estrelas);
-  rankingLista.innerHTML=arr.slice(0,5)
-    .map(x=>x.nome+" ⭐"+x.estrelas).join("<br>");
+let q=await getDocs(collection(db,"ranking"));
+let arr=[];
+q.forEach(d=>arr.push(d.data()));
+arr.sort((a,b)=>b.estrelas-a.estrelas);
+rankingLista.innerHTML=arr.slice(0,5).map(x=>x.nome+" ⭐"+x.estrelas).join("<br>");
 };
 </script>
 
 <script>
 const appDiv=document.getElementById("app");
 
+/* NAV */
 function abrir(id){
-  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
-  if(id==="ranking") carregarRanking();
+document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+document.getElementById(id).classList.add("active");
+if(id==="ranking") carregarRanking();
 }
 
-/* CALCULADORA */
-function calc(v){calcDisplay.value+=v}
-function resultado(){calcDisplay.value=eval(calcDisplay.value)}
+/* CALC */
+function add(v){calcDisplay.value+=v}
+function calc(){calcDisplay.value=eval(calcDisplay.value)}
 
 /* BOLETIM */
-function media(){
-  let m=(+p1.value + +p2.value + +p3.value + +p4.value)/4;
-  resMedia.innerText="Média: "+m.toFixed(2);
+const materias=["Mat","Fis","Qui","Bio"];
+function montarBoletim(){
+let html="";
+materias.forEach(m=>{
+html+=`${m}: <input id="${m}"><br>`;
+});
+notas.innerHTML=html;
 }
+function calcularTudo(){
+let soma=0;
+materias.forEach(m=>{soma+=Number(document.getElementById(m).value)||0});
+resultado.innerText="Média: "+(soma/materias.length);
+}
+montarBoletim();
+
+/* MATERIAIS */
+fetch("dados.txt").then(r=>r.text()).then(t=>{
+lista.innerHTML=t.split("\n").map(f=>`<div>${f}</div>`).join("");
+});
 
 /* JOGO */
 let perguntas=[
@@ -172,31 +213,53 @@ let perguntas=[
 {q:"cos(2a)?",a:["cos²-sen²","2cos"],c:0,exp:"fórmula"}
 ];
 
+function shuffle(p){
+let correta=p.a[p.c];
+let arr=p.a.map((x,i)=>({x,c:i==p.c}));
+arr.sort(()=>Math.random()-0.5);
+return{q:p.q,a:arr.map(x=>x.x),c:arr.findIndex(x=>x.c),exp:p.exp};
+}
+perguntas=perguntas.map(shuffle);
+
 let atual=0,estrelas=0;
 
 function mostrar(){
-  let p=perguntas[atual];
-  pergunta.innerText=p.q;
-  respostas.innerHTML=p.a.map((x,i)=>`<button onclick="resp(${i})">${x}</button>`).join("");
+let p=perguntas[atual];
+pergunta.innerText=p.q;
+respostas.innerHTML=p.a.map((x,i)=>`<button onclick="resp(${i})">${x}</button>`).join("");
 }
 
 function resp(i){
-  let p=perguntas[atual];
-  if(i===p.c){estrelas++; feedback.innerHTML="Acertou<br><button onclick='prox()'>Next</button>";}
-  else feedback.innerHTML="Errado "+p.exp+"<br><button onclick='prox()'>Next</button>";
+let p=perguntas[atual];
+if(i===p.c){
+estrelas++;
+feedback.innerHTML=`<div class='correct'>Acertou</div><button onclick='prox()'>Próxima</button>`;
+}else{
+feedback.innerHTML=`<div class='wrong'>Errado<br>${p.exp}</div><button onclick='prox()'>Próxima</button>`;
+}
 }
 
 async function prox(){
-  atual++;
-  if(atual>=perguntas.length){
-    let nome=nomeJogador.value;
-    await salvarRanking(nome,estrelas);
-    feedback.innerText="Fim: "+estrelas+" estrelas";
-    return;
-  }
-  mostrar();
+atual++;
+if(atual>=perguntas.length){
+
+let nome=nomeJogador.value;
+let ref=`tent_${nome}`;
+let ultima=localStorage.getItem(ref);
+
+if(ultima && Date.now()-ultima<3*86400000){
+feedback.innerText="Espere 3 dias";
+return;
 }
 
+localStorage.setItem(ref,Date.now());
+await salvarRanking(nome,estrelas);
+
+feedback.innerText="Fim: "+estrelas;
+return;
+}
+mostrar();
+}
 mostrar();
 </script>
 
