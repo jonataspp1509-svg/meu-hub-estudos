@@ -3,260 +3,272 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jonatas Hub | Oficial</title>
+<title>Mendel Hub</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
 
 <style>
-:root {
---primary:#4361ee;
---bg:#f8faff;
---sidebar:#ffffff;
---text-main:#1e293b;
---text-sub:#64748b;
---folder:#ffca28;
-}
-
-*{margin:0;padding:0;box-sizing:border-box;}
-
 body{
-display:flex;
-height:100vh;
+margin:0;
 font-family:sans-serif;
-background:var(--bg);
+background:linear-gradient(135deg,#4361ee,#7209b7);
+color:#fff;
 }
 
-/* SIDEBAR */
-nav{
-width:240px;
-background:#fff;
-padding:20px;
-border-right:1px solid #ddd;
-}
-
-.logo{
-font-weight:bold;
-font-size:20px;
-margin-bottom:20px;
-color:var(--primary);
-}
-
-.nav-link{
-padding:10px;
-border-radius:10px;
-cursor:pointer;
-margin-bottom:5px;
-}
-
-.nav-link:hover{background:#eee;}
-.nav-link.active{background:var(--primary);color:#fff;}
-
-/* MAIN */
-main{
-flex:1;
-padding:20px;
-overflow:auto;
-}
-
-.item{
-background:#fff;
-padding:15px;
-margin-bottom:10px;
-border-radius:10px;
+/* CENTRAL */
+.center{
 display:flex;
-justify-content:space-between;
-cursor:pointer;
-transition:0.2s;
+justify-content:center;
+align-items:center;
+height:100vh;
 }
 
-.item:hover{
-transform:translateX(5px);
-border:1px solid var(--primary);
+/* CARD */
+.card{
+background:#fff;
+color:#000;
+padding:25px;
+border-radius:15px;
+width:320px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
 
-.icon-folder{color:var(--folder);}
-.icon-file{color:red;}
-
-.breadcrumb{
-margin-bottom:15px;
-color:gray;
-cursor:pointer;
-}
-
-/* CALCULADORA */
-.calc{
-max-width:300px;
-margin:auto;
-background:#1e293b;
-padding:20px;
-border-radius:20px;
-}
-
-.calc input{
+/* INPUT */
+input{
 width:100%;
-height:50px;
-font-size:20px;
-margin-bottom:10px;
-text-align:right;
+margin:5px 0;
+padding:10px;
+border-radius:8px;
+border:1px solid #ddd;
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:5px;
-}
-
+/* BUTTON */
 button{
-height:50px;
-font-size:18px;
+width:100%;
+margin-top:10px;
+padding:10px;
+border:none;
+border-radius:8px;
+background:#4361ee;
+color:#fff;
 cursor:pointer;
+font-weight:bold;
 }
+
+button:hover{
+background:#3a56d4;
+}
+
+.hidden{display:none}
+h3{text-align:center}
+
+/* SCROLL */
+.app{
+padding:20px;
+max-width:500px;
+margin:auto;
+}
+
+.section{
+background:#fff;
+color:#000;
+padding:15px;
+margin:10px 0;
+border-radius:10px;
+}
+
+h4{margin:10px 0 5px}
 </style>
 </head>
 
 <body>
 
-<nav>
-<div class="logo">JN_PP</div>
-
-<div class="nav-link active" onclick="changeTab('materiais',this)">Materiais</div>
-<div class="nav-link" onclick="changeTab('calc',this)">Calculadora</div>
-</nav>
-
-<main>
-
-<div id="materiais">
-<div id="breadcrumb" class="breadcrumb">Início</div>
-<div id="list"></div>
-</div>
-
-<div id="calc" style="display:none;">
-<div class="calc">
-<input id="display" readonly>
-
-<div class="grid">
-<button onclick="clr()">C</button>
-<button onclick="ins('/')">/</button>
-<button onclick="ins('*')">*</button>
-<button onclick="bk()">⌫</button>
-
-<button onclick="ins(7)">7</button>
-<button onclick="ins(8)">8</button>
-<button onclick="ins(9)">9</button>
-<button onclick="ins('-')">-</button>
-
-<button onclick="ins(4)">4</button>
-<button onclick="ins(5)">5</button>
-<button onclick="ins(6)">6</button>
-<button onclick="ins('+')">+</button>
-
-<button onclick="ins(1)">1</button>
-<button onclick="ins(2)">2</button>
-<button onclick="ins(3)">3</button>
-<button onclick="calc()">=</button>
-</div>
-
+<!-- LOGIN -->
+<div id="login" class="center">
+<div class="card">
+<h3>Login</h3>
+<input id="user" placeholder="Digite seu nome">
+<button onclick="entrar()">Entrar</button>
 </div>
 </div>
 
-</main>
+<!-- APP -->
+<div id="app" class="hidden">
 
-<script>
+<div class="app">
 
-let db=[];
-let path="";
+<h2 id="nomeAluno"></h2>
 
-/* BASE DO GITHUB */
-const repo = window.location.pathname.split("/")[1];
-const BASE = "/" + repo + "/Estudos/";
+<div class="section">
+<h4>Exatas</h4>
+<input id="mat1" placeholder="Nota 1">
+<input id="mat2">
+<input id="mat3">
+<input id="matVal" placeholder="Valorada">
+</div>
 
-/* ---------------- */
+<div class="section">
+<h4>Humanas</h4>
+<input id="hum1">
+<input id="hum2">
+<input id="humVal">
+</div>
 
-async function start(){
-let txt = await fetch("dados.txt?v="+Date.now()).then(r=>r.text());
+<div class="section">
+<h4>Redação</h4>
+<input id="red1">
+<input id="red2">
+<input id="redVal">
+</div>
 
-db = txt.split("\n").map(l=>l.trim()).filter(l=>l);
+<div class="section">
+<h4>Inglês</h4>
+<input id="ing1">
+<input id="ing2">
+<input id="ingVal">
+</div>
 
-render();
-}
+<div class="section">
+<h4>Filosofia</h4>
+<input id="fil1">
+<input id="fil2">
+</div>
 
-/* ---------------- */
+<div class="section">
+<h4>Sociologia</h4>
+<input id="soc1">
+<input id="soc2">
+</div>
 
-function render(){
-let list=document.getElementById("list");
-list.innerHTML="";
+<button onclick="salvar()">💾 Salvar Online</button>
+<button onclick="carregar()">📂 Carregar</button>
+<button onclick="gerarExcel()">📊 Baixar Excel</button>
+<button onclick="sair()">🚪 Sair</button>
 
-let folders=new Set();
-let files=[];
+</div>
 
-db.forEach(p=>{
+</div>
 
-if(!path){
-let first=p.split("/")[0];
-if(p.includes("/")) folders.add(first);
-else files.push(p);
-}else{
-if(p.startsWith(path)){
-let rest=p.slice(path.length).replace(/^\/+/,"");
-let next=rest.split("/")[0];
+<!-- FIREBASE -->
+<script type="module">
 
-if(rest.includes("/")) folders.add(next);
-else files.push(p);
-}
-}
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-});
-
-/* pastas */
-folders.forEach(f=>{
-let div=document.createElement("div");
-div.className="item";
-div.innerHTML=`<span><i class="fas fa-folder icon-folder"></i> ${f}</span>`;
-div.onclick=()=>{
-path = path ? path+"/"+f : f;
-render();
+/* CONFIG (COLOCA A SUA) */
+const firebaseConfig = {
+  apiKey: "AIzaSyAGKQBoVgIDJzYOOkzukhTc6eRSXwJEv5I",
+  authDomain: "estudos-ec2cf.firebaseapp.com",
+  projectId: "estudos-ec2cfI",
 };
-list.appendChild(div);
-});
 
-/* arquivos */
-files.forEach(f=>{
-let a=document.createElement("a");
-a.className="item";
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-/* 🔥 LINK CORRETO FINAL */
-a.href = BASE + f;
+let aluno = "";
 
-a.target="_blank";
+/* LOGIN */
+window.entrar = function(){
+aluno = document.getElementById("user").value;
+if(!aluno) return alert("Digite seu nome");
 
-a.innerHTML=`<span><i class="fas fa-file icon-file"></i> ${f.split("/").pop()}</span>`;
-list.appendChild(a);
-});
+document.getElementById("login").classList.add("hidden");
+document.getElementById("app").classList.remove("hidden");
+document.getElementById("nomeAluno").innerText = "Aluno: " + aluno;
 
+carregar();
 }
 
-/* ---------------- */
+/* SALVAR ONLINE */
+window.salvar = async function(){
 
-function changeTab(t,el){
-document.getElementById("materiais").style.display = t==="materiais"?"block":"none";
-document.getElementById("calc").style.display = t==="calc"?"block":"none";
+let dados = {
+mat1:mat1.value, mat2:mat2.value, mat3:mat3.value, matVal:matVal.value,
+hum1:hum1.value, hum2:hum2.value, humVal:humVal.value,
+red1:red1.value, red2:red2.value, redVal:redVal.value,
+ing1:ing1.value, ing2:ing2.value, ingVal:ingVal.value,
+fil1:fil1.value, fil2:fil2.value,
+soc1:soc1.value, soc2:soc2.value
+};
 
-document.querySelectorAll(".nav-link").forEach(n=>n.classList.remove("active"));
-el.classList.add("active");
+await setDoc(doc(db, "alunos", aluno), dados);
+
+alert("Salvo online!");
 }
 
-/* CALCULADORA */
-let d=document.getElementById("display");
+/* CARREGAR */
+window.carregar = async function(){
 
-function ins(v){d.value+=v;}
-function clr(){d.value="";}
-function bk(){d.value=d.value.slice(0,-1);}
-function calc(){
-try{d.value=eval(d.value);}
-catch{d.value="Erro";}
+const ref = doc(db, "alunos", aluno);
+const snap = await getDoc(ref);
+
+if(snap.exists()){
+let d = snap.data();
+
+mat1.value=d.mat1||"";
+mat2.value=d.mat2||"";
+mat3.value=d.mat3||"";
+matVal.value=d.matVal||"";
+
+hum1.value=d.hum1||"";
+hum2.value=d.hum2||"";
+humVal.value=d.humVal||"";
+
+red1.value=d.red1||"";
+red2.value=d.red2||"";
+redVal.value=d.redVal||"";
+
+ing1.value=d.ing1||"";
+ing2.value=d.ing2||"";
+ingVal.value=d.ingVal||"";
+
+fil1.value=d.fil1||"";
+fil2.value=d.fil2||"";
+
+soc1.value=d.soc1||"";
+soc2.value=d.soc2||"";
+}
 }
 
-start();
+/* EXCEL */
+window.gerarExcel = function(){
+
+let ex=(+mat1.value+ +mat2.value+ +mat3.value+ +matVal.value)/2;
+let hum=(+hum1.value+ +hum2.value+ +humVal.value)/2;
+let red=(+red1.value+ +red2.value+ +redVal.value)/2;
+let ing=(+ing1.value+ +ing2.value+ +ingVal.value)/2;
+let filo=(+fil1.value+ +fil2.value);
+let socio=(+soc1.value+ +soc2.value);
+
+let geral=(ex+hum+red+ing+filo+socio)/6;
+let status=geral>=6?"Aprovado":"Reprovado";
+
+let dados=[
+["Aluno",aluno],
+[],
+["Exatas",ex],
+["Humanas",hum],
+["Redação",red],
+["Inglês",ing],
+["Filosofia",filo],
+["Sociologia",socio],
+[],
+["Média Geral",geral],
+["Status",status]
+];
+
+let wb=XLSX.utils.book_new();
+let ws=XLSX.utils.aoa_to_sheet(dados);
+
+XLSX.utils.book_append_sheet(wb,ws,"Boletim");
+
+XLSX.writeFile(wb,"Boletim_"+aluno+".xlsx");
+}
+
+/* SAIR */
+window.sair = function(){
+location.reload();
+}
 
 </script>
 
