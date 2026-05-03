@@ -5,231 +5,117 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JN_PP</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
---primary:#4f46e5;
---bg:#f1f5f9;
---card:#ffffff;
---text:#1e293b;
---sub:#64748b;
-}
-
-*{margin:0;padding:0;box-sizing:border-box}
-
 body{
-font-family:'Inter',sans-serif;
-display:flex;
-height:100vh;
-background:var(--bg);
-}
-
-/* SIDEBAR */
-nav{
-width:260px;
-background:#fff;
+font-family:Poppins;
+background:#eef2ff;
 padding:20px;
-box-shadow:2px 0 10px rgba(0,0,0,0.05);
 }
 
-.logo{
-font-size:22px;
-font-weight:800;
-color:var(--primary);
-margin-bottom:30px;
+h1{
+text-align:center;
+color:#4f46e5;
 }
 
-.nav-btn{
-padding:12px;
-border-radius:10px;
-margin-bottom:8px;
-cursor:pointer;
-color:var(--sub);
-font-weight:600;
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+margin-top:20px;
 }
 
-.nav-btn:hover{background:#f3f4f6}
-.active{background:var(--primary);color:#fff}
-
-/* MAIN */
-main{
-flex:1;
-padding:30px;
-overflow:auto;
-}
-
-/* CARD */
 .card{
-background:#fff;
-padding:15px;
-border-radius:12px;
-margin-bottom:12px;
-box-shadow:0 4px 10px rgba(0,0,0,0.05);
+background:white;
+padding:20px;
+border-radius:15px;
+text-align:center;
 cursor:pointer;
+box-shadow:0 5px 10px rgba(0,0,0,0.05);
 }
 
-/* BREAD */
-.breadcrumb{
-margin-bottom:15px;
-font-size:14px;
+.card:hover{
+background:#6366f1;
+color:white;
 }
 
-.breadcrumb span{
-color:var(--primary);
-cursor:pointer;
-font-weight:600;
-}
+.section{display:none;margin-top:20px}
 
-/* INPUT */
 input{
 width:100%;
 padding:8px;
 margin:4px 0;
-border-radius:6px;
-border:1px solid #ddd;
 }
 
-/* BUTTON */
 button{
-background:var(--primary);
-color:#fff;
-border:none;
+background:#4f46e5;
+color:white;
 padding:10px;
+border:none;
 border-radius:8px;
-margin-top:8px;
+margin-top:10px;
 cursor:pointer;
 }
 
-/* GRID */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:10px;
+.item{
+background:white;
+padding:10px;
+border-radius:10px;
+margin:5px 0;
 }
 
-.hidden{display:none}
+.breadcrumb span{
+color:#4f46e5;
+cursor:pointer;
+}
 </style>
 </head>
 
 <body>
 
-<nav>
-<div class="logo">JN_PP</div>
-<div class="nav-btn active" onclick="trocar('mat',this)">📁 Materiais</div>
-<div class="nav-btn" onclick="trocar('calc',this)">🧮 Calculadora</div>
-<div class="nav-btn" onclick="trocar('bol',this)">📊 Boletim</div>
-</nav>
+<h1>JN_PP</h1>
 
-<main>
+<div class="grid">
+<div class="card" onclick="openSec('mat')">📁 Materiais</div>
+<div class="card" onclick="openSec('calc')">🧮 Calculadora</div>
+<div class="card" onclick="openSec('bol')">📊 Boletim</div>
+</div>
 
 <!-- MATERIAIS -->
-<div id="mat">
-<div class="breadcrumb" id="bc"></div>
+<div id="mat" class="section">
+<div id="bc"></div>
 <div id="lista"></div>
 </div>
 
 <!-- CALC -->
-<div id="calc" class="hidden">
-<input id="scr" readonly>
-<div class="grid">
-<button onclick="ins('7')">7</button>
-<button onclick="ins('8')">8</button>
-<button onclick="ins('9')">9</button>
-<button onclick="ins('/')">/</button>
-<button onclick="ins('4')">4</button>
-<button onclick="ins('5')">5</button>
-<button onclick="ins('6')">6</button>
-<button onclick="ins('*')">*</button>
-<button onclick="ins('1')">1</button>
-<button onclick="ins('2')">2</button>
-<button onclick="ins('3')">3</button>
-<button onclick="ins('-')">-</button>
-<button onclick="clr()">C</button>
-<button onclick="ins('0')">0</button>
-<button onclick="res()">=</button>
-<button onclick="ins('+')">+</button>
-</div>
+<div id="calc" class="section">
+<input id="scr">
+<button onclick="calc()">=</button>
 </div>
 
 <!-- BOLETIM -->
-<div id="bol" class="hidden">
+<div id="bol" class="section">
 
-<input id="nome" placeholder="Nome do aluno">
+<input id="nome" placeholder="Nome">
 
-<div class="grid">
-
-<div class="card">
 <h3>Matemática</h3>
-<input id="mat1e"><input id="mat1t"><input id="mat2e"><input id="mat2t"><input id="matv">
-</div>
-
-<div class="card">
-<h3>Física</h3>
-<input id="fis1e"><input id="fis1t"><input id="fis2e"><input id="fis2t"><input id="fisv">
-</div>
-
-<div class="card">
-<h3>Química</h3>
-<input id="qui1e"><input id="qui1t"><input id="qui2e"><input id="qui2t"><input id="quiv">
-</div>
-
-<div class="card">
-<h3>Biologia</h3>
-<input id="bio1e"><input id="bio1t"><input id="bio2e"><input id="bio2t"><input id="biov">
-</div>
-
-<div class="card">
-<h3>História</h3>
-<input id="his1e"><input id="his1t"><input id="his2e"><input id="his2t"><input id="hisv">
-</div>
-
-<div class="card">
-<h3>Geografia</h3>
-<input id="geo1e"><input id="geo1t"><input id="geo2e"><input id="geo2t"><input id="geov">
-</div>
-
-<div class="card">
-<h3>Português</h3>
-<input id="por1e"><input id="por1t"><input id="por2e"><input id="por2t"><input id="porv">
-</div>
-
-<div class="card">
-<h3>Inglês</h3>
-<input id="ing1"><input id="ing2"><input id="ingv">
-</div>
-
-<div class="card">
-<h3>Redação</h3>
-<input id="red1"><input id="red2"><input id="redv">
-</div>
-
-<div class="card">
-<h3>Filosofia</h3>
-<input id="fil1"><input id="fil2">
-</div>
-
-<div class="card">
-<h3>Sociologia</h3>
-<input id="soc1"><input id="soc2">
-</div>
-
-</div>
+<input id="mat1e" placeholder="P1 Escrita">
+<input id="mat1t" placeholder="P1 Teste">
+<input id="mat2e" placeholder="P2 Escrita">
+<input id="mat2t" placeholder="P2 Teste">
+<input id="matv" placeholder="Valorada">
 
 <button onclick="calcular()">Calcular</button>
-<button onclick="salvarFirebase()">Salvar Online</button>
-<button onclick="excel()">Gerar Excel</button>
+<button onclick="salvar()">Salvar Online</button>
 
 <h2 id="res"></h2>
 
 </div>
 
-</main>
-
 <script type="module">
 
-/* 🔥 FIREBASE */
+/* FIREBASE */
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
@@ -243,30 +129,29 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-/* BASE */
-const BASE = window.location.origin + "/meu-hub-estudos/";
-
 /* UI */
-window.trocar=(id,el)=>{
-document.querySelectorAll("main > div").forEach(d=>d.classList.add("hidden"));
-document.getElementById(id).classList.remove("hidden");
-document.querySelectorAll(".nav-btn").forEach(n=>n.classList.remove("active"));
-el.classList.add("active");
+window.openSec=(id)=>{
+document.querySelectorAll(".section").forEach(s=>s.style.display="none");
+document.getElementById(id).style.display="block";
 }
 
 /* CALC */
-window.ins=v=>scr.value+=v;
-window.clr=()=>scr.value="";
-window.res=()=>{try{scr.value=eval(scr.value)}catch{scr.value="erro"}}
+window.calc=()=>{
+scr.value=eval(scr.value)
+}
+
+/* BASE */
+const BASE = window.location.origin + "/meu-hub-estudos/";
 
 /* MATERIAIS */
-function enc(p){return p.split('/').map(x=>encodeURIComponent(x)).join('/');}
-
-let dbtxt=[], cur="";
+let dados=[], path="";
 
 fetch("dados.txt?v="+Date.now())
 .then(r=>r.text())
-.then(t=>{dbtxt=t.split("\n").filter(l=>l.includes("/")); render();});
+.then(t=>{
+dados=t.split("\n").filter(l=>l.includes("/"));
+render();
+});
 
 function render(){
 lista.innerHTML="";
@@ -274,47 +159,54 @@ bc.innerHTML=`<span onclick="go('')">Início</span>`;
 
 let past=new Set(), files=[];
 
-dbtxt.forEach(p=>{
-if(!p.startsWith(cur))return;
-let rest=p.slice(cur.length).replace(/^\/+/,'');
+dados.forEach(p=>{
+if(!p.startsWith(path))return;
+
+let rest=p.slice(path.length).replace(/^\/+/,'');
 let next=rest.split("/")[0];
-if(rest.includes("/"))past.add(next);
+
+if(rest.includes("/")) past.add(next);
 else files.push(p);
 });
 
-past.forEach(p=>{
-lista.innerHTML+=`<div class="card" onclick="go('${cur?cur+'/':''}${p}')">📁 ${p}</div>`;
-});
-
-files.forEach(f=>{
-let link=BASE+"Estudos/"+enc(f);
-lista.innerHTML+=`<a class="card" target="_blank" href="${link}">📄 ${f.split('/').pop()}</a>`;
+/* breadcrumb */
+if(path){
+let acc="";
+path.split("/").forEach(p=>{
+acc+=(acc?"/":"")+p;
+bc.innerHTML+=` > <span onclick="go('${acc}')">${p}</span>`;
 });
 }
 
-window.go=p=>{cur=p;render();}
+/* pastas */
+past.forEach(p=>{
+lista.innerHTML+=`<div class="item" onclick="go('${path?path+'/':''}${p}')">📁 ${p}</div>`;
+});
+
+/* arquivos */
+files.forEach(f=>{
+let link = BASE + "Estudos/" + encodeURI(f);
+lista.innerHTML+=`<a class="item" target="_blank" href="${link}">📄 ${f.split('/').pop()}</a>`;
+});
+}
+
+window.go=(p)=>{path=p;render();}
 
 /* BOLETIM */
 function v(id){return Number(document.getElementById(id).value)||0;}
-function calc(p){return (v(p+"1e")+v(p+"1t")+v(p+"2e")+v(p+"2t")+v(p+"v"))/2;}
 
 window.calcular=()=>{
-let total=(calc("mat")+calc("fis")+calc("qui")+calc("bio")+calc("his")+calc("geo")+calc("por"))/7;
-res.innerText="Média: "+total.toFixed(2);
+let media=(v("mat1e")+v("mat1t")+v("mat2e")+v("mat2t")+v("matv"))/2;
+res.innerText="Média: "+media.toFixed(2);
 }
 
 /* FIREBASE SAVE */
-window.salvarFirebase=async()=>{
-await setDoc(doc(db,"alunos",nome.value),{nome:nome.value});
-alert("Salvo online!");
-}
-
-/* EXCEL */
-window.excel=()=>{
-let wb=XLSX.utils.book_new();
-let ws=XLSX.utils.aoa_to_sheet([["Aluno",nome.value]]);
-XLSX.utils.book_append_sheet(wb,ws,"Boletim");
-XLSX.writeFile(wb,nome.value+".xlsx");
+window.salvar=async()=>{
+await setDoc(doc(db,"alunos",nome.value),{
+nome:nome.value,
+media:res.innerText
+});
+alert("Salvo no Firebase!");
 }
 
 </script>
