@@ -6,11 +6,12 @@
 <title>JN_PP</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
 
 <style>
 :root{
---primary:#4361ee;
---bg:#f8fafc;
+--primary:#4f46e5;
+--bg:#f1f5f9;
 --card:#ffffff;
 --text:#1e293b;
 --sub:#64748b;
@@ -20,44 +21,36 @@
 
 body{
 font-family:'Inter',sans-serif;
-background:var(--bg);
-color:var(--text);
 display:flex;
 height:100vh;
-overflow:hidden;
+background:var(--bg);
 }
 
 /* SIDEBAR */
 nav{
-width:240px;
-background:var(--card);
-border-right:1px solid #e2e8f0;
-padding:30px 15px;
-display:flex;
-flex-direction:column;
-gap:10px;
+width:260px;
+background:#fff;
+padding:20px;
+box-shadow:2px 0 10px rgba(0,0,0,0.05);
 }
 
 .logo{
-font-size:20px;
+font-size:22px;
 font-weight:800;
 color:var(--primary);
-margin-bottom:20px;
-text-align:center;
+margin-bottom:30px;
 }
 
 .nav-btn{
 padding:12px;
 border-radius:10px;
+margin-bottom:8px;
 cursor:pointer;
-display:flex;
-gap:10px;
-align-items:center;
 color:var(--sub);
 font-weight:600;
 }
 
-.nav-btn:hover{background:#f1f5f9}
+.nav-btn:hover{background:#f3f4f6}
 .active{background:var(--primary);color:#fff}
 
 /* MAIN */
@@ -67,72 +60,53 @@ padding:30px;
 overflow:auto;
 }
 
-/* LISTA */
-.item{
-background:var(--card);
+/* CARD */
+.card{
+background:#fff;
 padding:15px;
 border-radius:12px;
-margin-bottom:10px;
-display:flex;
-justify-content:space-between;
+margin-bottom:12px;
+box-shadow:0 4px 10px rgba(0,0,0,0.05);
 cursor:pointer;
-border:1px solid #eef2f6;
-transition:0.2s;
 }
 
-.item:hover{
-transform:translateX(5px);
-border-color:var(--primary);
-}
-
-/* BREADCRUMB */
+/* BREAD */
 .breadcrumb{
 margin-bottom:15px;
-color:var(--sub);
 font-size:14px;
 }
 
 .breadcrumb span{
-cursor:pointer;
 color:var(--primary);
+cursor:pointer;
 font-weight:600;
 }
 
-/* CALC */
-.calc{
-max-width:300px;
-margin:auto;
-}
-
-.calc input{
-width:100%;
-padding:15px;
-font-size:20px;
-margin-bottom:10px;
-}
-
-/* BOLETIM */
-.section{
-background:var(--card);
-padding:15px;
-margin-bottom:15px;
-border-radius:12px;
-}
-
+/* INPUT */
 input{
 width:100%;
 padding:8px;
-margin:5px 0;
+margin:4px 0;
+border-radius:6px;
+border:1px solid #ddd;
 }
 
+/* BUTTON */
 button{
-padding:10px;
-border:none;
-border-radius:8px;
 background:var(--primary);
 color:#fff;
+border:none;
+padding:10px;
+border-radius:8px;
+margin-top:8px;
 cursor:pointer;
-margin-top:10px;
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:10px;
 }
 
 .hidden{display:none}
@@ -143,11 +117,9 @@ margin-top:10px;
 
 <nav>
 <div class="logo">JN_PP</div>
-
-<div class="nav-btn active" onclick="tab('mat',this)">📁 Materiais</div>
-<div class="nav-btn" onclick="tab('calc',this)">🧮 Calculadora</div>
-<div class="nav-btn" onclick="tab('bol',this)">📊 Boletim</div>
-
+<div class="nav-btn active" onclick="trocar('mat',this)">📁 Materiais</div>
+<div class="nav-btn" onclick="trocar('calc',this)">🧮 Calculadora</div>
+<div class="nav-btn" onclick="trocar('bol',this)">📊 Boletim</div>
 </nav>
 
 <main>
@@ -158,144 +130,194 @@ margin-top:10px;
 <div id="lista"></div>
 </div>
 
-<!-- CALCULADORA -->
-<div id="calc" class="hidden calc">
+<!-- CALC -->
+<div id="calc" class="hidden">
 <input id="scr" readonly>
-<button onclick="clr()">C</button>
-<button onclick="bk()">⌫</button>
-<button onclick="ins('/')">/</button>
-<button onclick="ins('*')">*</button><br>
+<div class="grid">
 <button onclick="ins('7')">7</button>
 <button onclick="ins('8')">8</button>
 <button onclick="ins('9')">9</button>
-<button onclick="ins('-')">-</button><br>
+<button onclick="ins('/')">/</button>
 <button onclick="ins('4')">4</button>
 <button onclick="ins('5')">5</button>
 <button onclick="ins('6')">6</button>
-<button onclick="ins('+')">+</button><br>
+<button onclick="ins('*')">*</button>
 <button onclick="ins('1')">1</button>
 <button onclick="ins('2')">2</button>
 <button onclick="ins('3')">3</button>
+<button onclick="ins('-')">-</button>
+<button onclick="clr()">C</button>
+<button onclick="ins('0')">0</button>
 <button onclick="res()">=</button>
+<button onclick="ins('+')">+</button>
+</div>
 </div>
 
 <!-- BOLETIM -->
 <div id="bol" class="hidden">
-<div class="section">
+
 <input id="nome" placeholder="Nome do aluno">
-<input id="ex1e" placeholder="P1 Escrita">
-<input id="ex1t" placeholder="P1 Teste">
-<input id="ex2e" placeholder="P2 Escrita">
-<input id="ex2t" placeholder="P2 Teste">
-<input id="exv" placeholder="Valorada">
-<button onclick="excel()">Gerar Excel</button>
+
+<div class="grid">
+
+<div class="card">
+<h3>Matemática</h3>
+<input id="mat1e"><input id="mat1t"><input id="mat2e"><input id="mat2t"><input id="matv">
 </div>
+
+<div class="card">
+<h3>Física</h3>
+<input id="fis1e"><input id="fis1t"><input id="fis2e"><input id="fis2t"><input id="fisv">
+</div>
+
+<div class="card">
+<h3>Química</h3>
+<input id="qui1e"><input id="qui1t"><input id="qui2e"><input id="qui2t"><input id="quiv">
+</div>
+
+<div class="card">
+<h3>Biologia</h3>
+<input id="bio1e"><input id="bio1t"><input id="bio2e"><input id="bio2t"><input id="biov">
+</div>
+
+<div class="card">
+<h3>História</h3>
+<input id="his1e"><input id="his1t"><input id="his2e"><input id="his2t"><input id="hisv">
+</div>
+
+<div class="card">
+<h3>Geografia</h3>
+<input id="geo1e"><input id="geo1t"><input id="geo2e"><input id="geo2t"><input id="geov">
+</div>
+
+<div class="card">
+<h3>Português</h3>
+<input id="por1e"><input id="por1t"><input id="por2e"><input id="por2t"><input id="porv">
+</div>
+
+<div class="card">
+<h3>Inglês</h3>
+<input id="ing1"><input id="ing2"><input id="ingv">
+</div>
+
+<div class="card">
+<h3>Redação</h3>
+<input id="red1"><input id="red2"><input id="redv">
+</div>
+
+<div class="card">
+<h3>Filosofia</h3>
+<input id="fil1"><input id="fil2">
+</div>
+
+<div class="card">
+<h3>Sociologia</h3>
+<input id="soc1"><input id="soc2">
+</div>
+
+</div>
+
+<button onclick="calcular()">Calcular</button>
+<button onclick="salvarFirebase()">Salvar Online</button>
+<button onclick="excel()">Gerar Excel</button>
+
+<h2 id="res"></h2>
+
 </div>
 
 </main>
 
-<script>
+<script type="module">
 
-/* TROCA DE TELA */
-function tab(id,el){
+/* 🔥 FIREBASE */
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyAGKQBoVgIDJzYOOkzukhTc6eRSXwJEv5I",
+    authDomain: "estudos-ec2cf.firebaseapp.com",
+    projectId: "estudos-ec2cf",
+
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+/* BASE */
+const BASE = window.location.origin + "/meu-hub-estudos/";
+
+/* UI */
+window.trocar=(id,el)=>{
 document.querySelectorAll("main > div").forEach(d=>d.classList.add("hidden"));
 document.getElementById(id).classList.remove("hidden");
 document.querySelectorAll(".nav-btn").forEach(n=>n.classList.remove("active"));
 el.classList.add("active");
 }
 
-/* CALCULADORA */
-function ins(v){scr.value+=v}
-function clr(){scr.value=""}
-function bk(){scr.value=scr.value.slice(0,-1)}
-function res(){try{scr.value=eval(scr.value)}catch{scr.value="erro"}}
-
-/* 🔥 CORREÇÃO DO 404 */
-function caminhoSeguro(path){
-return path.split('/').map(p=>encodeURIComponent(p)).join('/');
-}
+/* CALC */
+window.ins=v=>scr.value+=v;
+window.clr=()=>scr.value="";
+window.res=()=>{try{scr.value=eval(scr.value)}catch{scr.value="erro"}}
 
 /* MATERIAIS */
-let db=[];
-let current="";
+function enc(p){return p.split('/').map(x=>encodeURIComponent(x)).join('/');}
+
+let dbtxt=[], cur="";
 
 fetch("dados.txt?v="+Date.now())
 .then(r=>r.text())
-.then(t=>{
-db=t.split("\n")
-.map(l=>l.trim())
-.filter(l=>l && !l.includes("[DIR]") && l.includes("/"));
-render();
-});
+.then(t=>{dbtxt=t.split("\n").filter(l=>l.includes("/")); render();});
 
 function render(){
-let lista=document.getElementById("lista");
 lista.innerHTML="";
-
-let bc=document.getElementById("bc");
 bc.innerHTML=`<span onclick="go('')">Início</span>`;
 
-if(current){
-let acc="";
-current.split("/").forEach(p=>{
-acc+=(acc?"/":"")+p;
-bc.innerHTML+=` > <span onclick="go('${acc}')">${p}</span>`;
-});
-}
+let past=new Set(), files=[];
 
-let pastas=new Set();
-let files=[];
-
-db.forEach(p=>{
-if(!p.startsWith(current)) return;
-
-let rest=p.slice(current.length).replace(/^\/+/,'');
+dbtxt.forEach(p=>{
+if(!p.startsWith(cur))return;
+let rest=p.slice(cur.length).replace(/^\/+/,'');
 let next=rest.split("/")[0];
-
-if(rest.includes("/")) pastas.add(next);
+if(rest.includes("/"))past.add(next);
 else files.push(p);
 });
 
-pastas.forEach(p=>{
-let div=document.createElement("div");
-div.className="item";
-div.innerHTML=`📁 ${p}`;
-div.onclick=()=>go(current?current+"/"+p:p);
-lista.appendChild(div);
+past.forEach(p=>{
+lista.innerHTML+=`<div class="card" onclick="go('${cur?cur+'/':''}${p}')">📁 ${p}</div>`;
 });
 
 files.forEach(f=>{
-let a=document.createElement("a");
-a.className="item";
-a.href=caminhoSeguro(f);
-a.target="_blank";
-a.innerHTML=`📄 ${f.split("/").pop()}`;
-lista.appendChild(a);
+let link=BASE+"Estudos/"+enc(f);
+lista.innerHTML+=`<a class="card" target="_blank" href="${link}">📄 ${f.split('/').pop()}</a>`;
 });
 }
 
-function go(p){
-current=p;
-render();
+window.go=p=>{cur=p;render();}
+
+/* BOLETIM */
+function v(id){return Number(document.getElementById(id).value)||0;}
+function calc(p){return (v(p+"1e")+v(p+"1t")+v(p+"2e")+v(p+"2t")+v(p+"v"))/2;}
+
+window.calcular=()=>{
+let total=(calc("mat")+calc("fis")+calc("qui")+calc("bio")+calc("his")+calc("geo")+calc("por"))/7;
+res.innerText="Média: "+total.toFixed(2);
+}
+
+/* FIREBASE SAVE */
+window.salvarFirebase=async()=>{
+await setDoc(doc(db,"alunos",nome.value),{nome:nome.value});
+alert("Salvo online!");
 }
 
 /* EXCEL */
-function excel(){
-let ex=(+ex1e.value+ +ex1t.value+ +ex2e.value+ +ex2t.value+ +exv.value)/2;
-
+window.excel=()=>{
 let wb=XLSX.utils.book_new();
-let ws=XLSX.utils.aoa_to_sheet([
-["Aluno",nome.value],
-["Exatas",ex]
-]);
-
+let ws=XLSX.utils.aoa_to_sheet([["Aluno",nome.value]]);
 XLSX.utils.book_append_sheet(wb,ws,"Boletim");
-XLSX.writeFile(wb,"boletim.xlsx");
+XLSX.writeFile(wb,nome.value+".xlsx");
 }
 
 </script>
-
-<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
 
 </body>
 </html>
