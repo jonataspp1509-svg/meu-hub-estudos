@@ -758,7 +758,7 @@ input, select{
 
 
 <header>
-  <div class="logo">StudyFlow</div>
+  <div class="logo" onclick="voltarMenu()" style="cursor:pointer;">StudyFlow</div>
   <div class="subtitle">Jonatas — materiais, boletim, calculadora e desafios escolares</div>
 </header>
 
@@ -904,9 +904,9 @@ input, select{
   </div>
 
   <div class="prog-grid">
-    <div class="prog-card" onclick="mostrarAula('html')">
-      <h3>🌐 HTML</h3>
-      <p>Aprenda a estrutura de uma página.</p>
+    <div class="prog-card" onclick="window.location.href='programacao.html'">
+      <h3>💻 C++</h3>
+      <p>Entrar na área de programação</p>
     </div>
     <div class="prog-card" onclick="mostrarAula('css')">
       <h3>🎨 CSS</h3>
@@ -1733,6 +1733,13 @@ document.addEventListener("DOMContentLoaded",()=>{
 montarBoletim();
 calcularTudo();
 carregarRanking();
+
+function voltarMenu(){
+  document.getElementById("siteContent").style.display = "none";
+  document.getElementById("programacao").style.display = "none";
+  document.getElementById("menuEscolha").style.display = "flex";
+}
+
 </script>
 
 </body>

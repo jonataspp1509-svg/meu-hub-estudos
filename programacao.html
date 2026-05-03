@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudyFlow | Programação C++</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#eef2ff;
+  --card:#ffffff;
+  --primary:#2563eb;
+  --primary2:#1d4ed8;
+  --dark:#0f172a;
+  --muted:#64748b;
+  --border:#e2e8f0;
+  --green:#16a34a;
+  --red:#dc2626;
+  --orange:#f97316;
+  --purple:#7c3aed;
+  --shadow:0 10px 25px rgba(15,23,42,.10);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Poppins,sans-serif;
+  background:
+    radial-gradient(circle at top left,#bfdbfe,transparent 28%),
+    radial-gradient(circle at bottom right,#dbeafe,transparent 28%),
+    linear-gradient(135deg,#eff6ff,#f8fafc);
+  min-height:100vh;
+  color:var(--dark);
+}
+
+header{
+  padding:24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.logo{
+  font-size:2rem;
+  font-weight:800;
+  color:var(--primary);
+  cursor:pointer;
+}
+
+.subtitle{
+  color:var(--muted);
+  font-weight:600;
+}
+
+.header-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+button,a.btn{
+  border:none;
+  border-radius:14px;
+  padding:12px 16px;
+  background:var(--primary);
+  color:white;
+  font-weight:800;
+  cursor:pointer;
+  font-family:inherit;
+  transition:.2s;
+  text-decoration:none;
+  display:inline-block;
+}
+
+button:hover,a.btn:hover{
+  background:var(--primary2);
+  transform:translateY(-2px);
+}
+
+.main{
+  padding:0 24px 30px;
+  max-width:1250px;
+  margin:0 auto;
+}
+
+.hero{
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
+  color:white;
+  padding:30px;
+  border-radius:28px;
+  box-shadow:var(--shadow);
+  margin-bottom:22px;
+}
+
+.hero h1{
+  font-size:2.2rem;
+  margin-bottom:8px;
+}
+
+.hero p{
+  opacity:.95;
+  max-width:850px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:16px;
+  margin-bottom:22px;
+}
+
+.card{
+  background:white;
+  padding:20px;
+  border-radius:22px;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+}
+
+.lesson-card{
+  cursor:pointer;
+  transition:.2s;
+  border:2px solid transparent;
+}
+
+.lesson-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--primary);
+}
+
+.lesson-card.active{
+  background:linear-gradient(135deg,#2563eb,#1d4ed8);
+  color:white;
+}
+
+.lesson-card.active p{
+  color:#dbeafe;
+}
+
+.lesson-card p{
+  color:var(--muted);
+  margin-top:6px;
+}
+
+.panel{
+  background:rgba(255,255,255,.94);
+  border:1px solid var(--border);
+  border-radius:26px;
+  padding:24px;
+  box-shadow:var(--shadow);
+  margin-bottom:22px;
+}
+
+.section-title{
+  font-size:1.45rem;
+  font-weight:800;
+  color:var(--primary);
+  margin-bottom:12px;
+}
+
+.note{
+  background:#eff6ff;
+  border-left:6px solid var(--primary);
+  padding:15px;
+  border-radius:16px;
+  margin:14px 0;
+  line-height:1.6;
+}
+
+.warning{
+  background:#fff7ed;
+  border-left:6px solid var(--orange);
+  padding:15px;
+  border-radius:16px;
+  margin:14px 0;
+  line-height:1.6;
+}
+
+.goodbox{
+  background:#ecfdf5;
+  border-left:6px solid var(--green);
+  padding:15px;
+  border-radius:16px;
+  margin:14px 0;
+  line-height:1.6;
+}
+
+pre{
+  background:#0f172a;
+  color:white;
+  padding:16px;
+  border-radius:16px;
+  overflow:auto;
+  margin:14px 0;
+  line-height:1.5;
+}
+
+code{
+  font-family:Consolas,monospace;
+}
+
+textarea{
+  width:100%;
+  min-height:250px;
+  padding:16px;
+  border-radius:16px;
+  border:1px solid #cbd5e1;
+  font-family:Consolas,monospace;
+  font-size:.95rem;
+  outline:none;
+  resize:vertical;
+}
+
+textarea:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 3px rgba(37,99,235,.15);
+}
+
+.result{
+  margin-top:14px;
+  padding:16px;
+  border-radius:16px;
+  background:#f8fafc;
+  border:1px solid var(--border);
+  line-height:1.7;
+}
+
+.ok{
+  color:var(--green);
+  font-weight:800;
+}
+
+.bad{
+  color:var(--red);
+  font-weight:800;
+}
+
+.tabs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:16px;
+}
+
+.tab{
+  background:#e0e7ff;
+  color:var(--primary);
+}
+
+.tab.active{
+  background:var(--primary);
+  color:white;
+}
+
+.challenge-box{
+  margin-top:18px;
+  background:#f8fafc;
+  padding:18px;
+  border-radius:18px;
+  border:1px solid var(--border);
+}
+
+.level{
+  display:inline-block;
+  padding:5px 10px;
+  border-radius:999px;
+  font-size:.8rem;
+  font-weight:800;
+  margin-bottom:8px;
+}
+
+.level.easy{
+  background:#dcfce7;
+  color:#166534;
+}
+
+.level.medium{
+  background:#fef3c7;
+  color:#92400e;
+}
+
+.level.hard{
+  background:#fee2e2;
+  color:#991b1b;
+}
+
+.install-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:16px;
+}
+
+.install-card{
+  background:#f8fafc;
+  padding:18px;
+  border-radius:18px;
+  border:1px solid var(--border);
+}
+
+.install-card h3{
+  color:var(--primary);
+  margin-bottom:8px;
+}
+
+ol,ul{
+  padding-left:22px;
+  line-height:1.8;
+}
+
+.hidden{
+  display:none;
+}
+
+.small{
+  font-size:.9rem;
+  color:var(--muted);
+}
+
+.footer{
+  text-align:center;
+  color:var(--muted);
+  padding:30px;
+}
+
+@media(max-width:760px){
+  header{
+    padding:16px;
+  }
+  .main{
+    padding:0 16px 24px;
+  }
+  .hero h1{
+    font-size:1.6rem;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div>
+    <div class="logo" onclick="window.location.href='index.html'">StudyFlow</div>
+    <div class="subtitle">Área de Programação — C++ do zero ao desafio</div>
+  </div>
+
+  <div class="header-actions">
+    <a class="btn" href="index.html">⬅ Voltar ao StudyFlow</a>
+    <button onclick="abrirSecao('instalacao')">⚙️ Instalar ferramentas</button>
+    <button onclick="abrirSecao('curso')">📘 Curso C++</button>
+  </div>
+</header>
+
+<div class="main">
+
+  <section class="hero">
+    <h1>💻 Aprenda C++ na prática</h1>
+    <p>
+      Essa área ensina programação passo a passo. Você pode estudar pelo computador com VS Code
+      ou pelo celular usando um compilador online. Depois de cada tópico, faça desafios e receba
+      uma correção automática com nota e dicas.
+    </p>
+  </section>
+
+  <section id="instalacao" class="panel">
+    <div class="section-title">⚙️ Como preparar o ambiente</div>
+
+    <div class="install-grid">
+      <div class="install-card">
+        <h3>💻 Opção 1: Computador com VS Code</h3>
+        <ol>
+          <li>Instale o Visual Studio Code.</li>
+          <li>Instale um compilador C++.</li>
+          <li>No VS Code, instale a extensão C/C++ da Microsoft.</li>
+          <li>Crie um arquivo <code>main.cpp</code>.</li>
+          <li>Compile e execute o programa.</li>
+        </ol>
+        <br>
+        <a class="btn" target="_blank" href="https://code.visualstudio.com/download">Baixar VS Code</a>
+      </div>
+
+      <div class="install-card">
+        <h3>🧩 Compilador C++ no Windows</h3>
+        <p>
+          Uma opção comum é usar MSYS2/MinGW-w64 para instalar o GCC/G++.
+        </p>
+        <ol>
+          <li>Instale o MSYS2.</li>
+          <li>Abra o terminal MSYS2 UCRT64.</li>
+          <li>Instale o GCC/G++.</li>
+          <li>Teste com <code>g++ --version</code>.</li>
+        </ol>
+        <br>
+        <a class="btn" target="_blank" href="https://www.msys2.org/">Abrir MSYS2</a>
+      </div>
+
+      <div class="install-card">
+        <h3>🐍 Python também</h3>
+        <p>
+          Python é ótimo para começar lógica de programação, automação e scripts.
+        </p>
+        <ol>
+          <li>Baixe o Python pelo site oficial.</li>
+          <li>No Windows, marque “Add Python to PATH”.</li>
+          <li>Teste no terminal com <code>python --version</code>.</li>
+        </ol>
+        <br>
+        <a class="btn" target="_blank" href="https://www.python.org/downloads/">Baixar Python</a>
+      </div>
+
+      <div class="install-card">
+        <h3>📱 Opção 2: Celular / sem instalar</h3>
+        <p>
+          Para quem está no celular ou não quer instalar nada, dá para usar o OnlineGDB.
+        </p>
+        <ol>
+          <li>Abra o OnlineGDB.</li>
+          <li>Escolha C++.</li>
+          <li>Digite seu código.</li>
+          <li>Clique em Run.</li>
+        </ol>
+        <br>
+        <a class="btn" target="_blank" href="https://www.onlinegdb.com/online_c%2B%2B_compiler">Programar no OnlineGDB</a>
+      </div>
+    </div>
+
+    <div class="warning">
+      <strong>Importante:</strong> no celular, você não precisa instalar VS Code nem compilador.
+      Use o OnlineGDB para treinar os desafios.
+    </div>
+  </section>
+
+  <section id="curso" class="panel">
+    <div class="section-title">📘 Curso C++</div>
+
+    <div class="grid">
+      <div class="lesson-card card active" onclick="abrirAula('inicio', this)">
+        <h3>🚀 Começo</h3>
+        <p>Estrutura básica de um programa.</p>
+      </div>
+
+      <div class="lesson-card card" onclick="abrirAula('coutcin', this)">
+        <h3>🖨️ cout e cin</h3>
+        <p>Mostrar e receber informações.</p>
+      </div>
+
+      <div class="lesson-card card" onclick="abrirAula('variaveis', this)">
+        <h3>📦 Variáveis</h3>
+        <p>Guardar números e textos.</p>
+      </div>
+
+      <div class="lesson-card card" onclick="abrirAula('ifelse', this)">
+        <h3>🔀 if / else</h3>
+        <p>Tomar decisões.</p>
+      </div>
+
+      <div class="lesson-card card" onclick="abrirAula('loops', this)">
+        <h3>🔁 Repetição</h3>
+        <p>for e while.</p>
+      </div>
+
+      <div class="lesson-card card" onclick="abrirAula('vetores', this)">
+        <h3>📚 Vetores</h3>
+        <p>Guardar vários valores.</p>
+      </div>
+    </div>
+
+    <div id="conteudoAula"></div>
+  </section>
+
+</div>
+
+<div class="footer">
+  StudyFlow Programação — feito para aprender praticando.
+</div>
+
+<script>
+const desafios = {
+  inicio:[
+    {
+      nivel:"easy",
+      titulo:"Olá, mundo",
+      enunciado:"Crie um programa que mostre na tela a frase: Olá, mundo!",
+      esperado:["#include","iostream","int main","cout","Olá","mundo","return 0"],
+      peso:[1,1,2,3,1,1,1],
+      dica:"Use cout para mostrar texto na tela."
+    },
+    {
+      nivel:"easy",
+      titulo:"Mensagem escolar",
+      enunciado:"Faça um programa que mostre: Bem-vindo ao StudyFlow",
+      esperado:["#include","iostream","int main","cout","Bem-vindo","StudyFlow"],
+      peso:[1,1,2,3,1,2],
+      dica:"Coloque a frase entre aspas depois de cout <<."
+    }
+  ],
+
+  coutcin:[
+    {
+      nivel:"easy",
+      titulo:"Nome do usuário",
+      enunciado:"Peça o nome do usuário e mostre: Olá, nome",
+      esperado:["#include","iostream","int main","string","cout","cin","Olá"],
+      peso:[1,1,1,2,2,2,1],
+      dica:"Você precisa criar uma variável string para guardar o nome."
+    },
+    {
+      nivel:"medium",
+      titulo:"Nome e idade",
+      enunciado:"Peça nome e idade. Depois mostre uma mensagem com os dois dados.",
+      esperado:["string","int","cout","cin","idade","nome"],
+      peso:[2,2,2,2,1,1],
+      dica:"Use string para nome e int para idade."
+    },
+    {
+      nivel:"medium",
+      titulo:"Cadastro simples",
+      enunciado:"Peça nome, idade e cidade. Mostre uma frase final com essas informações.",
+      esperado:["string","int","cout","cin","cidade","idade","nome"],
+      peso:[2,1,2,2,1,1,1],
+      dica:"Você pode usar várias variáveis string."
+    }
+  ],
+
+  variaveis:[
+    {
+      nivel:"easy",
+      titulo:"Soma de dois números",
+      enunciado:"Leia dois números inteiros e mostre a soma.",
+      esperado:["int","cin","cout","+","soma"],
+      peso:[2,2,2,2,2],
+      dica:"Crie int a, b, soma; depois faça soma = a + b."
+    },
+    {
+      nivel:"medium",
+      titulo:"Média de notas",
+      enunciado:"Leia duas notas e mostre a média.",
+      esperado:["double","cin","cout","/","media"],
+      peso:[2,2,2,2,2],
+      dica:"Use double para aceitar notas com decimal."
+    },
+    {
+      nivel:"hard",
+      titulo:"Conversão de temperatura",
+      enunciado:"Leia Celsius e converta para Fahrenheit usando F = C * 1.8 + 32.",
+      esperado:["double","cin","cout","1.8","32"],
+      peso:[2,2,2,2,2],
+      dica:"A fórmula é fahrenheit = celsius * 1.8 + 32."
+    }
+  ],
+
+  ifelse:[
+    {
+      nivel:"easy",
+      titulo:"Maior de idade",
+      enunciado:"Leia uma idade. Se for maior ou igual a 18, mostre Maior de idade; senão, Menor de idade.",
+      esperado:["int","cin","if","else",">= 18","cout"],
+      peso:[1,2,2,2,2,1],
+      dica:"Use if(idade >= 18)."
+    },
+    {
+      nivel:"medium",
+      titulo:"Aprovado ou recuperação",
+      enunciado:"Leia uma nota. Se for >= 5, mostre Aprovado. Caso contrário, Recuperação.",
+      esperado:["double","cin","if","else",">= 5","cout"],
+      peso:[1,2,2,2,2,1],
+      dica:"Use if(nota >= 5)."
+    },
+    {
+      nivel:"hard",
+      titulo:"Par ou ímpar",
+      enunciado:"Leia um número inteiro e diga se ele é par ou ímpar.",
+      esperado:["int","cin","if","else","%","== 0"],
+      peso:[1,2,2,2,2,1],
+      dica:"Use numero % 2 == 0."
+    }
+  ],
+
+  loops:[
+    {
+      nivel:"easy",
+      titulo:"Contar de 1 a 10",
+      enunciado:"Use for para mostrar os números de 1 até 10.",
+      esperado:["for","int","cout","10"],
+      peso:[4,2,2,2],
+      dica:"Exemplo: for(int i=1; i<=10; i++)."
+    },
+    {
+      nivel:"medium",
+      titulo:"Tabuada",
+      enunciado:"Leia um número e mostre a tabuada dele de 1 a 10.",
+      esperado:["cin","for","cout","*","10"],
+      peso:[2,3,2,2,1],
+      dica:"Dentro do for, mostre numero * i."
+    },
+    {
+      nivel:"hard",
+      titulo:"Soma acumulada",
+      enunciado:"Leia 5 números e mostre a soma total.",
+      esperado:["for","cin","soma","+=","cout"],
+      peso:[3,2,2,2,1],
+      dica:"Comece soma com 0 e vá somando dentro do laço."
+    }
+  ],
+
+  vetores:[
+    {
+      nivel:"medium",
+      titulo:"Guardar 5 notas",
+      enunciado:"Use um vetor para ler 5 notas e mostrar todas.",
+      esperado:["double","[5]","for","cin","cout"],
+      peso:[2,2,2,2,2],
+      dica:"Crie double notas[5]."
+    },
+    {
+      nivel:"hard",
+      titulo:"Maior valor",
+      enunciado:"Leia 5 números em um vetor e mostre o maior.",
+      esperado:["int","[5]","for","cin","maior","if"],
+      peso:[1,2,2,1,2,2],
+      dica:"Comece maior com o primeiro valor do vetor."
+    },
+    {
+      nivel:"hard",
+      titulo:"Média do vetor",
+      enunciado:"Leia 5 notas em um vetor e calcule a média.",
+      esperado:["double","[5]","for","soma","/ 5","media"],
+      peso:[2,2,2,2,1,1],
+      dica:"Some todas as notas e divida por 5."
+    }
+  ]
+};
+
+function abrirSecao(id){
+  document.getElementById("instalacao").classList.add("hidden");
+  document.getElementById("curso").classList.add("hidden");
+  document.getElementById(id).classList.remove("hidden");
+}
+
+function abrirAula(tipo, card){
+  document.querySelectorAll(".lesson-card").forEach(c=>c.classList.remove("active"));
+  if(card) card.classList.add("active");
+
+  const area = document.getElementById("conteudoAula");
+
+  if(tipo === "inicio"){
+    area.innerHTML = `
+      <div class="panel">
+        <div class="section-title">🚀 Estrutura básica do C++</div>
+        <p>Todo programa C++ normalmente começa importando bibliotecas, depois vem a função main.</p>
+
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    cout &lt;&lt; "Olá, mundo!";
+    return 0;
+}</code></pre>
+
+        <div class="note">
+          <strong>Explicando:</strong><br>
+          <code>#include &lt;iostream&gt;</code> permite usar entrada e saída.<br>
+          <code>int main()</code> é onde o programa começa.<br>
+          <code>return 0;</code> indica que terminou corretamente.
+        </div>
+
+        ${gerarDesafios("inicio")}
+      </div>
+    `;
+  }
+
+  if(tipo === "coutcin"){
+    area.innerHTML = `
+      <div class="panel">
+        <div class="section-title">🖨️ cout e cin</div>
+
+        <div class="note">
+          <strong>cout</strong> serve para mostrar informações na tela.<br>
+          <strong>cin</strong> serve para receber dados digitados pelo usuário.
+        </div>
+
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    string nome;
+
+    cout &lt;&lt; "Digite seu nome: ";
+    cin &gt;&gt; nome;
+
+    cout &lt;&lt; "Olá, " &lt;&lt; nome;
+
+    return 0;
+}</code></pre>
+
+        ${gerarDesafios("coutcin")}
+      </div>
+    `;
+  }
+
+  if(tipo === "variaveis"){
+    area.innerHTML = `
+      <div class="panel">
+        <div class="section-title">📦 Variáveis</div>
+        <p>Variáveis guardam informações durante o programa.</p>
+
+        <pre><code>int idade = 15;
+double nota = 8.5;
+string nome = "Jonatas";</code></pre>
+
+        <div class="note">
+          <strong>int:</strong> número inteiro.<br>
+          <strong>double:</strong> número com vírgula.<br>
+          <strong>string:</strong> texto.
+        </div>
+
+        ${gerarDesafios("variaveis")}
+      </div>
+    `;
+  }
+
+  if(tipo === "ifelse"){
+    area.innerHTML = `
+      <div class="panel">
+        <div class="section-title">🔀 if e else</div>
+        <p>O if permite tomar decisões no programa.</p>
+
+        <pre><code>double nota;
+
+cout &lt;&lt; "Digite sua nota: ";
+cin &gt;&gt; nota;
+
+if(nota &gt;= 5){
+    cout &lt;&lt; "Aprovado";
+}else{
+    cout &lt;&lt; "Recuperação";
+}</code></pre>
+
+        ${gerarDesafios("ifelse")}
+      </div>
+    `;
+  }
+
+  if(tipo === "loops"){
+    area.innerHTML = `
+      <div class="panel">
+        <div class="section-title">🔁 Repetição: for e while</div>
+        <p>Laços servem para repetir ações sem escrever a mesma coisa várias vezes.</p>
+
+        <pre><code>for(int i = 1; i &lt;= 10; i++){
+    cout &lt;&lt; i &lt;&lt; endl;
+}</code></pre>
+
+        <div class="note">
+          Esse código mostra os números de 1 até 10.
+        </div>
+
+        ${gerarDesafios("loops")}
+      </div>
+    `;
+  }
+
+  if(tipo === "vetores"){
+    area.innerHTML = `
+      <div class="panel">
+        <div class="section-title">📚 Vetores</div>
+        <p>Vetores guardam vários valores do mesmo tipo.</p>
+
+        <pre><code>double notas[5];
+
+for(int i = 0; i &lt; 5; i++){
+    cin &gt;&gt; notas[i];
+}</code></pre>
+
+        ${gerarDesafios("vetores")}
+      </div>
+    `;
+  }
+}
+
+function gerarDesafios(tipo){
+  return desafios[tipo].map((d, index)=>`
+    <div class="challenge-box">
+      <span class="level ${d.nivel}">
+        ${d.nivel === "easy" ? "Fácil" : d.nivel === "medium" ? "Médio" : "Complexo"}
+      </span>
+
+      <h3>🎯 Desafio ${index+1}: ${d.titulo}</h3>
+      <p>${d.enunciado}</p>
+
+      <textarea id="codigo_${tipo}_${index}" placeholder="Digite seu código C++ aqui..."></textarea>
+
+      <br><br>
+
+      <button onclick="corrigir('${tipo}', ${index})">🤖 Corrigir resposta</button>
+
+      <div id="resultado_${tipo}_${index}" class="result"></div>
+    </div>
+  `).join("");
+}
+
+function corrigir(tipo, index){
+  const desafio = desafios[tipo][index];
+  const codigo = document.getElementById(`codigo_${tipo}_${index}`).value;
+  const resultado = document.getElementById(`resultado_${tipo}_${index}`);
+
+  let nota = 0;
+  let feedback = [];
+
+  desafio.esperado.forEach((item, i)=>{
+    if(codigo.includes(item)){
+      nota += desafio.peso[i];
+      feedback.push(`✅ Encontrou: <strong>${item}</strong>`);
+    }else{
+      feedback.push(`❌ Faltou ou está diferente: <strong>${item}</strong>`);
+    }
+  });
+
+  if(codigo.includes("{") && codigo.includes("}")){
+    feedback.push("✅ Usou chaves { }.");
+  }else{
+    feedback.push("⚠️ Confira se colocou as chaves { }.");
+  }
+
+  if(codigo.includes(";")){
+    feedback.push("✅ Usou ponto e vírgula.");
+  }else{
+    feedback.push("⚠️ Em C++, normalmente as linhas terminam com ;");
+  }
+
+  if(nota > 10) nota = 10;
+
+  const classe = nota >= 7 ? "ok" : "bad";
+
+  resultado.innerHTML = `
+    <h3>Resultado da correção</h3>
+    <p class="${classe}" style="font-size:1.25rem;">Nota: ${nota}/10</p>
+    <p>${feedback.join("<br>")}</p>
+    <div class="note">
+      <strong>Dica:</strong> ${desafio.dica}
+    </div>
+  `;
+}
+
+abrirAula("inicio");
+</script>
+
+</body>
+</html>
