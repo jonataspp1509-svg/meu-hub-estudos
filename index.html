@@ -6,7 +6,6 @@
 <title>Mendel Hub | Oficial</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -15,23 +14,103 @@
 --sidebar:#ffffff;
 --text-main:#1e293b;
 --text-sub:#64748b;
---folder-icon:#ffca28;
+--folder:#ffca28;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text-main);display:flex;height:100vh;overflow:hidden;}
 
-nav{width:260px;background:#fff;border-right:1px solid #e2e8f0;padding:40px 20px;}
-.logo{font-size:1.5rem;font-weight:800;color:var(--primary);margin-bottom:40px;}
-.nav-link{padding:12px;border-radius:10px;cursor:pointer;}
+body{
+display:flex;
+height:100vh;
+font-family:sans-serif;
+background:var(--bg);
+}
 
-main{flex:1;padding:40px;overflow-y:auto;}
+/* SIDEBAR */
+nav{
+width:240px;
+background:#fff;
+padding:20px;
+border-right:1px solid #ddd;
+}
 
-.item{background:#fff;padding:15px;border-radius:10px;margin-bottom:10px;cursor:pointer;display:flex;justify-content:space-between;}
-.item:hover{border:1px solid var(--primary);}
+.logo{
+font-weight:bold;
+font-size:20px;
+margin-bottom:20px;
+color:var(--primary);
+}
 
-.icon-folder{color:var(--folder-icon);}
-.icon-file{color:#ef4444;}
+.nav-link{
+padding:10px;
+border-radius:10px;
+cursor:pointer;
+margin-bottom:5px;
+}
+
+.nav-link:hover{background:#eee;}
+.nav-link.active{background:var(--primary);color:#fff;}
+
+/* MAIN */
+main{
+flex:1;
+padding:20px;
+overflow:auto;
+}
+
+.item{
+background:#fff;
+padding:15px;
+margin-bottom:10px;
+border-radius:10px;
+display:flex;
+justify-content:space-between;
+cursor:pointer;
+transition:0.2s;
+}
+
+.item:hover{
+transform:translateX(5px);
+border:1px solid var(--primary);
+}
+
+.icon-folder{color:var(--folder);}
+.icon-file{color:red;}
+
+.breadcrumb{
+margin-bottom:15px;
+color:gray;
+cursor:pointer;
+}
+
+/* CALCULADORA */
+.calc{
+max-width:300px;
+margin:auto;
+background:#1e293b;
+padding:20px;
+border-radius:20px;
+}
+
+.calc input{
+width:100%;
+height:50px;
+font-size:20px;
+margin-bottom:10px;
+text-align:right;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:5px;
+}
+
+button{
+height:50px;
+font-size:18px;
+cursor:pointer;
+}
 </style>
 </head>
 
@@ -39,120 +118,143 @@ main{flex:1;padding:40px;overflow-y:auto;}
 
 <nav>
 <div class="logo">MENDEL</div>
-<div class="nav-link" onclick="changeTab('materiais')">Materiais</div>
-<div class="nav-link" onclick="changeTab('calculadora')">Calculadora</div>
+
+<div class="nav-link active" onclick="changeTab('materiais',this)">Materiais</div>
+<div class="nav-link" onclick="changeTab('calc',this)">Calculadora</div>
 </nav>
 
 <main>
 
 <div id="materiais">
-<div id="breadcrumb">Início</div>
-<div id="list-container"></div>
+<div id="breadcrumb" class="breadcrumb">Início</div>
+<div id="list"></div>
 </div>
 
-<div id="calculadora" style="display:none;">
-<input id="scr" readonly>
+<div id="calc" style="display:none;">
+<div class="calc">
+<input id="display" readonly>
+
+<div class="grid">
+<button onclick="clr()">C</button>
+<button onclick="ins('/')">/</button>
+<button onclick="ins('*')">*</button>
+<button onclick="bk()">⌫</button>
+
+<button onclick="ins(7)">7</button>
+<button onclick="ins(8)">8</button>
+<button onclick="ins(9)">9</button>
+<button onclick="ins('-')">-</button>
+
+<button onclick="ins(4)">4</button>
+<button onclick="ins(5)">5</button>
+<button onclick="ins(6)">6</button>
+<button onclick="ins('+')">+</button>
+
 <button onclick="ins(1)">1</button>
-<button onclick="res()">=</button>
+<button onclick="ins(2)">2</button>
+<button onclick="ins(3)">3</button>
+<button onclick="calc()">=</button>
+</div>
+
+</div>
 </div>
 
 </main>
 
 <script>
 
-let db = [];
-let currentPath = "";
+let db=[];
+let path="";
 
-/* 🔥 PEGA O NOME DO REPOSITÓRIO AUTOMATICAMENTE */
+/* BASE DO GITHUB */
 const repo = window.location.pathname.split("/")[1];
+const BASE = "/" + repo + "/Estudos/";
 
-/* 🔥 BASE CORRETA DO GITHUB */
-const BASE = "/" + repo + "/";
-
-/* -------------------- */
+/* ---------------- */
 
 async function start(){
-const res = await fetch("dados.txt?v=" + Date.now());
-const txt = await res.text();
+let txt = await fetch("dados.txt?v="+Date.now()).then(r=>r.text());
 
-db = txt.split("\n")
-.map(l => l.trim())
-.filter(l => l !== "");
+db = txt.split("\n").map(l=>l.trim()).filter(l=>l);
 
 render();
 }
+
+/* ---------------- */
 
 function render(){
-const container = document.getElementById("list-container");
-container.innerHTML = "";
+let list=document.getElementById("list");
+list.innerHTML="";
 
-let folders = new Set();
-let files = [];
+let folders=new Set();
+let files=[];
 
-db.forEach(path => {
+db.forEach(p=>{
 
-let parts = path.split("/");
-
-if(currentPath === ""){
-if(parts.length > 1){
-folders.add(parts[0]);
+if(!path){
+let first=p.split("/")[0];
+if(p.includes("/")) folders.add(first);
+else files.push(p);
 }else{
-files.push(path);
-}
-}else{
-if(path.startsWith(currentPath)){
-let rest = path.replace(currentPath,"").replace(/^\/+/,"");
-let next = rest.split("/")[0];
+if(p.startsWith(path)){
+let rest=p.slice(path.length).replace(/^\/+/,"");
+let next=rest.split("/")[0];
 
-if(next && !next.includes(".")){
-folders.add(next);
-}else{
-files.push(path);
-}
+if(rest.includes("/")) folders.add(next);
+else files.push(p);
 }
 }
 
 });
 
-/* Pastas */
+/* pastas */
 folders.forEach(f=>{
-let div = document.createElement("div");
+let div=document.createElement("div");
 div.className="item";
-div.innerHTML = `<span><i class="fas fa-folder icon-folder"></i> ${f}</span>`;
+div.innerHTML=`<span><i class="fas fa-folder icon-folder"></i> ${f}</span>`;
 div.onclick=()=>{
-currentPath = currentPath ? currentPath + "/" + f : f;
+path = path ? path+"/"+f : f;
 render();
 };
-container.appendChild(div);
+list.appendChild(div);
 });
 
-/* Arquivos */
+/* arquivos */
 files.forEach(f=>{
-
-let a = document.createElement("a");
+let a=document.createElement("a");
 a.className="item";
 
-/* 🔥 LINK CORRIGIDO AQUI */
-a.href = BASE + "Estudos/" + f;
+/* 🔥 LINK CORRETO FINAL */
+a.href = BASE + f;
 
 a.target="_blank";
-a.innerHTML = `<span><i class="fas fa-file icon-file"></i> ${f.split("/").pop()}</span>`;
 
-container.appendChild(a);
+a.innerHTML=`<span><i class="fas fa-file icon-file"></i> ${f.split("/").pop()}</span>`;
+list.appendChild(a);
 });
 
 }
 
-/* -------------------- */
+/* ---------------- */
 
-function changeTab(tab){
-document.getElementById("materiais").style.display = tab==="materiais"?"block":"none";
-document.getElementById("calculadora").style.display = tab==="calculadora"?"block":"none";
+function changeTab(t,el){
+document.getElementById("materiais").style.display = t==="materiais"?"block":"none";
+document.getElementById("calc").style.display = t==="calc"?"block":"none";
+
+document.querySelectorAll(".nav-link").forEach(n=>n.classList.remove("active"));
+el.classList.add("active");
 }
 
-/* calculadora */
-function ins(v){scr.value+=v;}
-function res(){scr.value=eval(scr.value);}
+/* CALCULADORA */
+let d=document.getElementById("display");
+
+function ins(v){d.value+=v;}
+function clr(){d.value="";}
+function bk(){d.value=d.value.slice(0,-1);}
+function calc(){
+try{d.value=eval(d.value);}
+catch{d.value="Erro";}
+}
 
 start();
 
