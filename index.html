@@ -5,35 +5,149 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JN_PP</title>
 
-<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
-body{margin:0;font-family:sans-serif;background:#f4f6fb}
-nav{display:flex;background:#4361ee;color:#fff;padding:10px;justify-content:space-around}
-nav div{cursor:pointer;font-weight:bold}
-.active{border-bottom:2px solid #fff}
-.hidden{display:none}
-main{padding:20px}
+:root{
+--primary:#4361ee;
+--bg:#f8fafc;
+--card:#ffffff;
+--text:#1e293b;
+--sub:#64748b;
+}
 
-/* MATERIAIS */
-.item{background:#fff;padding:10px;margin:5px 0;border-radius:8px;cursor:pointer;display:flex;justify-content:space-between}
-.breadcrumb span{cursor:pointer;color:#4361ee;font-weight:bold}
+*{margin:0;padding:0;box-sizing:border-box}
 
-/* BOLETIM */
-.section{background:#fff;padding:10px;margin:10px 0;border-radius:10px}
-input{width:100%;margin:3px 0;padding:8px}
+body{
+font-family:'Inter',sans-serif;
+background:var(--bg);
+color:var(--text);
+display:flex;
+height:100vh;
+overflow:hidden;
+}
+
+/* SIDEBAR */
+nav{
+width:240px;
+background:var(--card);
+border-right:1px solid #e2e8f0;
+padding:30px 15px;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.logo{
+font-size:20px;
+font-weight:800;
+color:var(--primary);
+margin-bottom:20px;
+text-align:center;
+}
+
+.nav-btn{
+padding:12px;
+border-radius:10px;
+cursor:pointer;
+display:flex;
+gap:10px;
+align-items:center;
+color:var(--sub);
+font-weight:600;
+}
+
+.nav-btn:hover{background:#f1f5f9}
+.active{background:var(--primary);color:#fff}
+
+/* MAIN */
+main{
+flex:1;
+padding:30px;
+overflow:auto;
+}
+
+/* LISTA */
+.item{
+background:var(--card);
+padding:15px;
+border-radius:12px;
+margin-bottom:10px;
+display:flex;
+justify-content:space-between;
+cursor:pointer;
+border:1px solid #eef2f6;
+transition:0.2s;
+}
+
+.item:hover{
+transform:translateX(5px);
+border-color:var(--primary);
+}
+
+/* BREADCRUMB */
+.breadcrumb{
+margin-bottom:15px;
+color:var(--sub);
+font-size:14px;
+}
+
+.breadcrumb span{
+cursor:pointer;
+color:var(--primary);
+font-weight:600;
+}
 
 /* CALC */
-.calc input{width:100%;padding:10px;font-size:20px;margin-bottom:10px}
+.calc{
+max-width:300px;
+margin:auto;
+}
+
+.calc input{
+width:100%;
+padding:15px;
+font-size:20px;
+margin-bottom:10px;
+}
+
+/* BOLETIM */
+.section{
+background:var(--card);
+padding:15px;
+margin-bottom:15px;
+border-radius:12px;
+}
+
+input{
+width:100%;
+padding:8px;
+margin:5px 0;
+}
+
+button{
+padding:10px;
+border:none;
+border-radius:8px;
+background:var(--primary);
+color:#fff;
+cursor:pointer;
+margin-top:10px;
+}
+
+.hidden{display:none}
 </style>
 </head>
 
 <body>
 
 <nav>
-<div onclick="tab('mat')" class="active">Materiais</div>
-<div onclick="tab('calc')">Calculadora</div>
-<div onclick="tab('bol')">Boletim</div>
+<div class="logo">JN_PP</div>
+
+<div class="nav-btn active" onclick="tab('mat',this)">📁 Materiais</div>
+<div class="nav-btn" onclick="tab('calc',this)">🧮 Calculadora</div>
+<div class="nav-btn" onclick="tab('bol',this)">📊 Boletim</div>
+
 </nav>
 
 <main>
@@ -67,154 +181,121 @@ input{width:100%;margin:3px 0;padding:8px}
 
 <!-- BOLETIM -->
 <div id="bol" class="hidden">
-
-<input id="nome" placeholder="Nome do aluno">
-
 <div class="section">
-<h3>Exatas</h3>
+<input id="nome" placeholder="Nome do aluno">
 <input id="ex1e" placeholder="P1 Escrita">
 <input id="ex1t" placeholder="P1 Teste">
 <input id="ex2e" placeholder="P2 Escrita">
 <input id="ex2t" placeholder="P2 Teste">
 <input id="exv" placeholder="Valorada">
-</div>
-
-<div class="section">
-<h3>Humanas</h3>
-<input id="hum1e">
-<input id="hum1t">
-<input id="hum2e">
-<input id="hum2t">
-<input id="humv">
-</div>
-
-<div class="section">
-<h3>Filosofia</h3>
-<input id="fil1">
-<input id="fil2">
-</div>
-
-<div class="section">
-<h3>Sociologia</h3>
-<input id="soc1">
-<input id="soc2">
-</div>
-
-<button onclick="salvar()">Salvar</button>
 <button onclick="excel()">Gerar Excel</button>
-
+</div>
 </div>
 
 </main>
 
-<script type="module">
+<script>
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
-/* COLOCA SUA CONFIG AQUI */
-const firebaseConfig = {
-  apiKey: "AIzaSyAGKQBoVgIDJzYOOkzukhTc6eRSXwJEv5I",
-  authDomain: "estudos-ec2cf.firebaseapp.com",
-  projectId: "estudos-ec2cf",
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-/* TABS */
-window.tab=function(x){
+/* TROCA DE TELA */
+function tab(id,el){
 document.querySelectorAll("main > div").forEach(d=>d.classList.add("hidden"));
-document.getElementById(x).classList.remove("hidden");
+document.getElementById(id).classList.remove("hidden");
+document.querySelectorAll(".nav-btn").forEach(n=>n.classList.remove("active"));
+el.classList.add("active");
 }
 
-/* CALC */
-window.ins=v=>scr.value+=v;
-window.clr=()=>scr.value="";
-window.bk=()=>scr.value=scr.value.slice(0,-1);
-window.res=()=>{try{scr.value=eval(scr.value)}catch{scr.value="erro"}}
+/* CALCULADORA */
+function ins(v){scr.value+=v}
+function clr(){scr.value=""}
+function bk(){scr.value=scr.value.slice(0,-1)}
+function res(){try{scr.value=eval(scr.value)}catch{scr.value="erro"}}
 
-/* SALVAR */
-window.salvar=async function(){
-let nome=document.getElementById("nome").value;
-
-let dados={
-ex1e:ex1e.value,
-ex1t:ex1t.value,
-ex2e:ex2e.value,
-ex2t:ex2t.value,
-exv:exv.value
-};
-
-await setDoc(doc(db,"alunos",nome),dados);
-
-alert("Salvo!");
-}
-
-/* EXCEL */
-window.excel=function(){
-let ex=(+ex1e.value+ +ex1t.value+ +ex2e.value+ +ex2t.value+ +exv.value)/2;
-
-let dados=[
-["Aluno",nome.value],
-["Exatas",ex]
-];
-
-let wb=XLSX.utils.book_new();
-let ws=XLSX.utils.aoa_to_sheet(dados);
-XLSX.utils.book_append_sheet(wb,ws,"Boletim");
-XLSX.writeFile(wb,"boletim.xlsx");
+/* 🔥 CORREÇÃO DO 404 */
+function caminhoSeguro(path){
+return path.split('/').map(p=>encodeURIComponent(p)).join('/');
 }
 
 /* MATERIAIS */
-let dbtxt=[];
-let path="";
+let db=[];
+let current="";
 
-fetch("dados.txt")
+fetch("dados.txt?v="+Date.now())
 .then(r=>r.text())
 .then(t=>{
-dbtxt=t.split("\n").filter(l=>l.includes("/"));
+db=t.split("\n")
+.map(l=>l.trim())
+.filter(l=>l && !l.includes("[DIR]") && l.includes("/"));
 render();
 });
 
 function render(){
 let lista=document.getElementById("lista");
 lista.innerHTML="";
+
 let bc=document.getElementById("bc");
-bc.innerHTML="";
+bc.innerHTML=`<span onclick="go('')">Início</span>`;
 
-let parts=path.split("/").filter(Boolean);
+if(current){
 let acc="";
-bc.innerHTML='<span onclick="go(\'\')">Início</span>';
-
-parts.forEach(p=>{
+current.split("/").forEach(p=>{
 acc+=(acc?"/":"")+p;
 bc.innerHTML+=` > <span onclick="go('${acc}')">${p}</span>`;
 });
+}
 
 let pastas=new Set();
 let files=[];
 
-dbtxt.forEach(l=>{
-if(!l.startsWith(path))return;
-let rest=l.slice(path.length).replace(/^\/+/,'');
+db.forEach(p=>{
+if(!p.startsWith(current)) return;
+
+let rest=p.slice(current.length).replace(/^\/+/,'');
 let next=rest.split("/")[0];
-if(rest.includes("/"))pastas.add(next);
-else files.push(l);
+
+if(rest.includes("/")) pastas.add(next);
+else files.push(p);
 });
 
 pastas.forEach(p=>{
-lista.innerHTML+=`<div class="item" onclick="go('${path?path+'/':''}${p}')">${p}</div>`;
+let div=document.createElement("div");
+div.className="item";
+div.innerHTML=`📁 ${p}`;
+div.onclick=()=>go(current?current+"/"+p:p);
+lista.appendChild(div);
 });
 
 files.forEach(f=>{
-lista.innerHTML+=`<a class="item" target="_blank" href="${encodeURI(f)}">${f.split('/').pop()}</a>`;
+let a=document.createElement("a");
+a.className="item";
+a.href=caminhoSeguro(f);
+a.target="_blank";
+a.innerHTML=`📄 ${f.split("/").pop()}`;
+lista.appendChild(a);
 });
 }
 
-window.go=function(p){path=p;render()}
+function go(p){
+current=p;
+render();
+}
+
+/* EXCEL */
+function excel(){
+let ex=(+ex1e.value+ +ex1t.value+ +ex2e.value+ +ex2t.value+ +exv.value)/2;
+
+let wb=XLSX.utils.book_new();
+let ws=XLSX.utils.aoa_to_sheet([
+["Aluno",nome.value],
+["Exatas",ex]
+]);
+
+XLSX.utils.book_append_sheet(wb,ws,"Boletim");
+XLSX.writeFile(wb,"boletim.xlsx");
+}
 
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
 
 </body>
 </html>
