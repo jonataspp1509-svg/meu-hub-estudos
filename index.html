@@ -868,9 +868,6 @@ input, select{
   font-family: monospace;
 }
 
-
-
-
 </style>
 </head>
 
@@ -941,18 +938,20 @@ input, select{
   <div class="section-title">Gerenciador de materiais</div>
   <div id="pastaAtualTexto" class="help-text">Pasta atual: Início</div>
 
-  <div class="drive-box">
-    <div>
-      <strong>➕ Enviar novo arquivo</strong>
-      <div>
-        Caso você queira enviar um arquivo para adicionar no StudyFlow, anexe no Google Drive.
-      </div>
+ <div class="drive-box">
+  <div>
+    <strong>➕ Enviar novo arquivo</strong>
+    <div style="margin-top:6px; color:#555;">
+      Selecione um arquivo para adicionar localmente no StudyFlow.
     </div>
-
-    <a target="_blank" href="https://drive.google.com/drive/folders/1uIxIkbZmjycrylbR4_ypku6wIUN8s2x9?usp=drive_link">
-      Abrir Drive
-    </a>
   </div>
+
+  <input type="file" id="arquivoUpload" accept=".pdf,.doc,.docx,.png,.jpg" hidden>
+
+  <button onclick="document.getElementById('arquivoUpload').click()" class="btn">
+    📤 Selecionar arquivo
+  </button>
+</div>
 
   <div id="breadcrumb" class="breadcrumb"></div>
   <div id="lista" class="list"></div>
@@ -1094,15 +1093,6 @@ input, select{
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import {
-  getFirestore,
-  doc,
-  setDoc,
-  getDoc,
-  collection,
-  getDocs
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
 const firebaseConfig = {
   apiKey: "AIzaSyAGKQBoVgIDJzYOOkzukhTc6eRSXwJEv5I",
   authDomain: "estudos-ec2cf.firebaseapp.com",
@@ -1118,6 +1108,7 @@ window.firebaseSetDoc = setDoc;
 window.firebaseGetDoc = getDoc;
 window.firebaseCollection = collection;
 window.firebaseGetDocs = getDocs;
+
 </script>
 
 <script>
@@ -2024,6 +2015,56 @@ window.addEventListener("load", () => {
 function voltarInicioMateriais(){
   caminhoAtual = "";
   renderMateriais();
+}
+
+if("serviceWorker" in navigator){
+  navigator.serviceWorker.register("sw.js")
+    .then(() => console.log("StudyFlow offline ativado"))
+    .catch(err => console.log("Erro no offline:", err));
+}
+
+window.addEventListener("load", () => {
+  const input = document.getElementById("arquivoUpload");
+
+  if(!input) return;
+
+  input.addEventListener("change", (e) => {
+    const arquivo = e.target.files[0];
+
+    if(!arquivo) return;
+
+    const item = {
+      nome: arquivo.name,
+      tipo: arquivo.type,
+      data: new Date().toLocaleString("pt-BR")
+    };
+
+    let arquivosLocais = JSON.parse(localStorage.getItem("arquivosLocais") || "[]");
+    arquivosLocais.push(item);
+
+    localStorage.setItem("arquivosLocais", JSON.stringify(arquivosLocais));
+
+    alert("Arquivo adicionado localmente!");
+
+    mostrarArquivosLocais();
+  });
+
+  mostrarArquivosLocais();
+});
+
+function mostrarArquivosLocais(){
+  const lista = document.getElementById("lista");
+
+  if(!lista) return;
+
+  let arquivosLocais = JSON.parse(localStorage.getItem("arquivosLocais") || "[]");
+
+  arquivosLocais.forEach(arq => {
+    const div = document.createElement("div");
+    div.className = "item";
+    div.innerHTML = `📄 ${arq.nome} <small style="color:#64748b;">${arq.data}</small>`;
+    lista.prepend(div);
+  });
 }
 
 </script>
