@@ -13,25 +13,25 @@ EXTENSOES_PERMITIDAS = (
 )
 
 MATERIAS = {
-    "1": ("Fisica", ["Fabio", "Rocris", "Padua"]),
-    "2": ("Quimica", ["Renato", "Gabriel", "Thati"]),
-    "3": ("Biologia", ["Croti", "Murilo"]),
-    "4": ("Matematica", ["Larissa", "Fagundes", "Walter"]),
-    "5": ("Historia", ["Luciano", "Celcio"]),
-    "6": ("Geografia", ["Alex", "Bruno"]),
-    "7": ("Portugues", ["Ivan", "Odete"]),
-    "8": ("Ingles", []),
-    "9": ("Redacao", []),
-    "10": ("Filosofia", []),
-    "11": ("Sociologia", []),
-    "12": ("Vestibulares", []),
+    "1": ("fisica", ["fabio", "rocris", "padua"]),
+    "2": ("quimica", ["renato", "gabriel", "thati"]),
+    "3": ("biologia", ["croti", "murilo"]),
+    "4": ("matematica", ["larissa", "fagundes", "walter"]),
+    "5": ("historia", ["luciano", "celcio"]),
+    "6": ("geografia", ["alex", "bruno"]),
+    "7": ("portugues", ["ivan", "odete"]),
+    "8": ("ingles", []),
+    "9": ("redacao", []),
+    "10": ("filosofia", []),
+    "11": ("sociologia", []),
+    "12": ("vestibulares", []),
 }
 
 PERIODOS = {
-    "1": "1P",
-    "2": "2P",
-    "3": "3P",
-    "4": "4P"
+    "1": "1p",
+    "2": "2p",
+    "3": "3p",
+    "4": "4p"
 }
 
 
@@ -95,13 +95,13 @@ def escolher_destino():
         if materia in SEM_SERIE:
             destino = os.path.join(PASTA_ESTUDOS, materia, professor, periodo)
         else:
-            destino = os.path.join(PASTA_ESTUDOS, materia, "2 ANO M", professor, periodo)
+            destino = os.path.join(PASTA_ESTUDOS, materia, "2_ano_m", professor, periodo)
 
     elif materia == "Vestibulares":
         destino = os.path.join(PASTA_ESTUDOS, materia)
 
     else:
-        destino = os.path.join(PASTA_ESTUDOS, materia, "2 ANO M", periodo)
+        destino = os.path.join(PASTA_ESTUDOS, materia, "2_ano_m", periodo)
 
     return destino
 

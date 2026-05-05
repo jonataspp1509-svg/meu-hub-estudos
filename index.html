@@ -1349,7 +1349,6 @@ function abrirSecao(id, card){
   document.querySelectorAll(".dash-card").forEach(c => c.classList.remove("active"));
   card.classList.add("active");
 
-  if(id === "aprovados") carregarAprovados();
 }
 
 function caminhoSeguro(path){
@@ -2058,13 +2057,12 @@ function mostrarAtualizacoes(){
 // 🔗 COLE AQUI SEU LINK CSV
 const LINK_PLANILHA_CSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSUFxcFRPpVF6ApjFqKZcBAeJVlnQv3aY7_Hs89OI7Rv0iHB12AZiOx8g4SOO-QoP0YF_GhKNzty-i5/pub?output=csv";
 
-// 🚀 CARREGAR ARQUIVOS APROVADOS
 async function carregarAprovados(){
   const lista = document.getElementById("listaAprovados");
 
   if(!lista) return;
 
-  lista.innerHTML = `<div class="item">Carregando arquivos...</div>`;
+  lista.innerHTML = `<div class="item">Carregando...</div>`;
 
   try{
     const resposta = await fetch(LINK_PLANILHA_CSV);
@@ -2075,6 +2073,8 @@ async function carregarAprovados(){
 
     const iNome = cabecalho.indexOf("Seu nome");
     const iMateria = cabecalho.indexOf("Matéria");
+    const iProfessor = cabecalho.indexOf("Professor da matéria");
+    const iPeriodo = cabecalho.indexOf("Período");
     const iArquivo = cabecalho.indexOf("Envie seu arquivo");
     const iAprovado = cabecalho.indexOf("Aprovado");
 
@@ -2083,25 +2083,31 @@ async function carregarAprovados(){
     );
 
     if(aprovados.length === 0){
-      lista.innerHTML = `<div class="item">Nenhum arquivo aprovado ainda.</div>`;
+      lista.innerHTML = `<div class="item">Nenhum arquivo aprovado.</div>`;
       return;
     }
 
     lista.innerHTML = aprovados.map(linha => {
       const nome = linha[iNome] || "Aluno";
       const materia = linha[iMateria] || "Sem matéria";
+      const professor = linha[iProfessor] || "";
+      const periodo = linha[iPeriodo] || "";
       const arquivo = linha[iArquivo] || "#";
 
       return `
         <a class="item" href="${arquivo}" target="_blank">
-          📄 <strong>${materia}</strong> — ${nome}
+          📄 <strong>${materia}</strong>
+          ${professor ? `— ${professor}` : ""}
+          ${periodo ? `(${periodo})` : ""}
+          <br>
+          <small>Enviado por ${nome}</small>
         </a>
       `;
     }).join("");
 
   }catch(err){
     console.error(err);
-    lista.innerHTML = `<div class="item">Erro ao carregar arquivos.</div>`;
+    lista.innerHTML = `<div class="item">Erro ao carregar.</div>`;
   }
 }
 
