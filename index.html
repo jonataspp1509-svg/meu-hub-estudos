@@ -932,6 +932,7 @@ input, select{
   <div class="dash-card" onclick="abrirSecao('calculadora',this)">🧮 Calculadora</div>
   <div class="dash-card" onclick="abrirSecao('boletim',this)">📊 Boletim</div>
   <div class="dash-card" onclick="abrirSecao('desafios',this); carregarRanking()">🎮 Desafios</div>
+  <div class="dash-card" onclick="abrirSecao('atualizacoes',this)">🔔 Atualizações</div>
 </div>
 
 <section id="materiais" class="section active panel">
@@ -940,17 +941,14 @@ input, select{
 
  <div class="drive-box">
   <div>
-    <strong>➕ Enviar novo arquivo</strong>
-    <div style="margin-top:6px; color:#555;">
-      Selecione um arquivo para adicionar localmente no StudyFlow.
-    </div>
+    <strong>📤 Enviar arquivo</strong>
+    <div>Envie seu material para análise.</div>
   </div>
 
-  <input type="file" id="arquivoUpload" accept=".pdf,.doc,.docx,.png,.jpg" hidden>
-
-  <button onclick="document.getElementById('arquivoUpload').click()" class="btn">
-    📤 Selecionar arquivo
-  </button>
+  <a class="btn" target="_blank"
+     href="https://forms.gle/ax3QPcFapBAujCVF8">
+     Enviar arquivo
+  </a>
 </div>
 
   <div id="breadcrumb" class="breadcrumb"></div>
@@ -1057,6 +1055,18 @@ input, select{
       <div id="rankingJogo" class="rank-list"></div>
     </div>
   </div>
+</section>
+
+<section id="atualizacoes" class="section panel">
+  <div class="section-title">Atualizações recentes</div>
+  <div class="help-text">Arquivos adicionados recentemente no StudyFlow.</div>
+
+  <div id="listaAtualizacoes" class="list"></div>
+</section>
+
+<section id="aprovados" class="section panel">
+  <div class="section-title">📄 Arquivos aprovados</div>
+  <div id="listaAprovados"></div>
 </section>
 
 </div>
@@ -1332,12 +1342,14 @@ let perguntaAtual = 0;
 let estrelas = 0;
 let materiaAtualJogo = "";
 
-function abrirSecao(id,card){
-  document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+function abrirSecao(id, card){
+  document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
   document.getElementById(id).classList.add("active");
 
-  document.querySelectorAll(".dash-card").forEach(c=>c.classList.remove("active"));
+  document.querySelectorAll(".dash-card").forEach(c => c.classList.remove("active"));
   card.classList.add("active");
+
+  if(id === "aprovados") carregarAprovados();
 }
 
 function caminhoSeguro(path){
@@ -2023,48 +2035,74 @@ if("serviceWorker" in navigator){
     .catch(err => console.log("Erro no offline:", err));
 }
 
-window.addEventListener("load", () => {
-  const input = document.getElementById("arquivoUpload");
+function mostrarAtualizacoes(){
+  const lista = document.getElementById("listaAtualizacoes");
+  if(!lista) return;
 
-  if(!input) return;
+  const atualizacoes = JSON.parse(localStorage.getItem("atualizacoes") || "[]");
 
-  input.addEventListener("change", (e) => {
-    const arquivo = e.target.files[0];
+  if(atualizacoes.length === 0){
+    lista.innerHTML = `<div class="item">Nenhuma atualização ainda.</div>`;
+    return;
+  }
 
-    if(!arquivo) return;
+  lista.innerHTML = atualizacoes.map(a => `
+    <div class="item">
+      🔔 <strong>${a.nome}</strong>
+      <small style="color:#64748b;">${a.data}</small>
+    </div>
+  `).join("");
+}
 
-    const item = {
-      nome: arquivo.name,
-      tipo: arquivo.type,
-      data: new Date().toLocaleString("pt-BR")
-    };
 
-    let arquivosLocais = JSON.parse(localStorage.getItem("arquivosLocais") || "[]");
-    arquivosLocais.push(item);
+// 🔗 COLE AQUI SEU LINK CSV
+const LINK_PLANILHA_CSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSUFxcFRPpVF6ApjFqKZcBAeJVlnQv3aY7_Hs89OI7Rv0iHB12AZiOx8g4SOO-QoP0YF_GhKNzty-i5/pub?output=csv";
 
-    localStorage.setItem("arquivosLocais", JSON.stringify(arquivosLocais));
-
-    alert("Arquivo adicionado localmente!");
-
-    mostrarArquivosLocais();
-  });
-
-  mostrarArquivosLocais();
-});
-
-function mostrarArquivosLocais(){
-  const lista = document.getElementById("lista");
+// 🚀 CARREGAR ARQUIVOS APROVADOS
+async function carregarAprovados(){
+  const lista = document.getElementById("listaAprovados");
 
   if(!lista) return;
 
-  let arquivosLocais = JSON.parse(localStorage.getItem("arquivosLocais") || "[]");
+  lista.innerHTML = `<div class="item">Carregando arquivos...</div>`;
 
-  arquivosLocais.forEach(arq => {
-    const div = document.createElement("div");
-    div.className = "item";
-    div.innerHTML = `📄 ${arq.nome} <small style="color:#64748b;">${arq.data}</small>`;
-    lista.prepend(div);
-  });
+  try{
+    const resposta = await fetch(LINK_PLANILHA_CSV);
+    const texto = await resposta.text();
+
+    const linhas = texto.trim().split("\n").map(l => l.split(","));
+    const cabecalho = linhas[0];
+
+    const iNome = cabecalho.indexOf("Seu nome");
+    const iMateria = cabecalho.indexOf("Matéria");
+    const iArquivo = cabecalho.indexOf("Envie seu arquivo");
+    const iAprovado = cabecalho.indexOf("Aprovado");
+
+    const aprovados = linhas.slice(1).filter(linha =>
+      linha[iAprovado]?.trim().toUpperCase() === "SIM"
+    );
+
+    if(aprovados.length === 0){
+      lista.innerHTML = `<div class="item">Nenhum arquivo aprovado ainda.</div>`;
+      return;
+    }
+
+    lista.innerHTML = aprovados.map(linha => {
+      const nome = linha[iNome] || "Aluno";
+      const materia = linha[iMateria] || "Sem matéria";
+      const arquivo = linha[iArquivo] || "#";
+
+      return `
+        <a class="item" href="${arquivo}" target="_blank">
+          📄 <strong>${materia}</strong> — ${nome}
+        </a>
+      `;
+    }).join("");
+
+  }catch(err){
+    console.error(err);
+    lista.innerHTML = `<div class="item">Erro ao carregar arquivos.</div>`;
+  }
 }
 
 </script>
