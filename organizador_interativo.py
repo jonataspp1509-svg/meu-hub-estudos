@@ -34,9 +34,43 @@ PERIODOS = {
     "4": "4p"
 }
 
+# Matérias que NÃO usam a pasta 2_ano_m antes do professor
+SEM_SERIE = ["biologia"]
+
 
 def limpar_tela():
     os.system("cls" if os.name == "nt" else "clear")
+
+
+def pegar_pasta_existente(pasta_pai, nome_desejado):
+    """
+    Evita criar pasta duplicada por diferença de maiúscula/minúscula.
+    Exemplo: se já existe 'Biologia', ele usa 'Biologia' mesmo que o código peça 'biologia'.
+    """
+    if not os.path.exists(pasta_pai):
+        return os.path.join(pasta_pai, nome_desejado)
+
+    nome_normalizado = nome_desejado.strip().lower()
+
+    for item in os.listdir(pasta_pai):
+        caminho_item = os.path.join(pasta_pai, item)
+
+        if os.path.isdir(caminho_item) and item.strip().lower() == nome_normalizado:
+            return caminho_item
+
+    return os.path.join(pasta_pai, nome_desejado)
+
+
+def montar_caminho(*partes):
+    """
+    Monta o caminho sempre reaproveitando pastas que já existem.
+    """
+    caminho = partes[0]
+
+    for parte in partes[1:]:
+        caminho = pegar_pasta_existente(caminho, parte)
+
+    return caminho
 
 
 def esperar_arquivo_liberar(caminho):
@@ -89,21 +123,23 @@ def escolher_destino():
     periodo_id = escolher_opcao("🗓️ Escolha o período:", PERIODOS)
     periodo = PERIODOS[periodo_id]
 
-    SEM_SERIE = ["Biologia"]
-
     if professores:
         if materia in SEM_SERIE:
-            destino = os.path.join(PASTA_ESTUDOS, materia, professor, periodo)
+            # Exemplo: Estudos/biologia/croti/1p
+            destino = montar_caminho(PASTA_ESTUDOS, materia, professor, periodo)
         else:
-            destino = os.path.join(PASTA_ESTUDOS, materia, "2_ano_m", professor, periodo)
+            # Exemplo: Estudos/quimica/2_ano_m/renato/1p
+            destino = montar_caminho(PASTA_ESTUDOS, materia, "2_ano_m", professor, periodo)
 
-    elif materia == "Vestibulares":
-        destino = os.path.join(PASTA_ESTUDOS, materia)
+    elif materia == "vestibulares":
+        destino = montar_caminho(PASTA_ESTUDOS, materia)
 
     else:
-        destino = os.path.join(PASTA_ESTUDOS, materia, "2_ano_m", periodo)
+        # Exemplo: Estudos/filosofia/2_ano_m/1p
+        destino = montar_caminho(PASTA_ESTUDOS, materia, "2_ano_m", periodo)
 
     return destino
+
 
 def gerar_dados_txt():
     caminho_dados = os.path.join(PASTA_PROJETO, "dados.txt")
