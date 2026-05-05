@@ -1103,6 +1103,15 @@ input, select{
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  getDoc,
+  collection,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyAGKQBoVgIDJzYOOkzukhTc6eRSXwJEv5I",
   authDomain: "estudos-ec2cf.firebaseapp.com",
@@ -1118,6 +1127,8 @@ window.firebaseSetDoc = setDoc;
 window.firebaseGetDoc = getDoc;
 window.firebaseCollection = collection;
 window.firebaseGetDocs = getDocs;
+window.firebaseReady = true;
+window.dispatchEvent(new Event("firebaseReady"));
 
 </script>
 
@@ -1349,6 +1360,8 @@ function abrirSecao(id, card){
   document.querySelectorAll(".dash-card").forEach(c => c.classList.remove("active"));
   card.classList.add("active");
 
+  if(id === "desafios") carregarRanking();
+  if(id === "atualizacoes") mostrarAtualizacoes();
 }
 
 function caminhoSeguro(path){
@@ -1749,35 +1762,62 @@ async function iniciarJogo(){
   }
 
   const idTentativa = limparId(`${nome}_${materia}`);
-  const ref = window.firebaseDoc(window.firestore,"tentativas",idTentativa);
-  const snap = await window.firebaseGetDoc(ref);
-
   const agora = Date.now();
   const tresDias = 3 * 24 * 60 * 60 * 1000;
 
-  if(snap.exists()){
-    const ultima = snap.data().data || 0;
+  let ultima = 0;
 
-    if(agora - ultima < tresDias){
-      const falta = tresDias - (agora - ultima);
-      const horas = Math.ceil(falta / (1000 * 60 * 60));
+  // Tenta ler a tentativa pelo Firebase
+  try{
+    if(window.firestore && window.firebaseDoc && window.firebaseGetDoc){
+      const ref = window.firebaseDoc(window.firestore,"tentativas",idTentativa);
+      const snap = await window.firebaseGetDoc(ref);
 
-      document.getElementById("areaJogo").innerHTML = `
-        <div class="cooldown-box">
-          ⏳ Você já tentou esse desafio.<br>
-          Só poderá tentar novamente depois de 3 dias.<br>
-          Tempo aproximado restante: ${horas} hora(s).
-        </div>
-      `;
-      return;
+      if(snap.exists()){
+        ultima = snap.data().data || 0;
+      }
     }
+  }catch(erro){
+    console.warn("Firebase indisponível para tentativas. Usando localStorage.", erro);
   }
 
-  await window.firebaseSetDoc(ref,{
-    nome:nome,
-    materia:materia,
-    data:agora
-  });
+  // Se o Firebase não tiver dado, usa localStorage
+  const localTentativas = JSON.parse(localStorage.getItem("tentativasStudyFlow") || "{}");
+  if(!ultima && localTentativas[idTentativa]){
+    ultima = localTentativas[idTentativa];
+  }
+
+  if(ultima && agora - ultima < tresDias){
+    const falta = tresDias - (agora - ultima);
+    const horas = Math.ceil(falta / (1000 * 60 * 60));
+
+    document.getElementById("areaJogo").innerHTML = `
+      <div class="cooldown-box">
+        ⏳ Você já tentou esse desafio.<br>
+        Só poderá tentar novamente depois de 3 dias.<br>
+        Tempo aproximado restante: ${horas} hora(s).
+      </div>
+    `;
+    return;
+  }
+
+  // Salva tentativa local
+  localTentativas[idTentativa] = agora;
+  localStorage.setItem("tentativasStudyFlow", JSON.stringify(localTentativas));
+
+  // Tenta salvar tentativa no Firebase
+  try{
+    if(window.firestore && window.firebaseDoc && window.firebaseSetDoc){
+      const ref = window.firebaseDoc(window.firestore,"tentativas",idTentativa);
+      await window.firebaseSetDoc(ref,{
+        nome:nome,
+        materia:materia,
+        data:agora
+      });
+    }
+  }catch(erro){
+    console.warn("Não foi possível salvar tentativa no Firebase.", erro);
+  }
 
   materiaAtualJogo = materia;
   jogoAtual = embaralharPerguntas(perguntas[materia]);
@@ -1833,12 +1873,12 @@ function responder(i){
       <button class="btn-continuar" onclick="proximaPergunta()">➡️ Continuar</button>
     `;
   }else{
-    fb.innerText = `
+    fb.innerHTML = `
       <div class="feedback wrong">
         ❌ Errou!<br>
         Resposta correta: <strong>${p.a[p.c]}</strong><br><br>
         📘 <strong>Resolução:</strong><br>
-        ${p.explicacao || "Revise esse conteúdo no material da matéria."}
+        <div style="white-space:pre-line;margin-top:8px;">${p.explicacao || "Revise esse conteúdo no material da matéria."}</div>
       </div>
       <button class="btn-continuar" onclick="proximaPergunta()">➡️ Continuar</button>
     `;
@@ -1855,7 +1895,6 @@ async function finalizarJogo(){
 
   let antigas = 0;
 
-  // Primeiro tenta pegar as estrelas antigas do ranking local
   const rankingLocal = JSON.parse(localStorage.getItem("rankingStudyFlow") || "[]");
   const jogadorLocal = rankingLocal.find(j => limparId(j.nome) === limparId(nome));
 
@@ -1863,7 +1902,6 @@ async function finalizarJogo(){
     antigas = Number(jogadorLocal.estrelas) || 0;
   }
 
-  // Se o Firebase estiver funcionando, tenta pegar de lá também
   try{
     if(window.firestore && window.firebaseDoc && window.firebaseGetDoc){
       const ref = window.firebaseDoc(window.firestore, "ranking", limparId(nome));
@@ -1879,7 +1917,6 @@ async function finalizarJogo(){
 
   const total = antigas + estrelas;
 
-  // Salva sempre no ranking local para nunca ficar indisponível
   const semJogador = rankingLocal.filter(j => limparId(j.nome) !== limparId(nome));
 
   semJogador.push({
@@ -1889,7 +1926,6 @@ async function finalizarJogo(){
 
   localStorage.setItem("rankingStudyFlow", JSON.stringify(semJogador));
 
-  // Tenta salvar no Firebase também, mas se der erro o site continua funcionando
   try{
     if(window.firestore && window.firebaseDoc && window.firebaseSetDoc){
       const ref = window.firebaseDoc(window.firestore, "ranking", limparId(nome));
@@ -1923,36 +1959,65 @@ async function carregarRanking(){
 
   if(!ranking) return;
 
-  ranking.innerHTML = `<div class="rank-item">Carregando...</div>`;
+  ranking.innerHTML = `<div class="rank-item">Carregando ranking...</div>`;
 
-  if(typeof window.firebaseGetDocs !== "function" || typeof window.firebaseCollection !== "function"){
-    ranking.innerHTML = `<div class="rank-item">Ranking indisponível no momento.</div>`;
-    return;
+  let jogadores = [];
+
+  try{
+    jogadores = JSON.parse(localStorage.getItem("rankingStudyFlow") || "[]");
+  }catch{
+    jogadores = [];
   }
 
-  const snap = await window.firebaseGetDocs(
-    window.firebaseCollection(window.firestore,"ranking")
-  );
+  try{
+    if(!window.firebaseReady){
+      await new Promise(resolve => {
+        window.addEventListener("firebaseReady", resolve, { once:true });
+        setTimeout(resolve, 2000);
+      });
+    }
 
-  const jogadores = [];
+    if(window.firestore && window.firebaseGetDocs && window.firebaseCollection){
+      const snap = await window.firebaseGetDocs(
+        window.firebaseCollection(window.firestore, "ranking")
+      );
 
-  snap.forEach(doc=>{
-    jogadores.push(doc.data());
-  });
+      snap.forEach(documento => {
+        const dados = documento.data();
+        const nome = dados.nome || "Aluno";
+        const estrelas = Number(dados.estrelas) || 0;
 
-  jogadores.sort((a,b)=>(b.estrelas||0)-(a.estrelas||0));
+        const existe = jogadores.find(j => limparId(j.nome) === limparId(nome));
 
-  const top5 = jogadores.slice(0,5);
+        if(existe){
+          existe.estrelas = Math.max(Number(existe.estrelas) || 0, estrelas);
+        }else{
+          jogadores.push({ nome, estrelas });
+        }
+      });
+    }
+  }catch(erro){
+    console.warn("Firebase indisponível. Mostrando ranking local.", erro);
+  }
 
-  if(!top5.length){
+  jogadores = jogadores
+    .filter(j => j && j.nome)
+    .map(j => ({
+      nome:j.nome,
+      estrelas:Number(j.estrelas) || 0
+    }))
+    .sort((a,b) => b.estrelas - a.estrelas)
+    .slice(0,5);
+
+  if(jogadores.length === 0){
     ranking.innerHTML = `<div class="rank-item">Ninguém jogou ainda.</div>`;
     return;
   }
 
-  ranking.innerHTML = top5.map((j,i)=>`
+  ranking.innerHTML = jogadores.map((j,i)=>`
     <div class="rank-item">
-      <span>${i+1}º ${j.nome}</span>
-      <span>${"⭐".repeat(Math.min(j.estrelas,10))} ${j.estrelas}</span>
+      <span>${i + 1}º ${j.nome}</span>
+      <span>⭐ ${j.estrelas}</span>
     </div>
   `).join("");
 }
