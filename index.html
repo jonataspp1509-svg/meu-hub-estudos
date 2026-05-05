@@ -1103,6 +1103,16 @@ input, select{
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  getDoc,
+  collection,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyAGKQBoVgIDJzYOOkzukhTc6eRSXwJEv5I",
   authDomain: "estudos-ec2cf.firebaseapp.com",
@@ -1119,6 +1129,8 @@ window.firebaseGetDoc = getDoc;
 window.firebaseCollection = collection;
 window.firebaseGetDocs = getDocs;
 
+window.firebaseReady = true;
+window.dispatchEvent(new Event("firebaseReady"));
 </script>
 
 <script>
@@ -1889,39 +1901,63 @@ async function carregarRanking(){
 
   if(!ranking) return;
 
-  ranking.innerHTML = `<div class="rank-item">Carregando...</div>`;
+  ranking.innerHTML = `<div class="rank-item">Carregando ranking...</div>`;
 
-  if(typeof window.firebaseGetDocs !== "function" || typeof window.firebaseCollection !== "function"){
+  try{
+    // Espera o Firebase carregar, porque o script type="module" pode terminar depois do script normal.
+    if(!window.firebaseReady){
+      await new Promise(resolve => {
+        window.addEventListener("firebaseReady", resolve, { once:true });
+        setTimeout(resolve, 2500);
+      });
+    }
+
+    if(
+      !window.firestore ||
+      typeof window.firebaseGetDocs !== "function" ||
+      typeof window.firebaseCollection !== "function"
+    ){
+      ranking.innerHTML = `<div class="rank-item">Ranking indisponível no momento.</div>`;
+      return;
+    }
+
+    const snap = await window.firebaseGetDocs(
+      window.firebaseCollection(window.firestore, "ranking")
+    );
+
+    const jogadores = [];
+
+    snap.forEach(documento => {
+      const dados = documento.data();
+
+      jogadores.push({
+        nome: dados.nome || "Aluno",
+        estrelas: Number(dados.estrelas) || 0
+      });
+    });
+
+    jogadores.sort((a,b) => b.estrelas - a.estrelas);
+
+    const top5 = jogadores.slice(0,5);
+
+    if(top5.length === 0){
+      ranking.innerHTML = `<div class="rank-item">Ninguém jogou ainda.</div>`;
+      return;
+    }
+
+    ranking.innerHTML = top5.map((j,i)=>`
+      <div class="rank-item">
+        <span>${i + 1}º ${j.nome}</span>
+        <span>⭐ ${j.estrelas}</span>
+      </div>
+    `).join("");
+
+  }catch(erro){
+    console.error("Erro ao carregar ranking:", erro);
     ranking.innerHTML = `<div class="rank-item">Ranking indisponível no momento.</div>`;
-    return;
   }
-
-  const snap = await window.firebaseGetDocs(
-    window.firebaseCollection(window.firestore,"ranking")
-  );
-
-  const jogadores = [];
-
-  snap.forEach(doc=>{
-    jogadores.push(doc.data());
-  });
-
-  jogadores.sort((a,b)=>(b.estrelas||0)-(a.estrelas||0));
-
-  const top5 = jogadores.slice(0,5);
-
-  if(!top5.length){
-    ranking.innerHTML = `<div class="rank-item">Ninguém jogou ainda.</div>`;
-    return;
-  }
-
-  ranking.innerHTML = top5.map((j,i)=>`
-    <div class="rank-item">
-      <span>${i+1}º ${j.nome}</span>
-      <span>${"⭐".repeat(Math.min(j.estrelas,10))} ${j.estrelas}</span>
-    </div>
-  `).join("");
 }
+
 
 function verificarLogin(){
   const codigo = document.getElementById("codigoAcesso").value;
