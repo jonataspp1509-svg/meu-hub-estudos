@@ -1103,16 +1103,6 @@ input, select{
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-
-import {
-  getFirestore,
-  doc,
-  setDoc,
-  getDoc,
-  collection,
-  getDocs
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
 const firebaseConfig = {
   apiKey: "AIzaSyAGKQBoVgIDJzYOOkzukhTc6eRSXwJEv5I",
   authDomain: "estudos-ec2cf.firebaseapp.com",
@@ -1129,8 +1119,6 @@ window.firebaseGetDoc = getDoc;
 window.firebaseCollection = collection;
 window.firebaseGetDocs = getDocs;
 
-window.firebaseReady = true;
-window.dispatchEvent(new Event("firebaseReady"));
 </script>
 
 <script>
@@ -1865,21 +1853,55 @@ function proximaPergunta(){
 async function finalizarJogo(){
   const nome = document.getElementById("nomeJogador").value.trim();
 
-  const ref = window.firebaseDoc(window.firestore,"ranking",limparId(nome));
-  const snap = await window.firebaseGetDoc(ref);
-
   let antigas = 0;
 
-  if(snap.exists()){
-    antigas = snap.data().estrelas || 0;
+  // Primeiro tenta pegar as estrelas antigas do ranking local
+  const rankingLocal = JSON.parse(localStorage.getItem("rankingStudyFlow") || "[]");
+  const jogadorLocal = rankingLocal.find(j => limparId(j.nome) === limparId(nome));
+
+  if(jogadorLocal){
+    antigas = Number(jogadorLocal.estrelas) || 0;
+  }
+
+  // Se o Firebase estiver funcionando, tenta pegar de lá também
+  try{
+    if(window.firestore && window.firebaseDoc && window.firebaseGetDoc){
+      const ref = window.firebaseDoc(window.firestore, "ranking", limparId(nome));
+      const snap = await window.firebaseGetDoc(ref);
+
+      if(snap.exists()){
+        antigas = Number(snap.data().estrelas) || antigas;
+      }
+    }
+  }catch(erro){
+    console.warn("Firebase não respondeu ao buscar ranking. Usando ranking local.", erro);
   }
 
   const total = antigas + estrelas;
 
-  await window.firebaseSetDoc(ref,{
+  // Salva sempre no ranking local para nunca ficar indisponível
+  const semJogador = rankingLocal.filter(j => limparId(j.nome) !== limparId(nome));
+
+  semJogador.push({
     nome:nome,
     estrelas:total
   });
+
+  localStorage.setItem("rankingStudyFlow", JSON.stringify(semJogador));
+
+  // Tenta salvar no Firebase também, mas se der erro o site continua funcionando
+  try{
+    if(window.firestore && window.firebaseDoc && window.firebaseSetDoc){
+      const ref = window.firebaseDoc(window.firestore, "ranking", limparId(nome));
+
+      await window.firebaseSetDoc(ref,{
+        nome:nome,
+        estrelas:total
+      });
+    }
+  }catch(erro){
+    console.warn("Não foi possível salvar no Firebase. Ranking local salvo.", erro);
+  }
 
   document.getElementById("areaJogo").innerHTML = `
     <div class="feedback correct">
@@ -1901,63 +1923,39 @@ async function carregarRanking(){
 
   if(!ranking) return;
 
-  ranking.innerHTML = `<div class="rank-item">Carregando ranking...</div>`;
+  ranking.innerHTML = `<div class="rank-item">Carregando...</div>`;
 
-  try{
-    // Espera o Firebase carregar, porque o script type="module" pode terminar depois do script normal.
-    if(!window.firebaseReady){
-      await new Promise(resolve => {
-        window.addEventListener("firebaseReady", resolve, { once:true });
-        setTimeout(resolve, 2500);
-      });
-    }
-
-    if(
-      !window.firestore ||
-      typeof window.firebaseGetDocs !== "function" ||
-      typeof window.firebaseCollection !== "function"
-    ){
-      ranking.innerHTML = `<div class="rank-item">Ranking indisponível no momento.</div>`;
-      return;
-    }
-
-    const snap = await window.firebaseGetDocs(
-      window.firebaseCollection(window.firestore, "ranking")
-    );
-
-    const jogadores = [];
-
-    snap.forEach(documento => {
-      const dados = documento.data();
-
-      jogadores.push({
-        nome: dados.nome || "Aluno",
-        estrelas: Number(dados.estrelas) || 0
-      });
-    });
-
-    jogadores.sort((a,b) => b.estrelas - a.estrelas);
-
-    const top5 = jogadores.slice(0,5);
-
-    if(top5.length === 0){
-      ranking.innerHTML = `<div class="rank-item">Ninguém jogou ainda.</div>`;
-      return;
-    }
-
-    ranking.innerHTML = top5.map((j,i)=>`
-      <div class="rank-item">
-        <span>${i + 1}º ${j.nome}</span>
-        <span>⭐ ${j.estrelas}</span>
-      </div>
-    `).join("");
-
-  }catch(erro){
-    console.error("Erro ao carregar ranking:", erro);
+  if(typeof window.firebaseGetDocs !== "function" || typeof window.firebaseCollection !== "function"){
     ranking.innerHTML = `<div class="rank-item">Ranking indisponível no momento.</div>`;
+    return;
   }
-}
 
+  const snap = await window.firebaseGetDocs(
+    window.firebaseCollection(window.firestore,"ranking")
+  );
+
+  const jogadores = [];
+
+  snap.forEach(doc=>{
+    jogadores.push(doc.data());
+  });
+
+  jogadores.sort((a,b)=>(b.estrelas||0)-(a.estrelas||0));
+
+  const top5 = jogadores.slice(0,5);
+
+  if(!top5.length){
+    ranking.innerHTML = `<div class="rank-item">Ninguém jogou ainda.</div>`;
+    return;
+  }
+
+  ranking.innerHTML = top5.map((j,i)=>`
+    <div class="rank-item">
+      <span>${i+1}º ${j.nome}</span>
+      <span>${"⭐".repeat(Math.min(j.estrelas,10))} ${j.estrelas}</span>
+    </div>
+  `).join("");
+}
 
 function verificarLogin(){
   const codigo = document.getElementById("codigoAcesso").value;
