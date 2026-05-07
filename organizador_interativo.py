@@ -109,6 +109,50 @@ def escolher_opcao(titulo, opcoes):
 
         print("Opção inválida. Tente novamente.")
 
+def escolher_subpasta_final(destino_base):
+    while True:
+        os.makedirs(destino_base, exist_ok=True)
+
+        subpastas = [
+            p for p in os.listdir(destino_base)
+            if os.path.isdir(os.path.join(destino_base, p))
+        ]
+
+        print("\n📂 Onde você quer colocar o arquivo?")
+        print("0 - Colocar direto nesta pasta")
+
+        for i, pasta in enumerate(subpastas, start=1):
+            print(f"{i} - {pasta}")
+
+        print("N - Criar nova pasta")
+
+        escolha = input("Escolha: ").strip().lower()
+
+        if escolha == "0":
+            return destino_base
+
+        if escolha == "n":
+            nova = input("Nome da nova pasta: ").strip()
+            if nova:
+                destino_base = os.path.join(destino_base, nova)
+                os.makedirs(destino_base, exist_ok=True)
+                return destino_base
+
+        if escolha.isdigit():
+            indice = int(escolha)
+
+            if 1 <= indice <= len(subpastas):
+                destino_base = os.path.join(destino_base, subpastas[indice - 1])
+
+                continuar = input("Entrar nessa pasta e ver subpastas? (s/n): ").strip().lower()
+
+                if continuar == "s":
+                    continue
+
+                return destino_base
+
+        print("Opção inválida.")
+
 
 def escolher_destino():
     materia_id = escolher_opcao("📚 Escolha a matéria:", MATERIAS)
@@ -140,6 +184,7 @@ def escolher_destino():
         # Exemplo: Estudos/filosofia/2_ano_m/1p
         destino = montar_caminho(PASTA_ESTUDOS, materia, "2_ano_m", periodo)
 
+    destino = escolher_subpasta_final(destino)
     return destino
 
 
@@ -201,7 +246,9 @@ def enviar_github(nome_arquivo):
             f'git commit -m "Auto: {nome_arquivo}"',
             shell=True,
             text=True,
-            capture_output=True
+            capture_output=True,
+            encoding="utf-8",
+            errors="ignore"
         )
 
         if resultado.returncode != 0:
