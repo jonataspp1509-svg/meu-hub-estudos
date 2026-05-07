@@ -34,7 +34,8 @@ PERIODOS = {
     "4": "4p"
 }
 
-# Matérias que NÃO usam a pasta 2_ano_m antes do professor
+# Matérias que NÃO usam a pasta 2_ano_m antes dos professores.
+# Biologia fica assim: Estudos/biologia/croti/1p
 SEM_SERIE = ["biologia"]
 
 
@@ -45,7 +46,7 @@ def limpar_tela():
 def pegar_pasta_existente(pasta_pai, nome_desejado):
     """
     Evita criar pasta duplicada por diferença de maiúscula/minúscula.
-    Exemplo: se já existe 'Biologia', ele usa 'Biologia' mesmo que o código peça 'biologia'.
+    Exemplo: se já existe 'Biologia', ele usa essa pasta mesmo que o código peça 'biologia'.
     """
     if not os.path.exists(pasta_pai):
         return os.path.join(pasta_pai, nome_desejado)
@@ -63,7 +64,7 @@ def pegar_pasta_existente(pasta_pai, nome_desejado):
 
 def montar_caminho(*partes):
     """
-    Monta o caminho sempre reaproveitando pastas que já existem.
+    Monta o caminho sempre reaproveitando pastas já existentes.
     """
     caminho = partes[0]
 
@@ -132,6 +133,7 @@ def escolher_destino():
             destino = montar_caminho(PASTA_ESTUDOS, materia, "2_ano_m", professor, periodo)
 
     elif materia == "vestibulares":
+        # Exemplo: Estudos/vestibulares
         destino = montar_caminho(PASTA_ESTUDOS, materia)
 
     else:
@@ -162,6 +164,33 @@ def gerar_dados_txt():
     print("✅ dados.txt atualizado.")
 
 
+def gerar_atualizacoes(caminho_arquivo):
+    """
+    Cria/atualiza o arquivo atualizacoes.txt com os últimos arquivos adicionados.
+    O site pode ler esse arquivo para mostrar a aba 'Atualizações recentes'.
+    """
+    caminho_atualizacoes = os.path.join(PASTA_PROJETO, "atualizacoes.txt")
+
+    caminho_relativo = os.path.relpath(caminho_arquivo, PASTA_ESTUDOS)
+    caminho_relativo = caminho_relativo.replace("\\", "/")
+
+    linhas = []
+
+    if os.path.exists(caminho_atualizacoes):
+        with open(caminho_atualizacoes, "r", encoding="utf-8") as f:
+            linhas = [linha.strip() for linha in f.readlines() if linha.strip()]
+
+    linhas = [linha for linha in linhas if linha != caminho_relativo]
+    linhas.insert(0, caminho_relativo)
+    linhas = linhas[:20]
+
+    with open(caminho_atualizacoes, "w", encoding="utf-8") as f:
+        for linha in linhas:
+            f.write(linha + "\n")
+
+    print("✨ atualizacoes.txt atualizado.")
+
+
 def enviar_github(nome_arquivo):
     print("📤 Enviando para o GitHub...")
 
@@ -186,6 +215,9 @@ def enviar_github(nome_arquivo):
     except subprocess.CalledProcessError as erro:
         print("⚠️ Erro no Git.")
         print(erro)
+        print("\nDica: se o GitHub rejeitar o push, rode:")
+        print("git pull origin master --rebase")
+        print("git push origin master")
 
 
 def mover_arquivo(arquivo):
@@ -214,11 +246,12 @@ def mover_arquivo(arquivo):
     print(destino)
 
     gerar_dados_txt()
+    gerar_atualizacoes(destino)
     enviar_github(os.path.basename(destino))
 
 
 def monitorar():
-    print(f"🤖 StudyFlow Organizador ativado")
+    print("🤖 StudyFlow Organizador ativado")
     print(f"📂 Monitorando: {PASTA_DOWNLOADS}")
     print(f"📁 Projeto: {PASTA_PROJETO}")
     print("Pressione Ctrl+C para parar.\n")
