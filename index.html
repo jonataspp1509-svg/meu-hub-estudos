@@ -2210,6 +2210,55 @@ async function carregarAprovados(){
   }
 }
 
+async function mostrarAtualizacoes(){
+  const lista = document.getElementById("listaAtualizacoes");
+
+  if(!lista) return;
+
+  try{
+    const resposta = await fetch("atualizacoes.txt?v=" + Date.now());
+
+    const texto = await resposta.text();
+
+    const linhas = texto
+      .split("\n")
+      .map(l => l.trim())
+      .filter(l => l);
+
+    if(linhas.length === 0){
+      lista.innerHTML = `
+        <div class="item">
+          Nenhuma atualização ainda.
+        </div>
+      `;
+      return;
+    }
+
+    lista.innerHTML = linhas.map(caminho => {
+
+      const nomeArquivo = caminho.split("/").pop();
+
+      return `
+        <div class="item">
+          📄 ${nomeArquivo}
+          <br>
+          <small>${caminho}</small>
+        </div>
+      `;
+    }).join("");
+
+  }catch(err){
+
+    console.error(err);
+
+    lista.innerHTML = `
+      <div class="item">
+        Erro ao carregar atualizações.
+      </div>
+    `;
+  }
+}
+
 </script>
 
 </body>
