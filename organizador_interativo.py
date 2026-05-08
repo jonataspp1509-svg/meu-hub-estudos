@@ -34,8 +34,7 @@ PERIODOS = {
     "4": "4p"
 }
 
-# Matérias que NÃO usam a pasta 2_ano_m antes dos professores.
-# Biologia fica assim: Estudos/biologia/croti/1p
+# Biologia NÃO usa 2_ano_m antes dos professores.
 SEM_SERIE = ["biologia"]
 
 
@@ -44,10 +43,7 @@ def limpar_tela():
 
 
 def pegar_pasta_existente(pasta_pai, nome_desejado):
-    """
-    Evita criar pasta duplicada por diferença de maiúscula/minúscula.
-    Exemplo: se já existe 'Biologia', ele usa essa pasta mesmo que o código peça 'biologia'.
-    """
+    """Reaproveita pasta existente mesmo se tiver diferença de maiúscula/minúscula."""
     if not os.path.exists(pasta_pai):
         return os.path.join(pasta_pai, nome_desejado)
 
@@ -63,9 +59,7 @@ def pegar_pasta_existente(pasta_pai, nome_desejado):
 
 
 def montar_caminho(*partes):
-    """
-    Monta o caminho sempre reaproveitando pastas já existentes.
-    """
+    """Monta caminho reaproveitando pastas já existentes."""
     caminho = partes[0]
 
     for parte in partes[1:]:
@@ -109,7 +103,12 @@ def escolher_opcao(titulo, opcoes):
 
         print("Opção inválida. Tente novamente.")
 
+
 def escolher_subpasta_final(destino_base):
+    """
+    Depois de matéria/professor/período, pergunta em qual subpasta colocar.
+    Permite entrar em pastas existentes, colocar direto ou criar nova pasta/subpasta.
+    """
     while True:
         os.makedirs(destino_base, exist_ok=True)
 
@@ -117,6 +116,7 @@ def escolher_subpasta_final(destino_base):
             p for p in os.listdir(destino_base)
             if os.path.isdir(os.path.join(destino_base, p))
         ]
+        subpastas.sort(key=lambda x: x.lower())
 
         print("\n📂 Onde você quer colocar o arquivo?")
         print("0 - Colocar direto nesta pasta")
@@ -132,24 +132,46 @@ def escolher_subpasta_final(destino_base):
             return destino_base
 
         if escolha == "n":
-            nova = input("Nome da nova pasta: ").strip()
-            if nova:
+            while True:
+                nova = input("Nome da nova pasta: ").strip()
+
+                if not nova:
+                    print("Nome inválido.")
+                    continue
+
                 destino_base = os.path.join(destino_base, nova)
                 os.makedirs(destino_base, exist_ok=True)
+
+                print(f"✅ Pasta criada/selecionada: {destino_base}")
+
+                criar_mais = input("Quer criar uma subpasta dentro dela? (s/n): ").strip().lower()
+
+                if criar_mais == "s":
+                    continue
+
                 return destino_base
 
         if escolha.isdigit():
             indice = int(escolha)
 
             if 1 <= indice <= len(subpastas):
-                destino_base = os.path.join(destino_base, subpastas[indice - 1])
+                nova_pasta = os.path.join(destino_base, subpastas[indice - 1])
+
+                subpastas_internas = [
+                    p for p in os.listdir(nova_pasta)
+                    if os.path.isdir(os.path.join(nova_pasta, p))
+                ]
+
+                if not subpastas_internas:
+                    return nova_pasta
 
                 continuar = input("Entrar nessa pasta e ver subpastas? (s/n): ").strip().lower()
 
                 if continuar == "s":
+                    destino_base = nova_pasta
                     continue
 
-                return destino_base
+                return nova_pasta
 
         print("Opção inválida.")
 
@@ -165,8 +187,8 @@ def escolher_destino():
         prof_id = escolher_opcao("👨‍🏫 Escolha o professor:", prof_opcoes)
         professor = prof_opcoes[prof_id]
 
+    # Vestibulares não tem período.
     periodo = ""
-
     if materia != "vestibulares":
         periodo_id = escolher_opcao("🗓️ Escolha o período:", PERIODOS)
         periodo = PERIODOS[periodo_id]
@@ -187,8 +209,7 @@ def escolher_destino():
         # Exemplo: Estudos/filosofia/2_ano_m/1p
         destino = montar_caminho(PASTA_ESTUDOS, materia, "2_ano_m", periodo)
 
-    destino = escolher_subpasta_final(destino)
-    return destino
+    return escolher_subpasta_final(destino)
 
 
 def gerar_dados_txt():
@@ -213,10 +234,6 @@ def gerar_dados_txt():
 
 
 def gerar_atualizacoes(caminho_arquivo):
-    """
-    Cria/atualiza o arquivo atualizacoes.txt com os últimos arquivos adicionados.
-    O site pode ler esse arquivo para mostrar a aba 'Atualizações recentes'.
-    """
     caminho_atualizacoes = os.path.join(PASTA_PROJETO, "atualizacoes.txt")
 
     caminho_relativo = os.path.relpath(caminho_arquivo, PASTA_ESTUDOS)
