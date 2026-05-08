@@ -2133,25 +2133,6 @@ if("serviceWorker" in navigator){
     .catch(err => console.log("Erro no offline:", err));
 }
 
-function mostrarAtualizacoes(){
-  const lista = document.getElementById("listaAtualizacoes");
-  if(!lista) return;
-
-  const atualizacoes = JSON.parse(localStorage.getItem("atualizacoes") || "[]");
-
-  if(atualizacoes.length === 0){
-    lista.innerHTML = `<div class="item">Nenhuma atualização ainda.</div>`;
-    return;
-  }
-
-  lista.innerHTML = atualizacoes.map(a => `
-    <div class="item">
-      🔔 <strong>${a.nome}</strong>
-      <small style="color:#64748b;">${a.data}</small>
-    </div>
-  `).join("");
-}
-
 
 // 🔗 COLE AQUI SEU LINK CSV
 const LINK_PLANILHA_CSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSUFxcFRPpVF6ApjFqKZcBAeJVlnQv3aY7_Hs89OI7Rv0iHB12AZiOx8g4SOO-QoP0YF_GhKNzty-i5/pub?output=csv";
@@ -2211,52 +2192,65 @@ async function carregarAprovados(){
 }
 
 async function mostrarAtualizacoes(){
-  const lista = document.getElementById("listaAtualizacoes");
 
-  if(!lista) return;
+    const lista = document.getElementById("listaAtualizacoes");
 
-  try{
-    const resposta = await fetch("atualizacoes.txt?v=" + Date.now());
+    if(!lista) return;
 
-    const texto = await resposta.text();
+    try{
 
-    const linhas = texto
-      .split("\n")
-      .map(l => l.trim())
-      .filter(l => l);
+        const resposta = await fetch("./atualizacoes.txt?v=" + Date.now());
 
-    if(linhas.length === 0){
-      lista.innerHTML = `
-        <div class="item">
-          Nenhuma atualização ainda.
-        </div>
-      `;
-      return;
+        const texto = await resposta.text();
+
+        console.log(texto);
+
+        const linhas = texto
+            .split("\n")
+            .map(l => l.trim())
+            .filter(l => l);
+
+        if(linhas.length === 0){
+
+            lista.innerHTML = `
+                <div class="item">
+                    Nenhuma atualização ainda.
+                </div>
+            `;
+
+            return;
+        }
+
+        lista.innerHTML = linhas.map(caminho => {
+
+            const nome = caminho.split("/").pop();
+
+            return `
+                <a class="item"
+                   href="${BASE}Estudos/${caminhoSeguro(caminho)}"
+                   target="_blank">
+
+                    📄 <div>
+                        <strong>${nome}</strong>
+                        <br>
+                        <small>${caminho}</small>
+                    </div>
+
+                </a>
+            `;
+
+        }).join("");
+
+    }catch(erro){
+
+        console.error(erro);
+
+        lista.innerHTML = `
+            <div class="item">
+                Erro ao carregar atualizações.
+            </div>
+        `;
     }
-
-    lista.innerHTML = linhas.map(caminho => {
-
-      const nomeArquivo = caminho.split("/").pop();
-
-      return `
-        <div class="item">
-          📄 ${nomeArquivo}
-          <br>
-          <small>${caminho}</small>
-        </div>
-      `;
-    }).join("");
-
-  }catch(err){
-
-    console.error(err);
-
-    lista.innerHTML = `
-      <div class="item">
-        Erro ao carregar atualizações.
-      </div>
-    `;
-  }
 }
 
 </script>
