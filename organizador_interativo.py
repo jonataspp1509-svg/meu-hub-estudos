@@ -165,8 +165,11 @@ def escolher_destino():
         prof_id = escolher_opcao("👨‍🏫 Escolha o professor:", prof_opcoes)
         professor = prof_opcoes[prof_id]
 
-    periodo_id = escolher_opcao("🗓️ Escolha o período:", PERIODOS)
-    periodo = PERIODOS[periodo_id]
+    periodo = ""
+
+    if materia != "vestibulares":
+        periodo_id = escolher_opcao("🗓️ Escolha o período:", PERIODOS)
+        periodo = PERIODOS[periodo_id]
 
     if professores:
         if materia in SEM_SERIE:
