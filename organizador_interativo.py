@@ -9,7 +9,8 @@ PASTA_ESTUDOS = os.path.join(PASTA_PROJETO, "Estudos")
 
 EXTENSOES_PERMITIDAS = (
     ".pdf", ".docx", ".doc", ".pptx", ".ppt",
-    ".xlsx", ".xls", ".png", ".jpg", ".jpeg",".url"
+    ".xlsx", ".xls", ".png", ".jpg", ".jpeg",
+    ".url"
 )
 
 AREAS = {
@@ -128,6 +129,43 @@ def criar_pasta_com_subpastas(caminho_base):
         return caminho_base
 
 
+def criar_link_video(destino_base):
+    nome_link = input("Nome do vídeo/link: ").strip()
+
+    if not nome_link:
+        nome_link = "video"
+
+    url = input("Cole o link: ").strip()
+
+    if not url.startswith("http://") and not url.startswith("https://"):
+        print("Link inválido. Ele precisa começar com http:// ou https://")
+        return None
+
+    nome_arquivo = nome_link
+
+    if not nome_arquivo.lower().endswith(".url"):
+        nome_arquivo += ".url"
+
+    arquivo_url = os.path.join(destino_base, nome_arquivo)
+
+    if os.path.exists(arquivo_url):
+        nome, ext = os.path.splitext(nome_arquivo)
+        arquivo_url = os.path.join(destino_base, f"{nome}_{int(time.time())}{ext}")
+
+    with open(arquivo_url, "w", encoding="utf-8") as f:
+        f.write("[InternetShortcut]\n")
+        f.write(f"URL={url}\n")
+
+    print("\nLink criado:")
+    print(arquivo_url)
+
+    gerar_dados_txt()
+    gerar_atualizacoes(arquivo_url)
+    enviar_github(os.path.basename(arquivo_url))
+
+    return arquivo_url
+
+
 def escolher_subpasta_final(destino_base):
     while True:
         os.makedirs(destino_base, exist_ok=True)
@@ -139,10 +177,11 @@ def escolher_subpasta_final(destino_base):
 
         subpastas.sort(key=lambda x: x.lower())
 
-        print("\nOnde você quer colocar o arquivo/pasta?")
+        print("\nOnde você quer colocar o arquivo/pasta/link?")
         print(f"Pasta atual: {destino_base}")
-        print("0 - Colocar direto nesta pasta")
+        print("0 - Colocar arquivo/pasta direto nesta pasta")
         print("N - Criar nova pasta dentro desta pasta")
+        print("L - Adicionar link de vídeo nesta pasta")
 
         for i, pasta in enumerate(subpastas, start=1):
             print(f"{i} - {pasta}")
@@ -155,6 +194,10 @@ def escolher_subpasta_final(destino_base):
         if escolha == "n":
             return criar_pasta_com_subpastas(destino_base)
 
+        if escolha == "l":
+            criar_link_video(destino_base)
+            return None
+
         if escolha.isdigit():
             indice = int(escolha)
 
@@ -163,12 +206,13 @@ def escolher_subpasta_final(destino_base):
 
                 while True:
                     print(f"\nPasta selecionada: {pasta_escolhida}")
-                    print("1 - Colocar direto dentro desta pasta")
+                    print("1 - Colocar arquivo/pasta direto dentro desta pasta")
                     print("2 - Entrar nela e ver subpastas")
                     print("3 - Criar subpasta dentro dela")
-                    print("4 - Voltar")
+                    print("4 - Adicionar link de vídeo dentro dela")
+                    print("5 - Voltar")
 
-                    acao = input("Escolha: ").strip()
+                    acao = input("Escolha: ").strip().lower()
 
                     if acao == "1":
                         return pasta_escolhida
@@ -181,6 +225,10 @@ def escolher_subpasta_final(destino_base):
                         return criar_pasta_com_subpastas(pasta_escolhida)
 
                     if acao == "4":
+                        criar_link_video(pasta_escolhida)
+                        return None
+
+                    if acao == "5":
                         break
 
                     print("Opção inválida.")
@@ -321,6 +369,11 @@ def mover_item(nome_item):
     print(nome_item)
 
     destino_dir = escolher_destino()
+
+    # Se o usuário escolheu criar link, não há arquivo/pasta de download para mover.
+    if destino_dir is None:
+        return
+
     os.makedirs(destino_dir, exist_ok=True)
 
     destino = os.path.join(destino_dir, nome_item)
@@ -354,11 +407,22 @@ def item_valido(nome_item):
     return nome_item.lower().endswith(EXTENSOES_PERMITIDAS)
 
 
+def adicionar_link_manual():
+    limpar_tela()
+    print("Modo manual: adicionar link sem precisar baixar arquivo.")
+    destino = escolher_destino()
+
+    if destino is not None:
+        criar_link_video(destino)
+
+
 def monitorar():
     print("StudyFlow Organizador ativado")
     print(f"Monitorando: {PASTA_DOWNLOADS}")
     print(f"Projeto: {PASTA_PROJETO}")
-    print("Pressione Ctrl+C para parar.\n")
+    print("\nDica: para adicionar link sem baixar arquivo, feche e rode:")
+    print("python organizador_interativo.py link")
+    print("\nPressione Ctrl+C para parar.\n")
 
     vistos = set(os.listdir(PASTA_DOWNLOADS))
 
@@ -386,4 +450,9 @@ def monitorar():
 
 
 if __name__ == "__main__":
-    monitorar()
+    import sys
+
+    if len(sys.argv) > 1 and sys.argv[1].lower() == "link":
+        adicionar_link_manual()
+    else:
+        monitorar()
