@@ -12,6 +12,12 @@ EXTENSOES_PERMITIDAS = (
     ".xlsx", ".xls", ".png", ".jpg", ".jpeg"
 )
 
+AREAS = {
+    "1": "1AnoM",
+    "2": "2AnoM",
+    "3": "vestibulares"
+}
+
 MATERIAS = {
     "1": ("fisica", ["fabio", "rocris", "padua"]),
     "2": ("quimica", ["renato", "gabriel", "thati"]),
@@ -24,7 +30,6 @@ MATERIAS = {
     "9": ("redacao", []),
     "10": ("filosofia", []),
     "11": ("sociologia", []),
-    "12": ("vestibulares", []),
 }
 
 PERIODOS = {
@@ -34,16 +39,12 @@ PERIODOS = {
     "4": "4p"
 }
 
-# Biologia não usa a pasta 2_ano_m antes dos professores.
-SEM_SERIE = ["biologia"]
-
 
 def limpar_tela():
     os.system("cls" if os.name == "nt" else "clear")
 
 
 def pegar_pasta_existente(pasta_pai, nome_desejado):
-    """Evita criar pasta duplicada por diferença de maiúscula/minúscula."""
     if not os.path.exists(pasta_pai):
         return os.path.join(pasta_pai, nome_desejado)
 
@@ -67,7 +68,7 @@ def montar_caminho(*partes):
     return caminho
 
 
-def esperar_arquivo_liberar(caminho):
+def esperar_item_liberar(caminho):
     if os.path.isdir(caminho):
         return True
 
@@ -106,8 +107,7 @@ def escolher_opcao(titulo, opcoes):
         print("Opção inválida. Tente novamente.")
 
 
-def criar_pasta_em(caminho_base):
-    """Cria uma pasta e permite criar subpastas dentro dela."""
+def criar_pasta_com_subpastas(caminho_base):
     while True:
         nome = input("Nome da nova pasta: ").strip()
 
@@ -129,14 +129,6 @@ def criar_pasta_em(caminho_base):
 
 
 def escolher_subpasta_final(destino_base):
-    """
-    Permite:
-    - colocar direto na pasta atual;
-    - escolher uma pasta existente;
-    - entrar numa pasta existente e ver as subpastas;
-    - criar subpasta dentro de uma pasta existente;
-    - criar nova pasta e subpastas dentro dela.
-    """
     while True:
         os.makedirs(destino_base, exist_ok=True)
 
@@ -161,7 +153,7 @@ def escolher_subpasta_final(destino_base):
             return destino_base
 
         if escolha == "n":
-            return criar_pasta_em(destino_base)
+            return criar_pasta_com_subpastas(destino_base)
 
         if escolha.isdigit():
             indice = int(escolha)
@@ -186,7 +178,7 @@ def escolher_subpasta_final(destino_base):
                         break
 
                     if acao == "3":
-                        return criar_pasta_em(pasta_escolhida)
+                        return criar_pasta_com_subpastas(pasta_escolhida)
 
                     if acao == "4":
                         break
@@ -199,6 +191,13 @@ def escolher_subpasta_final(destino_base):
 
 
 def escolher_destino():
+    area_id = escolher_opcao("Escolha onde vai colocar:", AREAS)
+    area = AREAS[area_id]
+
+    if area == "vestibulares":
+        destino = montar_caminho(PASTA_ESTUDOS, "vestibulares")
+        return escolher_subpasta_final(destino)
+
     materia_id = escolher_opcao("Escolha a matéria:", MATERIAS)
     materia, professores = MATERIAS[materia_id]
 
@@ -209,24 +208,13 @@ def escolher_destino():
         prof_id = escolher_opcao("Escolha o professor:", prof_opcoes)
         professor = prof_opcoes[prof_id]
 
-    periodo = ""
-
-    # Vestibulares não tem período.
-    if materia != "vestibulares":
-        periodo_id = escolher_opcao("Escolha o período:", PERIODOS)
-        periodo = PERIODOS[periodo_id]
+    periodo_id = escolher_opcao("Escolha o período:", PERIODOS)
+    periodo = PERIODOS[periodo_id]
 
     if professores:
-        if materia in SEM_SERIE:
-            destino = montar_caminho(PASTA_ESTUDOS, materia, professor, periodo)
-        else:
-            destino = montar_caminho(PASTA_ESTUDOS, materia, "2_ano_m", professor, periodo)
-
-    elif materia == "vestibulares":
-        destino = montar_caminho(PASTA_ESTUDOS, materia)
-
+        destino = montar_caminho(PASTA_ESTUDOS, area, materia, professor, periodo)
     else:
-        destino = montar_caminho(PASTA_ESTUDOS, materia, "2_ano_m", periodo)
+        destino = montar_caminho(PASTA_ESTUDOS, area, materia, periodo)
 
     return escolher_subpasta_final(destino)
 
@@ -322,7 +310,7 @@ def enviar_github(nome_item):
 def mover_item(nome_item):
     origem = os.path.join(PASTA_DOWNLOADS, nome_item)
 
-    if not esperar_arquivo_liberar(origem):
+    if not esperar_item_liberar(origem):
         return
 
     limpar_tela()

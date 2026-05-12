@@ -68,6 +68,7 @@
 2AnoM/geografia/alex/1p/sistemas_de_comunicacao_no_brasil_e_no_mundo.pptx
 2AnoM/geografia/alex/1p/sistemas_de_transporte_no_brasil.pptx
 2AnoM/geografia/alex/1p/sistemas_de_transporte_no_mundo.pptx
+2AnoM/geografia/alex/2p/Slides/L5FAC1_Urbanização Mundial.pptx
 2AnoM/geografia/bruno/1p/gabarito_2em_geo_geral_1a_etapa_1o_periodo_2026.pdf
 2AnoM/geografia/bruno/1p/gabarito_2em_geo_geral_2a_etapa_1o_periodo_2026.pdf
 2AnoM/geografia/bruno/1p/tema_01_evolucao_da_populacao_mundial.pdf
@@ -174,8 +175,6 @@
 2AnoM/sociologia/1p/slides/material_2_-_teorias_politicas_e_estado_moderno.pptx
 2AnoM/sociologia/1p/textos_complementares/tc1_-_politica_poder_e_estado_estado_e_legitimidade_do_poder.pdf
 2AnoM/sociologia/1p/textos_complementares/tc2_-_povo_e_nacao.pdf
-geografia/2_ano_m/alex/2p/Slides/L5FAC1_Urbanização Mundial.pptx
-geografia/2_ano_m/alex/2p/Slides/L5FAC2_Redes e Hierarquia Urbana.pptx
 vestibulares/Enem/Enem 2025 - Copia/Enem Dia 1_2025_AMARELO__7aa6ffc6-4b96-412c-acef-469618a6941b.pdf
 vestibulares/Enem/Enem 2025 - Copia/Enem Dia 1_2025_Azul__845a0661-6a0c-44ed-9115-91f199a2c3c5.pdf
 vestibulares/Enem/Enem 2025 - Copia/Enem Dia 1_2025_Verde__95f7afd9-1e6b-4aac-b6a0-b840236c917e.pdf
