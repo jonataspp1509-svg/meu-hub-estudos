@@ -9,7 +9,7 @@ PASTA_ESTUDOS = os.path.join(PASTA_PROJETO, "Estudos")
 
 EXTENSOES_PERMITIDAS = (
     ".pdf", ".docx", ".doc", ".pptx", ".ppt",
-    ".xlsx", ".xls", ".png", ".jpg", ".jpeg"
+    ".xlsx", ".xls", ".png", ".jpg", ".jpeg",".url"
 )
 
 AREAS = {
