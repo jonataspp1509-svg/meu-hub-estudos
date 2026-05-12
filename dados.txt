@@ -39,6 +39,7 @@
 2AnoM/fisica/fabio/1p/lista_03_-_pressao_hidrostatica_e_teorema_de_stevin_-_aluno.pdf
 2AnoM/fisica/fabio/1p/lista_03_pressao_hidrostatica_e_teorema_de_stevin_-_gabarito.pdf
 2AnoM/fisica/fabio/1p/lista_04_aplicacoes_da_lei_de_stevin_-_aluno.pdf
+2AnoM/fisica/fabio/2p/Lista 04 – Aplicações da Lei de Stevin - Aluno (2).pdf
 2AnoM/fisica/fabio/2p/lista_05_principio_de_pascal_-_aluno.pdf
 2AnoM/fisica/rocris/1p/2em_-_1o_periodo/exercicios_1_serie_-_dinamica/plano_inclinado_-_exercicios.pdf
 2AnoM/fisica/rocris/1p/2em_-_1o_periodo/exercicios_1_serie_-_dinamica/plano_inclinado_-_exercicios_-_resolucao.pdf
