@@ -1447,35 +1447,21 @@ function renderMateriais(){
 }
 
 async function abrirAtalhoUrl(file){
-  try{
-    const resposta = await fetch(BASE + "Estudos/" + caminhoSeguro(file) + "?v=" + Date.now(), {
-      cache: "no-store"
-    });
+  const resposta = await fetch(BASE + "Estudos/" + caminhoSeguro(file) + "?v=" + Date.now());
+  const texto = await resposta.text();
 
-    const texto = await resposta.text();
+  const linhaUrl = texto
+    .split("\n")
+    .map(l => l.trim())
+    .find(l => l.toLowerCase().startsWith("url="));
 
-    const linhaUrl = texto
-      .split("\n")
-      .map(l => l.trim())
-      .find(l => l.toLowerCase().startsWith("url="));
-
-    if(!linhaUrl){
-      alert("Esse atalho não tem link válido.");
-      return;
-    }
-
-    const url = linhaUrl.substring(4).trim();
-
-    if(!url.startsWith("http://") && !url.startsWith("https://")){
-      alert("Link inválido no atalho.");
-      return;
-    }
-
-    window.open(url, "_blank");
-  }catch(erro){
-    console.error(erro);
-    alert("Erro ao abrir o link.");
+  if(!linhaUrl){
+    alert("Link inválido.");
+    return;
   }
+
+  const url = linhaUrl.substring(4).trim();
+  window.open(url, "_blank");
 }
 
 function irPara(path){
