@@ -2,6 +2,7 @@ import os
 import shutil
 import time
 import subprocess
+import html
 
 PASTA_DOWNLOADS = os.path.expanduser("~/Downloads")
 PASTA_PROJETO = os.getcwd()
@@ -10,7 +11,7 @@ PASTA_ESTUDOS = os.path.join(PASTA_PROJETO, "Estudos")
 EXTENSOES_PERMITIDAS = (
     ".pdf", ".docx", ".doc", ".pptx", ".ppt",
     ".xlsx", ".xls", ".png", ".jpg", ".jpeg",
-    ".url"
+    ".html"
 )
 
 AREAS = {
@@ -143,27 +144,45 @@ def criar_link_video(destino_base):
 
     nome_arquivo = nome_link
 
-    if not nome_arquivo.lower().endswith(".url"):
-        nome_arquivo += ".url"
+    if not nome_arquivo.lower().endswith(".html"):
+        nome_arquivo += ".html"
 
-    arquivo_url = os.path.join(destino_base, nome_arquivo)
+    arquivo_html = os.path.join(destino_base, nome_arquivo)
 
-    if os.path.exists(arquivo_url):
+    if os.path.exists(arquivo_html):
         nome, ext = os.path.splitext(nome_arquivo)
-        arquivo_url = os.path.join(destino_base, f"{nome}_{int(time.time())}{ext}")
+        arquivo_html = os.path.join(destino_base, f"{nome}_{int(time.time())}{ext}")
 
-    with open(arquivo_url, "w", encoding="utf-8") as f:
-        f.write("[InternetShortcut]\n")
-        f.write(f"URL={url}\n")
+    titulo_seguro = html.escape(nome_link)
+    url_segura = html.escape(url, quote=True)
 
-    print("\nLink criado:")
-    print(arquivo_url)
+    conteudo = f"""<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>{titulo_seguro}</title>
+<meta http-equiv="refresh" content="0; url={url_segura}">
+<script>
+window.location.href = "{url_segura}";
+</script>
+</head>
+<body>
+<p>Redirecionando...</p>
+<a href="{url_segura}">Clique aqui para abrir o link</a>
+</body>
+</html>"""
+
+    with open(arquivo_html, "w", encoding="utf-8") as f:
+        f.write(conteudo)
+
+    print("\nLink HTML criado:")
+    print(arquivo_html)
 
     gerar_dados_txt()
-    gerar_atualizacoes(arquivo_url)
-    enviar_github(os.path.basename(arquivo_url))
+    gerar_atualizacoes(arquivo_html)
+    enviar_github(os.path.basename(arquivo_html))
 
-    return arquivo_url
+    return arquivo_html
 
 
 def escolher_subpasta_final(destino_base):
@@ -370,7 +389,6 @@ def mover_item(nome_item):
 
     destino_dir = escolher_destino()
 
-    # Se o usuário escolheu criar link, não há arquivo/pasta de download para mover.
     if destino_dir is None:
         return
 
