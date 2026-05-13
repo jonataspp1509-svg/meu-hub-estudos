@@ -1421,61 +1421,24 @@ function renderMateriais(){
 
 
   files.sort().forEach(file=>{
+    const nomeArquivo = file.split("/").pop();
 
-  const nomeArquivo = file.split("/").pop();
+    if(nomeArquivo.toLowerCase().endsWith(".url")){
+      const div = document.createElement("div");
+      div.className = "item";
+      div.innerHTML = `🔗 <span>${nomeArquivo.replace(/\.url$/i,"")}</span>`;
+      div.onclick = () => abrirAtalhoUrl(file);
+      lista.appendChild(div);
+      return;
+    }
 
-  if(nomeArquivo.toLowerCase().endsWith(".url")){
-
-    const div = document.createElement("div");
-    div.className = "item";
-
-    div.innerHTML = `
-      🔗 <span>${nomeArquivo.replace(".url","")}</span>
-    `;
-
-    div.onclick = async ()=>{
-
-      try{
-
-        const resposta = await fetch(
-          BASE + "Estudos/" + caminhoSeguro(file)
-        );
-
-        const texto = await resposta.text();
-
-        const linha = texto
-          .split("\n")
-          .find(l=>l.startsWith("URL="));
-
-        if(!linha){
-          alert("Link inválido.");
-          return;
-        }
-
-        const url = linha.replace("URL=","").trim();
-
-        window.open(url, "_blank");
-
-      }catch(err){
-        console.error(err);
-        alert("Erro ao abrir link.");
-      }
-
-    };
-
-    lista.appendChild(div);
-
-    return;
-  }
-
-  const a = document.createElement("a");
-  a.className = "item";
-  a.href = BASE + "Estudos/" + caminhoSeguro(file);
-  a.target = "_blank";
-  a.innerHTML = `📄 <span>${nomeArquivo}</span>`;
-  lista.appendChild(a);
-
-});
+    const a = document.createElement("a");
+    a.className = "item";
+    a.href = BASE + "Estudos/" + caminhoSeguro(file);
+    a.target = "_blank";
+    a.innerHTML = `📄 <span>${nomeArquivo}</span>`;
+    lista.appendChild(a);
+  });
 
 
   if(!pastas.size && !files.length){
@@ -1485,7 +1448,10 @@ function renderMateriais(){
 
 async function abrirAtalhoUrl(file){
   try{
-    const resposta = await fetch(BASE + "Estudos/" + caminhoSeguro(file) + "?v=" + Date.now());
+    const resposta = await fetch(BASE + "Estudos/" + caminhoSeguro(file) + "?v=" + Date.now(), {
+      cache: "no-store"
+    });
+
     const texto = await resposta.text();
 
     const linhaUrl = texto
@@ -2207,11 +2173,41 @@ function voltarInicioMateriais(){
   renderMateriais();
 }
 
-if("serviceWorker" in navigator){
-  navigator.serviceWorker.register("sw.js")
-    .then(() => console.log("StudyFlow offline ativado"))
+const APP_VERSION = "studyflow-links-url-v2";
+
+async function atualizarCacheDoApp(){
+  if(!("serviceWorker" in navigator)) return;
+
+  const versaoSalva = localStorage.getItem("studyflow_app_version");
+
+  if(versaoSalva !== APP_VERSION){
+    const registros = await navigator.serviceWorker.getRegistrations();
+    for(const registro of registros){
+      await registro.unregister();
+    }
+
+    const nomesCache = await caches.keys();
+    for(const nome of nomesCache){
+      await caches.delete(nome);
+    }
+
+    localStorage.setItem("studyflow_app_version", APP_VERSION);
+
+    if(!location.search.includes("v=")){
+      location.href = location.pathname + "?v=" + Date.now();
+      return;
+    }
+  }
+
+  navigator.serviceWorker.register("sw.js?v=" + APP_VERSION)
+    .then(registro => {
+      registro.update();
+      console.log("StudyFlow offline atualizado");
+    })
     .catch(err => console.log("Erro no offline:", err));
 }
+
+atualizarCacheDoApp();
 
 
 // 🔗 COLE AQUI SEU LINK CSV
@@ -2304,6 +2300,19 @@ async function mostrarAtualizacoes(){
         lista.innerHTML = linhas.map(caminho => {
 
             const nome = caminho.split("/").pop();
+
+            if(nome.toLowerCase().endsWith(".url")){
+                const caminhoJS = caminho.replace(/\\/g, "\\\\").replace(/'/g, "\\'");
+                return `
+                    <div class="item" onclick="abrirAtalhoUrl('${caminhoJS}')">
+                        🔗 <div>
+                            <strong>${nome.replace(/\.url$/i,"")}</strong>
+                            <br>
+                            <small>${caminho}</small>
+                        </div>
+                    </div>
+                `;
+            }
 
             return `
                 <a class="item"
