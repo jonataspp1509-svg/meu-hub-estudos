@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>StudyFlow</title>
 
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#4f46e5">
+
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
 
@@ -933,6 +937,11 @@ input, select{
   <div class="dash-card" onclick="abrirSecao('boletim',this)">📊 Boletim</div>
   <div class="dash-card" onclick="abrirSecao('desafios',this); carregarRanking()">🎮 Desafios</div>
   <div class="dash-card" onclick="abrirSecao('atualizacoes',this)">🔔 Atualizações</div>
+
+ <button id="installBtn" class="dash-card" style="display:none;">
+        📲 Baixar app
+    </button>
+
 </div>
 
 <section id="materiais" class="section active panel">
@@ -2327,6 +2336,27 @@ async function mostrarAtualizacoes(){
         `;
     }
 }
+
+
+let installPrompt = null;
+
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  installPrompt = e;
+
+  const btn = document.getElementById("installBtn");
+  if(btn) btn.style.display = "block";
+});
+
+document.getElementById("installBtn")?.addEventListener("click", async () => {
+  if(!installPrompt) return;
+
+  installPrompt.prompt();
+  await installPrompt.userChoice;
+
+  installPrompt = null;
+  document.getElementById("installBtn").style.display = "none";
+});
 
 </script>
 
