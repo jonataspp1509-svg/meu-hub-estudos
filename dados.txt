@@ -1,3 +1,585 @@
+1AnoM/biologia/Biologia - 1EM - Rec/2025/02/27 - REC 01 - Características Gerais - Substâncias Inorgânicas - Classificação BIológica.pdf
+1AnoM/biologia/Biologia - 1EM - Rec/2025/02/27 - REC 01 - Gabarito.pdf
+1AnoM/biologia/Biologia - 1EM - Rec/2025/03/27 - REC 02 - Cladogramas e Neodarwinismo.pdf
+1AnoM/biologia/Biologia - 1EM - Rec/2025/03/27 - REC 02 - gabarito.pdf
+1AnoM/biologia/Biologia - 1EM - Rec/2025/04/10 - REC 03 - Proteínas - Gabarito.pdf
+1AnoM/biologia/Biologia - 1EM - Rec/2025/04/10 - REC 03 - Proteínas.pdf
+1AnoM/biologia/Biologia - 1EM - Rec/2025/05/22 - REC 04 - Bacterioses - gabarito.pdf
+1AnoM/biologia/Biologia - 1EM - Rec/2025/05/22 - REC 04 - Bacterioses.pdf
+1AnoM/biologia/Biologia - 1EM - Rec/2025/06/12 - REC 05 - Ácidos Nucleicos.pdf
+1AnoM/biologia/Biologia - 1EM - Rec/2025/08/21 - REC 06 - Embriologia dos Animais.pdf
+1AnoM/biologia/Biologia - 1EM - Rec/2025/09/18 - REC 07 - Secreção e Digestão Celular.pdf
+1AnoM/biologia/Biologia - 1EM - Rec/2025/10/23 - REC 08 - Verminoses.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 1P/02 - Aula 01 - Vida.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 1P/03 - Aula 04 - Doenças Bacterianas.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 1P/05 - Aula 02 - Classificação Biológica - Gabarito dos Exercícios.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 1P/08 - Aula 03 - Procariontes - Exercícios.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 1P/09 - Aula 03 - Procariontes.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 1P/18 - Aula 02 - Classificação Biológica.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 2P/01 - Aula 05 - Antibióticos.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 2P/07 - Aula 06 - Protozoários.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 2P/12 - Aula 07 - Doenças causadas por Protozoários.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 2P/25 - Aula 07 - Exercícios de Revisão - Procariontes e Eucariontes.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 3P/01 - Aula 12 - Platelmintos - Principais Verminoses.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 3P/04 - Aula 09 - Poríferos.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 3P/09 - Aula 13 - Nematelmintos.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 3P/11 - Aula 10 - Cnidários.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 3P/18 - Aula 11 - Platelmintos.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 3P/24 - Aula 08 - Embriologia dos Animais.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 3P/24 - Aula 08 - Esquema de Embriologia - Pág01.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 3P/24 - Aula 08 - Esquema de Embriologia - Pág02.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 3P/24 - Aula 08 - Tabela dos Animais.png
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 4P/20250922 - Aula 14 - Nematelmintos - Principais Verminoses.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 4P/20251006 - Aula 15 - Moluscos.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 4P/20251013 - Aula 16 - Anelídeos.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 4P/20251020 - Aula 17 - Artrópodes.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 4P/20251020 - Tabela de Artrópodes.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 4P/20251027 - LAB 03 - Artrópodes.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 4P/20251103 - Aula 18 - Equinodermos.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 4P/20251110 - Aula 19 - Cordados - Cladograma.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 4P/20251110 - Aula 19 - Cordados.pdf
+1AnoM/biologia/biodiversidade/Biodiv - 1EM - 4P/APV - CN - 4º Período - Rubrica de Correção.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/PDFs de aula/07-02 - Carcteristicas dos seres vivos.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/PDFs de aula/07-04 - Lipídeos - Cópia.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/PDFs de aula/10-02 - Composição dos seres vivos Compostos inorgânicos - Agua e sais minerais.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/PDFs de aula/23-02 - Proteinas - Cópia.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/PDFs de aula/30-03_Compostos orgânicos_Carboidratos.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/Provas e APVs/Resolução_APV_CN.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/Provas e APVs/Resolução_biocel_av_1e_1p.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/Provas e APVs/resolução__biocel_av_2e_1p.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/Resoluções de Tarefas/01-03-Resolução_Lista_Compostos inorgânicos.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/Resoluções de Tarefas/10-04_Resolução_Tarefa_Proteínas.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/Resoluções de Tarefas/12-05Respostas_Lista_Carboidratos e lipídeos.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/Resoluções de Tarefas/18-02-RESOLUÇÃO-Lista_Características dos seres vivos.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/Tarefas/07-02 - Lista_Características dos seres vivos.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/Tarefas/17-02-Lista_Compostos inorgânicos-Água e Minerais.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/Tarefas/28-04_Tarefa_Carboidratos e lipídeos.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/Tarefas/30-03_Tarefa_Proteínas.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 2P/2º Perído - Ricardo - Biologia Celular/Laboratórios/01-06_RESOLUÇÃO_Laboratório_02 - Difusão e Osmose [V2].pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 2P/2º Perído - Ricardo - Biologia Celular/Laboratórios/Lab Dif e Osmose.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 2P/2º Perído - Ricardo - Biologia Celular/Materiais de aula/01-06_Envoltórios celulares.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 2P/2º Perído - Ricardo - Biologia Celular/Materiais de aula/04-05-Ácidos Nucleitcos.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 2P/2º Perído - Ricardo - Biologia Celular/Materiais de aula/07-04 - Lipídeos.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 2P/2º Perído - Ricardo - Biologia Celular/Materiais de aula/30-03_Compostos orgânicos_Carboidratos.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 2P/2º Perído - Ricardo - Biologia Celular/Resoluções de Avaliações e APVs/resolução_av_1e_2p.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 2P/2º Perído - Ricardo - Biologia Celular/Resoluções de Tarefas/12-05Respostas_Lista_Carboidratos e lipídeos.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 2P/2º Perído - Ricardo - Biologia Celular/Resoluções de Tarefas/RESOLUÇÂO_Lista_Ácidos_Nucleicos.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 2P/2º Perído - Ricardo - Biologia Celular/Tarefas/16-06_Lista_Envoltórios_Celulares.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 2P/2º Perído - Ricardo - Biologia Celular/Tarefas/19-05_Lista_Ácidos_Nucleicos-Ricardo.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 2P/2º Perído - Ricardo - Biologia Celular/Tarefas/28-04_Tarefa_Carboidratos e lipídeos.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 3P/Avaliações e APVs/devolutiva_biocel_1e_3p.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 3P/Avaliações e APVs/devolutiva_biocel_2e_3p.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 3P/Materiais de aula/04-08-Estudo do Citoplasma - Citoesqueleto e Centríolos.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 3P/Materiais de aula/09-08-Estudo do Citoplasma - Ribossomos.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 3P/Materiais de aula/24-08-Estudo do Citoplasma - RER, REL e CG.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 3P/Tarefas e resoluções/04-08-Lista_citoesqueleto e centríolos.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 3P/Tarefas e resoluções/09-08-Lista_ribossomos.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 3P/Tarefas e resoluções/17-09-Resolução_Lista_REL, RER, CG e LISOSSOMOS.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 3P/Tarefas e resoluções/21-08-Resolução_Lista_ribossomos.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 3P/Tarefas e resoluções/21-08_Respostas_Lista_citoesqueleto e centríolos.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 3P/Tarefas e resoluções/30-09-Exercícios_vaculos.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 3P/Tarefas e resoluções/31-08-Lista_Reticulos, complexo golgiense, lisossomos e peroxissomos.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 4P/Laboratório/Laboratório_nucleo_UV.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 4P/Materiais de aula/05-10-Estudo do Citoplasma - Vacuolos, plastos e mitocondrias.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 4P/Materiais de aula/07-10-Nucleo e crommossomos.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 4P/Materiais de aula/20-10-Ciclo_celular_e_mitose.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 4P/Tarefas/19-11_resolução_Lista_nucleo_ciclo_celular_mitose.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 4P/Tarefas/22-10-Lista_nucleo_ciclo_celular_mitose.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 4P/Tarefas/30-09-Lista_final_de_organelas_celulares.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 4P/Tarefas/Resolução_Lista_final_de_organelas_celulares.pdf
+1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 4P/Ãvaliações e APVs/avaliação_1e_4p.pdf
+1AnoM/fisica/Física - 1EM - Rec/07-04 - Guilherme - Física 1EM - Vetores.pdf
+1AnoM/fisica/Física - 1EM - Rec/10-06 - REC - Física - MRUV.pdf
+1AnoM/fisica/Física - 1EM - Rec/13-05 - REC - Física - Espelhos Planos.pdf
+1AnoM/fisica/Física - 1EM - Rec/15-04 - REC - Física - Lista 5 - Ponto de Encontro e MRU.pdf
+1AnoM/fisica/Física - 1EM - Rec/16-06 - REC - Física - Guilherme - Espelhos Esféricos.pdf
+1AnoM/fisica/Física - 1EM - Rec/18-02 - Guilherme - Física 1EM - Potências de dez e sua utilização na ciência.pdf
+1AnoM/fisica/Física - 1EM - Rec/19-05 - REC - Física - Movimento Uniformemente Variado.pdf
+1AnoM/fisica/Física - 1EM - Rec/24-02 - Guilherme - Física 1EM - Potência de Base dez e velocidade constante .pdf
+1AnoM/fisica/Física - 1EM - Rec/24-03 - Guilherme - Física 1EM -Ponto de encontro entre móveis com velocidade constante.pdf
+1AnoM/fisica/Física - 1EM - Rec/31-03 - Guilherme - Física 1EM - Princípios da propagação da luz.pdf
+1AnoM/fisica/cinematica/Cinem - 1EM - 1P/22-03-26-RESOLUÇAO_PROVA-1ª SÉRIE -  1º PERÍODO - 1ª ETAPA - 2025.pdf
+1AnoM/fisica/cinematica/Cinem - 1EM - 1P/25-02-FUND_CINEMATICA_CAP_3.pdf
+1AnoM/fisica/cinematica/Cinem - 1EM - 1P/26-02-FUND_CINEMATICA_CAP-3.pptx
+1AnoM/fisica/cinematica/Cinem - 1EM - 1P/NOVAK_WILLI_FISICA_2_TERMOMETRIA_CAP_1_PAG_138_LIVRO_4.pdf
+1AnoM/fisica/cinematica/Cinem - 1EM - 2P/04-04-CINEMATICA_MOV_UNIFORME_2025.pdf
+1AnoM/fisica/cinematica/Cinem - 1EM - 2P/04-04-CINEMATICA_MOV_UNIFORME_2025.pptx
+1AnoM/fisica/cinematica/Cinem - 1EM - 2P/05-05-RESOLUÇÃO 1ª SÉRIE -  1º PERÍODO - 2ª ETAPA - 2025.pdf
+1AnoM/fisica/cinematica/Cinem - 1EM - 2P/11-04-CINEMÁTICA-ESTUDO_DOS_GRAFICOS_MU_2025.pdf
+1AnoM/fisica/cinematica/Cinem - 1EM - 2P/11-04-CINEMÁTICA-ESTUDO_DOS_GRAFICOS_MU_2025.pptx
+1AnoM/fisica/cinematica/Cinem - 1EM - 2P/16-05-CINEMATICA_MOV_UNIF_VARIADO.pdf
+1AnoM/fisica/cinematica/Cinem - 1EM - 2P/16-05-CINEMATICA_MOV_UNIF_VARIADO.pptx
+1AnoM/fisica/cinematica/Cinem - 1EM - 2P/RESOLUÇÃO - 1ª SÉRIE -  2º PERÍODO - 1ª ETAPA - 2025.pdf
+1AnoM/fisica/cinematica/Cinem - 1EM - 3P/05_08_COMPOSIÇÃO_MOVIMENTO_TEORIA_25.pdf
+1AnoM/fisica/cinematica/Cinem - 1EM - 3P/05_08_COMPOSIÇÃO_MOVIMENTO_TEORIA_25.pptx
+1AnoM/fisica/cinematica/Cinem - 1EM - 3P/05_08_PDF_LANÇAMENTO_VERTICAL_QUEDA_LIVRE_1_2025.pdf
+1AnoM/fisica/cinematica/Cinem - 1EM - 3P/05_08_PDF_LANÇAMENTO_VERTICAL_QUEDA_LIVRE_1_2025.pptx
+1AnoM/fisica/cinematica/Cinem - 1EM - 3P/10-09-EXERCÍCIOS_COMPOSIÇÃO_MOVIMENTO_2025.pdf
+1AnoM/fisica/cinematica/Cinem - 1EM - 3P/10-09-EXERCÍCIOS_COMPOSIÇÃO_MOVIMENTO_2025.pptx
+1AnoM/fisica/cinematica/Cinem - 1EM - 3P/10-09-LISTA-EXERCICIOS_COMPOSIÇÃO_MOVIMENTO_25.pdf
+1AnoM/fisica/cinematica/Cinem - 1EM - 3P/10_09_RESOLUÇÃO_PROVA_1ª SÉRIE -  3º PERÍODO - 1ª ETAPA - 2025.pdf
+1AnoM/fisica/cinematica/Cinem - 1EM - 3P/RESOLUÇÃO-PROVA-1ª SÉRIE -  3º PERÍODO - 2ª ETAPA - 2025 .pdf
+1AnoM/fisica/cinematica/Cinem - 1EM - 4P/04_10_25_LANÇAMENTO_OBLIQUO_TEORIA_EXEMPLO.pdf
+1AnoM/fisica/cinematica/Cinem - 1EM - 4P/04_10_25_LANÇAMENTO_OBLIQUO_TEORIA_EXEMPLO.pptx
+1AnoM/fisica/cinematica/Cinem - 1EM - 4P/11-10-LANÇAMENTO_OBLIQUO_TEORIA_EXERCICIOS.pdf
+1AnoM/fisica/cinematica/Cinem - 1EM - 4P/11-10-LANÇAMENTO_OBLIQUO_TEORIA_EXERCICIOS.pptx
+1AnoM/fisica/cinematica/Cinem - 1EM - 4P/24_10_25_LANÇAMENTO_HORIZONTAL_2025.pdf
+1AnoM/fisica/cinematica/Cinem - 1EM - 4P/24_10_25_LANÇAMENTO_HORIZONTAL_2025.pptx
+1AnoM/fisica/cinematica/Cinem - 1EM - 4P/MCU/11-10-TEORIA_MOVIMENTO_CIRCULAR_MCU_PARTE_1_2025.pdf
+1AnoM/fisica/cinematica/Cinem - 1EM - 4P/MCU/11-10-TEORIA_MOVIMENTO_CIRCULAR_MCU_PARTE_1_2025.pptx
+1AnoM/fisica/termo optica/Termo-Opt - 1EM - 1P/ESPELHOS_ESFERICOS_2024.pptx
+1AnoM/fisica/termo optica/Termo-Opt - 1EM - 1P/ESPELHO_PLANOS_FORMAÇÃO_IMAGENS_2024.pptx
+1AnoM/fisica/termo optica/Termo-Opt - 1EM - 1P/LEIS_DA_REFLEXÃO_ESPELHOS_PLANOS.pptx
+1AnoM/fisica/termo optica/Termo-Opt - 1EM - 1P/LISTA DE EXERCÍCIOS ÓPTICA GEOMÉTRICA.docx
+1AnoM/fisica/termo optica/Termo-Opt - 1EM - 1P/REFLEXÃO_SELETIVA_CORES_DOS_CORPOS (1) (1).pptx
+1AnoM/fisica/termo optica/Termo-Opt - 1EM - 1P/RESOLUÇÃO EXERCÍCIOS DE ÓPTICA GEOMÉTRICA.docx
+1AnoM/fisica/termo optica/Termo-Opt - 1EM - 1P/ROTAÇÃO E ASSOCIAÇÃO DE ESPELHOS PLANOS 2020.pdf
+1AnoM/fisica/termo optica/Termo-Opt - 1EM - 4P/AULA DE EXERCÍCIOS CALORIMETRIA 2025.pptx
+1AnoM/fisica/termo optica/Termo-Opt - 1EM - 4P/CALORIMETRIA_CALOR_SENSIVEL_2024.pptx
+1AnoM/fisica/termo optica/Termo-Opt - 1EM - 4P/CALORIMETRIA_TROCAS_DE_CALOR_CALORIMETRO.pptx
+1AnoM/fisica/termo optica/Termo-Opt - 1EM - 4P/EXERCÍCIOS TROCAS TÉRMICAS E EXTRAS 2025.pptx
+1AnoM/fisica/termo optica/Termo-Opt - 1EM - 4P/PROPAGAÇÃO_DO_CALOR_2025 NOVA.pptx
+1AnoM/fisica/termo optica/Termo-Opt - 1EM - 4P/TERMOMETRIA 2020.pptx
+1AnoM/fisica/vetores/Vetores - 1EM - 1P/28/02 - Vetores - Exercício para Estudar.pdf
+1AnoM/fisica/vetores/Vetores - 1EM - 1P/Adição de Vetores - Lista de Exercícios - Resolução.pdf
+1AnoM/fisica/vetores/Vetores - 1EM - 1P/Adição de Vetores - Lista de Exercícios.pdf
+1AnoM/fisica/vetores/Vetores - 1EM - 1P/Adição de Vetores - Livro - Exercícios -  Resolução.pdf
+1AnoM/fisica/vetores/Vetores - 1EM - 1P/Vetores - Exercício para Estudar - Resolução.pdf
+1AnoM/fisica/vetores/Vetores - 1EM - 2P/Soma - Diferença  e Decomposição de Vetores - Exercícios.pdf
+1AnoM/fisica/vetores/Vetores - 1EM - 2P/Soma - Diferença e  Decomposiçao de Vetores - Exercícios - Resolução.pdf
+1AnoM/fisica/vetores/Vetores - 1EM - 3P/2 Lei de Newton - Exercícios - Resolução.pdf
+1AnoM/fisica/vetores/Vetores - 1EM - 3P/2 Lei de Newton - Exercícios.pdf
+1AnoM/fisica/vetores/Vetores - 1EM - 3P/Aplicações da 2 Lei de Newton - Exercícios - Resolução.pdf
+1AnoM/fisica/vetores/Vetores - 1EM - 3P/Aplicações da 2 Lei de Newton - Exercícios.pdf
+1AnoM/fisica/vetores/Vetores - 1EM - 3P/Leis de Newton - Teoria.pdf
+1AnoM/fisica/vetores/Vetores - 1EM - 3P/Plano Inclinado - Exercícios - Resolução.pdf
+1AnoM/fisica/vetores/Vetores - 1EM - 3P/Plano Inclinado - Exercícios.pdf
+1AnoM/fisica/vetores/Vetores - 1EM - 3P/Sistemas de Blocos - Ex - Modelos  - Resolução.pdf
+1AnoM/fisica/vetores/Vetores - 1EM - 3P/Sistemas de Blocos - Exercícios - Modelos.pdf
+1AnoM/fisica/vetores/Vetores - 1EM - 4P/Sistemas com Polias – Exercícios Extras.pdf
+1AnoM/geografia/Geografia Rec 1EM/Recuperação Paralela de Geografia - 1as Séries (Fevereiro).docx
+1AnoM/geografia/Geografia Rec 1EM/Recuperação de Geografia 3 (ABRIL).docx
+1AnoM/geografia/Geografia Rec 1EM/Recuperação de Geografia 4 (MAIO).docx
+1AnoM/geografia/geo fisica/Cartografia.ppt
+1AnoM/geografia/geo fisica/Geo Fis - 1EM - 3P/Formação e evolução geológica da Terra.pptx
+1AnoM/geografia/geo fisica/Geo Fís - 1EM - 2P/Cartografia.ppt
+1AnoM/geografia/geo fisica/Geo Fís - 1EM - 2P/Exercícios_Cartografia.pdf
+1AnoM/geografia/geo fisica/Geo Fís - 1EM - 2P/Exercícios_escalas cartográficas.pdf
+1AnoM/geografia/geo fisica/Geo Fís - 1EM - 2P/Geografia Física_1EM_GABARITO.pdf
+1AnoM/geografia/geo fisica/Geo Fís - 1EM - 2P/Movimentos da Terra, coordenadas e fusos horários.pptx
+1AnoM/geografia/geo fisica/Geo Fís - 1EM - 2P/Tecnologias aplicadas à Cartografia.pptx
+1AnoM/geografia/geo fisica/Geo Fís - 1EM - 2P/exercicios_geografia_astronomia.pdf
+1AnoM/geografia/geo fisica/Geo Fís - 1EM - 4P/Abalos sísmicos.ppt
+1AnoM/geografia/geo fisica/Geo Fís - 1EM - 4P/Estruturas e formas do relevo.ppt
+1AnoM/geografia/geo fisica/Geo Fís - 1EM - 4P/Estruturas geológicas.ppt
+1AnoM/geografia/geo fisica/Geo Fís - 1EM - 4P/Relevo Terrestre - Rochas.ppt
+1AnoM/geografia/geo fisica/Geo Fís - 1EM - 4P/Vulcanismo.ppt
+1AnoM/geografia/geo fisica/Geo Fís - 1EM - 4P/~$Estruturas geológicas.ppt
+1AnoM/geografia/geo fisica/Geo Fís - 1EM - 4P/~$Relevo Terrestre - Rochas.ppt
+1AnoM/geografia/geo fisica/exercicios_geografia_astronomia.pdf
+1AnoM/geografia/geo humana/Geo Hum - 1EM - 1P/A globalização e seus fluxos - Mendel.pptx
+1AnoM/geografia/geo humana/Geo Hum - 1EM - 1P/O desenvolvimento do capitalismo.pptx
+1AnoM/geografia/geo humana/Geo Hum - 1EM - 1P/Ordem mundial.pptx
+1AnoM/geografia/geo humana/Geo Hum - 1EM - 1P/Prova 1as Series - Geografia Humana - 2025 (Abril).docx
+1AnoM/geografia/geo humana/Geo Hum - 1EM - 1P/Prova 1as Series - Geografia Humana - 2025 (Março).docx
+1AnoM/geografia/geo humana/Geo Hum - 1EM - 1P/Um pouco de teoria da Geografia.pptx
+1AnoM/geografia/geo humana/Geo Hum - 1EM - 2P/Declaração Universal dos Direitos Humanos.docx
+1AnoM/geografia/geo humana/Geo Hum - 1EM - 2P/Desenvolvimento Humano - Mendel.pptx
+1AnoM/geografia/geo humana/Geo Hum - 1EM - 2P/Indústria +Industrialização dos Estados Unidos.pptx
+1AnoM/geografia/geo humana/Geo Hum - 1EM - 2P/ONU - Mendel.pptx
+1AnoM/geografia/geo humana/Geo Hum - 1EM - 2P/QUESTÕES - Indústria (1as Séries).docx
+1AnoM/geografia/geo humana/Geo Hum - 1EM - 2P/Questões IDH e ONU - Mendel 2025.docx
+1AnoM/geografia/geo humana/Geo Hum -1EM  - 3P/BRICS.pptx
+1AnoM/geografia/geo humana/Geo Hum -1EM  - 3P/Indústria +Industrialização dos Estados Unidos.pptx
+1AnoM/geografia/geo humana/Geo Hum -1EM  - 3P/Indústria europeia.pptx
+1AnoM/geografia/geo humana/Geo Hum -1EM  - 3P/Japão e Tigres Asiáticos.pptx
+1AnoM/geografia/geo humana/Geo Hum -1EM  - 3P/QUESTÕES - Japão e Tigres Asiáticos (1as Séries).docx
+1AnoM/geografia/geo humana/Geo Hum -1EM  - 3P/~$BRICS.pptx
+1AnoM/geografia/geo humana/Geo Hum -1EM - 4P/Fontes de Energia - Mendel 2025.pptx
+1AnoM/geografia/geo humana/Geo Hum -1EM - 4P/QUESTÕES - Fontes de Energia (1as Séries).docx
+1AnoM/geografia/geo humana/Geo Hum -1EM - 4P/QUESTÕES - Regionalização do Brasil (1as Séries).docx
+1AnoM/geografia/geo humana/Geo Hum -1EM - 4P/Regionalização do espaço brasileiro - Mendel 2025.pptx
+1AnoM/geografia/geo humana/Geo Hum -1EM - 4P/~$Fontes de Energia - Mendel 2025.pptx
+1AnoM/geografia/geo humana/Geo Hum -1EM - 4P/~$Regionalização do espaço brasileiro - Mendel 2025.pptx
+1AnoM/gramatica/3º PERIODO/GRAMATICA/Atividade desafio_Gramatica_3oPeriodo_1aserie.pdf
+1AnoM/gramatica/3º PERIODO/GRAMATICA/GABARITO_Recuperac¸a~o 1a se´rie GRAM.pdf
+1AnoM/gramatica/3º PERIODO/GRAMATICA/GABARITO_pronome.pdf
+1AnoM/gramatica/3º PERIODO/GRAMATICA/Pronome.pdf
+1AnoM/gramatica/Gramática - 1EM - 1P/15/2 - FUNÇÕES DA LINGUAGEM - ESLAIDES.pptx
+1AnoM/gramatica/Gramática - 1EM - 1P/15/2 - FUNÇÕES DA LINGUAGEM - EXERCÍCIOS.doc
+1AnoM/gramatica/Gramática - 1EM - 2P/16/4 ACENTUAÇÃO GRÁFICA.pptx
+1AnoM/gramatica/Gramática - 1EM - 2P/16/4- ORTOÉPIA E PROSÓDIA.pptx
+1AnoM/gramatica/Gramática - 1EM - 2P/28/06 - Substantivo e Adjetivo.docx
+1AnoM/gramatica/Gramática - 1EM - 2P/4/6 - ESTRUTURA E FORMAÇÃO DAS PALAVRAS.pptx
+1AnoM/gramatica/Gramática - 1EM - Rec/TELMA - REC DE GRAMÁTICA - AULA DE 10/06.pdf
+1AnoM/gramatica/Gramática - 1EM - Rec/TELMA - REC DE GRAMÁTICA - AULA DO DIA 14/5.pdf
+1AnoM/gramatica/Gramática - 1EM - Rec/TELMA - REC DE GRAMÁTICA - AULA DO DIA 2/4.pdf
+1AnoM/gramatica/Gramática - 1EM - Rec/TELMA - REC DE GRAMÁTICA - AULA DO DIA 26/3.pdf
+1AnoM/gramatica/Gramática - 1EM - Rec/TELMA -REC DE GRAMÁTICA - AULA DO DIA 19/2.docx
+1AnoM/historia/História - 1EM - 1P/1ª Etapa_ slides de apoio/Aula Arte Renascentista.pptx
+1AnoM/historia/História - 1EM - 1P/1ª Etapa_ slides de apoio/Grandes navegaçoes e brasil colonial 1.pptx
+1AnoM/historia/História - 1EM - 1P/1ª Etapa_ slides de apoio/Reforma Protestante.ppt
+1AnoM/historia/História - 1EM - 1P/1ª Etapa_ slides de apoio/Renascimento Cultural.ppt
+1AnoM/historia/História - 1EM - 1P/orientação de estudo 1 etapa.pdf
+1AnoM/historia/História - 1EM - 2P/Brasil 1.pptx
+1AnoM/historia/História - 1EM - 2P/Brasil 2.pptx
+1AnoM/historia/História - 1EM - 2P/Brasil 3.pptx
+1AnoM/historia/História - 1EM - 2P/a escravidão na África.docx
+1AnoM/historia/História - 1EM - 2P/guerras do brasil.docx
+1AnoM/historia/História - 1EM - 2P/orientação de estudo 2 etapa.pdf
+1AnoM/historia/História - 1EM - 3P/BRASIL 4.pptx
+1AnoM/historia/História - 1EM - 3P/Brasil 5.pptx
+1AnoM/historia/História - 1EM - 3P/Geral.ppt
+1AnoM/historia/História - 1EM - 3P/Informativo APVs HIST 3º peri´odo - 1EM.docx
+1AnoM/historia/História - 1EM - 3P/Orientação de estudo1a etapa 3o perA~_odo 2025 (1).pdf
+1AnoM/historia/História - 1EM - 3P/Orientação de estudo2a etapa 3o perA~_odo 2025.docx
+1AnoM/historia/História - 1EM - 3P/Revisão Rev. Ing. Gabarito..docx
+1AnoM/historia/História - 1EM - 3P/Revisão Rev. Ing. Questões..docx
+1AnoM/historia/História - 1EM - 4P/Orientação de estudo1a etapa 4o perA~_odo 2025 (1).docx
+1AnoM/historia/História - 1EM - Rec/18.pdf
+1AnoM/historia/História - 1EM - Rec/1OS REC HIST 15042025.pdf
+1AnoM/historia/História - 1EM - Rec/Gabarito REC 25.docx
+1AnoM/historia/História - 1EM - Rec/REC GABARITO  24 de junho de 2025.pdf
+1AnoM/historia/História - 1EM - Rec/REC HIST 20052025.pdf
+1AnoM/ingles/Inglês - 1EM - 1P/1o Período/1S - Aula 1 - Pronouns.pptx
+1AnoM/ingles/Inglês - 1EM - 2P/Segundo Período/APV 2P.doc
+1AnoM/ingles/Inglês - 1EM - Rec/14 - Cópia.doc
+1AnoM/ingles/Inglês - 1EM - Rec/14.doc
+1AnoM/ingles/Inglês - 1EM - Rec/15.doc
+1AnoM/ingles/Inglês - 1EM - Rec/19 - Cópia.doc
+1AnoM/ingles/Inglês - 1EM - Rec/19.doc
+1AnoM/ingles/Inglês - 1EM - Rec/23.doc
+1AnoM/ingles/Inglês - 1EM - Rec/31 - Cópia.doc
+1AnoM/ingles/Inglês - 1EM - Rec/31.doc
+1AnoM/ingles/ListaVocabulario-1s-3p-2e.pdf
+1AnoM/literatura/1° Período/Gêneros Literários.pdf
+1AnoM/literatura/APV_Literatura_-_1ª_série_-_3_período_-_2025_o.docx
+1AnoM/literatura/Auto da Barca do Inferno.pptx
+1AnoM/literatura/Capítulo 1 - Literatura, a arte das palavras p.pptx
+1AnoM/literatura/Capítulo 2 - Gêneros literários e métrica - p.pptx
+1AnoM/literatura/Capítulo 3 - Barroco - Características  p.pptx
+1AnoM/literatura/Capítulo 3 - Humanismo em Portugal.pptx
+1AnoM/literatura/Capítulo 3 - Trovadorismo - Cantigas -  p.pptx
+1AnoM/literatura/Capítulos 1 a 6 - Romantismo - livro 3.pptx
+1AnoM/literatura/Capítulos 4 e 5 - Barroco - Pe.pptx
+1AnoM/literatura/Capítulos 6 e 7 - Arcadismo no Brasil e em Portugal - Livro 2 - Unidade 2.pptx
+1AnoM/literatura/LEITURAS 1EM - 2025.docx
+1AnoM/literatura/Literatura - 1EM - 1P/Auto da Barca do Inferno.pptx
+1AnoM/literatura/Literatura - 1EM - 1P/LEITURAS 1EM - 2025.docx
+1AnoM/literatura/Literatura - 1EM - 3P/APV_Literatura_-_1ª_série_-_3_período_-_2025_o.docx
+1AnoM/literatura/Literatura - 1EM - 3P/Capítulos 1 a 6 - Romantismo - livro 3.pptx
+1AnoM/literatura/Literatura - 1EM - 3P/Capítulos 6 e 7 - Arcadismo no Brasil e em Portugal - Livro 2 - Unidade 2.pptx
+1AnoM/literatura/Literatura - 1EM - Rec/Gabaritos Rec/GABARITO - Recuperação de Literatura - Aula do dia 11-06.pdf
+1AnoM/literatura/Literatura - 1EM - Rec/Gabaritos Rec/GABARITO - Recuperação de Literatura - Aula do dia 20-08.pdf
+1AnoM/literatura/Literatura - 1EM - Rec/Gabaritos Rec/GABARITO - Recuperação de Literatura - Aula do dia 21-05.pdf
+1AnoM/literatura/Literatura - 1EM - Rec/Gabaritos Rec/GABARITO - Recuperação de Literatura - Aula do dia 26-03.pdf
+1AnoM/literatura/Literatura - 1EM - Rec/Gabaritos Rec/Gabarito - Recuperação 26-02-2025.pdf
+1AnoM/literatura/Literatura - 1EM - Rec/Gabaritos Rec/Gabarito - Recuperação de Literatura - Aula do dia 09-04.pdf
+1AnoM/literatura/Literatura - 1EM - Rec/Gabaritos Rec/Recuperação de Literatura - Aula do dia 12-11 - Gabarito.pdf
+1AnoM/literatura/Literatura - 1EM - Rec/Gabaritos Rec/Recuperação de Literatura - Aula do dia 17-09 - Gabarito.pdf
+1AnoM/literatura/Literatura - 1EM - Rec/Gabaritos Rec/Recuperação de Literatura - Aula do dia 22-10 - Gabarito.pdf
+1AnoM/literatura/Literatura - 1EM - Rec/Recuperação de Literatura - Aula do dia 11-06.pdf
+1AnoM/literatura/Literatura - 1EM - Rec/Recuperação de Literatura - Aula do dia 12-11.pdf
+1AnoM/literatura/Literatura - 1EM - Rec/Recuperação de Literatura - Aula do dia 17-09.pdf
+1AnoM/literatura/Literatura - 1EM - Rec/Recuperação de Literatura - Aula do dia 20-08.pdf
+1AnoM/literatura/Literatura - 1EM - Rec/Recuperação de Literatura - Aula do dia 22-10.pdf
+1AnoM/literatura/Literatura - 1EM - Rec/Thiago - Recuperação de Literatura - Aula do dia 09-04.pdf
+1AnoM/literatura/Literatura - 1EM - Rec/Thiago - Recuperação de Literatura - Aula do dia 21-05.pdf
+1AnoM/literatura/Literatura - 1EM - Rec/Thiago - Recuperação de Literatura - Aula do dia 26-02.pdf
+1AnoM/literatura/Literatura - 1EM - Rec/Thiago - Recuperação de Literatura - Aula do dia 26-03.pdf
+1AnoM/literatura/Literatura 1EM - 2P/Capítulo 1 - Literatura, a arte das palavras p.pptx
+1AnoM/literatura/Literatura 1EM - 2P/Capítulo 2 - Gêneros literários e métrica - p.pptx
+1AnoM/literatura/Literatura 1EM - 2P/Capítulo 3 - Barroco - Características  p.pptx
+1AnoM/literatura/Literatura 1EM - 2P/Capítulo 3 - Humanismo em Portugal.pptx
+1AnoM/literatura/Literatura 1EM - 2P/Capítulo 3 - Prosa Medieval - p. 168.pptx
+1AnoM/literatura/Literatura 1EM - 2P/Capítulo 3 - Trovadorismo - Cantigas -  p.pptx
+1AnoM/literatura/Literatura 1EM - 2P/Capítulo 4 - Classicismo em Portugal - p.pptx
+1AnoM/literatura/Literatura 1EM - 2P/Capítulos 4 e 5 - Barroco - Pe.pptx
+1AnoM/literatura/Literatura 1EM - 2P/Unidade 1 - Capítulo 1 - Quinhentismo no Brasil - p.pptx
+1AnoM/literatura/Unidade 1 - Capítulo 1 - Quinhentismo no Brasil - p.pptx
+1AnoM/matematica/Matemática - 1EM - Rec/2º Período - 2ª Etapa/1EM_MAT_Questoes_Resolvidas_Junho.pdf
+1AnoM/matematica/Matemática - 1EM - Rec/2º Período - 2ª Etapa/1EM_MAT_Resumo_Junho.pdf
+1AnoM/matematica/Matemática - 1EM - Rec/Mendel_REC_1EM_MAT_Pio_Lista_01.pdf
+1AnoM/matematica/Matemática - 1EM - Rec/Mendel_REC_1EM_MAT_Pio_Lista_02.pdf
+1AnoM/matematica/Matemática - 1EM - Rec/Mendel_REC_1EM_MAT_Pio_Lista_03.pdf
+1AnoM/matematica/Matemática - 1EM - Rec/Mendel_REC_1EM_MAT_Pio_Lista_04.pdf
+1AnoM/matematica/Matemática - 1EM - Rec/Mendel_REC_1EM_MAT_Pio_Lista_05.pdf
+1AnoM/matematica/Matemática - 1EM - Rec/Mendel_REC_1EM_MAT_Pio_Lista_06.pdf
+1AnoM/matematica/Matemática - 1EM - Rec/Mendel_REC_1EM_MAT_Pio_Lista_07.pdf
+1AnoM/matematica/Matemática - 1EM - Rec/Mendel_REC_1EM_MAT_Pio_Lista_08.pdf
+1AnoM/matematica/Matemática - 1EM - Rec/Mendel_REC_1EM_MAT_Pio_Lista_09.pdf
+1AnoM/matematica/Matemática - 1EM - Rec/Mendel_REC_1EM_MAT_Pio_Lista_10.pdf
+1AnoM/matematica/Matemática - 1EM - Rec/Mendel_REC_1EM_MAT_Pio_Lista_11.pdf
+1AnoM/matematica/Matemática - 1EM - Rec/Mendel_REC_1EM_MAT_Pio_Lista_12.pdf
+1AnoM/matematica/Matemática - 1EM - Rec/Mendel_REC_1EM_MAT_Pio_Lista_13.pdf
+1AnoM/matematica/algebra/drive/01 - Números primos, critérios de divisibilidade, número de divisores positivos.pdf
+1AnoM/matematica/algebra/drive/02 - Equações do 2.o grau.pdf
+1AnoM/matematica/algebra/drive/03 - Equação do 2.o grau, intervalos reais e introdução às funções - Revisão.pdf
+1AnoM/matematica/algebra/drive/04 - Função afim.pdf
+1AnoM/matematica/algebra/drive/05 - Função quadrática 01.pdf
+1AnoM/matematica/algebra/drive/06 - Função quadrática 02.pdf
+1AnoM/matematica/algebra/drive/07 - Função quadrática 03 - Revisão.pdf
+1AnoM/matematica/algebra/drive/08 - Função exponencial.pdf
+1AnoM/matematica/algebra/drive/09 - Inequação exponencial, revisão de logaritmos.pdf
+1AnoM/matematica/algebra/drive/10 - Funções, equações e inequações logaritmas.pdf
+1AnoM/matematica/algebra/drive/Resoluções - 1.o Período.pdf
+1AnoM/matematica/algebra/drive/Resoluções - 2.o Período.pdf
+1AnoM/matematica/algebra/drive/Resoluções - 3.o Período.docx
+1AnoM/matematica/algebra/drive/Resoluções - 4.o Período.docx
+1AnoM/matematica/algebra/drive/Slide 01 - Função quadrática - Encontrando a lei da função I.pdf
+1AnoM/matematica/algebra/drive/Slide 02 - Função quadrática - Revisão.pdf
+1AnoM/matematica/algebra/Álgebra - 1EM - 1P/01 - Números primos, critérios de divisibilidade, número de divisores positivos.pdf
+1AnoM/matematica/algebra/Álgebra - 1EM - 1P/02 - Equação do 2.o grau.pdf
+1AnoM/matematica/algebra/Álgebra - 1EM - 1P/03 - Equação do 2.o grau, intervalos reais e introdução às funções - Revisão.pdf
+1AnoM/matematica/algebra/Álgebra - 1EM - 2P/04 - Função afim.pdf
+1AnoM/matematica/algebra/Álgebra - 1EM - 2P/Slide 01 - Função quadrática - Encontrando a lei da função I.pdf
+1AnoM/matematica/algebra/Álgebra - 1EM - 2P/Slide 02 - Função quadrática - Revisão.pdf
+1AnoM/matematica/algebra/Álgebra - 1EM - 3P/05 - Função quadrática 01.pdf
+1AnoM/matematica/algebra/Álgebra - 1EM - 3P/06 - Função quadrática 02.pdf
+1AnoM/matematica/algebra/Álgebra - 1EM - 3P/07 - Função quadrática 03.pdf
+1AnoM/matematica/algebra/Álgebra - 1EM - 3P/08 - Função exponencial.pdf
+1AnoM/matematica/algebra/Álgebra - 1EM - 4P/09 - Inequação exponencial, revisão de logaritmos.pdf
+1AnoM/matematica/algebra/Álgebra - 1EM - 4P/10 - Funções, equações e inequações logaritmas.pdf
+1AnoM/matematica/aritmetica/Aritmética - 1EM - 1P/Tarefa_de_Aritmtica_sobre_Conjuntos.pdf
+1AnoM/matematica/aritmetica/Aritmética - 1EM - 2P/Lista Sequências Numéricas.pdf
+1AnoM/matematica/aritmetica/Aritmética - 1EM - 3P/Lista Porcentagem-Aumentos e descontos.pdf
+1AnoM/matematica/geometria/3º PERIODO/ALGEBRA/Exponencial 1 (1).pdf
+1AnoM/matematica/geometria/3º PERIODO/ALGEBRA/Lista 1 - Func¸a~o Quadra´tica.pdf
+1AnoM/matematica/geometria/3º PERIODO/ALGEBRA/Lista 2 - Func¸a~o Quadra´tica.pdf
+1AnoM/matematica/geometria/3º PERIODO/GEOMETRIA/Lista - Trigonometria no Tria^ngulo Reta^ngulo.pdf
+1AnoM/matematica/geometria/3º PERIODO/GEOMETRIA/Lista 1 - Semelhanc¸a e Pita´goras.pdf
+1AnoM/matematica/geometria/3º PERIODO/GEOMETRIA/Lista 3 - Lei dos Senos e Cossenos.pdf
+1AnoM/matematica/geometria/4º PERIODO/ALGEBRA/Funções, equações e inequações logarítmicas.nrec
+1AnoM/matematica/geometria/4º PERIODO/ALGEBRA/Inequac¸a~o Exponencial e Propriedades Log.pdf
+1AnoM/matematica/geometria/4º PERIODO/ALGEBRA/Lista Exponenciais e Logari´tmos - 1ª se´rie.pdf
+1AnoM/matematica/geometria/4º PERIODO/GEOMETRIA/Lista 4 - A´rea de quadrila´teros e tria^ngulos.pdf
+1AnoM/matematica/geometria/4º PERIODO/GEOMETRIA/Lista 5 - A´rea de figura planas.pdf
+1AnoM/matematica/geometria/ALGEBRA/Funções, equações e inequações logarítmicas.nrec
+1AnoM/matematica/geometria/ALGEBRA/Inequac¸a~o Exponencial e Propriedades Log.pdf
+1AnoM/matematica/geometria/ALGEBRA/Lista Exponenciais e Logari´tmos - 1ª se´rie.pdf
+1AnoM/matematica/geometria/Funções, equações e inequações logarítmicas.nrec
+1AnoM/matematica/geometria/GEOMETRIA/Lista 4 - A´rea de quadrila´teros e tria^ngulos.pdf
+1AnoM/matematica/geometria/GEOMETRIA/Lista 5 - A´rea de figura planas.pdf
+1AnoM/matematica/geometria/Inequac¸a~o Exponencial e Propriedades Log.pdf
+1AnoM/matematica/geometria/Lista 10 - Recuperac¸a~o - Matema´tica - 1ª Serie.pdf
+1AnoM/matematica/geometria/Lista 11 - Recuperac¸a~o - Matema´tica - 1ª Serie.pdf
+1AnoM/matematica/geometria/Lista 4 - A´rea de quadrila´teros e tria^ngulos.pdf
+1AnoM/matematica/geometria/Lista 5 - A´rea de figura planas.pdf
+1AnoM/matematica/geometria/Lista 9 - Recuperac¸a~o Paralela - 06.pdf
+1AnoM/matematica/geometria/Lista Exponenciais e Logari´tmos - 1ª se´rie.pdf
+1AnoM/matematica/geometria/Recuperação/3º Período/Lista 1 - 3ºPeri´odo - Recuperac¸a~o Parelela - Matema´tica.pdf
+1AnoM/matematica/geometria/Recuperação/3º Período/Lista 2 - 3ºPeri´odo - Recuperac¸a~o Parelela - Matema´tica.pdf
+1AnoM/matematica/geometria/Recuperação/3º Período/Lista 3 - 3ºPeri´odo - Recuperac¸a~o Parelela - Matema´tica.pdf
+1AnoM/matematica/geometria/Recuperação/3º Período/Lista 4 - 3ºPeri´odo - Recuperac¸a~o Parelela - Matema´tica.pdf
+1AnoM/matematica/geometria/Recuperação/3º Período/Lista 5 - 3ºPeri´odo - Recuperac¸a~o Parelela - Matema´tica.pdf
+1AnoM/matematica/geometria/Recuperação/4º Período/Lista 10 - Recuperac¸a~o - Matema´tica - 1ª Serie.pdf
+1AnoM/matematica/geometria/Recuperação/4º Período/Lista 11/Lista 11 - Recuperac¸a~o - Matema´tica - 1ª Serie.pdf
+1AnoM/matematica/geometria/Recuperação/4º Período/Lista 11/Resoluc¸a~o Lista 11 - Recuperac¸a~o.pdf
+1AnoM/matematica/geometria/Recuperação/4º Período/Lista 6 - 3ºPeri´odo - Recuperac¸a~o Parelela - Matema´tica.pdf
+1AnoM/matematica/geometria/Recuperação/4º Período/Lista 7 - 3ºPeri´odo - Recuperac¸a~o Parelela - Matema´tica.pdf
+1AnoM/matematica/geometria/Recuperação/4º Período/Lista 8 - 3ºPeri´odo - Recuperac¸a~o Parelela - Matema´tica.pdf
+1AnoM/matematica/geometria/Recuperação/4º Período/Lista 9 - Recuperac¸a~o Paralela - 06.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 1P/Aulas Regulares/06 05 TABELA PERIÓDICA.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 1P/Aulas Regulares/07 03 MODELO ATÔMICO BOHR POSTULADO 1 E 2.mp4
+1AnoM/quimica/constituicao/Constituição - 1EM - 1P/Aulas Regulares/07 03 MODELO ATÔMICO BOHR POSTULADO 3 PARTE 1.mp4
+1AnoM/quimica/constituicao/Constituição - 1EM - 1P/Aulas Regulares/07 03 MODELO ATÔMICO BOHR POSTULADO 3 PARTE 2.mp4
+1AnoM/quimica/constituicao/Constituição - 1EM - 1P/Aulas Regulares/07 03 MODELOS ATÔMICOS SLIDES.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 1P/Aulas Regulares/07 04 ÁTOMOS E ÍONS.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 1P/Aulas Regulares/16 04 QUARKS ATIVIDADE PARA ENTREGA.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 1P/Aulas Regulares/26 04 PROVA CORREÇÃO.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 1P/Exercícios - Extras/07 03 MODELOS ATÔMICOS EXTRAS.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 1P/Exercícios - Extras/09 05 TABELA PERIÓDICA PARTE 1 EXTRAS.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 1P/Exercícios - Extras/16 04 QUARKS EXTRAS.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 1P/Exercícios - Extras/24 03 ÁTOMOS E ÍONS EXTRAS.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 1P/Exercícios - Extras/26 03 ELETROSFERA DO ÁTOMO EXTRAS.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 1P/Exercícios - Livro/07 03 MODELOS ATÔMICOS LIVRO.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 1P/Exercícios - Livro/07 03 ÁTOMOS E ÍONS LIVRO.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 1P/Exercícios - Livro/26 03 ELETROSFERA DO ÁTOMO LIVRO.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 2P/Aulas - Regulares/02 05 PROVA CORREÇÃO.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 2P/Aulas - Regulares/06 05 TABELA PERIÓDICA.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 2P/Aulas - Regulares/18 05 TABELA PERIÓDICA PROPRIEDADES.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 2P/Exercícios - Extras/09 05 TABELA PERIÓDICA PARTE 1 EXTRAS.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 2P/Exercícios - Livro/18 05 TABELA PERIÓDICA PARTE 1 LIVRO.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 3P/Aulas - Regulares/12 08 TABELA PERIÓDICA PROPRIEDADES TEORIA.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 3P/Aulas - Regulares/15 09 LIGAÇÃO COVALENTE TEORIA.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 3P/Aulas - Regulares/19 08 LIGAÇÃO IÔNICA TEORIA.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 3P/Exercícios - Extras/12 08 TABELA PERIÓDICA PROPRIEDADES EXTRAS.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 3P/Exercícios - Extras/15 09 LIGAÇÃO COVALENTE 1 EXTRAS.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 3P/Exercícios - Extras/16 08 LIGAÇÕES QUÍMICAS EXTRAS.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 3P/Exercícios - Extras/19 08 LIGAÇÃO IÔNICA EXTRAS.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 3P/Exercícios - Livro/13 08 TABELA PERIÓDICA PROPRIEDADES LIVRO.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 4P/Aulas - Regulares/12 10 GEOM MOLEC PARTE 1.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 4P/Aulas - Regulares/12 10 GEOM MOLEC PARTE 2.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 4P/Exercícios - Extras/10 11 GEOMETRIA MOLECULAR EXTRAS.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 4P/Exercícios - Extras/12 10 LIGAÇÃO COVALENTE 2 EXTRAS.pdf
+1AnoM/quimica/constituicao/Constituição - 1EM - 4P/Exercícios - Extras/15 11 POLARIDADE EXTRAS.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Com Resoluções/MAURÍCIO Y REC QUIM RESOLUÇÕES 01 04 e 02 04.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Com Resoluções/MAURÍCIO Y REC QUIM RESOLUÇÕES 06 05.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Com Resoluções/MAURÍCIO Y REC QUIM RESOLUÇÕES 07 10.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Com Resoluções/MAURÍCIO Y REC QUIM RESOLUÇÕES 08 04 e 09 04.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Com Resoluções/MAURÍCIO Y REC QUIM RESOLUÇÕES 09 09 e 10 09.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Com Resoluções/MAURÍCIO Y REC QUIM RESOLUÇÕES 10 06 E 11 06.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Com Resoluções/MAURÍCIO Y REC QUIM RESOLUÇÕES 12 08 e 13 08.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Com Resoluções/MAURÍCIO Y REC QUIM RESOLUÇÕES 13 05 E 14 05.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Com Resoluções/MAURÍCIO Y REC QUIM RESOLUÇÕES 14 10.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Com Resoluções/MAURÍCIO Y REC QUIM RESOLUÇÕES 15 04.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Com Resoluções/MAURÍCIO Y REC QUIM RESOLUÇÕES 16 09 e 17 09.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Com Resoluções/MAURÍCIO Y REC QUIM RESOLUÇÕES 17 06.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Com Resoluções/MAURÍCIO Y REC QUIM RESOLUÇÕES 18 02 e 19 02.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Com Resoluções/MAURÍCIO Y REC QUIM RESOLUÇÕES 19 08 e 20 08.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Com Resoluções/MAURÍCIO Y REC QUIM RESOLUÇÕES 20 05 E 21 05.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Com Resoluções/MAURÍCIO Y REC QUIM RESOLUÇÕES 21 10 e 22 10.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Com Resoluções/MAURÍCIO Y REC QUIM RESOLUÇÕES 23 09.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Com Resoluções/MAURÍCIO Y REC QUIM RESOLUÇÕES 24 06.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Com Resoluções/MAURÍCIO Y REC QUIM RESOLUÇÕES 25 03 e 26 03.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Com Resoluções/MAURÍCIO Y REC QUIM RESOLUÇÕES 26 02 e 06 03.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Sem Resoluções/MAURÍCIO Y REC QUIM 01 04 e 02 04.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Sem Resoluções/MAURÍCIO Y REC QUIM 05 11.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Sem Resoluções/MAURÍCIO Y REC QUIM 06 05.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Sem Resoluções/MAURÍCIO Y REC QUIM 07 10 e 08 10.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Sem Resoluções/MAURÍCIO Y REC QUIM 08 04 e 09 04.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Sem Resoluções/MAURÍCIO Y REC QUIM 09 09 e 10 09.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Sem Resoluções/MAURÍCIO Y REC QUIM 10 06 E 11 06.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Sem Resoluções/MAURÍCIO Y REC QUIM 11 11.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Sem Resoluções/MAURÍCIO Y REC QUIM 12 08 e 13 08.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Sem Resoluções/MAURÍCIO Y REC QUIM 13 05 E 14 05.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Sem Resoluções/MAURÍCIO Y REC QUIM 14 10.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Sem Resoluções/MAURÍCIO Y REC QUIM 15 04.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Sem Resoluções/MAURÍCIO Y REC QUIM 16 09 e 17 09.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Sem Resoluções/MAURÍCIO Y REC QUIM 17 06.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Sem Resoluções/MAURÍCIO Y REC QUIM 18 02 E 19 02.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Sem Resoluções/MAURÍCIO Y REC QUIM 18 11.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Sem Resoluções/MAURÍCIO Y REC QUIM 19 08 e 20 08.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Sem Resoluções/MAURÍCIO Y REC QUIM 20 05 E 21 05.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Sem Resoluções/MAURÍCIO Y REC QUIM 21 10 e 22 10.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Sem Resoluções/MAURÍCIO Y REC QUIM 23 09.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Sem Resoluções/MAURÍCIO Y REC QUIM 24 06.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Sem Resoluções/MAURÍCIO Y REC QUIM 25 03 e 26 03.pdf
+1AnoM/quimica/constituicao/Química - 1EM - Rec/Química - 1EM - Recuperação - Sem Resoluções/MAURÍCIO Y REC QUIM 26 02 E 06 03.pdf
+1AnoM/quimica/quimica organica/Fundamentos - 1EM - 1P/Exercícios extras/02 - Exercícios extras 1 (pág. 115 ss) - Gabarito e Resoluções.pdf
+1AnoM/quimica/quimica organica/Fundamentos - 1EM - 1P/Exercícios extras/04 - Exercícios extras 2 (pág. 123 ss) - Gabarito e Resoluções.pdf
+1AnoM/quimica/quimica organica/Fundamentos - 1EM - 1P/Materiais de apoio/03_02 - Material de apoio 1_ sobre o estudo do carbono.pdf
+1AnoM/quimica/quimica organica/Fundamentos - 1EM - 1P/Materiais de apoio/19_03 - Material de apoio 2_ guia de construção de fórmulas orgânicas.pdf
+1AnoM/quimica/quimica organica/Fundamentos - 1EM - 1P/Materiais de apoio/19_03 - Material de apoio 3_ representações de moléculas orgânicas.pdf
+1AnoM/quimica/quimica organica/Fundamentos - 1EM - 1P/Materiais de apoio/23_02 - Anotações de aula - Postulados de Kekulé e Classificações para carbono.pdf
+1AnoM/quimica/quimica organica/Fundamentos - 1EM - 1P/Slides/02 - Slides - Classificações para o Carbono.pdf
+1AnoM/quimica/quimica organica/Fundamentos - 1EM - 1P/Slides/02 - Slides - História da Q. Org e Postulados de Kekulé.pdf
+1AnoM/quimica/quimica organica/Fundamentos - 1EM - 1P/Slides/03 - Slides - Representações de moléculas orgânicas.pdf
+1AnoM/quimica/quimica organica/Fundamentos - 1EM - 1P/Slides/04 - Slides - Classificações de cadeias carbônicas.pdf
+1AnoM/quimica/quimica organica/Fundamentos - 1EM - 1P/Tarefas & Gabaritos/02 -  Tarefa 1 (pág 104-105, Lumen vol. 4) - Gabarito e Resoluções.pdf
+1AnoM/quimica/quimica organica/Fundamentos - 1EM - 1P/Tarefas & Gabaritos/02 - Tarefa 2 - Postulados de Kekulé - Gabarito e Resoluções.pdf
+1AnoM/quimica/quimica organica/Fundamentos - 1EM - 1P/Tarefas & Gabaritos/03 - Tarefa 3 - Representações de moléculas orgânicas - Gabarito e Resoluções.pdf
+1AnoM/quimica/quimica organica/Fundamentos - 1EM - 1P/Tarefas & Gabaritos/04 - Tarefa 4 - Classificações de cadeias carbônicas - Gabarito e Resoluções.pdf
+1AnoM/quimica/quimica organica/Fundamentos - 1EM - 2P/Slides/05 - Slides - Nomenclatura IUPAC para Hidrocarbonetos Normais.pdf
+1AnoM/quimica/quimica organica/Fundamentos - 1EM - 2P/Tarefas e Gabaritos/05 - Tarefa 5 - Hidrocarbonetos normais - Gabarito e Resoluções.pdf
+1AnoM/quimica/quimica organica/Fundamentos - 1EM - 2P/Tarefas e Gabaritos/06 - Tarefa 6 - Hidrocarbonetos ramificados (I) - Gabarito e Resoluções.pdf
+1AnoM/quimica/quimica organica/Fundamentos - 1EM - 3P/Tarefas e Gabaritos/08 - Tarefa 7 - Hidrocarbonetos aromáticos - Gabarito e Resoluções.pdf
+1AnoM/quimica/quimica organica/Fundamentos - 1EM - 3P/Tarefas e Gabaritos/09 - Tarefa 8 - Classificação para hidrocarbonetos - Gabarito e Resoluções.pdf
+1AnoM/quimica/quimica organica/Fundamentos - 1EM - 4P/Exercícios extras/10 - Lista extra - Reação de desidratação de álcoois - Gabarito e Resoluções.pdf
+1AnoM/quimica/quimica organica/Fundamentos - 1EM - 4P/Tarefas e Gabaritos/10 - Tarefa 9 - Classificação para hidrocarbonetos - Gabarito e Resoluções.pdf
+1AnoM/quimica/quimica organica/Fundamentos - 1EM - 4P/Tarefas e Gabaritos/11 - Tarefa 10 - Éter e Fenol - Gabarito e Resoluções.pdf
+1AnoM/quimica/transformaçoes/Resolução da tarefa de estequiometria (Volume 2).pdf
+1AnoM/quimica/transformaçoes/Transform - 1EM - 1P/Correção de Prova - 2ª etapa/1º período - 2ª etapa 2025 - 1º Ano.pptx
+1AnoM/quimica/transformaçoes/Transform - 1EM - 1P/Lista 1 - MOL/Química_-_Transformação_da_matéria_-_Lista_1_-_MOL.pdf
+1AnoM/quimica/transformaçoes/Transform - 1EM - 1P/Lista 1 - MOL/Química_-_Transformação_da_matéria_-_RESOLUÇÃO_Lista_1_-_MOL.pdf
+1AnoM/quimica/transformaçoes/Transform - 1EM - 1P/Lista 2 - Exercícios extras/Química - Transformação da matéria - Lista 2 - MOL (GABARITO).docx
+1AnoM/quimica/transformaçoes/Transform - 1EM - 1P/Lista 2 - Exercícios extras/Química - Transformação da matéria - Lista 2 - MOL.docx
+1AnoM/quimica/transformaçoes/Transform - 1EM - 1P/Lista 3 - Volume molar/Química - Transformação da matéria - Lista 3 - Volume molar (GABARITO).doc
+1AnoM/quimica/transformaçoes/Transform - 1EM - 1P/Lista 3 - Volume molar/Química - Transformação da matéria - Lista 3 - Volume molar.doc
+1AnoM/quimica/transformaçoes/Transform - 1EM - 1P/Lista 4 - Exercícios extras/Química - Transformação da matéria - Lista 4 - Volume molar e fórmulas (GABARITO).docx
+1AnoM/quimica/transformaçoes/Transform - 1EM - 1P/Lista 4 - Exercícios extras/Química - Transformação da matéria - Lista 4 - Volume molar e fórmulas.docx
+1AnoM/quimica/transformaçoes/Transform - 1EM - 2P/Correção de prova (2º período - 1ª etapa)/2º período - 1ª etapa 2025 - 1º Ano.pptx
+1AnoM/quimica/transformaçoes/Transform - 1EM - 2P/Lista 5 - Leis ponderais/Química - Transformação da matéria - Lista 5 - leis ponderais.docx
+1AnoM/quimica/transformaçoes/Transform - 1EM - 2P/Lista 6 - Balanceamento de equações químicas/Química - Transformação da matéria - Lista 6 - Balanceamento de equações químicas.docx
+1AnoM/quimica/transformaçoes/Transform - 1EM - 2P/Lista 7 - Exercícios extras para estudo/Química - Transformação da matéria - Lista 7 - Leis Ponderais e Balanceamento.docx
+1AnoM/quimica/transformaçoes/Transform - 1EM - 2P/Lista 8 - Exercícios extras (2ª etapa)/Química - Transformação da matéria - Lista 8 - Estequiometria I.docx
+1AnoM/quimica/transformaçoes/Transform - 1EM - 2P/Resolução da tarefa de estequiometria (Volume 2).pdf
+1AnoM/quimica/transformaçoes/Transform - 1EM - 3P/Correção da prova/3º período - 1ª etapa 2025 - 1º ano.pptx
+1AnoM/quimica/transformaçoes/Transform - 1EM - 3P/Folhas de aula/Tabela de cátions e ânons 2025.pdf
+1AnoM/quimica/transformaçoes/Transform - 1EM - 3P/Folhas de aula/Ácidos 2025.pdf
+1AnoM/quimica/transformaçoes/Transform - 1EM - 3P/Lista 10 - Estequiometria (reagente limitante)/Química - Transformação da matéria - Lista 10 - Estequiometria III.docx
+1AnoM/quimica/transformaçoes/Transform - 1EM - 3P/Lista 11 - Exercícios extras para prova 3º período - 1ª etapa/Química - Transformação da matéria - Lista 11 - Estequiometria III.docx
+1AnoM/quimica/transformaçoes/Transform - 1EM - 3P/Lista 12 - Ácidos/Química - Transformação da matéria - Lista 12 - Ácidos.docx
+1AnoM/quimica/transformaçoes/Transform - 1EM - 3P/Lista 13 - Exercícios extras para prova 3º perído - 2ª etapa/Química - Transformação da matéria - Lista 13 - Ácidos II.docx
+1AnoM/quimica/transformaçoes/Transform - 1EM - 3P/Lista 9 - Estequiometria, rendimento e porcentagem de pureza/Química - Transformação da matéria - Lista 9 - Estequiometria II.docx
+1AnoM/quimica/transformaçoes/Transform - 1EM - 4P/Correção da prova - 1ª etapa/4º período - 1ª etapa 2025 - 1º ano.pptx
+1AnoM/quimica/transformaçoes/Transform - 1EM - 4P/Folhas de aula/Bases 2025.pdf
+1AnoM/quimica/transformaçoes/Transform - 1EM - 4P/Folhas de aula/Sais 2025.pdf
+1AnoM/quimica/transformaçoes/Transform - 1EM - 4P/Folhas de aula/Óxidos 2025.pdf
+1AnoM/quimica/transformaçoes/Transform - 1EM - 4P/Lista 14 - Bases/Lista 14 - BASES - Cópia.pdf
+1AnoM/quimica/transformaçoes/Transform - 1EM - 4P/Lista 15 - Sais/Lista 15 - SAIS - Cópia.pdf
+1AnoM/quimica/transformaçoes/Transform - 1EM - 4P/Lista 16 - Exercícios extras/Lista 16- EXERCÍCIOS EXTRAS (1).pdf
+1AnoM/quimica/transformaçoes/Transform - 1EM - 4P/Lista 17 - Óxidos/Lista 17 - Óxidos.pdf
+1AnoM/redacao/Correção_Prova/Considerações para a correção da Prova de LPT da 2ª Etapa do 3º Período de 2025.pdf
+1AnoM/redacao/Material de estudos_extra/RESUMO - PESSIMISMO.pdf
+1AnoM/redacao/Material de estudos_extra/Sugestão de projeto de texto_resumo_SONHOS PARA ADIAR O FIM DO MUNDO.pdf
+1AnoM/redacao/Material teórico_Sala de aula/RESUMO 1.pptx
+1AnoM/redacao/Material teórico_Sala de aula/RESUMO 2.pptx
+1AnoM/redacao/Material teórico_Sala de aula/RESUMO 3.pdf
+1AnoM/redacao/Material teórico_Sala de aula/VERBETE .doc
+1AnoM/redacao/Material teórico_Sala de aula/VERBETE 2.pdf
+1AnoM/redacao/Prod Textual - 1EM - 1P/01_Atividade diagnóstica_LPT 1_1º Período_2025.docx
+1AnoM/redacao/Prod Textual - 1EM - 1P/02_Slides_Tipos textuais_LPT 1_1ºPeríodo_2025.pdf
+1AnoM/redacao/Prod Textual - 1EM - 1P/03_Atividade_Tipologias textuais_ LPT 1_1ºPeríodo_2025.docx
+1AnoM/redacao/Prod Textual - 1EM - 1P/04_Possibilidades de respostas para a Atividade de tipologias textuais_LPT 1_1º Período_2025.docx
+1AnoM/redacao/Prod Textual - 1EM - 1P/05_Atividade de LPT 1_Análise de exemplares de carta de leitor_1ºPeríodo_2025.docx
+1AnoM/redacao/Prod Textual - 1EM - 1P/06_Slides_Carta do leitor_LPT 1_1ºPeríodo_2025.pdf
+1AnoM/redacao/Prod Textual - 1EM - 1P/07_Respostas para as questo~es de ana´lise de exemplares de carta de leitor_LPT 1_1ºPeri´odo_2025.pdf
+1AnoM/redacao/Prod Textual - 1EM - 1P/08_Material de apoio_exemplos acima da média_ carta do leitor.docx
+1AnoM/redacao/Prod Textual - 1EM - 1P/09_Apresnetacao do genero textao.pdf
+1AnoM/redacao/Prod Textual - 1EM - 1P/10_Atividadetextao.doc
+1AnoM/redacao/Prod Textual - 1EM - 1P/11_Apresentacaoderevisaotextao.pptx
+1AnoM/redacao/Prod Textual - 1EM - 1P/12_Exemplos e ana´lises de post nas redes_Proposta Unicamp2022.pdf
+1AnoM/redacao/Prod Textual - 1EM - 2P/01_Apresentacaoslides_Discursopolitico_2oPeriodo2025.pdf
+1AnoM/redacao/Prod Textual - 1EM - 2P/02_AtividadedeLPT_Analide_Discurso_MartinLutherKingJr_2Periodo2025.doc
+1AnoM/redacao/Prod Textual - 1EM - 2P/03_AtividadedeLpt_AtividadeUnicamo_2oPeriodo2025.doc
+1AnoM/redacao/Prod Textual - 1EM - 2P/04_Sugestao de respostas para a atividade Martin Luther King Jr_2Periodo2025.docx
+1AnoM/redacao/Prod Textual - 1EM - 2P/05_Roteiro_Projeto de Texto_DiscursoPolítico_Unicamp2021.pdf
+1AnoM/redacao/Prod Textual - 1EM - 2P/06_Roteiro_Discurso_PEC_das_Praias.pdf
+1AnoM/redacao/Prod Textual - 1EM - 3P/Considerações para a correção da Prova de LPT da 2ª Etapa do 3º Período de 2025.pdf
+1AnoM/redacao/Prod Textual - 1EM - 3P/Correção_Prova/Considerações para a correção da Prova de LPT da 2ª Etapa do 3º Período de 2025.pdf
+1AnoM/redacao/Prod Textual - 1EM - 3P/Material de estudos_extra/RESUMO - PESSIMISMO.pdf
+1AnoM/redacao/Prod Textual - 1EM - 3P/Material de estudos_extra/Sugestão de projeto de texto_resumo_SONHOS PARA ADIAR O FIM DO MUNDO.pdf
+1AnoM/redacao/Prod Textual - 1EM - 3P/Material teórico_Sala de aula/RESUMO 1.pptx
+1AnoM/redacao/Prod Textual - 1EM - 3P/Material teórico_Sala de aula/RESUMO 2.pptx
+1AnoM/redacao/Prod Textual - 1EM - 3P/Material teórico_Sala de aula/RESUMO 3.pdf
+1AnoM/redacao/Prod Textual - 1EM - 3P/Material teórico_Sala de aula/VERBETE .doc
+1AnoM/redacao/Prod Textual - 1EM - 3P/Material teórico_Sala de aula/VERBETE 2.pdf
+1AnoM/redacao/Prod Textual - 1EM - 4P/Artigo de opinião.pdf
+1AnoM/redacao/Prod Textual - 1EM - 4P/Projeto de texto do artigo de opinião.pdf
+1AnoM/redacao/Prod Textual - 1EM - 4P/Respostas dos exercícios de parágrafo e argumentação.docx
+1AnoM/redacao/Prod Textual - 1EM - 4P/Sugestão de projeto de texto_resumo_SONHOS PARA ADIAR O FIM DO MUNDO.pdf
+1AnoM/redacao/Produção 1EM - Rec/REC discurso político.docx
+1AnoM/redacao/Produção 1EM - Rec/Textão - Unicamp - redes socias e fake news.pptx
+1AnoM/redacao/Produção 1EM - Rec/discurso político - UNICAMP.pdf
+1AnoM/sociabilidades/Lista de exercícios/Durkheim - Sociologia - Exercicios com gabarito.pdf
+1AnoM/sociabilidades/Lista de exercícios/Marx - Sociologia - Resumo e exercicios, com gabarito.pdf
+1AnoM/sociabilidades/Lista de exercícios/Max Weber - Sociologia - Resumo e exercicios, com gabarito.pdf
+1AnoM/sociabilidades/Materiais/Material 01 - A reflexão filosófica.pdf
+1AnoM/sociabilidades/Materiais/Material 02 - A filosofia e suas origens.pdf
+1AnoM/sociabilidades/Materiais/Material 03 - As formas de pensar.pdf
+1AnoM/sociabilidades/Materiais/Material 04 - A questão do cientificismo.pdf
+1AnoM/sociabilidades/Materiais/Material 05 - A utilidade da Sociologia.pdf
+1AnoM/sociabilidades/Materiais/Material 06 - Durkheim e os fatos sociais.pdf
+1AnoM/sociabilidades/Materiais/Material 07 - Durkheim  e a solidariedade.pdf
+1AnoM/sociabilidades/Materiais/Material 08 - A questão da natureza humana.pdf
+1AnoM/sociabilidades/Materiais/Material 09 - Marx e a questão do trabalho.pdf
+1AnoM/sociabilidades/Materiais/Material 10 - A questão da cultura.pdf
+1AnoM/sociabilidades/Materiais/Material 11 - Introdução à ética.pdf
+1AnoM/sociabilidades/Materiais/Material 12 - Filosofia e Sociologia política.pdf
+1AnoM/sociabilidades/Materiais/Material 13 - Ação social - Max Weber.pdf
+1AnoM/sociabilidades/Materiais/Material 14 - Dominação - Max Weber.pdf
+1AnoM/sociabilidades/Materiais/Material 15 - A questão da estética e da arte.pdf
+1AnoM/sociabilidades/Provas/Socia - 1ª Se´rie - 1ª Etapa - 1º Peri´odo.pdf
+1AnoM/sociabilidades/Provas/Socia - 1ª Se´rie - 1ª Etapa - 2º Peri´odo.pdf
+1AnoM/sociabilidades/Provas/Socia - 1ª Se´rie - 1ª Etapa - 3º Peri´odo.pdf
+1AnoM/sociabilidades/Provas/Socia - 1ª Se´rie - 1ª Etapa - 4º Peri´odo.pdf
+1AnoM/sociabilidades/Provas/Socia - 1ª Se´rie - 2ª Etapa - 1º Peri´odo.pdf
+1AnoM/sociabilidades/Provas/Socia - 1ª Se´rie - 2ª Etapa - 3º Peri´odo.pdf
+1AnoM/sociabilidades/Recuperação/06.pdf
+1AnoM/sociabilidades/Recuperação/17.pdf
+1AnoM/sociabilidades/Recuperação/18.pdf
+1AnoM/sociabilidades/Recuperação/25.pdf
 2AnoM/biologia/croti/1p/2em_-_recuperacao/2em_-_1o_periodo/rec_01_-_ciclo_celular_mitose_e_meiose_-_gabarito.pdf
 2AnoM/biologia/croti/1p/2em_-_recuperacao/2em_-_1o_periodo/rec_02_-_replicacao_e_transcricao_do_dna_-_ciclos_reprodutivos_-_gabarito.pdf
 2AnoM/biologia/croti/1p/aula_01_-_biodiversidade.pdf
@@ -159,6 +741,7 @@
 2AnoM/quimica/renato/1p/slides/slide_-_capitulo_3_-_solucoes_-_concentracao_molar.pdf
 2AnoM/quimica/renato/1p/slides/slide_-_capitulo_3_-_solucoes_-_titulo.pdf
 2AnoM/quimica/renato/2p/Anotações de sala/Capítulo 4 - Diluição de soluções.pdf
+2AnoM/quimica/renato/2p/CAPÍTULO 4 - PROCASSOS COM SOLUÇÕES - MISTURA DE SOLUÇÕES SEM REAÇÃO.pdf
 2AnoM/quimica/renato/2p/lista_de_exercicios/lista_extra_-_solucoes_-_parte_4_-_concentracoes_e_operacoes.pdf
 2AnoM/quimica/renato/2p/slides/CAPÍTULO 4 - PROCASSOS COM SOLUÇÕES - MISTURA DE SOLUÇÕES SEM REAÇÃO.pdf
 2AnoM/quimica/renato/2p/slides/capitulo_4_-_processos_com_solucoes_-_diluicao.pdf
