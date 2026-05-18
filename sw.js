@@ -1,4 +1,4 @@
-const CACHE_NAME = "studyflow-v20";
+const CACHE_NAME = "studyflow-v21";
 
 const FILES = [
   "./",
