@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulado com IA | StudyFlow</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2ff;--card:#fff;--primary:#4f46e5;--purple:#7c3aed;--green:#16a34a;--red:#dc2626;--text:#0f172a;--muted:#64748b;--border:#e2e8f0;--shadow:0 18px 45px rgba(15,23,42,.10)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Poppins,Arial,sans-serif;min-height:100vh;background:radial-gradient(circle at top left,#c7d2fe,transparent 30%),radial-gradient(circle at bottom right,#ddd6fe,transparent 30%),linear-gradient(135deg,#eef2ff,#f8fafc);color:var(--text);padding:24px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:22px}
+.logo{font-size:2rem;font-weight:900;color:var(--primary)}
+.btn,a.btn,button{border:none;text-decoration:none;background:linear-gradient(135deg,var(--primary),var(--purple));color:white;padding:12px 16px;border-radius:14px;font-weight:900;cursor:pointer;font-family:inherit;transition:.2s}
+button:hover,.btn:hover{transform:translateY(-2px);opacity:.92}
+.panel{background:rgba(255,255,255,.93);border:1px solid var(--border);border-radius:28px;padding:24px;box-shadow:var(--shadow);margin-bottom:18px}
+.hero{background:linear-gradient(135deg,#4f46e5,#7c3aed);color:white;border-radius:30px;padding:30px;box-shadow:0 22px 55px rgba(79,70,229,.25);margin-bottom:18px}
+.hero p{color:#e0e7ff;font-weight:600;margin-top:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:white;border:1px solid var(--border);border-radius:24px;padding:20px;box-shadow:0 12px 30px rgba(15,23,42,.07)}
+input,textarea,select{width:100%;padding:13px;border:1px solid var(--border);border-radius:14px;font-family:inherit;margin:8px 0 12px;background:white}
+textarea{min-height:160px;resize:vertical}
+.small{color:var(--muted);font-weight:600;line-height:1.55}
+.bad{color:var(--red)}.ok{color:var(--green)}
+.result{background:#f8fafc;border:1px solid var(--border);border-radius:18px;padding:16px;margin-top:14px;line-height:1.6;white-space:pre-line}
+.choice{width:100%;text-align:left;background:#eef2ff;color:#3730a3;border:2px solid #c7d2fe;margin:8px 0}
+.choice.selected{background:#4f46e5;color:white}
+.choice.correct{background:#dcfce7;color:#166534;border-color:#86efac}
+.choice.wrong{background:#fee2e2;color:#991b1b;border-color:#fecaca}
+.progress{height:13px;background:#e2e8f0;border-radius:999px;overflow:hidden;margin:12px 0}
+.fill{height:100%;background:linear-gradient(90deg,#16a34a,#0ea5e9);width:0%}
+@media(max-width:700px){body{padding:14px}.hero{padding:22px}.panel{padding:18px}}
+</style>
+</head>
+<body>
+<div class="top"><div class="logo">StudyFlow</div><a class="btn" href="index.html">⬅ Voltar</a></div>
+
+<div class="hero">
+  <h1>📝 Simulado com IA</h1>
+  <p>Cole o conteúdo da aula e a IA cria um simulado com alternativas, gabarito e explicação.</p>
+</div>
+<div class="panel">
+  <label><strong>Chave OpenRouter</strong></label>
+  <input id="apiKey" type="password" placeholder="Cole sua chave aqui. Ela fica salva só no seu navegador.">
+  <label><strong>Conteúdo para estudar</strong></label>
+  <textarea id="conteudo" placeholder="Cole aqui o conteúdo, resumo, matéria ou exercícios..."></textarea>
+  <div class="grid">
+    <div><label>Quantidade</label><select id="quantidade"><option>5</option><option selected>10</option><option>15</option></select></div>
+    <div><label>Dificuldade</label><select id="dificuldade"><option>fácil</option><option selected>média</option><option>difícil</option></select></div>
+  </div>
+  <button onclick="gerarSimulado()">✨ Gerar simulado</button>
+  <div id="status" class="result">Depois de gerar, as questões aparecerão aqui.</div>
+</div>
+<div id="quiz" class="panel" style="display:none"></div>
+
+<script>
+let questoes=[], atual=0, respostas=[];
+const modelo="deepseek/deepseek-chat:free";
+
+window.onload=()=>{document.getElementById("apiKey").value=localStorage.getItem("openrouter_key")||""}
+
+function extrairJSON(txt){
+  txt = txt.replace(/```json|```/g,"").trim();
+  const ini = txt.indexOf("{");
+  const fim = txt.lastIndexOf("}");
+  if(ini>=0 && fim>=0) txt = txt.slice(ini,fim+1);
+  return JSON.parse(txt);
+}
+
+async function gerarSimulado(){
+  const key=document.getElementById("apiKey").value.trim();
+  const conteudo=document.getElementById("conteudo").value.trim();
+  const qtd=document.getElementById("quantidade").value;
+  const dif=document.getElementById("dificuldade").value;
+  const status=document.getElementById("status");
+  if(!key){status.innerText="Cole sua chave do OpenRouter primeiro.";return}
+  if(!conteudo){status.innerText="Cole algum conteúdo primeiro.";return}
+  localStorage.setItem("openrouter_key",key);
+  status.innerText="Gerando simulado...";
+  const prompt=`Crie um simulado escolar em português com ${qtd} questões de múltipla escolha, dificuldade ${dif}, baseado SOMENTE no conteúdo abaixo.
+Responda APENAS em JSON válido, neste formato:
+{"questoes":[{"pergunta":"...","alternativas":["A","B","C","D"],"correta":0,"explicacao":"..."}]}
+Regras: cada questão deve ter 4 alternativas, correta deve ser 0,1,2 ou 3, explicação curta e clara.
+CONTEÚDO:
+${conteudo}`;
+  try{
+    const r=await fetch("https://openrouter.ai/api/v1/chat/completions",{
+      method:"POST",
+      headers:{"Content-Type":"application/json","Authorization":"Bearer "+key},
+      body:JSON.stringify({model:modelo,messages:[{role:"user",content:prompt}],temperature:.4})
+    });
+    const dados=await r.json();
+    if(!r.ok) throw new Error(dados.error?.message || "Erro na API");
+    const texto=dados.choices?.[0]?.message?.content || "";
+    const obj=extrairJSON(texto);
+    questoes=obj.questoes||[];
+    if(!questoes.length) throw new Error("A IA não retornou questões.");
+    atual=0; respostas=[];
+    document.getElementById("quiz").style.display="block";
+    status.innerText="Simulado criado! Responda abaixo.";
+    mostrarQuestao();
+  }catch(e){
+    status.innerText="Erro ao gerar simulado: "+e.message+"\n\nDica: confira se sua chave está certa ou tente diminuir o texto.";
+  }
+}
+
+function mostrarQuestao(){
+  const q=questoes[atual], quiz=document.getElementById("quiz");
+  const pct=(atual/questoes.length)*100;
+  quiz.innerHTML=`<h2>Questão ${atual+1}/${questoes.length}</h2>
+  <div class="progress"><div class="fill" style="width:${pct}%"></div></div>
+  <p style="font-weight:800;margin:14px 0">${q.pergunta}</p>
+  ${q.alternativas.map((a,i)=>`<button class="choice" onclick="responder(${i})">${String.fromCharCode(65+i)}) ${a}</button>`).join("")}
+  <div id="feedback"></div>`;
+}
+
+function responder(i){
+  const q=questoes[atual];
+  respostas[atual]=i;
+  document.querySelectorAll(".choice").forEach((b,idx)=>{
+    b.disabled=true;
+    if(idx===q.correta)b.classList.add("correct");
+    if(idx===i && i!==q.correta)b.classList.add("wrong");
+  });
+  document.getElementById("feedback").innerHTML=`<div class="result">${i===q.correta?"✅ Acertou!":"❌ Errou."}
+Resposta correta: ${String.fromCharCode(65+q.correta)}) ${q.alternativas[q.correta]}
+${q.explicacao||""}</div>
+<button onclick="proxima()">Continuar</button>`;
+}
+function proxima(){atual++; if(atual>=questoes.length) finalizar(); else mostrarQuestao();}
+function finalizar(){
+  let acertos=questoes.filter((q,i)=>respostas[i]===q.correta).length;
+  document.getElementById("quiz").innerHTML=`<h2>🎉 Resultado final</h2>
+  <div class="result">Você acertou ${acertos} de ${questoes.length}.
+Nota aproximada: ${(acertos/questoes.length*10).toFixed(1)}
+XP ganho: ${acertos*10} XP</div>
+  <button onclick="atual=0;respostas=[];mostrarQuestao()">Refazer simulado</button>`;
+}
+</script>
+</body></html>

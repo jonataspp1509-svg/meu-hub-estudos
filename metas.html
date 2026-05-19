@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metas | StudyFlow</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2ff;--card:#fff;--primary:#4f46e5;--purple:#7c3aed;--green:#16a34a;--red:#dc2626;--text:#0f172a;--muted:#64748b;--border:#e2e8f0;--shadow:0 18px 45px rgba(15,23,42,.10)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Poppins,Arial,sans-serif;min-height:100vh;background:radial-gradient(circle at top left,#c7d2fe,transparent 30%),radial-gradient(circle at bottom right,#ddd6fe,transparent 30%),linear-gradient(135deg,#eef2ff,#f8fafc);color:var(--text);padding:24px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:22px}
+.logo{font-size:2rem;font-weight:900;color:var(--primary)}
+.btn,a.btn,button{border:none;text-decoration:none;background:linear-gradient(135deg,var(--primary),var(--purple));color:white;padding:12px 16px;border-radius:14px;font-weight:900;cursor:pointer;font-family:inherit;transition:.2s}
+button:hover,.btn:hover{transform:translateY(-2px);opacity:.92}
+.panel{background:rgba(255,255,255,.93);border:1px solid var(--border);border-radius:28px;padding:24px;box-shadow:var(--shadow);margin-bottom:18px}
+.hero{background:linear-gradient(135deg,#4f46e5,#7c3aed);color:white;border-radius:30px;padding:30px;box-shadow:0 22px 55px rgba(79,70,229,.25);margin-bottom:18px}
+.hero p{color:#e0e7ff;font-weight:600;margin-top:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:white;border:1px solid var(--border);border-radius:24px;padding:20px;box-shadow:0 12px 30px rgba(15,23,42,.07)}
+input,textarea,select{width:100%;padding:13px;border:1px solid var(--border);border-radius:14px;font-family:inherit;margin:8px 0 12px;background:white}
+textarea{min-height:160px;resize:vertical}
+.small{color:var(--muted);font-weight:600;line-height:1.55}
+.bad{color:var(--red)}.ok{color:var(--green)}
+.result{background:#f8fafc;border:1px solid var(--border);border-radius:18px;padding:16px;margin-top:14px;line-height:1.6;white-space:pre-line}
+.choice{width:100%;text-align:left;background:#eef2ff;color:#3730a3;border:2px solid #c7d2fe;margin:8px 0}
+.choice.selected{background:#4f46e5;color:white}
+.choice.correct{background:#dcfce7;color:#166534;border-color:#86efac}
+.choice.wrong{background:#fee2e2;color:#991b1b;border-color:#fecaca}
+.progress{height:13px;background:#e2e8f0;border-radius:999px;overflow:hidden;margin:12px 0}
+.fill{height:100%;background:linear-gradient(90deg,#16a34a,#0ea5e9);width:0%}
+@media(max-width:700px){body{padding:14px}.hero{padding:22px}.panel{padding:18px}}
+</style>
+</head>
+<body>
+<div class="top"><div class="logo">StudyFlow</div><a class="btn" href="index.html">⬅ Voltar</a></div>
+
+<div class="hero"><h1>🎯 Metas e Streak</h1><p>Organize suas tarefas da semana e acompanhe sua sequência de estudos.</p></div>
+<div class="panel">
+  <h2>Adicionar meta</h2>
+  <input id="meta" placeholder="Ex: estudar Física por 30 minutos">
+  <button onclick="add()">Adicionar meta</button>
+</div>
+<div class="panel">
+  <h2>Progresso</h2>
+  <div class="progress"><div id="barra" class="fill"></div></div>
+  <div id="info" class="result"></div>
+  <div id="lista"></div>
+</div>
+
+<script>
+let metas=JSON.parse(localStorage.getItem("metasStudyFlow")||"[]");
+let streak=JSON.parse(localStorage.getItem("streakStudyFlow")||'{"dias":0,"ultimo":""}');
+function hoje(){return new Date().toLocaleDateString("pt-BR")}
+function salvar(){localStorage.setItem("metasStudyFlow",JSON.stringify(metas));localStorage.setItem("streakStudyFlow",JSON.stringify(streak))}
+function add(){let t=meta.value.trim(); if(!t)return; metas.push({t,ok:false}); meta.value=""; salvar(); render();}
+function toggle(i){metas[i].ok=!metas[i].ok; if(metas[i].ok && streak.ultimo!==hoje()){streak.dias++; streak.ultimo=hoje()} salvar(); render();}
+function del(i){metas.splice(i,1); salvar(); render();}
+function render(){let feitas=metas.filter(m=>m.ok).length, total=metas.length, pct=total?feitas/total*100:0; barra.style.width=pct+"%"; info.innerText=`${feitas}/${total} metas concluídas\n🔥 Streak: ${streak.dias} dia(s)\nXP estimado: ${feitas*20}`; lista.innerHTML=metas.map((m,i)=>`<div class="card"><label><input type="checkbox" ${m.ok?"checked":""} onchange="toggle(${i})"> <b>${m.t}</b></label><br><button onclick="del(${i})">Excluir</button></div>`).join("")||"<p class='small'>Nenhuma meta criada.</p>";}
+render();
+</script>
+</body></html>

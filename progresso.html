@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Progresso | StudyFlow</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2ff;--card:#fff;--primary:#4f46e5;--purple:#7c3aed;--green:#16a34a;--red:#dc2626;--text:#0f172a;--muted:#64748b;--border:#e2e8f0;--shadow:0 18px 45px rgba(15,23,42,.10)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Poppins,Arial,sans-serif;min-height:100vh;background:radial-gradient(circle at top left,#c7d2fe,transparent 30%),radial-gradient(circle at bottom right,#ddd6fe,transparent 30%),linear-gradient(135deg,#eef2ff,#f8fafc);color:var(--text);padding:24px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:22px}
+.logo{font-size:2rem;font-weight:900;color:var(--primary)}
+.btn,a.btn,button{border:none;text-decoration:none;background:linear-gradient(135deg,var(--primary),var(--purple));color:white;padding:12px 16px;border-radius:14px;font-weight:900;cursor:pointer;font-family:inherit;transition:.2s}
+button:hover,.btn:hover{transform:translateY(-2px);opacity:.92}
+.panel{background:rgba(255,255,255,.93);border:1px solid var(--border);border-radius:28px;padding:24px;box-shadow:var(--shadow);margin-bottom:18px}
+.hero{background:linear-gradient(135deg,#4f46e5,#7c3aed);color:white;border-radius:30px;padding:30px;box-shadow:0 22px 55px rgba(79,70,229,.25);margin-bottom:18px}
+.hero p{color:#e0e7ff;font-weight:600;margin-top:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:white;border:1px solid var(--border);border-radius:24px;padding:20px;box-shadow:0 12px 30px rgba(15,23,42,.07)}
+input,textarea,select{width:100%;padding:13px;border:1px solid var(--border);border-radius:14px;font-family:inherit;margin:8px 0 12px;background:white}
+textarea{min-height:160px;resize:vertical}
+.small{color:var(--muted);font-weight:600;line-height:1.55}
+.bad{color:var(--red)}.ok{color:var(--green)}
+.result{background:#f8fafc;border:1px solid var(--border);border-radius:18px;padding:16px;margin-top:14px;line-height:1.6;white-space:pre-line}
+.choice{width:100%;text-align:left;background:#eef2ff;color:#3730a3;border:2px solid #c7d2fe;margin:8px 0}
+.choice.selected{background:#4f46e5;color:white}
+.choice.correct{background:#dcfce7;color:#166534;border-color:#86efac}
+.choice.wrong{background:#fee2e2;color:#991b1b;border-color:#fecaca}
+.progress{height:13px;background:#e2e8f0;border-radius:999px;overflow:hidden;margin:12px 0}
+.fill{height:100%;background:linear-gradient(90deg,#16a34a,#0ea5e9);width:0%}
+@media(max-width:700px){body{padding:14px}.hero{padding:22px}.panel{padding:18px}}
+</style>
+</head>
+<body>
+<div class="top"><div class="logo">StudyFlow</div><a class="btn" href="index.html">⬅ Voltar</a></div>
+
+<div class="hero"><h1>📈 Progresso</h1><p>Registre suas médias e veja quais matérias precisam de mais atenção.</p></div>
+<div class="panel">
+<h2>Adicionar média</h2>
+<input id="materia" placeholder="Matéria">
+<input id="nota" type="number" step="0.1" min="0" max="10" placeholder="Nota / média">
+<button onclick="add()">Salvar nota</button>
+</div>
+<div class="panel"><h2>Resumo</h2><div id="resumo" class="result"></div><div id="lista"></div></div>
+
+<script>
+let notas=JSON.parse(localStorage.getItem("progressoStudyFlow")||"[]");
+function salvar(){localStorage.setItem("progressoStudyFlow",JSON.stringify(notas))}
+function add(){let m=materia.value.trim(), n=Number(nota.value); if(!m||isNaN(n))return; notas.push({m,n}); materia.value=nota.value=""; salvar(); render();}
+function del(i){notas.splice(i,1); salvar(); render();}
+function render(){let media=notas.length?notas.reduce((s,x)=>s+x.n,0)/notas.length:0; let fracas=notas.filter(x=>x.n<5).map(x=>x.m).join(", ")||"nenhuma"; resumo.innerText=`Média geral: ${media.toFixed(1)}\nMatérias abaixo de 5: ${fracas}`; lista.innerHTML=notas.map((x,i)=>`<div class="card"><h3>${x.m}: ${x.n}</h3><div class="progress"><div class="fill" style="width:${x.n*10}%"></div></div><button onclick="del(${i})">Excluir</button></div>`).join("")||"<p class='small'>Nenhuma nota registrada.</p>";}
+render();
+</script>
+</body></html>

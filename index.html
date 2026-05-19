@@ -873,160 +873,100 @@ input, select{
 }
 
 
-
-/* ASSISTENTE IA - NOVO DESIGN */
-#assistente.ai-panel{
-  padding:0;
-  overflow:hidden;
-  border:1px solid rgba(79,70,229,.16);
+/* NOVOS MODOS - VISUAL MAIS MODERNO */
+.modo-hero{
   background:
-    radial-gradient(circle at top left,rgba(124,58,237,.18),transparent 34%),
-    radial-gradient(circle at bottom right,rgba(14,165,233,.16),transparent 32%),
-    rgba(255,255,255,.95);
-}
-
-.ai-hero{
-  padding:28px;
-  background:linear-gradient(135deg,#4f46e5,#7c3aed);
+    radial-gradient(circle at top right,rgba(124,58,237,.35),transparent 30%),
+    linear-gradient(135deg,#4f46e5,#7c3aed);
   color:white;
+  border-radius:28px;
+  padding:28px;
+  margin:18px 0 22px;
   display:flex;
   justify-content:space-between;
+  align-items:center;
   gap:18px;
-  align-items:center;
-  flex-wrap:wrap;
+  box-shadow:0 22px 50px rgba(79,70,229,.28);
+  overflow:hidden;
 }
-
-.ai-badge{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  background:rgba(255,255,255,.18);
-  border:1px solid rgba(255,255,255,.25);
-  padding:8px 12px;
-  border-radius:999px;
-  font-size:.9rem;
-  font-weight:800;
-  margin-bottom:10px;
+.modo-hero h2{
+  font-size:1.8rem;
+  margin-bottom:8px;
 }
-
-.ai-title{
-  font-size:2rem;
-  font-weight:900;
-  line-height:1.1;
-}
-
-.ai-subtitle{
+.modo-hero p{
   color:#e0e7ff;
   font-weight:600;
-  margin-top:8px;
 }
-
-.ai-robot{
-  font-size:4rem;
-  filter:drop-shadow(0 12px 20px rgba(0,0,0,.25));
-}
-
-.ai-content{
-  padding:26px;
-  display:grid;
-  grid-template-columns:1fr;
-  gap:16px;
-}
-
-.ai-label{
-  font-weight:900;
-  color:#1e1b4b;
-  margin-bottom:8px;
-  display:block;
-}
-
-.ai-select,
-.ai-textarea{
-  width:100%;
-  border:2px solid #e0e7ff;
-  border-radius:18px;
+.modo-badge{
   background:white;
-  box-shadow:0 8px 22px rgba(79,70,229,.06);
-  font-family:inherit;
-  transition:.2s;
-}
-
-.ai-select{
-  padding:14px 16px;
-  font-weight:700;
-}
-
-.ai-textarea{
-  min-height:220px;
-  padding:18px;
-  resize:vertical;
-  line-height:1.6;
-}
-
-.ai-select:focus,
-.ai-textarea:focus{
-  border-color:#4f46e5;
-  box-shadow:0 0 0 4px rgba(79,70,229,.12);
-}
-
-.ai-actions{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:14px;
-  flex-wrap:wrap;
-}
-
-.ai-tip{
-  color:var(--muted);
-  font-weight:700;
-  font-size:.92rem;
-}
-
-.ai-button{
-  padding:14px 22px;
-  border-radius:16px;
-  background:linear-gradient(135deg,#4f46e5,#7c3aed);
-  box-shadow:0 12px 22px rgba(79,70,229,.28);
-  font-size:1rem;
-}
-
-.ai-response{
-  margin-top:2px;
-  background:#f8fafc;
-  border:2px solid #e0e7ff;
-  border-radius:20px;
-  padding:18px;
-  min-height:90px;
-  font-weight:700;
-  line-height:1.7;
-  color:#1e293b;
-  white-space:pre-line;
-}
-
-.ai-response-title{
   color:#4f46e5;
   font-weight:900;
+  padding:12px 18px;
+  border-radius:999px;
+  box-shadow:0 10px 25px rgba(0,0,0,.18);
+}
+.modo-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:18px;
+}
+.modo-card{
+  position:relative;
+  text-decoration:none;
+  color:var(--text);
+  background:rgba(255,255,255,.92);
+  border:1px solid var(--border);
+  border-radius:26px;
+  padding:24px;
+  min-height:230px;
+  box-shadow:0 14px 35px rgba(15,23,42,.08);
+  transition:.25s ease;
+  overflow:hidden;
+}
+.modo-card::before{
+  content:"";
+  position:absolute;
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  background:rgba(79,70,229,.10);
+  right:-42px;
+  top:-42px;
+}
+.modo-card:hover{
+  transform:translateY(-8px);
+  border-color:var(--primary);
+  box-shadow:0 22px 48px rgba(79,70,229,.18);
+}
+.modo-card.destaque{
+  background:linear-gradient(135deg,#ffffff,#eef2ff);
+  border:2px solid #c7d2fe;
+}
+.modo-icon{
+  font-size:2.4rem;
+  margin-bottom:12px;
+}
+.modo-card h3{
+  color:var(--primary);
+  font-size:1.25rem;
   margin-bottom:8px;
 }
-
+.modo-card p{
+  color:var(--muted);
+  font-weight:600;
+  line-height:1.55;
+}
+.modo-card span{
+  display:inline-block;
+  margin-top:18px;
+  background:linear-gradient(135deg,var(--primary),var(--purple));
+  color:white;
+  padding:10px 14px;
+  border-radius:999px;
+  font-weight:900;
+}
 @media(max-width:700px){
-  .ai-hero,
-  .ai-content{
-    padding:20px;
-  }
-
-  .ai-title{
-    font-size:1.55rem;
-  }
-
-  .ai-robot{
-    display:none;
-  }
-
-  .ai-button{
-    width:100%;
-  }
+  .modo-hero{flex-direction:column;align-items:flex-start;}
 }
 
 </style>
@@ -1094,7 +1034,17 @@ input, select{
   <div class="dash-card" onclick="abrirSecao('boletim',this)">📊 Boletim</div>
   <div class="dash-card" onclick="abrirSecao('desafios',this); carregarRanking()">🎮 Desafios</div>
   <div class="dash-card" onclick="abrirSecao('atualizacoes',this)">🔔 Atualizações</div>
-  <div class="dash-card" onclick="abrirSecao('assistente',this)">🤖 Assistente IA</div>
+  <div class="dash-card" onclick="window.location.href='simulado.html'">📝 Simulado IA</div>
+
+  <div class="dash-card" onclick="window.location.href='flashcards.html'">🧠 Flashcards</div>
+
+  <div class="dash-card" onclick="window.location.href='metas.html'">🎯 Metas</div>
+
+  <div class="dash-card" onclick="window.location.href='calendario.html'">📅 Calendário</div>
+
+  <div class="dash-card" onclick="window.location.href='progresso.html'">📈 Progresso</div>
+
+<div class="dash-card" onclick="window.location.href='foco.html'">🎧 Foco</div>
   <div class="dash-card" onclick="window.location.href='plano.html'">📅 Plano de Estudos</div>
     <button id="installBtn" class="dash-card" style="display:none;">
         📲 Baixar app
@@ -1237,43 +1187,64 @@ input, select{
   <div id="listaAprovados"></div>
 </section>
 
-<section id="assistente" class="section panel ai-panel">
-  <div class="ai-hero">
+
+<section id="modos" class="section panel">
+  <div class="section-title">🚀 Novos Modos StudyFlow</div>
+  <div class="help-text">Ferramentas novas para estudar melhor, revisar para provas e organizar a rotina.</div>
+
+  <div class="modo-hero">
     <div>
-      <div class="ai-badge">🤖 Assistente IA</div>
-      <div class="ai-title">Assistente StudyFlow</div>
-      <div class="ai-subtitle">Cole um exercício, resumo ou texto e escolha como a IA deve ajudar.</div>
+      <h2>Seu hub escolar ficou mais completo</h2>
+      <p>Escolha um modo abaixo. Cada ferramenta abre em uma página separada para o site não ficar bagunçado.</p>
     </div>
-    <div class="ai-robot">🧠</div>
+    <div class="modo-badge">Novo</div>
   </div>
 
-  <div class="ai-content">
-    <div>
-      <label class="ai-label" for="tipoIA">O que você quer fazer?</label>
-      <select id="tipoIA" class="ai-select">
-        <option value="resolver">Resolver exercício</option>
-        <option value="resumir">Resumir conteúdo</option>
-        <option value="explicar">Explicar de forma fácil</option>
-        <option value="quiz">Criar perguntas de estudo</option>
-      </select>
-    </div>
+  <div class="modo-grid">
+    <a class="modo-card destaque" href="simulado.html">
+      <div class="modo-icon">📝</div>
+      <h3>Simulado com IA</h3>
+      <p>Cole o conteúdo e a IA cria questões de múltipla escolha para você treinar.</p>
+      <span>Gerar prova</span>
+    </a>
 
-    <div>
-      <label class="ai-label" for="textoIA">Digite ou cole o conteúdo</label>
-      <textarea id="textoIA" class="ai-textarea" placeholder="Exemplo: explique mitose de forma simples..."></textarea>
-    </div>
+    <a class="modo-card" href="flashcards.html">
+      <div class="modo-icon">🧠</div>
+      <h3>Flashcards</h3>
+      <p>Crie cartões de pergunta e resposta para revisar antes da prova.</p>
+      <span>Estudar</span>
+    </a>
 
-    <div class="ai-actions">
-      <div class="ai-tip">Dica: quanto mais completo for o texto, melhor será a resposta.</div>
-      <button class="ai-button" onclick="perguntarIA()">✨ Gerar resposta</button>
-    </div>
+    <a class="modo-card" href="metas.html">
+      <div class="modo-icon">🎯</div>
+      <h3>Metas e Streak</h3>
+      <p>Marque tarefas, acompanhe progresso e mantenha sequência de estudos.</p>
+      <span>Organizar</span>
+    </a>
 
-    <div id="respostaIA" class="ai-response">
-      <div class="ai-response-title">Resposta da IA</div>
-      A resposta aparecerá aqui.
-    </div>
+    <a class="modo-card" href="calendario.html">
+      <div class="modo-icon">📅</div>
+      <h3>Calendário Escolar</h3>
+      <p>Anote provas, trabalhos e entregas importantes.</p>
+      <span>Ver agenda</span>
+    </a>
+
+    <a class="modo-card" href="progresso.html">
+      <div class="modo-icon">📈</div>
+      <h3>Progresso</h3>
+      <p>Veja sua evolução, pontos fortes e matérias que precisam de atenção.</p>
+      <span>Acompanhar</span>
+    </a>
+
+    <a class="modo-card" href="foco.html">
+      <div class="modo-icon">🎧</div>
+      <h3>Modo Foco</h3>
+      <p>Use pomodoro e sons de foco para estudar sem distração.</p>
+      <span>Começar</span>
+    </a>
   </div>
 </section>
+
 
 
 
@@ -2556,38 +2527,6 @@ document.getElementById("installBtn")?.addEventListener("click", async () => {
   installPrompt = null;
   document.getElementById("installBtn").style.display = "none";
 });
-
-async function perguntarIA(){
-  const tipo = document.getElementById("tipoIA").value;
-  const texto = document.getElementById("textoIA").value;
-  const respostaDiv = document.getElementById("respostaIA");
-
-  if(!texto.trim()){
-    alert("Digite ou cole algo primeiro.");
-    return;
-  }
-
-  respostaDiv.innerHTML = "🤖 Pensando...";
-
-  try{
-    const resposta = await fetch("https://meu-hub-estudos.vercel.app/api/assistente", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ tipo, texto })
-    });
-
-    const dados = await resposta.json();
-
-    respostaDiv.innerHTML = dados.resposta.replace(/\n/g, "<br>");
-
-  }catch(erro){
-    console.error(erro);
-    respostaDiv.innerHTML = "Erro ao chamar a IA.";
-  }
-}
-
 
 </script>
 
