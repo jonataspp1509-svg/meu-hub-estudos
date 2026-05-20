@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plano de Estudos - StudyFlow</title>
+<title>Caderno Inteligente - StudyFlow</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
@@ -15,22 +15,20 @@
   --purple:#7c3aed;
   --green:#16a34a;
   --red:#dc2626;
+  --orange:#f97316;
+  --blue:#0ea5e9;
   --text:#0f172a;
   --muted:#64748b;
   --border:#e2e8f0;
-  --shadow:0 10px 25px rgba(15,23,42,.08);
+  --shadow:0 16px 45px rgba(15,23,42,.10);
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+*{ margin:0; padding:0; box-sizing:border-box; }
 
 body{
   font-family:Poppins,sans-serif;
   background:
-    radial-gradient(circle at top left,#c7d2fe,transparent 30%),
+    radial-gradient(circle at top left,#c7d2fe,transparent 28%),
     radial-gradient(circle at bottom right,#ddd6fe,transparent 30%),
     linear-gradient(135deg,#eef2ff,#f8fafc);
   min-height:100vh;
@@ -48,19 +46,20 @@ header{
 }
 
 .logo{
-  font-size:2.5rem;
-  font-weight:800;
+  font-size:2.7rem;
+  font-weight:900;
   color:var(--primary);
+  letter-spacing:-1px;
 }
 
 .subtitle{
   color:var(--muted);
-  font-weight:600;
+  font-weight:700;
 }
 
 .btn{
   border:none;
-  border-radius:14px;
+  border-radius:16px;
   padding:13px 18px;
   background:linear-gradient(135deg,var(--primary),var(--purple));
   color:white;
@@ -69,40 +68,78 @@ header{
   font-family:inherit;
   text-decoration:none;
   display:inline-block;
+  transition:.2s;
 }
 
 .btn:hover{
-  opacity:.9;
+  transform:translateY(-2px);
+  opacity:.95;
 }
+
+.btn-green{ background:linear-gradient(135deg,#16a34a,#22c55e); }
+.btn-red{ background:linear-gradient(135deg,#dc2626,#ef4444); }
+.btn-blue{ background:linear-gradient(135deg,#0ea5e9,#2563eb); }
+.btn-gray{ background:#334155; }
 
 .container{
   display:grid;
-  grid-template-columns:1fr 1.3fr;
+  grid-template-columns:1fr 1.25fr;
   gap:22px;
+  align-items:start;
 }
 
 .panel{
   background:rgba(255,255,255,.94);
   padding:24px;
-  border-radius:24px;
+  border-radius:28px;
   box-shadow:var(--shadow);
+  border:1px solid rgba(226,232,240,.8);
+  backdrop-filter: blur(10px);
 }
 
 .title{
   color:var(--primary);
-  font-size:1.5rem;
-  font-weight:800;
+  font-size:1.55rem;
+  font-weight:900;
   margin-bottom:8px;
 }
 
 .help{
   color:var(--muted);
-  font-weight:600;
+  font-weight:650;
+  margin-bottom:18px;
+  line-height:1.55;
+}
+
+.tabs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
   margin-bottom:18px;
 }
 
+.tab{
+  border:1px solid var(--border);
+  background:#f8fafc;
+  color:var(--primary);
+  border-radius:16px;
+  padding:13px;
+  font-weight:900;
+  cursor:pointer;
+  font-family:inherit;
+}
+
+.tab.active{
+  background:linear-gradient(135deg,var(--primary),var(--purple));
+  color:white;
+  border-color:transparent;
+}
+
+.tab-content{ display:none; }
+.tab-content.active{ display:block; }
+
 label{
-  font-weight:800;
+  font-weight:900;
   color:var(--text);
   display:block;
   margin:12px 0 6px;
@@ -110,18 +147,40 @@ label{
 
 input, select, textarea{
   width:100%;
-  padding:13px;
+  padding:14px;
   border:1px solid var(--border);
-  border-radius:14px;
+  border-radius:16px;
   font-family:inherit;
   font-size:1rem;
   outline:none;
   background:white;
 }
 
+input:focus, select:focus, textarea:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 4px rgba(79,70,229,.10);
+}
+
 textarea{
-  min-height:130px;
+  min-height:230px;
   resize:vertical;
+  line-height:1.7;
+}
+
+.note-title{
+  font-size:1.4rem;
+  font-weight:900;
+}
+
+.note-area{
+  min-height:330px;
+  font-size:1.05rem;
+}
+
+.row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
 }
 
 .actions{
@@ -129,14 +188,6 @@ textarea{
   gap:10px;
   margin-top:15px;
   flex-wrap:wrap;
-}
-
-.btn-green{
-  background:var(--green);
-}
-
-.btn-red{
-  background:var(--red);
 }
 
 .list{
@@ -148,10 +199,13 @@ textarea{
 .item{
   background:white;
   border:1px solid var(--border);
-  border-radius:18px;
+  border-radius:20px;
   padding:16px;
-  box-shadow:0 5px 14px rgba(15,23,42,.06);
+  box-shadow:0 8px 20px rgba(15,23,42,.06);
+  transition:.2s;
 }
+
+.item:hover{ transform:translateY(-2px); }
 
 .item-top{
   display:flex;
@@ -163,19 +217,20 @@ textarea{
 
 .materia{
   font-size:1.15rem;
-  font-weight:800;
+  font-weight:900;
   color:var(--primary);
 }
 
 .data{
   color:var(--muted);
-  font-weight:700;
+  font-weight:750;
 }
 
 .anotacao{
   white-space:pre-line;
-  line-height:1.6;
+  line-height:1.65;
   margin-top:10px;
+  color:#1e293b;
 }
 
 .empty{
@@ -183,7 +238,7 @@ textarea{
   border:1px solid var(--border);
   padding:18px;
   border-radius:18px;
-  font-weight:800;
+  font-weight:900;
 }
 
 .filtro{
@@ -197,28 +252,141 @@ textarea{
   display:inline-block;
   background:#eef2ff;
   color:var(--primary);
-  padding:5px 10px;
+  padding:6px 11px;
   border-radius:999px;
   font-size:.85rem;
-  font-weight:800;
+  font-weight:900;
 }
 
-@media(max-width:850px){
-  body{
-    padding:16px;
-  }
+.upload-box{
+  border:2px dashed #c7d2fe;
+  background:linear-gradient(135deg,#f8fafc,#eef2ff);
+  border-radius:22px;
+  padding:22px;
+  text-align:center;
+  cursor:pointer;
+  transition:.2s;
+  margin-bottom:14px;
+}
 
-  .container{
-    grid-template-columns:1fr;
-  }
+.upload-box:hover{
+  transform:translateY(-2px);
+  border-color:var(--primary);
+}
 
-  .logo{
-    font-size:2rem;
-  }
+.upload-box strong{
+  color:var(--primary);
+  font-size:1.15rem;
+}
 
-  .filtro{
-    grid-template-columns:1fr;
-  }
+.file-hidden{ display:none; }
+
+.file-card{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+}
+
+.file-icon{
+  min-width:44px;
+  height:44px;
+  border-radius:14px;
+  background:#eef2ff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.35rem;
+}
+
+.file-info{
+  flex:1;
+  min-width:0;
+}
+
+.file-name{
+  font-weight:900;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.file-size{
+  color:var(--muted);
+  font-size:.9rem;
+  font-weight:700;
+}
+
+.preview{
+  margin-top:12px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  overflow:hidden;
+  background:#f8fafc;
+}
+
+.preview iframe{
+  width:100%;
+  height:420px;
+  border:0;
+  display:block;
+}
+
+.preview img{
+  max-width:100%;
+  display:block;
+  margin:auto;
+}
+
+.preview-text{
+  padding:16px;
+  white-space:pre-wrap;
+  max-height:420px;
+  overflow:auto;
+  line-height:1.6;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-bottom:18px;
+}
+
+.stat{
+  background:linear-gradient(135deg,#eef2ff,#f8fafc);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:14px;
+}
+
+.stat strong{
+  display:block;
+  color:var(--primary);
+  font-size:1.5rem;
+}
+
+.stat span{
+  color:var(--muted);
+  font-weight:800;
+  font-size:.85rem;
+}
+
+.warning{
+  background:#fff7ed;
+  border:1px solid #fed7aa;
+  color:#9a3412;
+  border-radius:18px;
+  padding:14px;
+  font-weight:700;
+  line-height:1.5;
+  margin-bottom:15px;
+}
+
+@media(max-width:950px){
+  body{ padding:16px; }
+  .container{ grid-template-columns:1fr; }
+  .logo{ font-size:2.1rem; }
+  .filtro,.row,.stats{ grid-template-columns:1fr; }
 }
 </style>
 </head>
@@ -228,7 +396,7 @@ textarea{
 <header>
   <div>
     <div class="logo">StudyFlow</div>
-    <div class="subtitle">📅 Plano de Estudos — organize horários, matérias e fórmulas.</div>
+    <div class="subtitle">📒 Bloco de estudos — anotações, planos e resumos pessoais.</div>
   </div>
 
   <a class="btn" href="index.html">⬅ Voltar</a>
@@ -237,50 +405,122 @@ textarea{
 <div class="container">
 
   <section class="panel">
-    <div class="title">Criar plano</div>
-    <div class="help">Coloque o dia, horário, matéria e suas anotações importantes.</div>
+    <div class="tabs">
+      <button class="tab active" onclick="abrirAba('nota', this)">📝 Bloco de notas</button>
+      <button class="tab" onclick="abrirAba('arquivo', this)">📎 Meus resumos</button>
+    </div>
 
-    <label>Dia</label>
-    <input id="planoDia" type="date">
+    <div id="abaNota" class="tab-content active">
+      <div class="title">Criar anotação</div>
+      <div class="help">Escreva como se fosse um caderno digital: fórmulas, resumos, tarefas e ideias.</div>
 
-    <label>Horário</label>
-    <input id="planoHorario" type="time">
+      <label>Título</label>
+      <input id="notaTitulo" class="note-title" placeholder="Ex: Biologia — Mitose e Meiose">
 
-    <label>Matéria</label>
-    <select id="planoMateria">
-      <option>Matemática</option>
-      <option>Física</option>
-      <option>Química</option>
-      <option>Biologia</option>
-      <option>História</option>
-      <option>Geografia</option>
-      <option>Português</option>
-      <option>Inglês</option>
-      <option>Redação</option>
-      <option>Filosofia</option>
-      <option>Sociologia</option>
-      <option>Vestibulares</option>
-    </select>
+      <div class="row">
+        <div>
+          <label>Matéria</label>
+          <select id="notaMateria">
+            <option>Matemática</option>
+            <option>Física</option>
+            <option>Química</option>
+            <option>Biologia</option>
+            <option>História</option>
+            <option>Geografia</option>
+            <option>Português</option>
+            <option>Inglês</option>
+            <option>Redação</option>
+            <option>Filosofia</option>
+            <option>Sociologia</option>
+            <option>Vestibulares</option>
+            <option>Geral</option>
+          </select>
+        </div>
 
-    <label>Conteúdo / fórmulas / anotações</label>
-    <textarea id="planoAnotacao" placeholder="Exemplo:
-Estudar mitose e meiose.
+        <div>
+          <label>Data</label>
+          <input id="notaData" type="date">
+        </div>
+      </div>
+
+      <label>Anotação</label>
+      <textarea id="notaTexto" class="note-area" placeholder="Exemplo:
+• Mitose: divisão celular que forma duas células iguais.
+• Meiose: forma gametas e reduz o número de cromossomos.
 Fórmula: Ec = m.v²/2
-Fazer lista de exercícios da página 30."></textarea>
+Tarefa: fazer exercícios da página 30."></textarea>
 
-    <div class="actions">
-      <button class="btn btn-green" onclick="salvarPlano()">Adicionar ao plano</button>
-      <button class="btn btn-red" onclick="limparCampos()">Limpar</button>
+      <div class="actions">
+        <button class="btn btn-green" onclick="salvarNota()">Salvar anotação</button>
+        <button class="btn btn-blue" onclick="exportarNotas()">Exportar backup</button>
+        <button class="btn btn-red" onclick="limparNota()">Limpar</button>
+      </div>
+    </div>
+
+    <div id="abaArquivo" class="tab-content">
+      <div class="title">Enviar resumo pessoal</div>
+      <div class="help">Você pode colocar PDFs, imagens ou arquivos de texto. Eles ficam salvos só neste navegador.</div>
+
+      <div class="warning">
+        ⚠️ Importante: esses arquivos ficam salvos apenas neste aparelho/navegador usando armazenamento local. Se limpar os dados do navegador, pode perder.
+      </div>
+
+      <label>Matéria do arquivo</label>
+      <select id="arquivoMateria">
+        <option>Matemática</option>
+        <option>Física</option>
+        <option>Química</option>
+        <option>Biologia</option>
+        <option>História</option>
+        <option>Geografia</option>
+        <option>Português</option>
+        <option>Inglês</option>
+        <option>Redação</option>
+        <option>Filosofia</option>
+        <option>Sociologia</option>
+        <option>Vestibulares</option>
+        <option>Geral</option>
+      </select>
+
+      <label>Arquivo</label>
+      <div class="upload-box" onclick="document.getElementById('arquivoResumo').click()">
+        <strong>📤 Clique para enviar seu resumo</strong>
+        <div class="help" style="margin:8px 0 0;">PDF, imagem ou TXT. O arquivo aparece só para você.</div>
+      </div>
+
+      <input id="arquivoResumo" class="file-hidden" type="file" accept=".pdf,.txt,.png,.jpg,.jpeg,.webp,.html,.doc,.docx" onchange="prepararArquivo()">
+
+      <div id="arquivoEscolhido" class="help">Nenhum arquivo selecionado.</div>
+
+      <div class="actions">
+        <button class="btn btn-green" onclick="salvarArquivo()">Salvar resumo</button>
+        <button class="btn btn-red" onclick="limparArquivo()">Limpar</button>
+      </div>
     </div>
   </section>
 
   <section class="panel">
-    <div class="title">Meu plano</div>
-    <div class="help">Veja seus estudos salvos neste aparelho.</div>
+    <div class="title">Meu caderno</div>
+    <div class="help">Pesquise suas anotações, planos e arquivos salvos neste aparelho.</div>
+
+    <div class="stats">
+      <div class="stat">
+        <strong id="totalNotas">0</strong>
+        <span>Anotações</span>
+      </div>
+      <div class="stat">
+        <strong id="totalArquivos">0</strong>
+        <span>Arquivos</span>
+      </div>
+      <div class="stat">
+        <strong id="totalConcluidos">0</strong>
+        <span>Concluídos</span>
+      </div>
+    </div>
 
     <div class="filtro">
-      <input id="pesquisaPlano" placeholder="🔍 Pesquisar matéria/anotação" oninput="mostrarPlanos()">
-      <select id="filtroMateria" onchange="mostrarPlanos()">
+      <input id="pesquisaPlano" placeholder="🔍 Pesquisar anotação/resumo" oninput="mostrarTudo()">
+      <select id="filtroMateria" onchange="mostrarTudo()">
         <option value="">Todas as matérias</option>
         <option>Matemática</option>
         <option>Física</option>
@@ -294,6 +534,7 @@ Fazer lista de exercícios da página 30."></textarea>
         <option>Filosofia</option>
         <option>Sociologia</option>
         <option>Vestibulares</option>
+        <option>Geral</option>
       </select>
     </div>
 
@@ -303,46 +544,138 @@ Fazer lista de exercícios da página 30."></textarea>
 </div>
 
 <script>
-function pegarPlanos(){
-  return JSON.parse(localStorage.getItem("studyflow_planos") || "[]");
+let arquivoTemp = null;
+
+function abrirAba(aba, botao){
+  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+  botao.classList.add("active");
+
+  document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+
+  if(aba === "nota"){
+    document.getElementById("abaNota").classList.add("active");
+  }else{
+    document.getElementById("abaArquivo").classList.add("active");
+  }
 }
 
-function salvarLista(planos){
-  localStorage.setItem("studyflow_planos", JSON.stringify(planos));
+function pegarItens(){
+  return JSON.parse(localStorage.getItem("studyflow_caderno") || "[]");
 }
 
-function salvarPlano(){
-  const dia = document.getElementById("planoDia").value;
-  const horario = document.getElementById("planoHorario").value;
-  const materia = document.getElementById("planoMateria").value;
-  const anotacao = document.getElementById("planoAnotacao").value.trim();
+function salvarItens(itens){
+  localStorage.setItem("studyflow_caderno", JSON.stringify(itens));
+}
 
-  if(!dia || !horario || !anotacao){
-    alert("Preencha dia, horário e anotação.");
+function dataHoje(){
+  return new Date().toISOString().slice(0,10);
+}
+
+document.getElementById("notaData").value = dataHoje();
+
+function salvarNota(){
+  const titulo = document.getElementById("notaTitulo").value.trim();
+  const materia = document.getElementById("notaMateria").value;
+  const data = document.getElementById("notaData").value || dataHoje();
+  const texto = document.getElementById("notaTexto").value.trim();
+
+  if(!titulo || !texto){
+    alert("Preencha o título e a anotação.");
     return;
   }
 
-  const planos = pegarPlanos();
+  const itens = pegarItens();
 
-  planos.push({
+  itens.push({
     id: Date.now(),
-    dia,
-    horario,
+    tipo:"nota",
+    titulo,
     materia,
-    anotacao,
+    data,
+    texto,
     concluido:false
   });
 
-  salvarLista(planos);
-  limparCampos();
-  mostrarPlanos();
+  salvarItens(itens);
+  limparNota();
+  mostrarTudo();
 }
 
-function limparCampos(){
-  document.getElementById("planoDia").value = "";
-  document.getElementById("planoHorario").value = "";
-  document.getElementById("planoMateria").value = "Matemática";
-  document.getElementById("planoAnotacao").value = "";
+function limparNota(){
+  document.getElementById("notaTitulo").value = "";
+  document.getElementById("notaMateria").value = "Matemática";
+  document.getElementById("notaData").value = dataHoje();
+  document.getElementById("notaTexto").value = "";
+}
+
+function prepararArquivo(){
+  const input = document.getElementById("arquivoResumo");
+  const file = input.files[0];
+
+  if(!file){
+    arquivoTemp = null;
+    document.getElementById("arquivoEscolhido").innerText = "Nenhum arquivo selecionado.";
+    return;
+  }
+
+  const limiteMB = 8;
+  if(file.size > limiteMB * 1024 * 1024){
+    alert("Esse arquivo está muito grande. Use até 8 MB para não pesar o navegador.");
+    input.value = "";
+    arquivoTemp = null;
+    return;
+  }
+
+  const reader = new FileReader();
+
+  reader.onload = function(e){
+    arquivoTemp = {
+      nome:file.name,
+      tipoMime:file.type || "application/octet-stream",
+      tamanho:file.size,
+      dados:e.target.result
+    };
+
+    document.getElementById("arquivoEscolhido").innerText =
+      "Arquivo selecionado: " + file.name;
+  };
+
+  reader.readAsDataURL(file);
+}
+
+function salvarArquivo(){
+  const materia = document.getElementById("arquivoMateria").value;
+
+  if(!arquivoTemp){
+    alert("Escolha um arquivo primeiro.");
+    return;
+  }
+
+  const itens = pegarItens();
+
+  itens.push({
+    id: Date.now(),
+    tipo:"arquivo",
+    titulo:arquivoTemp.nome,
+    materia,
+    data:dataHoje(),
+    nome:arquivoTemp.nome,
+    tipoMime:arquivoTemp.tipoMime,
+    tamanho:arquivoTemp.tamanho,
+    dados:arquivoTemp.dados,
+    concluido:false
+  });
+
+  salvarItens(itens);
+  limparArquivo();
+  mostrarTudo();
+}
+
+function limparArquivo(){
+  document.getElementById("arquivoMateria").value = "Matemática";
+  document.getElementById("arquivoResumo").value = "";
+  document.getElementById("arquivoEscolhido").innerText = "Nenhum arquivo selecionado.";
+  arquivoTemp = null;
 }
 
 function formatarData(data){
@@ -351,84 +684,196 @@ function formatarData(data){
   return `${partes[2]}/${partes[1]}/${partes[0]}`;
 }
 
+function formatarTamanho(bytes){
+  if(!bytes) return "";
+  if(bytes < 1024) return bytes + " B";
+  if(bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
+  return (bytes / (1024 * 1024)).toFixed(1) + " MB";
+}
+
 function alternarConcluido(id){
-  const planos = pegarPlanos();
+  const itens = pegarItens();
+  const item = itens.find(p => p.id === id);
 
-  const plano = planos.find(p => p.id === id);
-
-  if(plano){
-    plano.concluido = !plano.concluido;
+  if(item){
+    item.concluido = !item.concluido;
   }
 
-  salvarLista(planos);
-  mostrarPlanos();
+  salvarItens(itens);
+  mostrarTudo();
 }
 
-function excluirPlano(id){
-  if(!confirm("Deseja excluir este plano?")) return;
+function excluirItem(id){
+  if(!confirm("Deseja excluir este item?")) return;
 
-  const planos = pegarPlanos().filter(p => p.id !== id);
+  const itens = pegarItens().filter(p => p.id !== id);
 
-  salvarLista(planos);
-  mostrarPlanos();
+  salvarItens(itens);
+  mostrarTudo();
 }
 
-function mostrarPlanos(){
+function abrirArquivo(id){
+  const item = pegarItens().find(p => p.id === id);
+
+  if(!item || item.tipo !== "arquivo") return;
+
+  const novaJanela = window.open();
+  novaJanela.document.write(`
+    <title>${item.nome}</title>
+    <body style="margin:0;font-family:Arial;background:#f8fafc;">
+      <div style="padding:14px;background:#4f46e5;color:white;font-weight:bold;">
+        ${item.nome}
+      </div>
+      ${
+        item.tipoMime.includes("image")
+        ? `<img src="${item.dados}" style="max-width:100%;display:block;margin:auto;">`
+        : item.tipoMime.includes("pdf")
+        ? `<iframe src="${item.dados}" style="width:100%;height:92vh;border:0;"></iframe>`
+        : `<iframe src="${item.dados}" style="width:100%;height:92vh;border:0;"></iframe>`
+      }
+    </body>
+  `);
+}
+
+function baixarArquivo(id){
+  const item = pegarItens().find(p => p.id === id);
+
+  if(!item || item.tipo !== "arquivo") return;
+
+  const a = document.createElement("a");
+  a.href = item.dados;
+  a.download = item.nome;
+  a.click();
+}
+
+function mostrarPreviewArquivo(item){
+  if(item.tipoMime.includes("image")){
+    return `<div class="preview"><img src="${item.dados}" alt="${item.nome}"></div>`;
+  }
+
+  if(item.tipoMime.includes("pdf")){
+    return `<div class="preview"><iframe src="${item.dados}"></iframe></div>`;
+  }
+
+  if(item.tipoMime.includes("text")){
+    return `<div class="preview"><iframe src="${item.dados}"></iframe></div>`;
+  }
+
+  return "";
+}
+
+function mostrarTudo(){
   const lista = document.getElementById("listaPlano");
   const pesquisa = document.getElementById("pesquisaPlano").value.toLowerCase();
   const filtroMateria = document.getElementById("filtroMateria").value;
 
-  let planos = pegarPlanos();
-
-  planos.sort((a,b)=>{
-    const dataA = `${a.dia} ${a.horario}`;
-    const dataB = `${b.dia} ${b.horario}`;
-    return dataA.localeCompare(dataB);
-  });
+  let itens = pegarItens();
 
   if(filtroMateria){
-    planos = planos.filter(p => p.materia === filtroMateria);
+    itens = itens.filter(p => p.materia === filtroMateria);
   }
 
   if(pesquisa){
-    planos = planos.filter(p =>
-      p.materia.toLowerCase().includes(pesquisa) ||
-      p.anotacao.toLowerCase().includes(pesquisa)
+    itens = itens.filter(p =>
+      (p.materia || "").toLowerCase().includes(pesquisa) ||
+      (p.titulo || "").toLowerCase().includes(pesquisa) ||
+      (p.texto || "").toLowerCase().includes(pesquisa) ||
+      (p.nome || "").toLowerCase().includes(pesquisa)
     );
   }
 
-  if(planos.length === 0){
-    lista.innerHTML = `<div class="empty">Nenhum plano encontrado.</div>`;
+  itens.sort((a,b)=> String(b.id).localeCompare(String(a.id)));
+
+  const todos = pegarItens();
+  document.getElementById("totalNotas").innerText =
+    todos.filter(i => i.tipo === "nota").length;
+  document.getElementById("totalArquivos").innerText =
+    todos.filter(i => i.tipo === "arquivo").length;
+  document.getElementById("totalConcluidos").innerText =
+    todos.filter(i => i.concluido).length;
+
+  if(itens.length === 0){
+    lista.innerHTML = `<div class="empty">Nenhum item encontrado.</div>`;
     return;
   }
 
-  lista.innerHTML = planos.map(p => `
-    <div class="item">
-      <div class="item-top">
-        <div>
-          <div class="materia">${p.concluido ? "✅" : "📌"} ${p.materia}</div>
-          <div class="data">${formatarData(p.dia)} às ${p.horario}</div>
+  lista.innerHTML = itens.map(p => {
+    if(p.tipo === "arquivo"){
+      return `
+        <div class="item">
+          <div class="file-card">
+            <div class="file-icon">📎</div>
+
+            <div class="file-info">
+              <div class="item-top">
+                <div>
+                  <div class="materia">${p.concluido ? "✅" : "📄"} ${p.materia}</div>
+                  <div class="file-name">${p.nome}</div>
+                  <div class="file-size">${formatarData(p.data)} • ${formatarTamanho(p.tamanho)}</div>
+                </div>
+
+                <span class="badge">${p.concluido ? "Revisado" : "Resumo"}</span>
+              </div>
+
+              ${mostrarPreviewArquivo(p)}
+
+              <div class="actions">
+                <button class="btn btn-blue" onclick="abrirArquivo(${p.id})">Abrir</button>
+                <button class="btn" onclick="baixarArquivo(${p.id})">Baixar</button>
+                <button class="btn btn-gray" onclick="alternarConcluido(${p.id})">
+                  ${p.concluido ? "Marcar não revisado" : "Marcar revisado"}
+                </button>
+                <button class="btn btn-red" onclick="excluirItem(${p.id})">Excluir</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    return `
+      <div class="item">
+        <div class="item-top">
+          <div>
+            <div class="materia">${p.concluido ? "✅" : "📝"} ${p.materia}</div>
+            <div class="data">${formatarData(p.data)} • ${p.titulo}</div>
+          </div>
+
+          <span class="badge">${p.concluido ? "Concluído" : "Anotação"}</span>
         </div>
 
-        <span class="badge">${p.concluido ? "Concluído" : "Pendente"}</span>
+        <div class="anotacao">${p.texto}</div>
+
+        <div class="actions">
+          <button class="btn" onclick="alternarConcluido(${p.id})">
+            ${p.concluido ? "Marcar pendente" : "Marcar concluído"}
+          </button>
+
+          <button class="btn btn-red" onclick="excluirItem(${p.id})">
+            Excluir
+          </button>
+        </div>
       </div>
-
-      <div class="anotacao">${p.anotacao}</div>
-
-      <div class="actions">
-        <button class="btn" onclick="alternarConcluido(${p.id})">
-          ${p.concluido ? "Marcar pendente" : "Marcar concluído"}
-        </button>
-
-        <button class="btn btn-red" onclick="excluirPlano(${p.id})">
-          Excluir
-        </button>
-      </div>
-    </div>
-  `).join("");
+    `;
+  }).join("");
 }
 
-mostrarPlanos();
+function exportarNotas(){
+  const itens = pegarItens();
+
+  const backup = JSON.stringify(itens, null, 2);
+  const blob = new Blob([backup], {type:"application/json"});
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "backup-studyflow-caderno.json";
+  a.click();
+
+  URL.revokeObjectURL(url);
+}
+
+mostrarTudo();
 </script>
 
 </body>
