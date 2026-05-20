@@ -1054,21 +1054,68 @@ input,select,textarea{
   <div class="subtitle">Desenvolvido por Jonatas — materiais, boletim, calculadora e desafios escolares</div>
 </header>
 
-<div class="dashboard">
-  <div class="dash-card active" onclick="voltarInicioMateriais(); abrirSecao('materiais',this)">📁 Materiais</div>
-  <div class="dash-card" onclick="abrirSecao('calculadora',this)">🧮 Calculadora</div>
-  <div class="dash-card" onclick="abrirSecao('boletim',this)">📊 Boletim</div>
-  <div class="dash-card" onclick="abrirSecao('desafios',this); carregarRanking()">🎮 Desafios</div>
-  <div class="dash-card" onclick="abrirSecao('atualizacoes',this)">🔔 Atualizações</div>
-  <div class="dash-card mode-card" onclick="window.location.href='flashcards.html'">🧠 Flashcards</div>
-  <div class="dash-card mode-card" onclick="window.location.href='metas.html'">🎯 Metas</div>
-  <div class="dash-card mode-card" onclick="window.location.href='calendario.html'">📅 Calendário</div>
-  <div class="dash-card mode-card" onclick="window.location.href='progresso.html'">📈 Progresso</div>
-  <div class="dash-card mode-card" onclick="window.location.href='foco.html'">🎧 Foco</div>
-  <div class="dash-card" onclick="window.location.href='plano.html'">📖 Caderno Inteligente</div>
-    <button id="installBtn" class="dash-card" style="display:none;">
-        📲 Baixar app
-    </button>
+<div class="dashboard" id="dashboard">
+
+  <div class="dash-card active"
+  onclick="voltarInicioMateriais(); abrirSecao('materiais',this)">
+  📁 Materiais
+  </div>
+
+  <div class="dash-card"
+  onclick="abrirSecao('calculadora',this)">
+  🧮 Calculadora
+  </div>
+
+  <div class="dash-card"
+  onclick="abrirSecao('boletim',this)">
+  📊 Boletim
+  </div>
+
+  <div class="dash-card"
+  onclick="abrirSecao('desafios',this); carregarRanking()">
+  🎮 Desafios
+  </div>
+
+  <div class="dash-card"
+  onclick="abrirSecao('atualizacoes',this)">
+  🔔 Atualizações
+  </div>
+
+  <div class="dash-card mode-card"
+  onclick="window.location.href='flashcards.html'">
+  🧠 Flashcards
+  </div>
+
+  <div class="dash-card mode-card"
+  onclick="window.location.href='metas.html'">
+  🎯 Metas
+  </div>
+
+  <div class="dash-card mode-card"
+  onclick="window.location.href='calendario.html'">
+  📅 Calendário
+  </div>
+
+  <div class="dash-card mode-card"
+  onclick="window.location.href='progresso.html'">
+  📈 Progresso
+  </div>
+
+  <div class="dash-card mode-card"
+  onclick="window.location.href='foco.html'">
+  🎧 Foco
+  </div>
+
+  <div class="dash-card"
+  onclick="window.location.href='plano.html'">
+  📖 Caderno Inteligente
+  </div>
+
+  <button id="installBtn"
+  class="dash-card"
+  style="display:none;">
+  📲 Baixar app
+  </button>
 
 </div>
 

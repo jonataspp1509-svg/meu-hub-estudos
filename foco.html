@@ -261,123 +261,80 @@ body{
 </div>
 
 <script>
+    let audioAtual = null;
 
-let audioAtual = null;
+    const sons = {
+    cafeteria: "https://actions.google.com/sounds/v1/ambiences/coffee_shop.ogg",
+    chuva: "https://actions.google.com/sounds/v1/weather/rain_on_roof.ogg",
+    floresta: "https://actions.google.com/sounds/v1/ambiences/forest_ambience.ogg",
+    mar: "https://actions.google.com/sounds/v1/water/waves_crashing_on_rock_beach.ogg",
+    lareira: "https://actions.google.com/sounds/v1/foley/campfire.ogg"
+    };
 
-function tocarSom(tipo){
+    function tocarSom(tipo){
+    pararSom();
 
-  if(audioAtual){
-    audioAtual.pause();
-    audioAtual = null;
-  }
+    audioAtual = new Audio(sons[tipo]);
+    audioAtual.loop = true;
+    audioAtual.volume = 0.45;
 
-  let url = "";
-
-  if(tipo === "cafeteria"){
-    url =
-    "https://actions.google.com/sounds/v1/ambiences/coffee_shop.ogg";
-  }
-
-  if(tipo === "chuva"){
-    url =
-    "https://actions.google.com/sounds/v1/weather/heavy_rain.ogg";
-  }
-
-  if(tipo === "floresta"){
-    url =
-    "https://actions.google.com/sounds/v1/ambiences/forest_ambience.ogg";
-  }
-
-  if(tipo === "mar"){
-    url =
-    "https://actions.google.com/sounds/v1/water/ocean_waves.ogg";
-  }
-
-  if(tipo === "lareira"){
-    url =
-    "https://actions.google.com/sounds/v1/foley/fireplace_crackle.ogg";
-  }
-
-  audioAtual = new Audio(url);
-
-  audioAtual.loop = true;
-
-  audioAtual.volume = 0.35;
-
-  audioAtual.play();
-}
-
-function pararSom(){
-
-  if(audioAtual){
-    audioAtual.pause();
-    audioAtual = null;
-  }
-}
-
-function abrirLofi(){
-
-  window.open(
-    "https://www.youtube.com/results?search_query=lofi+study+music",
-    "_blank"
-  );
-}
-
-let tempo = 25 * 60;
-let intervalo = null;
-
-function atualizarTimer(){
-
-  const minutos = Math.floor(tempo / 60);
-  const segundos = tempo % 60;
-
-  document.getElementById("timer").innerText =
-    `${String(minutos).padStart(2,"0")}:${String(segundos).padStart(2,"0")}`;
-}
-
-function iniciarTimer(){
-
-  if(intervalo) return;
-
-  intervalo = setInterval(()=>{
-
-    if(tempo > 0){
-
-      tempo--;
-
-      atualizarTimer();
-
-    }else{
-
-      clearInterval(intervalo);
-
-      intervalo = null;
-
-      alert("Tempo finalizado!");
-
+    audioAtual.play().catch(() => {
+        alert("Esse som não carregou. Tente outro.");
+    });
     }
 
-  },1000);
-}
+    function pararSom(){
+    if(audioAtual){
+        audioAtual.pause();
+        audioAtual.currentTime = 0;
+        audioAtual = null;
+    }
+    }
 
-function pausarTimer(){
+    function abrirLofi(){
+    window.open(
+        "https://www.youtube.com/results?search_query=lofi+study+music",
+        "_blank"
+    );
+    }
 
-  clearInterval(intervalo);
+    let tempo = 25 * 60;
+    let intervalo = null;
 
-  intervalo = null;
-}
+    function atualizarTimer(){
+    const minutos = Math.floor(tempo / 60);
+    const segundos = tempo % 60;
 
-function resetarTimer(){
+    document.getElementById("timer").innerText =
+        `${String(minutos).padStart(2,"0")}:${String(segundos).padStart(2,"0")}`;
+    }
 
-  clearInterval(intervalo);
+    function iniciarTimer(){
+    if(intervalo) return;
 
-  intervalo = null;
+    intervalo = setInterval(() => {
+        if(tempo > 0){
+        tempo--;
+        atualizarTimer();
+        }else{
+        clearInterval(intervalo);
+        intervalo = null;
+        alert("Tempo finalizado!");
+        }
+    }, 1000);
+    }
 
-  tempo = 25 * 60;
+    function pausarTimer(){
+    clearInterval(intervalo);
+    intervalo = null;
+    }
 
-  atualizarTimer();
-}
-
+    function resetarTimer(){
+    clearInterval(intervalo);
+    intervalo = null;
+    tempo = 25 * 60;
+    atualizarTimer();
+    }
 </script>
 
 </body>
