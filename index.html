@@ -873,100 +873,126 @@ input, select{
 }
 
 
-/* NOVOS MODOS - VISUAL MAIS MODERNO */
-.modo-hero{
+
+/* ===============================
+   STUDYFLOW - DESIGN PREMIUM 2026
+   Somente visual: não altera funções
+================================ */
+body{
   background:
-    radial-gradient(circle at top right,rgba(124,58,237,.35),transparent 30%),
-    linear-gradient(135deg,#4f46e5,#7c3aed);
+    radial-gradient(circle at 8% 8%, rgba(124,58,237,.28), transparent 28%),
+    radial-gradient(circle at 92% 18%, rgba(14,165,233,.22), transparent 30%),
+    radial-gradient(circle at 50% 100%, rgba(79,70,229,.16), transparent 35%),
+    linear-gradient(135deg,#eef2ff 0%,#f8fafc 42%,#ecfeff 100%) !important;
+}
+
+header{
+  background:linear-gradient(135deg,rgba(79,70,229,.96),rgba(124,58,237,.94),rgba(14,165,233,.86));
   color:white;
-  border-radius:28px;
-  padding:28px;
-  margin:18px 0 22px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:18px;
-  box-shadow:0 22px 50px rgba(79,70,229,.28);
-  overflow:hidden;
-}
-.modo-hero h2{
-  font-size:1.8rem;
-  margin-bottom:8px;
-}
-.modo-hero p{
-  color:#e0e7ff;
-  font-weight:600;
-}
-.modo-badge{
-  background:white;
-  color:#4f46e5;
-  font-weight:900;
-  padding:12px 18px;
-  border-radius:999px;
-  box-shadow:0 10px 25px rgba(0,0,0,.18);
-}
-.modo-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:18px;
-}
-.modo-card{
+  border-radius:30px;
+  padding:30px;
+  box-shadow:0 22px 60px rgba(79,70,229,.28);
   position:relative;
-  text-decoration:none;
-  color:var(--text);
-  background:rgba(255,255,255,.92);
-  border:1px solid var(--border);
-  border-radius:26px;
-  padding:24px;
-  min-height:230px;
-  box-shadow:0 14px 35px rgba(15,23,42,.08);
-  transition:.25s ease;
   overflow:hidden;
 }
-.modo-card::before{
+header::after{
   content:"";
   position:absolute;
-  width:120px;
-  height:120px;
+  width:240px;
+  height:240px;
+  right:-70px;
+  top:-90px;
+  background:rgba(255,255,255,.16);
   border-radius:50%;
-  background:rgba(79,70,229,.10);
-  right:-42px;
-  top:-42px;
 }
-.modo-card:hover{
-  transform:translateY(-8px);
-  border-color:var(--primary);
-  box-shadow:0 22px 48px rgba(79,70,229,.18);
+.logo{color:white !important; letter-spacing:-1px;}
+.subtitle{color:#e0e7ff !important; font-weight:700;}
+
+.dashboard{
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr)) !important;
+  gap:16px !important;
 }
-.modo-card.destaque{
-  background:linear-gradient(135deg,#ffffff,#eef2ff);
-  border:2px solid #c7d2fe;
+
+.dash-card{
+  min-height:96px;
+  border-radius:26px !important;
+  background:rgba(255,255,255,.82) !important;
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.65) !important;
+  box-shadow:0 14px 32px rgba(15,23,42,.10) !important;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-size:1.02rem;
+  position:relative;
+  overflow:hidden;
 }
-.modo-icon{
-  font-size:2.4rem;
-  margin-bottom:12px;
+.dash-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(79,70,229,.12),rgba(14,165,233,.06));
+  opacity:0;
+  transition:.25s;
 }
-.modo-card h3{
-  color:var(--primary);
-  font-size:1.25rem;
-  margin-bottom:8px;
+.dash-card:hover::before{opacity:1;}
+.dash-card:hover{
+  transform:translateY(-7px) scale(1.02) !important;
+  border-color:rgba(79,70,229,.45) !important;
+  box-shadow:0 24px 50px rgba(79,70,229,.22) !important;
 }
-.modo-card p{
-  color:var(--muted);
-  font-weight:600;
-  line-height:1.55;
+.dash-card.active{
+  background:linear-gradient(135deg,#4f46e5,#7c3aed) !important;
+  color:white !important;
+  box-shadow:0 22px 45px rgba(79,70,229,.32) !important;
 }
-.modo-card span{
-  display:inline-block;
-  margin-top:18px;
-  background:linear-gradient(135deg,var(--primary),var(--purple));
-  color:white;
-  padding:10px 14px;
-  border-radius:999px;
-  font-weight:900;
+.mode-card{
+  background:linear-gradient(135deg,#ffffff,#eef2ff) !important;
+  color:#3730a3 !important;
 }
-@media(max-width:700px){
-  .modo-hero{flex-direction:column;align-items:flex-start;}
+
+.panel,.subject,.game-card,.aula-box,.login-card{
+  background:rgba(255,255,255,.88) !important;
+  backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,.70) !important;
+  box-shadow:0 18px 45px rgba(15,23,42,.10) !important;
+}
+.panel{border-radius:30px !important; padding:28px !important;}
+.section-title{
+  font-size:1.65rem !important;
+  letter-spacing:-.5px;
+}
+.help-text{font-size:1.02rem;}
+
+.item{
+  border-radius:18px !important;
+  border:1px solid rgba(226,232,240,.9) !important;
+  transition:.22s ease !important;
+}
+.item:hover{
+  background:linear-gradient(135deg,#eef2ff,#e0f2fe) !important;
+  transform:translateX(6px) scale(1.01) !important;
+}
+
+button,.drive-box a{
+  border-radius:16px !important;
+  box-shadow:0 10px 24px rgba(79,70,229,.18);
+}
+input,select,textarea{
+  border-radius:16px !important;
+  border:1px solid #dbe3ef !important;
+}
+
+.drive-box,.alert-box{
+  border-radius:22px !important;
+}
+
+@media(max-width:760px){
+  header{padding:24px; border-radius:24px;}
+  .logo{font-size:2rem !important;}
+  .dash-card{min-height:82px;}
+  .panel{padding:20px !important;}
 }
 
 </style>
@@ -1034,17 +1060,11 @@ input, select{
   <div class="dash-card" onclick="abrirSecao('boletim',this)">📊 Boletim</div>
   <div class="dash-card" onclick="abrirSecao('desafios',this); carregarRanking()">🎮 Desafios</div>
   <div class="dash-card" onclick="abrirSecao('atualizacoes',this)">🔔 Atualizações</div>
-  <div class="dash-card" onclick="window.location.href='simulado.html'">📝 Simulado IA</div>
-
-  <div class="dash-card" onclick="window.location.href='flashcards.html'">🧠 Flashcards</div>
-
-  <div class="dash-card" onclick="window.location.href='metas.html'">🎯 Metas</div>
-
-  <div class="dash-card" onclick="window.location.href='calendario.html'">📅 Calendário</div>
-
-  <div class="dash-card" onclick="window.location.href='progresso.html'">📈 Progresso</div>
-
-<div class="dash-card" onclick="window.location.href='foco.html'">🎧 Foco</div>
+  <div class="dash-card mode-card" onclick="window.location.href='flashcards.html'">🧠 Flashcards</div>
+  <div class="dash-card mode-card" onclick="window.location.href='metas.html'">🎯 Metas</div>
+  <div class="dash-card mode-card" onclick="window.location.href='calendario.html'">📅 Calendário</div>
+  <div class="dash-card mode-card" onclick="window.location.href='progresso.html'">📈 Progresso</div>
+  <div class="dash-card mode-card" onclick="window.location.href='foco.html'">🎧 Foco</div>
   <div class="dash-card" onclick="window.location.href='plano.html'">📅 Plano de Estudos</div>
     <button id="installBtn" class="dash-card" style="display:none;">
         📲 Baixar app
@@ -1187,63 +1207,6 @@ input, select{
   <div id="listaAprovados"></div>
 </section>
 
-
-<section id="modos" class="section panel">
-  <div class="section-title">🚀 Novos Modos StudyFlow</div>
-  <div class="help-text">Ferramentas novas para estudar melhor, revisar para provas e organizar a rotina.</div>
-
-  <div class="modo-hero">
-    <div>
-      <h2>Seu hub escolar ficou mais completo</h2>
-      <p>Escolha um modo abaixo. Cada ferramenta abre em uma página separada para o site não ficar bagunçado.</p>
-    </div>
-    <div class="modo-badge">Novo</div>
-  </div>
-
-  <div class="modo-grid">
-    <a class="modo-card destaque" href="simulado.html">
-      <div class="modo-icon">📝</div>
-      <h3>Simulado com IA</h3>
-      <p>Cole o conteúdo e a IA cria questões de múltipla escolha para você treinar.</p>
-      <span>Gerar prova</span>
-    </a>
-
-    <a class="modo-card" href="flashcards.html">
-      <div class="modo-icon">🧠</div>
-      <h3>Flashcards</h3>
-      <p>Crie cartões de pergunta e resposta para revisar antes da prova.</p>
-      <span>Estudar</span>
-    </a>
-
-    <a class="modo-card" href="metas.html">
-      <div class="modo-icon">🎯</div>
-      <h3>Metas e Streak</h3>
-      <p>Marque tarefas, acompanhe progresso e mantenha sequência de estudos.</p>
-      <span>Organizar</span>
-    </a>
-
-    <a class="modo-card" href="calendario.html">
-      <div class="modo-icon">📅</div>
-      <h3>Calendário Escolar</h3>
-      <p>Anote provas, trabalhos e entregas importantes.</p>
-      <span>Ver agenda</span>
-    </a>
-
-    <a class="modo-card" href="progresso.html">
-      <div class="modo-icon">📈</div>
-      <h3>Progresso</h3>
-      <p>Veja sua evolução, pontos fortes e matérias que precisam de atenção.</p>
-      <span>Acompanhar</span>
-    </a>
-
-    <a class="modo-card" href="foco.html">
-      <div class="modo-icon">🎧</div>
-      <h3>Modo Foco</h3>
-      <p>Use pomodoro e sons de foco para estudar sem distração.</p>
-      <span>Começar</span>
-    </a>
-  </div>
-</section>
 
 
 
@@ -2527,6 +2490,7 @@ document.getElementById("installBtn")?.addEventListener("click", async () => {
   installPrompt = null;
   document.getElementById("installBtn").style.display = "none";
 });
+
 
 </script>
 
