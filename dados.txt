@@ -660,6 +660,10 @@
 2AnoM/fisica/rocris/1p/recuperacao/2em_-_1o_periodo/forca_elastica.pdf
 2AnoM/fisica/rocris/1p/recuperacao/2em_-_1o_periodo/pressao_hidrostatica_teorema_de_stevin_e_refracaolei_de_snell.pdf
 2AnoM/fisica/rocris/1p/recuperacao/2em_-_1o_periodo/sistemas_de_blocos_sem_atrito_-_revisao.pdf
+2AnoM/fisica/rocris/2p/Potência e Rendimento - Exercícios - Livro - Resolução.pdf
+2AnoM/fisica/rocris/2p/Sistemas Dissipativos - Exercícios.pdf
+2AnoM/fisica/rocris/2p/TEC - Exercícios - Resolução.pdf
+2AnoM/fisica/rocris/2p/Trabalho - Exercícios - Livro - Resolução.pdf
 2AnoM/fisica/rocris/2p/potencia_e_rendimento_-_exercicios.pdf
 2AnoM/fisica/rocris/2p/potencia_e_rendimento_-_exercicios_-_resolucao.pdf
 2AnoM/fisica/rocris/2p/tec_-_exercicios.pdf
