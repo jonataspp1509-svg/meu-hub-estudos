@@ -698,6 +698,8 @@
 2AnoM/matematica/fagundes/1p/ciclo_trigonometrico_determinacoes.pdf
 2AnoM/matematica/fagundes/1p/lista_1_-_trigonometria_revisao.pdf
 2AnoM/matematica/fagundes/1p/lista_extra_1_p1.pdf
+2AnoM/matematica/fagundes/2p/Lista exercícios extra (maio) - 2ª série - Trigonometria.pdf
+2AnoM/matematica/fagundes/2p/Lista para reforço - Radicais, frações, fatoração e produtos notáveis.pdf
 2AnoM/matematica/larissa/1p/fatorial_-_lista_com_resolucao.pdf
 2AnoM/matematica/larissa/1p/permutacao_-_lista.pdf
 2AnoM/matematica/larissa/1p/pfc_-_lista.pdf
