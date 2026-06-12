@@ -3,6 +3,7 @@ import shutil
 import time
 import subprocess
 import html
+import zipfile
 
 PASTA_DOWNLOADS = os.path.expanduser("~/Downloads")
 PASTA_PROJETO = os.getcwd()
@@ -11,7 +12,7 @@ PASTA_ESTUDOS = os.path.join(PASTA_PROJETO, "Estudos")
 EXTENSOES_PERMITIDAS = (
     ".pdf", ".docx", ".doc", ".pptx", ".ppt",
     ".xlsx", ".xls", ".png", ".jpg", ".jpeg",
-    ".html"
+    ".html", ".zip"
 )
 
 AREAS = {
@@ -373,6 +374,23 @@ def enviar_github(nome_item):
         print("git pull origin master --rebase")
         print("git push origin master")
 
+def extrair_zip(origem, destino_dir):
+    try:
+        os.makedirs(destino_dir, exist_ok=True)
+
+        with zipfile.ZipFile(origem, "r") as zip_ref:
+            zip_ref.extractall(destino_dir)
+
+        print("\nZIP extraído com sucesso!")
+
+        os.remove(origem)
+
+        gerar_dados_txt()
+        gerar_atualizacoes(destino_dir)
+        enviar_github("ZIP_EXTRAIDO")
+
+    except Exception as e:
+        print(f"Erro ao extrair ZIP: {e}")
 
 def mover_item(nome_item):
     origem = os.path.join(PASTA_DOWNLOADS, nome_item)
@@ -392,13 +410,28 @@ def mover_item(nome_item):
     if destino_dir is None:
         return
 
+    # NOVO: opções para ZIP
+    if nome_item.lower().endswith(".zip"):
+        print("\nArquivo ZIP detectado!")
+        print("1 - Mover ZIP normalmente")
+        print("2 - Extrair ZIP na pasta escolhida")
+
+        escolha_zip = input("Escolha: ").strip()
+
+        if escolha_zip == "2":
+            extrair_zip(origem, destino_dir)
+            return
+
     os.makedirs(destino_dir, exist_ok=True)
 
     destino = os.path.join(destino_dir, nome_item)
 
     if os.path.exists(destino):
         nome, ext = os.path.splitext(nome_item)
-        destino = os.path.join(destino_dir, f"{nome}_{int(time.time())}{ext}")
+        destino = os.path.join(
+            destino_dir,
+            f"{nome}_{int(time.time())}{ext}"
+        )
 
     shutil.move(origem, destino)
 
@@ -408,7 +441,6 @@ def mover_item(nome_item):
     gerar_dados_txt()
     gerar_atualizacoes(destino)
     enviar_github(os.path.basename(destino))
-
 
 def item_valido(nome_item):
     caminho = os.path.join(PASTA_DOWNLOADS, nome_item)
