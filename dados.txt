@@ -709,6 +709,10 @@
 2AnoM/matematica/larissa/1p/permutacao_-_lista.pdf
 2AnoM/matematica/larissa/1p/pfc_-_lista.pdf
 2AnoM/matematica/larissa/1p/slides_-_exercicios_e_exemplos.pdf
+2AnoM/matematica/larissa/2p/ARRANJO.pdf
+2AnoM/matematica/larissa/2p/BINO^MIO DE NEWTON LISTA 1.pdf
+2AnoM/matematica/larissa/2p/COMBINAÇÃO.pdf
+2AnoM/matematica/larissa/2p/Slides - Exerci´cios e Exemplos.pdf
 2AnoM/matematica/larissa/2p/triangulo_de_pascal.pdf
 2AnoM/matematica/walter/1p/gabarito_apv_s.pdf
 2AnoM/matematica/walter/1p/resolucao_exercicios_pagina_332_livro_4.docx
