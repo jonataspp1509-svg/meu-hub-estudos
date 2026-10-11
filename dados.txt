@@ -40,20 +40,16 @@
 1AnoM/biologia/biodiversidade/Biodiv - 1EM - 4P/20251110 - Aula 19 - Cordados.pdf
 1AnoM/biologia/biodiversidade/Biodiv - 1EM - 4P/APV - CN - 4º Período - Rubrica de Correção.pdf
 1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/PDFs de aula/07-02 - Carcteristicas dos seres vivos.pdf
-1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/PDFs de aula/07-04 - Lipídeos - Cópia.pdf
 1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/PDFs de aula/10-02 - Composição dos seres vivos Compostos inorgânicos - Agua e sais minerais.pdf
 1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/PDFs de aula/23-02 - Proteinas - Cópia.pdf
-1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/PDFs de aula/30-03_Compostos orgânicos_Carboidratos.pdf
 1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/Provas e APVs/Resolução_APV_CN.pdf
 1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/Provas e APVs/Resolução_biocel_av_1e_1p.pdf
 1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/Provas e APVs/resolução__biocel_av_2e_1p.pdf
 1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/Resoluções de Tarefas/01-03-Resolução_Lista_Compostos inorgânicos.pdf
 1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/Resoluções de Tarefas/10-04_Resolução_Tarefa_Proteínas.pdf
-1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/Resoluções de Tarefas/12-05Respostas_Lista_Carboidratos e lipídeos.pdf
 1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/Resoluções de Tarefas/18-02-RESOLUÇÃO-Lista_Características dos seres vivos.pdf
 1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/Tarefas/07-02 - Lista_Características dos seres vivos.pdf
 1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/Tarefas/17-02-Lista_Compostos inorgânicos-Água e Minerais.pdf
-1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/Tarefas/28-04_Tarefa_Carboidratos e lipídeos.pdf
 1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 1P/Tarefas/30-03_Tarefa_Proteínas.pdf
 1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 2P/2º Perído - Ricardo - Biologia Celular/Laboratórios/01-06_RESOLUÇÃO_Laboratório_02 - Difusão e Osmose [V2].pdf
 1AnoM/biologia/biologia celular/Bio-Cel - 1EM - 2P/2º Perído - Ricardo - Biologia Celular/Laboratórios/Lab Dif e Osmose.pdf
@@ -152,10 +148,6 @@
 1AnoM/fisica/vetores/Vetores - 1EM - 3P/Aplicações da 2 Lei de Newton - Exercícios - Resolução.pdf
 1AnoM/fisica/vetores/Vetores - 1EM - 3P/Aplicações da 2 Lei de Newton - Exercícios.pdf
 1AnoM/fisica/vetores/Vetores - 1EM - 3P/Leis de Newton - Teoria.pdf
-1AnoM/fisica/vetores/Vetores - 1EM - 3P/Plano Inclinado - Exercícios - Resolução.pdf
-1AnoM/fisica/vetores/Vetores - 1EM - 3P/Plano Inclinado - Exercícios.pdf
-1AnoM/fisica/vetores/Vetores - 1EM - 3P/Sistemas de Blocos - Ex - Modelos  - Resolução.pdf
-1AnoM/fisica/vetores/Vetores - 1EM - 3P/Sistemas de Blocos - Exercícios - Modelos.pdf
 1AnoM/fisica/vetores/Vetores - 1EM - 4P/Sistemas com Polias – Exercícios Extras.pdf
 1AnoM/geografia/Geografia Rec 1EM/Recuperação Paralela de Geografia - 1as Séries (Fevereiro).docx
 1AnoM/geografia/Geografia Rec 1EM/Recuperação de Geografia 3 (ABRIL).docx
@@ -176,7 +168,6 @@
 1AnoM/geografia/geo fisica/Geo Fís - 1EM - 4P/Vulcanismo.ppt
 1AnoM/geografia/geo fisica/Geo Fís - 1EM - 4P/~$Estruturas geológicas.ppt
 1AnoM/geografia/geo fisica/Geo Fís - 1EM - 4P/~$Relevo Terrestre - Rochas.ppt
-1AnoM/geografia/geo fisica/exercicios_geografia_astronomia.pdf
 1AnoM/geografia/geo humana/Geo Hum - 1EM - 1P/A globalização e seus fluxos - Mendel.pptx
 1AnoM/geografia/geo humana/Geo Hum - 1EM - 1P/O desenvolvimento do capitalismo.pptx
 1AnoM/geografia/geo humana/Geo Hum - 1EM - 1P/Ordem mundial.pptx
@@ -317,10 +308,8 @@
 1AnoM/matematica/algebra/drive/03 - Equação do 2.o grau, intervalos reais e introdução às funções - Revisão.pdf
 1AnoM/matematica/algebra/drive/04 - Função afim.pdf
 1AnoM/matematica/algebra/drive/05 - Função quadrática 01.pdf
-1AnoM/matematica/algebra/drive/06 - Função quadrática 02.pdf
 1AnoM/matematica/algebra/drive/07 - Função quadrática 03 - Revisão.pdf
 1AnoM/matematica/algebra/drive/08 - Função exponencial.pdf
-1AnoM/matematica/algebra/drive/09 - Inequação exponencial, revisão de logaritmos.pdf
 1AnoM/matematica/algebra/drive/10 - Funções, equações e inequações logaritmas.pdf
 1AnoM/matematica/algebra/drive/Resoluções - 1.o Período.pdf
 1AnoM/matematica/algebra/drive/Resoluções - 2.o Período.pdf
@@ -328,18 +317,6 @@
 1AnoM/matematica/algebra/drive/Resoluções - 4.o Período.docx
 1AnoM/matematica/algebra/drive/Slide 01 - Função quadrática - Encontrando a lei da função I.pdf
 1AnoM/matematica/algebra/drive/Slide 02 - Função quadrática - Revisão.pdf
-1AnoM/matematica/algebra/Álgebra - 1EM - 1P/01 - Números primos, critérios de divisibilidade, número de divisores positivos.pdf
-1AnoM/matematica/algebra/Álgebra - 1EM - 1P/02 - Equação do 2.o grau.pdf
-1AnoM/matematica/algebra/Álgebra - 1EM - 1P/03 - Equação do 2.o grau, intervalos reais e introdução às funções - Revisão.pdf
-1AnoM/matematica/algebra/Álgebra - 1EM - 2P/04 - Função afim.pdf
-1AnoM/matematica/algebra/Álgebra - 1EM - 2P/Slide 01 - Função quadrática - Encontrando a lei da função I.pdf
-1AnoM/matematica/algebra/Álgebra - 1EM - 2P/Slide 02 - Função quadrática - Revisão.pdf
-1AnoM/matematica/algebra/Álgebra - 1EM - 3P/05 - Função quadrática 01.pdf
-1AnoM/matematica/algebra/Álgebra - 1EM - 3P/06 - Função quadrática 02.pdf
-1AnoM/matematica/algebra/Álgebra - 1EM - 3P/07 - Função quadrática 03.pdf
-1AnoM/matematica/algebra/Álgebra - 1EM - 3P/08 - Função exponencial.pdf
-1AnoM/matematica/algebra/Álgebra - 1EM - 4P/09 - Inequação exponencial, revisão de logaritmos.pdf
-1AnoM/matematica/algebra/Álgebra - 1EM - 4P/10 - Funções, equações e inequações logaritmas.pdf
 1AnoM/matematica/aritmetica/Aritmética - 1EM - 1P/Tarefa_de_Aritmtica_sobre_Conjuntos.pdf
 1AnoM/matematica/aritmetica/Aritmética - 1EM - 2P/Lista Sequências Numéricas.pdf
 1AnoM/matematica/aritmetica/Aritmética - 1EM - 3P/Lista Porcentagem-Aumentos e descontos.pdf
@@ -355,18 +332,7 @@
 1AnoM/matematica/geometria/4º PERIODO/GEOMETRIA/Lista 4 - A´rea de quadrila´teros e tria^ngulos.pdf
 1AnoM/matematica/geometria/4º PERIODO/GEOMETRIA/Lista 5 - A´rea de figura planas.pdf
 1AnoM/matematica/geometria/ALGEBRA/Funções, equações e inequações logarítmicas.nrec
-1AnoM/matematica/geometria/ALGEBRA/Inequac¸a~o Exponencial e Propriedades Log.pdf
-1AnoM/matematica/geometria/ALGEBRA/Lista Exponenciais e Logari´tmos - 1ª se´rie.pdf
 1AnoM/matematica/geometria/Funções, equações e inequações logarítmicas.nrec
-1AnoM/matematica/geometria/GEOMETRIA/Lista 4 - A´rea de quadrila´teros e tria^ngulos.pdf
-1AnoM/matematica/geometria/GEOMETRIA/Lista 5 - A´rea de figura planas.pdf
-1AnoM/matematica/geometria/Inequac¸a~o Exponencial e Propriedades Log.pdf
-1AnoM/matematica/geometria/Lista 10 - Recuperac¸a~o - Matema´tica - 1ª Serie.pdf
-1AnoM/matematica/geometria/Lista 11 - Recuperac¸a~o - Matema´tica - 1ª Serie.pdf
-1AnoM/matematica/geometria/Lista 4 - A´rea de quadrila´teros e tria^ngulos.pdf
-1AnoM/matematica/geometria/Lista 5 - A´rea de figura planas.pdf
-1AnoM/matematica/geometria/Lista 9 - Recuperac¸a~o Paralela - 06.pdf
-1AnoM/matematica/geometria/Lista Exponenciais e Logari´tmos - 1ª se´rie.pdf
 1AnoM/matematica/geometria/Recuperação/3º Período/Lista 1 - 3ºPeri´odo - Recuperac¸a~o Parelela - Matema´tica.pdf
 1AnoM/matematica/geometria/Recuperação/3º Período/Lista 2 - 3ºPeri´odo - Recuperac¸a~o Parelela - Matema´tica.pdf
 1AnoM/matematica/geometria/Recuperação/3º Período/Lista 3 - 3ºPeri´odo - Recuperac¸a~o Parelela - Matema´tica.pdf
@@ -395,10 +361,7 @@
 1AnoM/quimica/constituicao/Constituição - 1EM - 1P/Exercícios - Livro/07 03 MODELOS ATÔMICOS LIVRO.pdf
 1AnoM/quimica/constituicao/Constituição - 1EM - 1P/Exercícios - Livro/07 03 ÁTOMOS E ÍONS LIVRO.pdf
 1AnoM/quimica/constituicao/Constituição - 1EM - 1P/Exercícios - Livro/26 03 ELETROSFERA DO ÁTOMO LIVRO.pdf
-1AnoM/quimica/constituicao/Constituição - 1EM - 2P/Aulas - Regulares/02 05 PROVA CORREÇÃO.pdf
-1AnoM/quimica/constituicao/Constituição - 1EM - 2P/Aulas - Regulares/06 05 TABELA PERIÓDICA.pdf
 1AnoM/quimica/constituicao/Constituição - 1EM - 2P/Aulas - Regulares/18 05 TABELA PERIÓDICA PROPRIEDADES.pdf
-1AnoM/quimica/constituicao/Constituição - 1EM - 2P/Exercícios - Extras/09 05 TABELA PERIÓDICA PARTE 1 EXTRAS.pdf
 1AnoM/quimica/constituicao/Constituição - 1EM - 2P/Exercícios - Livro/18 05 TABELA PERIÓDICA PARTE 1 LIVRO.pdf
 1AnoM/quimica/constituicao/Constituição - 1EM - 3P/Aulas - Regulares/12 08 TABELA PERIÓDICA PROPRIEDADES TEORIA.pdf
 1AnoM/quimica/constituicao/Constituição - 1EM - 3P/Aulas - Regulares/15 09 LIGAÇÃO COVALENTE TEORIA.pdf
@@ -463,22 +426,11 @@
 1AnoM/quimica/quimica organica/Fundamentos - 1EM - 1P/Materiais de apoio/19_03 - Material de apoio 3_ representações de moléculas orgânicas.pdf
 1AnoM/quimica/quimica organica/Fundamentos - 1EM - 1P/Materiais de apoio/23_02 - Anotações de aula - Postulados de Kekulé e Classificações para carbono.pdf
 1AnoM/quimica/quimica organica/Fundamentos - 1EM - 1P/Slides/02 - Slides - Classificações para o Carbono.pdf
-1AnoM/quimica/quimica organica/Fundamentos - 1EM - 1P/Slides/02 - Slides - História da Q. Org e Postulados de Kekulé.pdf
 1AnoM/quimica/quimica organica/Fundamentos - 1EM - 1P/Slides/03 - Slides - Representações de moléculas orgânicas.pdf
 1AnoM/quimica/quimica organica/Fundamentos - 1EM - 1P/Slides/04 - Slides - Classificações de cadeias carbônicas.pdf
 1AnoM/quimica/quimica organica/Fundamentos - 1EM - 1P/Tarefas & Gabaritos/02 -  Tarefa 1 (pág 104-105, Lumen vol. 4) - Gabarito e Resoluções.pdf
 1AnoM/quimica/quimica organica/Fundamentos - 1EM - 1P/Tarefas & Gabaritos/02 - Tarefa 2 - Postulados de Kekulé - Gabarito e Resoluções.pdf
-1AnoM/quimica/quimica organica/Fundamentos - 1EM - 1P/Tarefas & Gabaritos/03 - Tarefa 3 - Representações de moléculas orgânicas - Gabarito e Resoluções.pdf
-1AnoM/quimica/quimica organica/Fundamentos - 1EM - 1P/Tarefas & Gabaritos/04 - Tarefa 4 - Classificações de cadeias carbônicas - Gabarito e Resoluções.pdf
-1AnoM/quimica/quimica organica/Fundamentos - 1EM - 2P/Slides/05 - Slides - Nomenclatura IUPAC para Hidrocarbonetos Normais.pdf
-1AnoM/quimica/quimica organica/Fundamentos - 1EM - 2P/Tarefas e Gabaritos/05 - Tarefa 5 - Hidrocarbonetos normais - Gabarito e Resoluções.pdf
-1AnoM/quimica/quimica organica/Fundamentos - 1EM - 2P/Tarefas e Gabaritos/06 - Tarefa 6 - Hidrocarbonetos ramificados (I) - Gabarito e Resoluções.pdf
-1AnoM/quimica/quimica organica/Fundamentos - 1EM - 3P/Tarefas e Gabaritos/08 - Tarefa 7 - Hidrocarbonetos aromáticos - Gabarito e Resoluções.pdf
-1AnoM/quimica/quimica organica/Fundamentos - 1EM - 3P/Tarefas e Gabaritos/09 - Tarefa 8 - Classificação para hidrocarbonetos - Gabarito e Resoluções.pdf
 1AnoM/quimica/quimica organica/Fundamentos - 1EM - 4P/Exercícios extras/10 - Lista extra - Reação de desidratação de álcoois - Gabarito e Resoluções.pdf
-1AnoM/quimica/quimica organica/Fundamentos - 1EM - 4P/Tarefas e Gabaritos/10 - Tarefa 9 - Classificação para hidrocarbonetos - Gabarito e Resoluções.pdf
-1AnoM/quimica/quimica organica/Fundamentos - 1EM - 4P/Tarefas e Gabaritos/11 - Tarefa 10 - Éter e Fenol - Gabarito e Resoluções.pdf
-1AnoM/quimica/transformaçoes/Resolução da tarefa de estequiometria (Volume 2).pdf
 1AnoM/quimica/transformaçoes/Transform - 1EM - 1P/Correção de Prova - 2ª etapa/1º período - 2ª etapa 2025 - 1º Ano.pptx
 1AnoM/quimica/transformaçoes/Transform - 1EM - 1P/Lista 1 - MOL/Química_-_Transformação_da_matéria_-_Lista_1_-_MOL.pdf
 1AnoM/quimica/transformaçoes/Transform - 1EM - 1P/Lista 1 - MOL/Química_-_Transformação_da_matéria_-_RESOLUÇÃO_Lista_1_-_MOL.pdf
@@ -510,14 +462,9 @@
 1AnoM/quimica/transformaçoes/Transform - 1EM - 4P/Lista 15 - Sais/Lista 15 - SAIS - Cópia.pdf
 1AnoM/quimica/transformaçoes/Transform - 1EM - 4P/Lista 16 - Exercícios extras/Lista 16- EXERCÍCIOS EXTRAS (1).pdf
 1AnoM/quimica/transformaçoes/Transform - 1EM - 4P/Lista 17 - Óxidos/Lista 17 - Óxidos.pdf
-1AnoM/redacao/Correção_Prova/Considerações para a correção da Prova de LPT da 2ª Etapa do 3º Período de 2025.pdf
-1AnoM/redacao/Material de estudos_extra/RESUMO - PESSIMISMO.pdf
-1AnoM/redacao/Material de estudos_extra/Sugestão de projeto de texto_resumo_SONHOS PARA ADIAR O FIM DO MUNDO.pdf
 1AnoM/redacao/Material teórico_Sala de aula/RESUMO 1.pptx
 1AnoM/redacao/Material teórico_Sala de aula/RESUMO 2.pptx
-1AnoM/redacao/Material teórico_Sala de aula/RESUMO 3.pdf
 1AnoM/redacao/Material teórico_Sala de aula/VERBETE .doc
-1AnoM/redacao/Material teórico_Sala de aula/VERBETE 2.pdf
 1AnoM/redacao/Prod Textual - 1EM - 1P/01_Atividade diagnóstica_LPT 1_1º Período_2025.docx
 1AnoM/redacao/Prod Textual - 1EM - 1P/02_Slides_Tipos textuais_LPT 1_1ºPeríodo_2025.pdf
 1AnoM/redacao/Prod Textual - 1EM - 1P/03_Atividade_Tipologias textuais_ LPT 1_1ºPeríodo_2025.docx
@@ -536,7 +483,6 @@
 1AnoM/redacao/Prod Textual - 1EM - 2P/04_Sugestao de respostas para a atividade Martin Luther King Jr_2Periodo2025.docx
 1AnoM/redacao/Prod Textual - 1EM - 2P/05_Roteiro_Projeto de Texto_DiscursoPolítico_Unicamp2021.pdf
 1AnoM/redacao/Prod Textual - 1EM - 2P/06_Roteiro_Discurso_PEC_das_Praias.pdf
-1AnoM/redacao/Prod Textual - 1EM - 3P/Considerações para a correção da Prova de LPT da 2ª Etapa do 3º Período de 2025.pdf
 1AnoM/redacao/Prod Textual - 1EM - 3P/Correção_Prova/Considerações para a correção da Prova de LPT da 2ª Etapa do 3º Período de 2025.pdf
 1AnoM/redacao/Prod Textual - 1EM - 3P/Material de estudos_extra/RESUMO - PESSIMISMO.pdf
 1AnoM/redacao/Prod Textual - 1EM - 3P/Material de estudos_extra/Sugestão de projeto de texto_resumo_SONHOS PARA ADIAR O FIM DO MUNDO.pdf
@@ -548,7 +494,6 @@
 1AnoM/redacao/Prod Textual - 1EM - 4P/Artigo de opinião.pdf
 1AnoM/redacao/Prod Textual - 1EM - 4P/Projeto de texto do artigo de opinião.pdf
 1AnoM/redacao/Prod Textual - 1EM - 4P/Respostas dos exercícios de parágrafo e argumentação.docx
-1AnoM/redacao/Prod Textual - 1EM - 4P/Sugestão de projeto de texto_resumo_SONHOS PARA ADIAR O FIM DO MUNDO.pdf
 1AnoM/redacao/Produção 1EM - Rec/REC discurso político.docx
 1AnoM/redacao/Produção 1EM - Rec/Textão - Unicamp - redes socias e fake news.pptx
 1AnoM/redacao/Produção 1EM - Rec/discurso político - UNICAMP.pdf
@@ -580,6 +525,9 @@
 1AnoM/sociabilidades/Recuperação/17.pdf
 1AnoM/sociabilidades/Recuperação/18.pdf
 1AnoM/sociabilidades/Recuperação/25.pdf
+2AnoM/biologia/croti/1p/01_-_programacao_-_saidas_digitais_b5914a7b9338.pdf
+2AnoM/biologia/croti/1p/02_-_programacao_-_entradas_digitais_ed1d73410c1d.pdf
+2AnoM/biologia/croti/1p/03_-_programacao_-_buzzer_a5d711a97a2b.pdf
 2AnoM/biologia/croti/1p/2em_-_recuperacao/2em_-_1o_periodo/rec_01_-_ciclo_celular_mitose_e_meiose_-_gabarito.pdf
 2AnoM/biologia/croti/1p/2em_-_recuperacao/2em_-_1o_periodo/rec_02_-_replicacao_e_transcricao_do_dna_-_ciclos_reprodutivos_-_gabarito.pdf
 2AnoM/biologia/croti/1p/aula_01_-_biodiversidade.pdf
@@ -594,6 +542,9 @@
 2AnoM/biologia/croti/1p/aula_08_-_pteridofitas.pdf
 2AnoM/biologia/croti/1p/aula_08_-_pteridofitas_-_ciclo_reprodutivo.pdf
 2AnoM/biologia/croti/1p/aula_08_-_pteridofitas_-_ciclo_reprodutivo_-_gabarito.pdf
+2AnoM/biologia/croti/1p/lab_01_-_algas_855659a0a010.pdf
+2AnoM/biologia/croti/2p/04_-_programacao_-_semaforo_para_pedestres_e_def_visuais_0c90ec11a2f6.pdf
+2AnoM/biologia/croti/2p/05_-_programacao_-_entradas_e_saidas_variaveis_2dee119abdf8.pdf
 2AnoM/biologia/croti/2p/Aula 12 - Anatomia e Morfologia - Esquemas.pdf
 2AnoM/biologia/croti/2p/Aula 12 - Anatomia e Morfologia Vegetal - Esquemas - Gabarito.pdf
 2AnoM/biologia/croti/2p/Aula 12 - Anatomia e Morfologia Vegetal.pdf
@@ -605,6 +556,24 @@
 2AnoM/biologia/croti/2p/aula_10_-_angiospermas_-_ciclo_reprodutivo.pdf
 2AnoM/biologia/croti/2p/aula_10_-_angiospermas_-_ciclo_reprodutivo_-_gabarito.pdf
 2AnoM/biologia/croti/2p/aula_11_-_angiospermas_monocotiledoneas_e_dicotiledoneas.pdf
+2AnoM/biologia/croti/2p/aula_12_-_anatomia_e_morfologia_vegetal_-_apostila_-_gabarito_f1056b4708bd.pdf
+2AnoM/biologia/croti/2p/aula_12_-_lista_de_exercicios_c9047c0b47df.pdf
+2AnoM/biologia/croti/2p/lab_03_-_folhas_e_flores_-_gabarito_d80eb890a1bd.pdf
+2AnoM/biologia/croti/3p/aula_13_-_polinizacao_e_dispersao_-_material_de_estudo_0de2ea048416.pdf
+2AnoM/biologia/croti/3p/aula_13_-_polinizacao_e_dispersao_459718599150.pdf
+2AnoM/biologia/croti/3p/aula_14_-_nutricao_vegetal_42532e3bbd91.pdf
+2AnoM/biologia/croti/3p/exercicios_-_transpiracao_e_estomatos_69962be54f5a.pdf
+2AnoM/biologia/croti/3p/lab_04_-_transpiracao_e_estomatos_-_gabarito_ecc4d435243e.pdf
+2AnoM/biologia/croti/3p/lab_05_-_transporte_da_seiva_-_exercicios_extra_be9d94cf0008.pdf
+2AnoM/biologia/croti/3p/lab_05_-_transporte_da_seiva_-_gabarito_087408ef08f5.pdf
+2AnoM/biologia/croti/4p/lab_06_-_fotossintese_e_respiracao_-_gabarito_1d06405d1b48.pdf
+2AnoM/biologia/croti/4p/lab_07_-_pigmentos_vegetais_-_gabarito_585b687c6ef5.pdf
+2AnoM/biologia/croti/novos/2em_-_recuperacao/2em_-_recuperacao_paralela/rec_03_-_sintese_proteica_-_briofitas_e_pteridofitas_b518d487d624.pdf
+2AnoM/biologia/croti/novos/2em_-_recuperacao/2em_-_recuperacao_paralela/rec_04_-_biotecnologia_-_gabarito_bc5b11edf1d7.pdf
+2AnoM/biologia/croti/novos/2em_-_recuperacao/2em_-_recuperacao_paralela/rec_04_-_biotecnologia_-_telas_0e2d8432548e.pdf
+2AnoM/biologia/croti/novos/2em_-_recuperacao/2em_-_recuperacao_paralela/rec_05_-_plantas_terrestres_-_gabarito_d543985f4933.pdf
+2AnoM/biologia/croti/novos/2em_-_recuperacao/2em_-_recuperacao_paralela/rec_06_-_genetica_do_sangue_31c5f0bfd03f.pdf
+2AnoM/biologia/croti/novos/2em_-_recuperacao/2em_-_recuperacao_paralela/rec_07_-_fisiologia_vegetal_-_linkage_-_gabarito_8bb437c94eec.pdf
 2AnoM/biologia/murilo/1p/dna_rna_e_sintese_proteica_2026.pptx
 2AnoM/biologia/murilo/1p/historico_-_cancer_-_copia.pdf
 2AnoM/biologia/murilo/1p/meiose_2.pdf
@@ -619,6 +588,7 @@
 2AnoM/biologia/murilo/2p/Lista 2 - Variações da 1ª Lei.docx
 2AnoM/biologia/murilo/2p/Slides - 1a lei.pdf
 2AnoM/biologia/murilo/2p/Tarefa Livro 3.pptx
+2AnoM/biologia/murilo/2p/tipos_de_heranca_1_debf5d6724e9.pdf
 2AnoM/filosofia/1p/2em_filosofia_1aetapa_1operiodo_2026.docx
 2AnoM/filosofia/1p/a_filosofia_de_aristoteles_parte_1.pptx
 2AnoM/filosofia/1p/a_filosofia_de_aristoteles_parte_2.pptx
@@ -628,6 +598,7 @@
 2AnoM/filosofia/1p/sub_2em_filosofia_1aetapa_1operiodo_2026_-_copia.docx
 2AnoM/filosofia/2p/2EM_Filosofia_1aEtapa_2oPeríodo_2026.docx
 2AnoM/filosofia/2p/A filosofia Helenística (p.pptx
+2AnoM/filosofia/3p/descartes_e_espinosa_completo_526b9340b7fc.pdf
 2AnoM/fisica/fabio/1p/lista_01_densidade_e_pressao.pdf
 2AnoM/fisica/fabio/1p/lista_01_densidade_e_pressao_-_gabarito.pdf
 2AnoM/fisica/fabio/1p/lista_02_-_pressao_hidrostatica_e_teorema_de_stevin_-_aluno.pdf
@@ -635,13 +606,23 @@
 2AnoM/fisica/fabio/1p/lista_03_-_pressao_hidrostatica_e_teorema_de_stevin_-_aluno.pdf
 2AnoM/fisica/fabio/1p/lista_03_pressao_hidrostatica_e_teorema_de_stevin_-_gabarito.pdf
 2AnoM/fisica/fabio/1p/lista_04_aplicacoes_da_lei_de_stevin_-_aluno.pdf
-2AnoM/fisica/fabio/2p/Lista 04 – Aplicações da Lei de Stevin - Aluno (2).pdf
 2AnoM/fisica/fabio/2p/Lista 04 – Aplicações da Lei de Stevin - Gabarito.pdf
 2AnoM/fisica/fabio/2p/Lista 05 – Princípio de Pascal - Gabarito.pdf
 2AnoM/fisica/fabio/2p/Lista 06 – Gases Perfeitos - Gabarito.pdf
 2AnoM/fisica/fabio/2p/Lista 06 – Gases Perfeitos I (1).pdf
 2AnoM/fisica/fabio/2p/Lista 07 – Teorema de Arquimedes - Aluno.pdf
 2AnoM/fisica/fabio/2p/lista_05_principio_de_pascal_-_aluno.pdf
+2AnoM/fisica/fabio/2p/lista_07_teorema_de_arquimedes_-_gabarito_57f9d39e953e.pdf
+2AnoM/fisica/fabio/3p/lista_08_estatica_do_ponto_material_-_aluno_326adfb6fe66.pdf
+2AnoM/fisica/fabio/3p/lista_08_estatica_do_ponto_material_-_gabarito_a7b72164b262.pdf
+2AnoM/fisica/fabio/3p/lista_09_estatica_do_corpo_extenso_349f60ff573f.pdf
+2AnoM/fisica/fabio/3p/lista_10_estatica_do_corpo_extenso_ii_0b8b03b638c3.pdf
+2AnoM/fisica/fabio/3p/mostra_cultural_-_2026_-_fabio/apostila_-_mostra_cultural_-_mendel_-_fisica_2026_-_professor_fabio_1_ce5bc05fce67.pdf
+2AnoM/fisica/fabio/3p/mostra_cultural_-_2026_-_fabio/imagens_da_apostila_aumentadas/03_-_barquinho_a_vapor_323032a6a1ed.pdf
+2AnoM/fisica/fabio/3p/mostra_cultural_-_2026_-_fabio/imagens_da_apostila_aumentadas/10_-_motor_eletrico_e5829070e76b.pdf
+2AnoM/fisica/fabio/3p/mostra_cultural_-_2026_-_fabio/imagens_da_apostila_aumentadas/16_-_robos_de_seringas_88f5e4ecffd2.pdf
+2AnoM/fisica/fabio/3p/mostra_cultural_-_2026_-_fabio/imagens_da_apostila_aumentadas/20_-_usina_termica_2a8c807d1ad7.pdf
+2AnoM/fisica/fabio/3p/mostra_cultural_-_2026_-_fabio/tabela_links_videos_apoio_2017b61a651e.pdf
 2AnoM/fisica/rocris/1p/2em_-_1o_periodo/exercicios_1_serie_-_dinamica/plano_inclinado_-_exercicios.pdf
 2AnoM/fisica/rocris/1p/2em_-_1o_periodo/exercicios_1_serie_-_dinamica/plano_inclinado_-_exercicios_-_resolucao.pdf
 2AnoM/fisica/rocris/1p/2em_-_1o_periodo/exercicios_1_serie_-_dinamica/sistemas_de_blocos_-_ex_-_modelos_-_resolucao.pdf
@@ -657,6 +638,11 @@
 2AnoM/fisica/rocris/1p/2em_-_1o_periodo/trabalho_de_uma_forca_-_exercicios.pdf
 2AnoM/fisica/rocris/1p/2em_-_1o_periodo/trabalho_de_uma_forca_-_exercicios_-_resolucao.pdf
 2AnoM/fisica/rocris/1p/provas/1o_periodo_-_1_etapa_-_resolucao.pdf
+2AnoM/fisica/rocris/1p/provas/1o_periodo_-_2a_etapa_-_resolucao_682f8b8c1d81.pdf
+2AnoM/fisica/rocris/1p/provas/2a_serie_-_2o_periodo_-_1a_etapa_dc09e568ffc8.pdf
+2AnoM/fisica/rocris/1p/provas/2a_serie_-_2o_periodo_-_2a_etapa_835668a5140b.pdf
+2AnoM/fisica/rocris/1p/provas/2a_serie_-_3o_periodo_-2_a_etapa_8b9154ad4136.pdf
+2AnoM/fisica/rocris/1p/provas/2a_serie_-_3o_periodo_-_1a_etapa_-_resolucao_c0acb21ae4fc.pdf
 2AnoM/fisica/rocris/1p/recuperacao/2em_-_1o_periodo/densidade_-_massa_especifica_-_pressao-_forca_de_atrito.pdf
 2AnoM/fisica/rocris/1p/recuperacao/2em_-_1o_periodo/forca_de_atrito.pdf
 2AnoM/fisica/rocris/1p/recuperacao/2em_-_1o_periodo/forca_elastica.pdf
@@ -665,10 +651,30 @@
 2AnoM/fisica/rocris/2p/Potência e Rendimento - Exercícios - Livro - Resolução.pdf
 2AnoM/fisica/rocris/2p/Sistemas Dissipativos - Exercícios.pdf
 2AnoM/fisica/rocris/2p/TEC - Exercícios - Resolução.pdf
-2AnoM/fisica/rocris/2p/Trabalho - Exercícios - Livro - Resolução.pdf
 2AnoM/fisica/rocris/2p/potencia_e_rendimento_-_exercicios.pdf
 2AnoM/fisica/rocris/2p/potencia_e_rendimento_-_exercicios_-_resolucao.pdf
+2AnoM/fisica/rocris/2p/recuperacao/lei_de_stevin_-_prensa_hidraulica_e_vasos_comunicantes_ee48bdbfe85f.pdf
+2AnoM/fisica/rocris/2p/recuperacao/potencia_-_rendimento_-_tec_fdd5436f62f5.pdf
+2AnoM/fisica/rocris/2p/recuperacao/prisma_optico_8f56ca55ae3c.pdf
+2AnoM/fisica/rocris/2p/recuperacao/reflexao_total_5930001f29fc.pdf
+2AnoM/fisica/rocris/2p/recuperacao/sistemas_conservativos_e_dissipativos_f9633ead556a.pdf
+2AnoM/fisica/rocris/2p/sistemas_dissipativos_exercicios_-_resolucao_6f9ee5e9e473.pdf
 2AnoM/fisica/rocris/2p/tec_-_exercicios.pdf
+2AnoM/fisica/rocris/3p/conservacao_da_quantidade_de_movimento-_exercicios_-_resolucao_38e62e1f30bc.pdf
+2AnoM/fisica/rocris/3p/conservacao_da_quantidade_de_movimento_-_entendendo_fisicamente_31f9ad2aa161.pdf
+2AnoM/fisica/rocris/3p/conservacao_da_quantidade_de_movimento_-_exercicios_afc83983ba3b.pdf
+2AnoM/fisica/rocris/3p/forca_centripeta_-_ex_-_resolucao_fe47b75cef22.pdf
+2AnoM/fisica/rocris/3p/forca_centripeta_-_exercicios_60d9aed5c64e.pdf
+2AnoM/fisica/rocris/3p/forca_centripeta_-_teoria_8a45f3e2d3d4.pdf
+2AnoM/fisica/rocris/3p/quantidade_de_movimento_e_impulso_-_teorema_do_impulso-_exercicios_8439ba74a985.pdf
+2AnoM/fisica/rocris/3p/quantidade_de_movimento_e_impulso_-_teorema_do_impulso_-_resolucao_378bcfe5708f.pdf
+2AnoM/fisica/rocris/3p/recuperacao/empuxo_508a9bae5d0e.pdf
+2AnoM/fisica/rocris/3p/recuperacao/forca_centripeta_6cf14b4f86da.pdf
+2AnoM/fisica/rocris/3p/recuperacao/lentes_esfericas_4702dd451755.pdf
+2AnoM/fisica/rocris/3p/recuperacao/quantidade_de_movimento_-_impulso_-_teorema_do_impulso_9adb42f46219.pdf
+2AnoM/fisica/rocris/4p/choques_mecanicos_-_exercicios_-_resolucao_e879c6fc3f5a.pdf
+2AnoM/fisica/rocris/4p/choques_mecanicos_-_exercicios_4fbd53805f7c.pdf
+2AnoM/fisica/rocris/4p/recuperacao/conservacao_da_quantidade_de_movimento_c66801ac7b76.pdf
 2AnoM/geografia/alex/1p/exercicios_transportes.pdf
 2AnoM/geografia/alex/1p/industrializacao_brasileira.pptx
 2AnoM/geografia/alex/1p/sistemas_de_comunicacao_no_brasil_e_no_mundo.pptx
@@ -676,15 +682,48 @@
 2AnoM/geografia/alex/1p/sistemas_de_transporte_no_mundo.pptx
 2AnoM/geografia/alex/2p/Slides/L5FAC1_Urbanização Mundial.pptx
 2AnoM/geografia/alex/2p/Slides/L5FAC2_Redes e Hierarquia Urbana.pptx
+2AnoM/geografia/alex/2p/sugestao_de_exercicios_d20c5f30b2ea.pdf
+2AnoM/geografia/alex/3p/a_importancia_das_sementes_crioulas_6f25bd3bd95d.pdf
+2AnoM/geografia/alex/3p/exercicios_agropecuaria_29d67ea3d3c6.pdf
+2AnoM/geografia/alex/3p/exercicios_de_revisao_agropecuaria_03d17db001c7.pdf
 2AnoM/geografia/bruno/1p/gabarito_2em_geo_geral_1a_etapa_1o_periodo_2026.pdf
 2AnoM/geografia/bruno/1p/gabarito_2em_geo_geral_2a_etapa_1o_periodo_2026.pdf
+2AnoM/geografia/bruno/1p/if_-_redes_sociais_etica_e_cidadania/atividade_02_segregacao_e_violencia_em_sao_paulo_d940c77c8a99.pdf
+2AnoM/geografia/bruno/1p/if_-_redes_sociais_etica_e_cidadania/grupos_icec_turma_a_64edddb545ba.pdf
+2AnoM/geografia/bruno/1p/if_-_redes_sociais_etica_e_cidadania/grupos_icec_turma_b_e02beb3b33a5.pdf
+2AnoM/geografia/bruno/1p/if_-_redes_sociais_etica_e_cidadania/organizacao_dos_seminarios_expressoes_da_violencia_1b747442c544.pdf
+2AnoM/geografia/bruno/1p/if_-_redes_sociais_etica_e_cidadania/rubrica_seminarios_-_expressoes_da_violencia_pelos_lugares_5ce8737b56b0.pdf
+2AnoM/geografia/bruno/1p/if_-_redes_sociais_etica_e_cidadania/rubricas_seminarios_trabalho_01_-_icec_turma_a_d9abb32ca58c.pdf
+2AnoM/geografia/bruno/1p/if_-_redes_sociais_etica_e_cidadania/rubricas_seminarios_trabalho_01_-_icec_turma_b_13a456b7bc0c.pdf
 2AnoM/geografia/bruno/1p/tema_01_evolucao_da_populacao_mundial.pdf
 2AnoM/geografia/bruno/1p/tema_02_conceitos_e_termos_demograficos.pdf
 2AnoM/geografia/bruno/1p/tema_03_teorias_demograficas.pdf
 2AnoM/geografia/bruno/1p/tema_04_estrutura_etaria_da_populacao.pdf
+2AnoM/geografia/bruno/2p/2em/tema_05_fluxos_migratorios_pelos_lugares_-_parte_01_2cd4c7007f62.pdf
+2AnoM/geografia/bruno/2p/2em/tema_05_fluxos_migratorios_pelos_lugares_-_parte_02_30188f789db2.pdf
+2AnoM/geografia/bruno/2p/2em/tema_06_migracoes_mundiais_-_locais_de_origem_a4882b95894d.pdf
 2AnoM/geografia/bruno/2p/[Gabarito] Prova - Geografia Geral - 2 Etapa 1 Período.pdf
 2AnoM/geografia/bruno/2p/[Lista de Exercícios] [Tema 05] Fluxos Migratórios pelos Lugares.pdf
 2AnoM/geografia/bruno/2p/[Tema 05] Novos Fluxos Migratórios pelos Lugares.pdf
+2AnoM/geografia/bruno/2p/if_-_redes_sociais_etica_e_cidadania/aulas_09_e_10_sistemas_de_informacao_redes_sociais_e_atualidades_bf5e87e130cf.pdf
+2AnoM/geografia/bruno/2p/if_-_redes_sociais_etica_e_cidadania/aulas_13_e_14_correcao_das_atividades_e_orientacao_dos_trabalhos_7593b46ce2a5.pdf
+2AnoM/geografia/bruno/2p/if_-_redes_sociais_etica_e_cidadania/rubricas_campanha_publicitaria_-_icec_turma_a_e5904fecdae5.pdf
+2AnoM/geografia/bruno/2p/if_-_redes_sociais_etica_e_cidadania/rubricas_campanha_publicitaria_-_icec_turma_b_b98cb78e2d57.pdf
+2AnoM/geografia/bruno/3p/2em/gabarito_2em_geo_apv_3o_periodo_2026_versao_01_015cce8db9b5.pdf
+2AnoM/geografia/bruno/3p/2em/gabarito_2em_geo_apv_3o_periodo_2026_versao_02_b95e5a54bb92.pdf
+2AnoM/geografia/bruno/3p/2em/gabarito_2em_geo_apv_3o_periodo_2026_versao_03_164a6b86e85d.pdf
+2AnoM/geografia/bruno/3p/2em/gabarito_2em_geo_geral_2a_etapa_3o_periodo_2026_eb15327ce4b5.pdf
+2AnoM/geografia/bruno/3p/2em/gabarito_2em_geogeral_1a_etapa_3o_periodo_2026_5131b7a97c02.pdf
+2AnoM/geografia/bruno/3p/2em/lista_de_exercicios_fluxos_migratorios_no_mundo_e_no_brasil_d2da7e63eb09.pdf
+2AnoM/geografia/bruno/3p/2em/lista_de_exercicios_revisao_p2_-_fluxos_migratorios_no_brasil_ad402c708bd1.pdf
+2AnoM/geografia/bruno/3p/2em/tema_07_fluxos_migratorios_no_brasil_-_migracoes_internas_0ebf57066108.pdf
+2AnoM/geografia/bruno/3p/2em/tema_07_fluxos_migratorios_no_brasil_-_sec_ebd04327a548.pdf
+2AnoM/geografia/bruno/3p/2em/tema_07_fluxos_migratorios_no_brasil_e_atualidades_-_imigracao_e_emigr_a377f386cdd5.pdf
+2AnoM/geografia/bruno/3p/2em/texto_01_base_de_leitura_apv_2a_serie_-_geografia_-_3o_periodo_aa4ba4eaf37f.pdf
+2AnoM/geografia/bruno/3p/2em/texto_02_base_de_leitura_apv_2a_serie_-_geografia_-_3o_periodo_2930441739f9.pdf
+2AnoM/geografia/bruno/3p/if_-_redes_sociais_etica_e_cidadania/aulas_17_e_18_direito_internacional_38638cfac311.pdf
+2AnoM/geografia/bruno/3p/if_-_redes_sociais_etica_e_cidadania/aulas_19_e_20_direito_nacional_6734379e47cc.pdf
+2AnoM/geografia/bruno/3p/if_-_redes_sociais_etica_e_cidadania/direito_internacional_-_situacao-problema_cf62b4d272e9.pdf
 2AnoM/historia/celcio/1p/1p-_napoleao_bonaparte_e_o_congresso_de_viena_-_vol.pptx
 2AnoM/historia/celcio/1p/1p_-_1o_reinado_e_periodo_regencial_-cap.pptx
 2AnoM/historia/celcio/1p/1p_-_a_corte_portuguesa_no_brasil_e_a_independencia_-_pag.pptx
@@ -699,8 +738,21 @@
 2AnoM/historia/luciano/1p/material_13_-_o_renascimento.pdf
 2AnoM/historia/luciano/1p/material_14_-_o_estilo_barroco.pdf
 2AnoM/historia/luciano/1p/material_15_-_o_estilo_rococo.pdf
+2AnoM/historia/luciano/2p/2em/material_19_-_o_impressionismo_e_pontilhismo_f618bf1080a7.pdf
 2AnoM/historia/luciano/2p/material_16_-_o_barroco_no_brasil.pdf
 2AnoM/historia/luciano/2p/material_17_-_neoclassicismo_romantismo_e_realismo.pdf
+2AnoM/historia/luciano/3p/2em/material_20_-_o_simbolismo_e_o_pos-impressionismo_188debe45eee.pdf
+2AnoM/historia/luciano/3p/2em/material_21_-_vanguardas_europeias_18335cb21137.pdf
+2AnoM/historia/luciano/4p/2em/materiais_das_aulas/material_21_-_vanguardas_europeias_e53ef5432a56.pdf
+2AnoM/historia/luciano/novos/2em/provas/2026_historia_2aserie_1aetapa_1operiodo_revisada_nova_versao_e41a0888baa5.pdf
+2AnoM/historia/luciano/novos/2em/provas/historia_-_2a_serie_-_2aetapa_-_3o_periodo_139a1abc715d.pdf
+2AnoM/historia/luciano/novos/2em/provas/historia_da_arte_-_2a_serie_-_1aetapa_-_2o_periodo_ef8ca8b662e8.pdf
+2AnoM/historia/luciano/novos/2em/provas/historia_da_arte_-_2a_serie_-_2a_etapa_-_3o_periodo_f64ff94ef283.pdf
+2AnoM/historia/luciano/novos/2em/provas/historia_da_arte_-_2aserie_-_2aetapa_-_1o_periodo_513432a5ba6c.pdf
+2AnoM/historia/luciano/novos/2em/rec_-_filo_e_socio/recuperacao_de_filosofia_-_o_pre-socraticos_2507efeb1b43.pdf
+2AnoM/historia/luciano/novos/2em/rec_-_filo_e_socio/recuperacao_de_filosofia_-_o_racionalismo_socratico_0a31eefc5644.pdf
+2AnoM/historia/luciano/novos/2em/rec_-_filo_e_socio/recuperacao_de_sociologia_-_poder_e_dominacao_16b0b53b71a3.pdf
+2AnoM/historia/luciano/novos/2em/rec_-_filo_e_socio/recuperacao_de_sociologia_-_teorias_politicas_e_estado_moderno_cae57d21211f.pdf
 2AnoM/ingles/1p/2s_-_aula_1_-_connectors.pdf
 2AnoM/ingles/1p/2s_-_connectors.pdf
 2AnoM/ingles/1p/connectives.pptx
@@ -710,32 +762,49 @@
 2AnoM/ingles/1p/simple_past_past_continuous_past_perfect_and_used_to.pdf
 2AnoM/ingles/1p/simple_present_present_continuous.pdf
 2AnoM/ingles/2p/Modal Verbs.pdf
-2AnoM/ingles/2p/Modal Verbs_1781301949.pdf
-2AnoM/matematica/fagundes/1p/arcos_geomtricos.pdf
-2AnoM/matematica/fagundes/1p/ciclo_com_seno_e_cosseno.pdf
-2AnoM/matematica/fagundes/1p/ciclo_trigonometrico_determinacoes.pdf
-2AnoM/matematica/fagundes/1p/lista_1_-_trigonometria_revisao.pdf
-2AnoM/matematica/fagundes/1p/lista_extra_1_p1.pdf
-2AnoM/matematica/fagundes/2p/Lista exercícios extra (maio) - 2ª série - Trigonometria.pdf
-2AnoM/matematica/fagundes/2p/Lista para reforço - Radicais, frações, fatoração e produtos notáveis.pdf
+2AnoM/ingles/2p/review_exercises_8cd3d14db72a.pdf
+2AnoM/ingles/2p/review_exercises_gabarito_ae6d2b6317c0.pdf
+2AnoM/ingles/3p/conditional_sentences_112011186a99.pdf
+2AnoM/matematica/debora/1p/arcos_geomtricos.pdf
+2AnoM/matematica/debora/1p/ciclo_com_seno_e_cosseno.pdf
+2AnoM/matematica/debora/1p/ciclo_trigonometrico_determinacoes.pdf
+2AnoM/matematica/debora/1p/lista_1_-_trigonometria_revisao.pdf
+2AnoM/matematica/debora/1p/lista_extra_1_p1.pdf
+2AnoM/matematica/debora/2p/Lista exercícios - 2ª série - Trigonometria (junho).pdf
+2AnoM/matematica/debora/2p/Lista exercícios extra (maio) - 2ª série - Trigonometria.pdf
+2AnoM/matematica/debora/2p/Lista para reforço - Radicais, frações, fatoração e produtos notáveis.pdf
+2AnoM/matematica/debora/2p/Resolução do exercício 7 (lista junho).pdf
+2AnoM/matematica/debora/3p/Lista funções trigonométricas - Setembro.pdf
 2AnoM/matematica/larissa/1p/fatorial_-_lista_com_resolucao.pdf
 2AnoM/matematica/larissa/1p/permutacao_-_lista.pdf
 2AnoM/matematica/larissa/1p/pfc_-_lista.pdf
 2AnoM/matematica/larissa/1p/slides_-_exercicios_e_exemplos.pdf
+2AnoM/matematica/larissa/1p/trigonometria/lista_1_-_trigonometria_17d6266517d4.pdf
+2AnoM/matematica/larissa/1p/trigonometria/lista_extra_trigo_d23d506cfb6c.pdf
+2AnoM/matematica/larissa/1p/trigonometria/lista_trigonometria_revisao_-_com_resolucao_d8d2287dcbc9.pdf
 2AnoM/matematica/larissa/2p/ARRANJO.pdf
 2AnoM/matematica/larissa/2p/BINO^MIO DE NEWTON LISTA 1.pdf
 2AnoM/matematica/larissa/2p/COMBINAÇÃO.pdf
 2AnoM/matematica/larissa/2p/Slides - Exerci´cios e Exemplos.pdf
+2AnoM/matematica/larissa/2p/prob_espacial/lista_geral_47c1c8e7e6bf.pdf
 2AnoM/matematica/larissa/2p/triangulo_de_pascal.pdf
+2AnoM/matematica/larissa/2p/trigo/trigo_adic_a_o_e_arco_duplo_lista_1_763a7b305f2a.pdf
+2AnoM/matematica/larissa/3p/exemplos_dos_slides_e7dc98540fb7.pdf
+2AnoM/matematica/larissa/3p/geometria/prismas_2dcd362e8dbb.pdf
+2AnoM/matematica/larissa/3p/geometria/revisao_geometria_plana_91abf7a2e518.pdf
+2AnoM/matematica/larissa/3p/geometria/slides_-_prisma_ce8dba9da60b.pdf
+2AnoM/matematica/larissa/3p/lista_probabilidade_8762bfb4fba1.pdf
 2AnoM/matematica/walter/1p/gabarito_apv_s.pdf
 2AnoM/matematica/walter/1p/resolucao_exercicios_pagina_332_livro_4.docx
+2AnoM/matematica/walter/novos/gabarito_apv_2periodo_15e653fad72c.pdf
+2AnoM/matematica/walter/novos/gabarito_apv_3o_periodo_d9a267de8288.pdf
+2AnoM/matematica/walter/novos/gabarito_exercicios_t1_ao_t7_lista_1_estatistica_c1f24196c7b6.pdf
+2AnoM/matematica/walter/novos/resolucao_da_lista_de_trigonometria_-_debora_d402cfebefd7.pdf
 2AnoM/portugues/ivan/1p/exercicios_sujeito_-_gabarito.docx
 2AnoM/portugues/ivan/2p/2a_em_gramatica_informativo_apvs_2o_periodo.docx
 2AnoM/portugues/ivan/2p/Valorada/2a EM GRAMÁTICA Informativo APVs   2º período (1).docx
 2AnoM/portugues/ivan/2p/Valorada/zeluiz,+03_radicalismos+a¦Ç+brasileira (1).pdf
-2AnoM/portugues/ivan/2p/zeluiz03_radicalismosacbrasileira.pdf
 2AnoM/portugues/odete/1p/2_-_aula_03_-_realismo_em_portugal.pdf
-2AnoM/portugues/odete/1p/2_-_aula_03_-_realismo_em_portugal_-_copia.pdf
 2AnoM/portugues/odete/1p/2_-_aula_04_-_realismo_em_portugal.pdf
 2AnoM/portugues/odete/1p/2_-_aula_3_-_memorias_postumas_de_bras_cubas.pptx
 2AnoM/portugues/odete/1p/gabarito_recuperacao_marco_26.docx
@@ -748,6 +817,14 @@
 2AnoM/portugues/odete/2p/MENDEL-Recup.docx
 2AnoM/portugues/odete/2p/Naturalismo (1) (1).pptx
 2AnoM/portugues/odete/2p/O Cortiço- Análise.docx
+2AnoM/portugues/odete/3p/2_-_aula_26_fernando_pessoa_4ba9ea908c2e.pdf
+2AnoM/portugues/odete/3p/aula_09_-_simbolismo_2_95c918efeb6b.pdf
+2AnoM/portugues/odete/3p/aula_10_-_simbolismo_em_portugal_-_entre_a_forma_e_a_saudade_cbf2d1e944e9.pdf
+2AnoM/portugues/odete/3p/aula_23_fernando_pessoa_-_heteronomia_2651771ff088.pdf
+2AnoM/portugues/odete/4p/aula_15_-_o_pre-modernismo_648b1f5e7231.pdf
+2AnoM/portugues/odete/4p/aula_16_-_os_sertoes_e3a2db0e048f.pdf
+2AnoM/portugues/odete/4p/aula_17_-_monteiro_lobato_-_um_visionario_89075caf64d4.pdf
+2AnoM/portugues/odete/4p/aula_18_-_lima_barreto_-_o_cronista_do_preconceito_e_da_opressao_-_cop_31c773eebd27.pdf
 2AnoM/quimica/gabriel/1p/materiais_1a_serie/2025_slides_1.pdf
 2AnoM/quimica/gabriel/1p/materiais_1a_serie/2025_tnv_1em_1.pdf
 2AnoM/quimica/gabriel/1p/materiais_1a_serie/2025_tnv_1em_10.pdf
@@ -769,6 +846,18 @@
 2AnoM/quimica/gabriel/2p/Slides/02_05 - Slides - Triglicerídeos e Sais de ácidos carboxílicos - Copia.pdf
 2AnoM/quimica/gabriel/2p/Tarefas/02_05 - TAREFA - LISTA 5.pdf
 2AnoM/quimica/gabriel/2p/Tarefas/09_06 - TAREFA - LISTA 6.pdf
+2AnoM/quimica/gabriel/2p/slides_-_anatomia_de_um_crime_abf0057af721.pdf
+2AnoM/quimica/gabriel/3p/mostra_cultural/2d_-capturando_o_vilao_invisivel_aeddce846fc7.pdf
+2AnoM/quimica/gabriel/3p/mostra_cultural/2f_-_alimentacao_do_futuro_f95e69a265b8.pdf
+2AnoM/quimica/gabriel/3p/slides/08_-_material_impresso_-_outras_funcoes_organicas_9157ce9a0624.pdf
+2AnoM/quimica/gabriel/3p/slides/08_-_material_impresso_-_propriedades_fisico_quimicas_dos_compostos_or_b6fbab558f61.pdf
+2AnoM/quimica/gabriel/3p/slides/2026_4520e751ae91.pdf
+2AnoM/quimica/gabriel/3p/tarefas/08_-_lista_7_eec33fc1afdf.pdf
+2AnoM/quimica/gabriel/3p/tarefas/08_-_lista_8_d4c522ac1ab2.pdf
+2AnoM/quimica/gabriel/4p/crimes_ambientais/10_-_orientacoes_para_os_banners_e79e403579a0.pdf
+2AnoM/quimica/gabriel/4p/slides/09_-_slides_-_isomeria_plana_2cbaea70d8ee.pdf
+2AnoM/quimica/gabriel/4p/tarefas/09_-_lista_10_df7586a1ae2b.pdf
+2AnoM/quimica/gabriel/4p/tarefas/09_-_lista_9_499d36ffcaea.pdf
 2AnoM/quimica/renato/1p/exercicios/lista_extra_-_solucoes_-_parte_1.pdf
 2AnoM/quimica/renato/1p/exercicios/lista_extra_-_solucoes_-_parte_2_-_concentracao_de_solucoes.pdf
 2AnoM/quimica/renato/1p/exercicios/lista_extra_-_solucoes_-_parte_3_-_concentracao_de_solucoes_1.pdf
@@ -790,14 +879,46 @@
 2AnoM/quimica/renato/2p/slides/CAPÍTULO 4 - PROCASSOS COM SOLUÇÕES - MISTURA DE SOLUÇÕES SEM REAÇÃO.pdf
 2AnoM/quimica/renato/2p/slides/CAPÍTULO 4 - PROCESSOS COM SOLUÇÕES - MISTURA DE SOLUÇÕES COM REAÇÃO.pdf
 2AnoM/quimica/renato/2p/slides/capitulo_4_-_processos_com_solucoes_-_diluicao.pdf
+2AnoM/quimica/renato/3p/lista_de_exercicios/lista_extra_-_equilibrio_quimico_-_parte_1_-_kc_e_kp_c9bfa38b065a.pdf
+2AnoM/quimica/renato/3p/lista_de_exercicios/lista_extra_-_equilibrio_quimico_-_parte_2_-_deslocamento_de_equilibri_ce5f63961485.pdf
+2AnoM/quimica/renato/3p/lista_de_exercicios/resolucao/equilibrio_quimico_-_parte_1_c5570a81670d.pdf
+2AnoM/quimica/renato/3p/lista_de_exercicios/resolucao/equilibrio_quimico_-_parte_2_020578e1276a.pdf
+2AnoM/quimica/renato/3p/slides/capitulo_1_-_reacoes_reversiveis_-_kc_e_kp_61ea7bc2006d.pdf
+2AnoM/quimica/renato/4p/listas_de_exercicios/lista_extra_-_equilibrio_quimico_-_parte_3_-_ki_e_ph_7ff5241c7571.pdf
+2AnoM/quimica/renato/novos/recuperacao/07_maio_-_recuperacao_paralela_c0f91272022c.pdf
+2AnoM/quimica/renato/novos/recuperacao/09_abril_-_recuperacao_paralela_1025901c2e09.pdf
+2AnoM/quimica/renato/novos/recuperacao/10_setembro_-_recuperacao_paralela_c57a8ada124a.pdf
+2AnoM/quimica/renato/novos/recuperacao/12_fevereiro_-_recuperacao_paralela_1bc937c9f4d1.pdf
+2AnoM/quimica/renato/novos/recuperacao/12_marco_-_recuperacao_paralela_d99919f137e7.pdf
+2AnoM/quimica/renato/novos/recuperacao/13_agosto_-_recuperacao_paralela_e12ba72b1c35.pdf
+2AnoM/quimica/renato/novos/recuperacao/17_setembro_-_recuperacao_paralela_4226e237431d.pdf
+2AnoM/quimica/renato/novos/recuperacao/20_agosto_-_recuperacao_paralela_c8d158b180f0.pdf
+2AnoM/quimica/renato/novos/recuperacao/21_maio_-_recuperacao_paralela_a03aac429b2d.pdf
+2AnoM/quimica/renato/novos/recuperacao/23_abril_-_recuperacao_paralela_925aa922a048.pdf
+2AnoM/quimica/renato/novos/recuperacao/26_fevereiro_-_recuperacao_paralela_6b99b0b08e35.pdf
+2AnoM/quimica/renato/novos/recuperacao/26_marco_-_recuperacao_paralela_f0816fa88260.pdf
+2AnoM/quimica/renato/novos/recuperacao/resolucao/02_abril_-_recuperacao_paralela_-_resolucao_33c2310d7e12.pdf
+2AnoM/quimica/renato/novos/recuperacao/resolucao/02_fevereiro_-_recuperacao_paralela_-_resolucao_832d0da0bb11.pdf
+2AnoM/quimica/renato/novos/recuperacao/resolucao/07_maio_-_recuperacao_paralela_26b31abb5c2b.pdf
+2AnoM/quimica/renato/novos/recuperacao/resolucao/10_setembro_-_recuperacao_paralela_78997de4a360.pdf
+2AnoM/quimica/renato/novos/recuperacao/resolucao/12_marco_-_recuperacao_paralela_-_resolucao_aacf7c76c6bd.pdf
+2AnoM/quimica/renato/novos/recuperacao/resolucao/13_agosto_-_recuperacao_paralela_09b64afc1973.pdf
+2AnoM/quimica/renato/novos/recuperacao/resolucao/17_setembro_-_recuperacao_paralela_edcd09323f95.pdf
+2AnoM/quimica/renato/novos/recuperacao/resolucao/20_agosto_-_recuperacao_paralela_-_resolucao_c01c60fbcea0.pdf
+2AnoM/quimica/renato/novos/recuperacao/resolucao/21_maio_-_recuperacao_paralela_c35e007b4026.pdf
+2AnoM/quimica/renato/novos/recuperacao/resolucao/23_abril_-_recuperacao_paralela_3e5b9da4f22d.pdf
+2AnoM/quimica/renato/novos/recuperacao/resolucao/26_fevereiro_-_recuperacao_paralela_-_resolucao_739ddddb7839.pdf
+2AnoM/quimica/renato/novos/recuperacao/resolucao/26_marco_-_recuperacao_paralela_-_resolucao_9f4fc0b55960.pdf
 2AnoM/quimica/thati/1p/2_ano_en_molec_reac_ao_simples_troca_extras.pdf
 2AnoM/quimica/thati/1p/2_ano_en_molec_reacoes_dupla_troca_e_funcoes_extras.pdf
 2AnoM/quimica/thati/1p/2_ano_en_molec_termoqui_mica_1_extras.pdf
 2AnoM/quimica/thati/1p/2_ano_en_molec_termoqui_mica_2_extras.pdf
 2AnoM/quimica/thati/2p/2 ANO EN MOLEC CINE´T QUI´M PARTE 1 EXTRAS.pdf
-2AnoM/quimica/thati/2p/2 ANO EN MOLEC TERMOQUI´MICA 2 EXTRAS.pdf
 2AnoM/quimica/thati/2p/2 ANO EN MOLEC TERMOQUI´MICA 3 EXTRAS.pdf
 2AnoM/quimica/thati/2p/2 ANO EN MOLEC TERMOQUI´MICA 4 EXTRAS (1).pdf
+2AnoM/quimica/thati/novos/energia_molecular/2_ano_en_molec_cine_t_qui_m_parte_2_extras_ok_eda23525635f.pdf
+2AnoM/quimica/thati/novos/energia_molecular/2_ano_en_molec_cinet_quim_parte_3_extras_0db3a7ae8437.pdf
+2AnoM/quimica/thati/novos/energia_molecular/2_ano_en_molec_termoquimica_5_extras_e5d524c19360.pdf
 2AnoM/redacao/1p/cronica_2026_.pdf
 2AnoM/redacao/1p/cronica_exercicio2_fuvestsimulado.pdf
 2AnoM/redacao/1p/cronicas_2026_exemplos.pdf
@@ -809,6 +930,20 @@
 2AnoM/redacao/2p/propaganda_institucional_anuncio_comercial_2026.pdf
 2AnoM/redacao/2p/propinstitucional_exercicio1.pdf
 2AnoM/redacao/2p/propinstitucional_exercicio2 .pdf
+2AnoM/redacao/3p/competencias/c3_9957797a6435.pdf
+2AnoM/redacao/3p/competencias/c4_-_2a_serie_8c1e11175ebb.pdf
+2AnoM/redacao/3p/competencias/cartilha_enem_2026_a29d789c356d.pdf
+2AnoM/redacao/3p/competencias/competencia_2_-_enem_c43ef732952a.pdf
+2AnoM/redacao/3p/competencias/competencia_3_fdf48cf52a3e.pdf
+2AnoM/redacao/3p/competencias/operadores_argumentativos_-_elementos_sequenciais_e_outros_-_unilasall_8f71c2a9298c.pdf
+2AnoM/redacao/3p/enem_-_conclusao/2em_-_pi_-_enem_3ec17896cd8a.pdf
+2AnoM/redacao/3p/enem_-_conclusao/conclusao_2em_mendel_2026_-_copiar_eb8acf133c3e.pdf
+2AnoM/redacao/3p/enem_-_desenvolvimento/aula_2_-_desenvolvimento_enem_4c633b408c26.pdf
+2AnoM/redacao/3p/enem_-_desenvolvimento/desenvolviment0_2em_mendel_2026-1_50292e5ac8c4.pdf
+2AnoM/redacao/3p/enem_-_introducao/introduc_a_o_enem_-_2em_-_mendel_6f3b67b658b8.pdf
+2AnoM/redacao/3p/enem_-_introducao/tarefa1_introenem_2em_mendel_2026_f36e69d47f77.pdf
+2AnoM/redacao/3p/enem_-_introducao/teoria_introenem_2em_mendel_2026_a07245657b62.pdf
+2AnoM/redacao/3p/propostas/enem/proposta_red1000_pessoas_situacao_rua_92acf5053a79.pdf
 2AnoM/sociologia/1p/lista_de_exercicios/lista_1_-_a_natureza_da_politica.doc
 2AnoM/sociologia/1p/lista_de_exercicios/lista_1_-_a_natureza_da_politica_-_gabarito_partes_1_e_2.doc
 2AnoM/sociologia/1p/lista_de_exercicios/lista_1_-_a_natureza_da_politica_sem_gabarito.pdf
@@ -823,8 +958,9 @@
 2AnoM/sociologia/2p/APV - CHS/APV Ciências Humanas e Sociais - 2ª Série - 2º Período - Modelo 2.docx
 2AnoM/sociologia/2p/APV - CHS/APV Ciências Humanas e Sociais - 2ª Série - 2º Período - Modelo 3.docx
 2AnoM/sociologia/2p/Lista de Exercícios/Lista 2 - Teorias Políticas e Estado Moderno (até Rousseau).doc
-2AnoM/sociologia/2p/Lista de Exercícios/Lista 2 - Teorias Políticas e Estado Moderno (sem gabarito).pdf
 2AnoM/sociologia/2p/Provas/Sociabilidades Contemporâneas - 2ª Se∩rie - 1ª Etapa - 2º Peri∩odo.docx
+2AnoM/sociologia/3p/2em/lista_de_exercicios/lista_3_-_estado_governo_democracia_e_cidadania_sem_gabarito_8747b5cf20b8.pdf
+2AnoM/sociologia/3p/2em/textos_complementares/tc3_-_sociologia_brasileira_bf8fbece9c62.pdf
 vestibulares/Enem/Enem 2025 - Copia/Enem Dia 1_2025_AMARELO__7aa6ffc6-4b96-412c-acef-469618a6941b.pdf
 vestibulares/Enem/Enem 2025 - Copia/Enem Dia 1_2025_Azul__845a0661-6a0c-44ed-9115-91f199a2c3c5.pdf
 vestibulares/Enem/Enem 2025 - Copia/Enem Dia 1_2025_Verde__95f7afd9-1e6b-4aac-b6a0-b840236c917e.pdf
@@ -833,7 +969,6 @@ vestibulares/Enem/Enem 2025 - Copia/Enem Dia 2 2025_AZUL__840651ef-e2ca-49f6-b8e
 vestibulares/Enem/Enem 2025 - Copia/Enem Dia 2 2025_CINZA__c7f116ad-b672-4b22-9199-5c7643d646e2.pdf
 vestibulares/Enem/Enem 2025 - Copia/Enem Dia 2 2025_VERDE (1)__053c3cdc-abf8-49cb-9d03-61263404a2af.pdf
 vestibulares/Enem/Enem Dia 1_2025_Branco__ab3ccf97-3c6f-41f2-a28e-b8313f8f5a9c - Copia - Copia.pdf
-vestibulares/Enem/Enem Dia 1_2025_Branco__ab3ccf97-3c6f-41f2-a28e-b8313f8f5a9c - Copia.pdf
 vestibulares/ita/2026/prova_ita_1a_fase_-_2026_95bd2cae-b04f-412e-92f5-6d87db489fd0.pdf
 vestibulares/ita/2026/prova_ita_2a_fase_dia_1_matematica_2026_0e8821eb-f2ad-4b39-885d-5e27a135cdc7.pdf
 vestibulares/ita/2026/prova_ita_2a_fase_dia_2_quimica_2026_cab8504d-3690-40d0-a062-b6554230261b.pdf

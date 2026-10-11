@@ -996,6 +996,7 @@ input,select,textarea{
 }
 
 </style>
+<link rel="stylesheet" href="novo-visual.css?v=3">
 </head>
 
 <body>
@@ -1051,7 +1052,7 @@ input,select,textarea{
 
 <header>
   <div class="logo" onclick="voltarMenu()" style="cursor:pointer;">StudyFlow</div>
-  <div class="subtitle">Desenvolvido por Jonatas — materiais, boletim, calculadora e desafios escolares</div>
+  <div class="subtitle">SEU ESPAÇO DE ESTUDOS</div>
 </header>
 
 <div class="dashboard" id="dashboard">
@@ -1115,9 +1116,12 @@ input,select,textarea{
 </div>
 
 
+
+<div class="workspace-head"><div><strong>Meu espaço</strong> &nbsp; / &nbsp; Escola</div><div class="workspace-actions"><time id="dataHoje"></time><a class="quiet-link" href="https://forms.gle/ax3QPcFapBAujCVF8" target="_blank" rel="noopener">Enviar material ↗</a><span class="avatar" aria-label="Jônatas">J</span></div></div>
+<div class="study-hero"><div><div class="eyebrow">MAIS CLAREZA. MAIS FOCO.</div><h1>Seu próximo passo<br>começa <span>aqui.</span></h1><p>Seus materiais e ferramentas, em um só lugar.<br>Escolha por onde começar e estude no seu ritmo.</p></div><div class="hero-stamp"><svg viewBox="0 0 60 70" fill="none" aria-hidden="true"><rect x="4" y="10" width="38" height="51" rx="5" fill="#ddd8f4" transform="rotate(-9 4 10)"/><rect x="14" y="4" width="38" height="51" rx="5" fill="white" stroke="#c9c2e7"/><path d="M23 18h19M23 25h19M23 32h12" stroke="#b9b0dc" stroke-width="2" stroke-linecap="round"/><circle cx="43" cy="50" r="12" fill="#8274c7"/><path d="m38 50 3 3 6-6" stroke="white" stroke-width="2" stroke-linecap="round"/></svg><div><strong>Um pouco, todo dia.</strong><small>O progresso vem da constância.</small></div></div></div>
+<div class="summary-strip"><div class="summary-stat"><span class="stat-icon">▤</span><div><strong id="totalMateriais">—</strong><small>PDFs na biblioteca</small></div></div><div class="summary-stat"><span class="stat-icon teal">▱</span><div><strong id="totalPastas">—</strong><small>Pastas principais</small></div></div><div class="summary-stat"><span class="stat-icon gold">◷</span><div><strong>No seu ritmo</strong><small>Um assunto de cada vez</small></div></div></div>
 <section id="materiais" class="section active panel">
-  <div class="section-title">Gerenciador de materiais</div>
-  <div id="pastaAtualTexto" class="help-text">Pasta atual: Início</div>
+  <div class="library-top"><div><div class="section-title">Sua biblioteca</div><div id="pastaAtualTexto" class="help-text">Pasta atual: Início</div></div><label class="library-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg><input id="pesquisaMateriais" type="search" aria-label="Buscar materiais" placeholder="Buscar matéria, professor ou arquivo..."></label></div>
 
  <div class="drive-box">
   <div>
@@ -1132,7 +1136,7 @@ input,select,textarea{
 </div>
 
   <div id="breadcrumb" class="breadcrumb"></div>
-  <div id="lista" class="list"></div>
+  <div id="lista" class="list"></div><div class="library-foot">Organizado para você encontrar o que precisa.</div>
 </section>
 
 <section id="calculadora" class="section panel">
@@ -1317,7 +1321,7 @@ window.dispatchEvent(new Event("firebaseReady"));
 </script>
 
 <script>
-const BASE = window.location.origin + "/meu-hub-estudos/";
+const BASE = new URL("./", window.location.href).href;
 
 let arquivos = [];
 let caminhoAtual = "";
@@ -2343,7 +2347,7 @@ function voltarInicioMateriais(){
   renderMateriais();
 }
 
-const APP_VERSION = "studyflow-links-url-v2";
+const APP_VERSION = "studyflow-clean-v3";
 
 async function atualizarCacheDoApp(){
   if(!("serviceWorker" in navigator)) return;
@@ -2536,5 +2540,6 @@ document.getElementById("installBtn")?.addEventListener("click", async () => {
 
 </script>
 
+<script src="novo-visual.js?v=3"></script>
 </body>
 </html>
