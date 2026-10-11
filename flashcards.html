@@ -32,7 +32,7 @@ textarea{min-height:160px;resize:vertical}
 </style>
 <link rel="stylesheet" href="novo-visual.css?v=3">
 <link rel="stylesheet" href="ferramentas.css?v=5">
-</head>
+<style>body:not([data-access-ready="true"])>:not(#accessGate){visibility:hidden}</style></head>
 <body>
 <script>if(new URLSearchParams(location.search).has("integrado"))document.body.classList.add("integrado");</script>
 <div class="top">
@@ -65,9 +65,9 @@ textarea{min-height:160px;resize:vertical}
 <div class="panel"><h2>Seus cards</h2><div id="lista"></div></div>
 
 <script>
-let cards=JSON.parse(localStorage.getItem("flashcardsStudyFlow")||"[]"), i=0, mostrandoResposta=false;
-function save(){localStorage.setItem("flashcardsStudyFlow",JSON.stringify(cards))}
-function render(){document.getElementById("lista").innerHTML=cards.map((c,idx)=>`<div class="card"><b>${c.p}</b><p class="small">${c.r}</p><button onclick="remover(${idx})">Excluir</button></div>`).join("")||"<p class='small'>Nenhum card criado.</p>"; mostrar();}
+let cards=[], i=0, mostrandoResposta=false, flashOwner=null,flashScope='';document.addEventListener("studyaccesschange",()=>{const s=window.studyAccess;const scope=[s.uid,s.ready,s.paid].join(':');if(flashScope===scope)return;flashScope=scope;flashOwner=s.uid;cards=[];if(s.ready&&s.paid&&flashOwner){try{cards=JSON.parse(localStorage.getItem("flashcardsStudyFlow:"+flashOwner)||"[]");}catch{cards=[];}}i=0;render();});
+function save(){if(flashOwner&&window.studyAccess?.paid)localStorage.setItem("flashcardsStudyFlow:"+flashOwner,JSON.stringify(cards))}
+function render(){const list=document.getElementById("lista");list.replaceChildren();cards.forEach((c,idx)=>{const box=document.createElement("div");box.className="card";const p=document.createElement("b"),r=document.createElement("p"),remove=document.createElement("button");p.textContent=c.p;r.textContent=c.r;r.className="small";remove.textContent="Excluir";remove.onclick=()=>remover(idx);box.append(p,r,remove);list.append(box);});if(!cards.length){const p=document.createElement("p");p.textContent="Nenhum card criado.";list.append(p);}mostrar();}
 function salvar(){let p=pergunta.value.trim(), r=resposta.value.trim(); if(!p||!r)return alert("Preencha pergunta e resposta."); cards.push({p,r}); pergunta.value=resposta.value=""; save(); render();}
 function remover(idx){cards.splice(idx,1); if(i>=cards.length)i=0; save(); render();}
 function mostrar(){let el=document.getElementById("card"); if(!cards.length){el.innerText="Nenhum card ainda.";return} el.innerText=mostrandoResposta?cards[i].r:cards[i].p;}
@@ -75,4 +75,4 @@ function virar(){mostrandoResposta=!mostrandoResposta; mostrar();}
 function proximo(){if(!cards.length)return; i=(i+1)%cards.length; mostrandoResposta=false; mostrar();}
 render();
 </script>
-</body></html>
+<script type="module" src="access.js?v=1"></script></body></html>

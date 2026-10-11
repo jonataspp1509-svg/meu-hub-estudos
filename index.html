@@ -997,7 +997,7 @@ input,select,textarea{
 
 </style>
 <link rel="stylesheet" href="novo-visual.css?v=6">
-<link rel="stylesheet" href="biblioteca.css?v=6"><link rel="stylesheet" href="cabecalho-alinhado.css?v=1"></head>
+<link rel="stylesheet" href="biblioteca.css?v=6"><link rel="stylesheet" href="cabecalho-alinhado.css?v=1"><style>body:not([data-access-ready="true"]) #siteContent{visibility:hidden}</style></head>
 
 <body>
 
@@ -1289,36 +1289,7 @@ input,select,textarea{
   </div>
 </div>
 
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import {
-  getFirestore,
-  doc,
-  setDoc,
-  getDoc,
-  collection,
-  getDocs
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAGKQBoVgIDJzYOOkzukhTc6eRSXwJEv5I",
-  authDomain: "estudos-ec2cf.firebaseapp.com",
-  projectId: "estudos-ec2cf"
-};
-
-const app = initializeApp(firebaseConfig, 'legacy-tools');
-const firestore = getFirestore(app);
-
-window.firestore = firestore;
-window.firebaseDoc = doc;
-window.firebaseSetDoc = setDoc;
-window.firebaseGetDoc = getDoc;
-window.firebaseCollection = collection;
-window.firebaseGetDocs = getDocs;
-window.firebaseReady = true;
-window.dispatchEvent(new Event("firebaseReady"));
-
-</script>
 
 <script>
 const BASE = new URL("./", window.location.href).href;
@@ -1569,6 +1540,7 @@ fetch("dados.txt?v="+Date.now())
 });
 
 function renderMateriais(){
+  if(caminhoAtual && window.studyAccess?.ready && !window.studyCanSee?.(caminhoAtual+'/')) caminhoAtual='';
   const lista = document.getElementById("lista");
   const bc = document.getElementById("breadcrumb");
   const pastaTexto = document.getElementById("pastaAtualTexto");
@@ -1589,7 +1561,7 @@ function renderMateriais(){
   const pastas = new Set();
   const files = [];
 
-  arquivos.forEach(path=>{
+  arquivos.filter(path=>window.studyCanSee?.(path)===true).forEach(path=>{
     if(caminhoAtual && !path.startsWith(caminhoAtual + "/")) return;
 
     const resto = caminhoAtual ? path.slice(caminhoAtual.length).replace(/^\/+/,"") : path;
@@ -1665,6 +1637,7 @@ async function abrirAtalhoUrl(file){
 }
 
 function irPara(path){
+  if(path && !window.studyCanSee?.(path+'/')){ caminhoAtual='';renderMateriais();return; }
   caminhoAtual = path;
   renderMateriais();
 }
@@ -1890,41 +1863,8 @@ function preencherDados(dados){
   calcularTudo();
 }
 
-async function salvarOnline(){
-  const dados = coletarDados();
-
-  if(!dados.nome){
-    alert("Digite o nome do aluno.");
-    return;
-  }
-
-  await window.firebaseSetDoc(
-    window.firebaseDoc(window.firestore,"alunos",dados.nome),
-    dados
-  );
-
-  alert("Salvo online!");
-}
-
-async function carregarOnline(){
-  const nome = document.getElementById("nomeAluno").value;
-
-  if(!nome){
-    alert("Digite o nome do aluno.");
-    return;
-  }
-
-  const snap = await window.firebaseGetDoc(
-    window.firebaseDoc(window.firestore,"alunos",nome)
-  );
-
-  if(!snap.exists()){
-    alert("Aluno não encontrado.");
-    return;
-  }
-
-  preencherDados(snap.data());
-}
+async function salvarOnline(){const uid=window.studyAccess?.uid;if(!uid)return alert('Entre com Google primeiro.');localStorage.setItem('boletim:'+uid,JSON.stringify(coletarDados()));alert('Boletim salvo somente neste navegador, na sua conta.');}
+async function carregarOnline(){const uid=window.studyAccess?.uid;if(!uid)return;const saved=localStorage.getItem('boletim:'+uid);if(saved)preencherDados(JSON.parse(saved));else alert('Nenhum boletim salvo nesta conta e navegador.');}
 
 function exportarExcel(){
   const nome = document.getElementById("nomeAluno").value || "Aluno";
@@ -2014,7 +1954,7 @@ async function iniciarJogo(){
   }
 
   // Se o Firebase não tiver dado, usa localStorage
-  const localTentativas = JSON.parse(localStorage.getItem("tentativasStudyFlow") || "{}");
+  const localTentativas = JSON.parse(localStorage.getItem(("tentativasStudyFlow:"+(window.studyAccess?.uid||"sem-conta"))) || "{}");
   if(!ultima && localTentativas[idTentativa]){
     ultima = localTentativas[idTentativa];
   }
@@ -2035,7 +1975,7 @@ async function iniciarJogo(){
 
   // Salva tentativa local
   localTentativas[idTentativa] = agora;
-  localStorage.setItem("tentativasStudyFlow", JSON.stringify(localTentativas));
+  localStorage.setItem(("tentativasStudyFlow:"+(window.studyAccess?.uid||"sem-conta")), JSON.stringify(localTentativas));
 
   // Tenta salvar tentativa no Firebase
   try{
@@ -2254,22 +2194,7 @@ async function carregarRanking(){
   `).join("");
 }
 
-function verificarLogin(){
-  const codigo = document.getElementById("codigoAcesso").value;
-
-  if(codigo === "150909"){
-    const agora = Date.now();
-    const umDia = 24 * 60 * 60 * 1000;
-
-    localStorage.setItem("studyflow_login", "ok");
-    localStorage.setItem("studyflow_login_expira", agora + umDia);
-
-    document.getElementById("loginScreen").style.display = "none";
-    document.getElementById("menuEscolha").style.display = "flex";
-  }else{
-    alert("Código errado!");
-  }
-}
+function verificarLogin(){ location.href='conta.html'; }
 
 function entrarEscola(){
   document.getElementById("menuEscolha").style.display = "none";
@@ -2340,18 +2265,7 @@ function voltarMenu(){
   document.getElementById("menuEscolha").style.display = "flex";
 }
 
-window.addEventListener("load", () => {
-  const login = localStorage.getItem("studyflow_login");
-  const expira = Number(localStorage.getItem("studyflow_login_expira"));
 
-  if(login === "ok" && Date.now() < expira){
-    document.getElementById("loginScreen").style.display = "none";
-    document.getElementById("menuEscolha").style.display = "flex";
-  }else{
-    localStorage.removeItem("studyflow_login");
-    localStorage.removeItem("studyflow_login_expira");
-  }
-});
 
 
 function voltarInicioMateriais(){
@@ -2553,5 +2467,5 @@ document.getElementById("installBtn")?.addEventListener("click", async () => {
 </script>
 
 <script src="novo-visual.js?v=6"></script>
-<script src="biblioteca.js?v=7"></script><script type="module" src="conta-cabecalho.js?v=2"></script></body>
+<script src="biblioteca.js?v=8"></script><script type="module" src="conta-cabecalho.js?v=4"></script><script type="module" src="access.js?v=1"></script></body>
 </html>
