@@ -996,7 +996,7 @@ input,select,textarea{
 }
 
 </style>
-<link rel="stylesheet" href="novo-visual.css?v=3">
+<link rel="stylesheet" href="novo-visual.css?v=4">
 </head>
 
 <body>
@@ -1598,6 +1598,18 @@ function renderMateriais(){
     if(partes.length > 1) pastas.add(partes[0]);
     else files.push(path);
   });
+
+  // Os períodos existem na biblioteca mesmo antes do primeiro material.
+  const professoresComPeriodos = new Set(["2AnoM/biologia/croti", "2AnoM/biologia/murilo", "2AnoM/fisica/fabio", "2AnoM/fisica/rocris", "2AnoM/geografia/alex", "2AnoM/geografia/bruno", "2AnoM/historia/celcio", "2AnoM/historia/luciano", "2AnoM/matematica/debora", "2AnoM/matematica/larissa", "2AnoM/matematica/walter", "2AnoM/portugues/ivan", "2AnoM/portugues/odete", "2AnoM/quimica/gabriel", "2AnoM/quimica/renato", "2AnoM/quimica/thati", "2AnoM/filosofia", "2AnoM/redacao", "2AnoM/ingles", "2AnoM/sociologia"]);
+  if(professoresComPeriodos.has(caminhoAtual)){
+    ['1p','2p','3p','4p'].forEach(periodo=>pastas.add(periodo));
+  }
+  if(!pastas.size && !files.length){
+    const aviso = document.createElement('div');
+    aviso.className = 'empty-state';
+    aviso.textContent = 'Nenhum material disponível nesta pasta ainda.';
+    lista.appendChild(aviso);
+  }
 
   [...pastas].sort().forEach(pasta=>{
     const div = document.createElement("div");
@@ -2540,6 +2552,6 @@ document.getElementById("installBtn")?.addEventListener("click", async () => {
 
 </script>
 
-<script src="novo-visual.js?v=3"></script>
+<script src="novo-visual.js?v=4"></script>
 </body>
 </html>
