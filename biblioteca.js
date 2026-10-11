@@ -15,8 +15,8 @@ decorateRows=function(){
       label.textContent=materialTitle(name);item.title=name;
       const ext=name.split('.').pop().toLowerCase();
       let tag=item.querySelector('.format-tag');if(!tag){tag=document.createElement('small');tag.className='format-tag';item.append(tag);}
-      tag.textContent={pdf:'PDF',doc:'Word',docx:'Word',ppt:'Slides',pptx:'Slides',xls:'Excel',xlsx:'Excel'}[ext]||ext.toUpperCase();
-    }else label.textContent=folderTitle(label.textContent.trim());
+      tag.textContent={pdf:'PDF',doc:'Word',docx:'Word',ppt:'Slides',pptx:'Slides',xls:'Excel',xlsx:'Excel',jpg:'Imagem',jpeg:'Imagem',png:'Imagem',gif:'Imagem',webp:'Imagem',mp4:'Vídeo'}[ext]||ext.toUpperCase();
+    }else label.textContent=item.dataset.materialFile?materialTitle(item.dataset.materialFile.split('/').pop()):folderTitle(label.textContent.trim());
   });
   priorDecoration();
   list.querySelectorAll('a .material-glyph').forEach(glyph=>{const ext=new URL(glyph.parentElement.href).pathname.split('.').pop().toLowerCase();glyph.textContent=/ppt/.test(ext)?'▧':/doc/.test(ext)?'▤':/xls/.test(ext)?'▦':'▤';});

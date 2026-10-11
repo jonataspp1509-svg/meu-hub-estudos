@@ -1579,6 +1579,7 @@ function renderMateriais(){
     if(nomeArquivo.toLowerCase().endsWith(".url")){
       const div = document.createElement("div");
       div.className = "item";
+      div.dataset.materialFile = file;
       div.innerHTML = `🔗 <span>${nomeArquivo.replace(/\.url$/i,"")}</span>`;
       div.onclick = () => abrirAtalhoUrl(file);
       lista.appendChild(div);
@@ -2435,5 +2436,5 @@ document.getElementById("installBtn")?.addEventListener("click", async () => {
 </script>
 
 <script src="novo-visual.js?v=6"></script>
-<script src="biblioteca.js?v=8"></script><script type="module" src="conta-cabecalho.js?v=4"></script><script type="module" src="access.js?v=2"></script></body>
+<script src="biblioteca.js?v=9"></script><script src="midias.js?v=1"></script><script type="module" src="conta-cabecalho.js?v=4"></script><script type="module" src="access.js?v=2"></script></body>
 </html>
