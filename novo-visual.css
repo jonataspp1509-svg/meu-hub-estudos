@@ -80,3 +80,11 @@ button:focus-visible,a:focus-visible,input:focus-visible,.dash-card:focus-visibl
 #menuEscolha .menu-card p {color:#535b70!important;}
 #menuEscolha .menu-action {background:#5145cd!important;color:#fff!important;}
 #menuEscolha .menu-card::before {display:none;}
+
+#siteContent #dashboard .dash-card{background:transparent!important;color:#596174!important;border:0!important;border-radius:9px!important;box-shadow:none!important;min-height:42px!important;}
+#siteContent #dashboard .dash-card.active{background:#ece9f8!important;color:#5145cd!important;}
+#siteContent #dashboard .dash-card::before{display:none!important;}
+#menuEscolha .menu-card{background:#edeaf8!important;opacity:1!important;}
+#menuEscolha .menu-card h2{color:#29243f!important;opacity:1!important;}
+#menuEscolha .menu-card p{color:#535b70!important;opacity:1!important;}
+.tool-panel{padding:0!important;overflow:hidden;}.tool-frame{display:block;border:0;width:100%;min-height:1100px;background:#fff;}

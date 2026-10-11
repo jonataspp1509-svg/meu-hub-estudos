@@ -1,0 +1,12 @@
+
+body{background:#f5f6f8!important;color:#292f45;padding:28px;}
+.hero{background:#eeebf8!important;color:#292f45!important;box-shadow:none!important;border:1px solid #ded9ef;border-radius:16px;padding:24px;}
+.hero p{color:#596174!important;font-weight:400;}.hero h1{font-size:28px;font-weight:650;}
+.panel,.card{background:#fff;border:1px solid #e3e6ee;border-radius:14px;box-shadow:none!important;padding:22px;}
+button,.btn,a.btn{background:#5145cd;border-radius:9px;box-shadow:none;font-weight:600;padding:11px 16px;}
+h2{font-size:19px;font-weight:600;color:#34394f;}.small{font-weight:400;}
+.logo{color:#34394f;font-size:23px;font-weight:650;}
+input,textarea,select{border-radius:9px;background:#fafbfc;color:#34394f;}
+.progress{height:8px;}.fill{background:#8579bc;}
+body.integrado{background:#fff!important;padding:24px;min-height:0;}body.integrado>.top{display:none;}
+@media(max-width:700px){body,body.integrado{padding:16px;}.hero h1{font-size:23px;}}

@@ -854,11 +854,11 @@ input, select{
 }
 
 .menu-card h2{
-  color:white !important;
+  color:#29243f !important;
 }
 
 .menu-card p{
-  color:#e0e7ff !important;
+  color:#535b70 !important;
 }
 
 .menu-action{
@@ -906,7 +906,7 @@ header::after{
   border-radius:50%;
 }
 .logo{color:white !important; letter-spacing:-1px;}
-.subtitle{color:#e0e7ff !important; font-weight:700;}
+.subtitle{color:#535b70 !important; font-weight:700;}
 
 .dashboard{
   grid-template-columns:repeat(auto-fit,minmax(180px,1fr)) !important;
@@ -996,7 +996,7 @@ input,select,textarea{
 }
 
 </style>
-<link rel="stylesheet" href="novo-visual.css?v=4">
+<link rel="stylesheet" href="novo-visual.css?v=5">
 </head>
 
 <body>
@@ -1083,17 +1083,17 @@ input,select,textarea{
   </div>
 
   <div class="dash-card mode-card"
-  onclick="window.location.href='flashcards.html'">
+  onclick="abrirFerramenta('flashcards',this)">
   🧠 Flashcards
   </div>
 
   <div class="dash-card mode-card"
-  onclick="window.location.href='metas.html'">
+  onclick="abrirFerramenta('metas',this)">
   🎯 Metas
   </div>
 
   <div class="dash-card mode-card"
-  onclick="window.location.href='calendario.html'">
+  onclick="abrirFerramenta('calendario',this)">
   📅 Calendário
   </div>
 
@@ -2359,7 +2359,7 @@ function voltarInicioMateriais(){
   renderMateriais();
 }
 
-const APP_VERSION = "studyflow-clean-v3";
+const APP_VERSION = "studyflow-panel-v5";
 
 async function atualizarCacheDoApp(){
   if(!("serviceWorker" in navigator)) return;
@@ -2552,6 +2552,6 @@ document.getElementById("installBtn")?.addEventListener("click", async () => {
 
 </script>
 
-<script src="novo-visual.js?v=4"></script>
+<script src="novo-visual.js?v=5"></script>
 </body>
 </html>

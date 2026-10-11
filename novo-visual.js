@@ -39,3 +39,21 @@ search.addEventListener('input',renderMateriais);
 document.querySelector('#dashboard .dash-card').addEventListener('click',()=>{search.value='';renderMateriais();});
 document.getElementById('dataHoje').textContent=new Date().toLocaleDateString('pt-BR',{day:'numeric',month:'long'});
 renderMateriais();
+
+function abrirFerramenta(nome, botao){
+  let secao=document.getElementById('ferramenta-'+nome);
+  if(!secao){
+    secao=document.createElement('section');secao.id='ferramenta-'+nome;secao.className='section panel tool-panel';
+    const frame=document.createElement('iframe');frame.src=nome+'.html?integrado=1&v=5';
+    frame.title={flashcards:'Flashcards',metas:'Metas',calendario:'Calendário'}[nome];
+    frame.className='tool-frame';secao.append(frame);document.getElementById('siteContent').append(secao);
+  }
+  abrirSecao(secao.id,botao);
+  document.querySelector('.study-hero').style.display='none';
+  document.querySelector('.summary-strip').style.display='none';
+}
+document.querySelectorAll('#dashboard .dash-card').forEach(botao=>botao.addEventListener('click',()=>{
+  if(!botao.getAttribute('onclick')?.includes('abrirFerramenta')){
+    document.querySelector('.study-hero').style.display='';document.querySelector('.summary-strip').style.display='';
+  }
+}));
