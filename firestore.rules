@@ -1,0 +1,192 @@
+// Merge this block into the existing rules after reviewing existing collections.
+// Do not replace other collection rules or grant broad database access.
+rules_version = '2';
+service cloud.firestore {
+ match /databases/{database}/documents {
+  match /studentProfiles/{uid} {
+   function own() { return request.auth != null && request.auth.uid == uid; }
+   function fields() {
+    return request.resource.data.keys().hasAll(['grade','gradeYear','createdAt','updatedAt'])
+      && request.resource.data.keys().hasOnly(['grade','gradeYear','createdAt','updatedAt'])
+      && request.resource.data.grade is int
+      && request.resource.data.grade >= 1 && request.resource.data.grade <= 3
+      && request.resource.data.gradeYear is int;
+   }
+   allow get: if own();
+   allow list, delete: if false;
+   allow create: if own() && fields()
+      && request.resource.data.gradeYear == (request.time - duration.value(3, 'h')).year()
+      && request.resource.data.createdAt == request.time
+      && request.resource.data.updatedAt == request.time;
+   allow update: if own() && fields()
+      && resource.data.gradeYear < (request.time - duration.value(3, 'h')).year()
+      && request.resource.data.gradeYear == (request.time - duration.value(3, 'h')).year()
+      && request.resource.data.grade >= resource.data.grade
+      && request.resource.data.grade <= resource.data.grade + 1
+      && request.resource.data.createdAt == resource.data.createdAt
+      && request.resource.data.updatedAt == request.time;
+  }
+  match /studyWallets/{uid} {
+   function ownWallet() { return request.auth != null && request.auth.uid == uid; }
+   function today() {
+    let t = request.time - duration.value(3, 'h');
+    return t.year() * 10000 + t.month() * 100 + t.day();
+   }
+   function validWallet() {
+    let d = request.resource.data;
+    return d.keys().hasAll(['balance','day','earnedToday','sessionStarted','premiumUntil','updatedAt'])
+     && d.keys().hasOnly(['balance','day','earnedToday','sessionStarted','premiumUntil','updatedAt'])
+     && d.balance is int && d.balance >= 0
+     && d.day is int && d.earnedToday is int && d.earnedToday >= 0 && d.earnedToday <= 10
+     && (d.sessionStarted == null || d.sessionStarted is timestamp)
+     && d.premiumUntil is timestamp && d.updatedAt == request.time;
+   }
+   function startSession() {
+    return request.resource.data.diff(resource.data).affectedKeys().hasOnly(['sessionStarted','updatedAt'])
+     && resource.data.sessionStarted == null
+     && (resource.data.day != today() || resource.data.earnedToday < 10)
+     && request.resource.data.sessionStarted == request.time;
+   }
+   function claimSession() {
+    let before = resource.data;
+    let after = request.resource.data;
+    let path = /databases/$(database)/documents/focusSessions/$(uid);
+    return after.diff(before).affectedKeys().hasOnly(['balance','day','earnedToday','sessionStarted','updatedAt'])
+     && get(path).data.activeSeconds == 1500 && get(path).data.claimed == false
+     && getAfter(path).data.claimed == true
+     && getAfter(path).data.sessionId == get(path).data.sessionId
+     && after.sessionStarted == null && after.day == today()
+     && after.balance == before.balance + 5
+     && ((before.day == today() && before.earnedToday < 10 && after.earnedToday == before.earnedToday + 5)
+       || (before.day != today() && after.earnedToday == 5));
+   }
+   function redeem() {
+    let before = resource.data;
+    let after = request.resource.data;
+    return after.diff(before).affectedKeys().hasOnly(['balance','premiumUntil','updatedAt'])
+     && before.balance >= 100 && before.premiumUntil <= request.time
+     && after.balance == before.balance - 100
+     && after.premiumUntil >= request.time + duration.value(604740, 's')
+     && after.premiumUntil <= request.time + duration.value(604860, 's');
+   }
+   allow get: if ownWallet();
+   allow list, delete: if false;
+   allow create: if ownWallet() && validWallet()
+    && request.resource.data.balance == 0 && request.resource.data.day == today()
+    && request.resource.data.earnedToday == 0 && request.resource.data.sessionStarted == null
+    && request.resource.data.premiumUntil == timestamp.value(0);
+   allow update: if ownWallet() && validWallet() && (claimSession() || redeem());
+  }
+  match /focusSessions/{uid} {
+   function owner() { return request.auth != null && request.auth.uid == uid; }
+   function valid() {
+    let d = request.resource.data;
+    return d.keys().hasAll(['sessionId','activeSeconds','claimed','startedAt','updatedAt'])
+     && d.keys().hasOnly(['sessionId','activeSeconds','claimed','startedAt','updatedAt'])
+     && d.sessionId is string && d.sessionId.size() == 36
+     && d.activeSeconds is int && d.activeSeconds >= 0 && d.activeSeconds <= 1500
+     && d.claimed is bool && d.startedAt is timestamp && d.updatedAt == request.time;
+   }
+   function fresh() {
+    return request.resource.data.activeSeconds == 0 && request.resource.data.claimed == false
+     && request.resource.data.startedAt == request.time;
+   }
+   function tick() {
+    return request.resource.data.diff(resource.data).affectedKeys().hasOnly(['activeSeconds','updatedAt'])
+     && resource.data.claimed == false
+     && request.resource.data.activeSeconds == resource.data.activeSeconds + 10
+     && request.time >= resource.data.updatedAt + duration.value(10, 's');
+   }
+   function claim() {
+    let path = /databases/$(database)/documents/studyWallets/$(uid);
+    return request.resource.data.diff(resource.data).affectedKeys().hasOnly(['claimed','updatedAt'])
+     && resource.data.activeSeconds == 1500 && resource.data.claimed == false
+     && request.resource.data.claimed == true
+     && getAfter(path).data.balance == get(path).data.balance + 5;
+   }
+   allow get: if owner();
+   allow list, delete: if false;
+   allow create: if owner() && valid() && fresh();
+   allow update: if owner() && valid() && (tick() || claim()
+    || (fresh() && request.resource.data.sessionId != resource.data.sessionId));
+  }
+
+  function verifiedGoogle() {
+   return request.auth != null && request.auth.token.email_verified == true
+    && request.auth.token.firebase.sign_in_provider == 'google.com';
+  }
+  function inviteAdmin() {
+   return verifiedGoogle() && request.auth.token.email == 'jonataspp1509@gmail.com';
+  }
+  match /vipCodes/{hash} {
+   function validCode() {
+    let d = request.resource.data;
+    return hash.matches('^[a-f0-9]{64}$')
+     && d.keys().hasAll(['active','singleUse','createdAt','createdBy','usedBy','usedAt'])
+     && d.keys().hasOnly(['active','singleUse','createdAt','createdBy','usedBy','usedAt'])
+     && d.singleUse == true && d.active == true && d.createdAt == request.time
+     && d.createdBy == request.auth.uid && d.usedBy == null && d.usedAt == null;
+   }
+   function consume() {
+    let member = /databases/$(database)/documents/vipMembers/$(request.auth.uid);
+    let d = request.resource.data;
+    return verifiedGoogle() && resource.data.singleUse == true
+     && resource.data.active == true && resource.data.usedBy == null && resource.data.usedAt == null
+     && d.diff(resource.data).affectedKeys().hasOnly(['active','usedBy','usedAt'])
+     && d.active == false && d.usedBy == request.auth.uid && d.usedAt == request.time
+     && !exists(member) && getAfter(member).data.kind == 'vip'
+     && getAfter(member).data.inviteHash == hash && getAfter(member).data.createdAt == request.time;
+   }
+   function revokeUnused() {
+    return inviteAdmin() && resource.data.usedBy == null && resource.data.active == true
+     && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['active'])
+     && request.resource.data.active == false;
+   }
+   allow get: if verifiedGoogle();
+   allow list: if inviteAdmin();
+   allow create: if inviteAdmin() && validCode();
+   allow update: if consume() || revokeUnused();
+   allow delete: if false;
+  }
+  match /vipMembers/{uid} {
+   function validClaim() {
+    let d = request.resource.data;
+    let code = /databases/$(database)/documents/vipCodes/$(d.inviteHash);
+    return verifiedGoogle() && request.auth.uid == uid
+     && d.keys().hasAll(['kind','inviteHash','createdAt'])
+     && d.keys().hasOnly(['kind','inviteHash','createdAt'])
+     && d.kind == 'vip' && d.inviteHash is string && d.inviteHash.matches('^[a-f0-9]{64}$')
+     && d.createdAt == request.time
+     && get(code).data.singleUse == true && get(code).data.active == true
+     && get(code).data.usedBy == null && get(code).data.usedAt == null
+     && getAfter(code).data.active == false && getAfter(code).data.usedBy == uid
+     && getAfter(code).data.usedAt == request.time;
+   }
+   allow get: if request.auth != null && request.auth.uid == uid;
+   allow list, update, delete: if false;
+   allow create: if validClaim();
+  }
+
+  match /userNotebooks/{uid}/notes/{noteId} {
+   function owner() { return request.auth != null && request.auth.uid == uid; }
+   function premium() {
+    return exists(/databases/$(database)/documents/vipMembers/$(uid))
+     || (exists(/databases/$(database)/documents/studyWallets/$(uid))
+      && get(/databases/$(database)/documents/studyWallets/$(uid)).data.premiumUntil > request.time);
+   }
+   function valid() {
+    let d = request.resource.data;
+    return d.keys().hasAll(['title','body','createdAt','updatedAt'])
+     && d.keys().hasOnly(['title','body','createdAt','updatedAt'])
+     && d.title is string && d.title.size() > 0 && d.title.size() <= 120
+     && d.body is string && d.body.size() <= 200000
+     && d.createdAt is timestamp && d.updatedAt == request.time;
+   }
+   allow read, delete: if owner();
+   allow create: if owner() && premium() && valid() && request.resource.data.createdAt == request.time;
+   allow update: if owner() && premium() && valid() && request.resource.data.createdAt == resource.data.createdAt;
+  }
+ }
+}
+
+
