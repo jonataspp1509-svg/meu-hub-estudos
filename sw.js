@@ -1,4 +1,4 @@
-const CACHE_NAME = "studyflow-v3";
+const CACHE_NAME = "studyflow-v4";
 
 const urlsToCache = [
   "./",
@@ -38,7 +38,7 @@ self.addEventListener("activate", event => {
 self.addEventListener("fetch", event => {
 
   event.respondWith(
-    fetch(event.request)
+    fetch(event.request, {cache: "no-store"})
       .then(response => {
 
         const clone = response.clone();
