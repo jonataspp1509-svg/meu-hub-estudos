@@ -41,3 +41,5 @@ fetch('biblioteca-status.json?v='+Date.now()).then(r=>{if(!r.ok)throw new Error(
 }).catch(()=>status.textContent='A data da última verificação ainda não está disponível.');
 renderMateriais();
 
+
+const accountLink=document.createElement('a');accountLink.className='dash-card';accountLink.href='conta.html';accountLink.textContent='Minha conta · Google';nav.prepend(accountLink);
