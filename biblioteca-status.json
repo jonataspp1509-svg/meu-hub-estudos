@@ -1,7 +1,39 @@
 {
-  "checked_at": "2026-10-11T12:36:21-03:00",
-  "failures": 1,
+  "checked_at": "2026-10-11T16:46:51-03:00",
+  "failures": 0,
   "recent": [
+    {
+      "path": "2AnoM/sociologia/3p/2em/slides/material_4_-_estado_sociedade_e_sociologia_brasileiros_f53bf40f35cb.pptx",
+      "added_at": "2026-10-11 16:45:13"
+    },
+    {
+      "path": "2AnoM/sociologia/3p/2em/provas/sociabilidades_contemporaneas_-_2a_se_rie_-_2a_etapa_-_3o_peri_odo_d46cb6d06461.docx",
+      "added_at": "2026-10-11 16:44:57"
+    },
+    {
+      "path": "2AnoM/sociologia/3p/2em/provas/sociabilidades_contemporaneas_-_2a_se_rie_-_1a_etapa_-_3o_peri_odo_1b318bf9653b.docx",
+      "added_at": "2026-10-11 16:44:49"
+    },
+    {
+      "path": "2AnoM/sociologia/3p/2em/lista_de_exercicios/lista_4_-_formacao_do_estado_e_da_sociologia_no_brasil_-_ate_parte_2_25578cd9168a.doc",
+      "added_at": "2026-10-11 16:44:33"
+    },
+    {
+      "path": "2AnoM/sociologia/3p/2em/lista_de_exercicios/lista_4_-_formacao_do_estado_e_da_sociologia_no_brasil_sem_gabarito_f10d6205fe4e.doc",
+      "added_at": "2026-10-11 16:44:25"
+    },
+    {
+      "path": "2AnoM/sociologia/3p/2em/lista_de_exercicios/lista_3_-_estado_governo_democracia_e_cidadania_35cb249ad60b.doc",
+      "added_at": "2026-10-11 16:44:19"
+    },
+    {
+      "path": "2AnoM/ingles/4p/texto_extra_scientific_american_microplastic_13_agosto_2018_6779d36aae3c.pptx",
+      "added_at": "2026-10-11 16:41:48"
+    },
+    {
+      "path": "2AnoM/ingles/4p/global_water_bankruptcy_2026_78b253312fa5.pptx",
+      "added_at": "2026-10-11 16:41:42"
+    },
     {
       "path": "2AnoM/sociologia/novos/2025/sociologia_-_2a_se_rie_-_1a_etapa_-_1o_peri_odo_abc71586238d.docx",
       "added_at": "2026-10-11 12:34:37"
@@ -17,38 +49,6 @@
     {
       "path": "2AnoM/sociologia/novos/2025/sociabilidades_contemporaneas_-_2a_se_rie_-_2a_etapa_-_2o_peri_odo_0b2a68f467c8.docx",
       "added_at": "2026-10-11 12:34:17"
-    },
-    {
-      "path": "2AnoM/sociologia/novos/2025/sociabilidades_contemporaneas_-_2a_se_rie_-_2a_etapa_-_1o_peri_odo_01e90f077ff4.docx",
-      "added_at": "2026-10-11 12:34:11"
-    },
-    {
-      "path": "2AnoM/sociologia/novos/2025/sociabilidades_contemporaneas_-_2a_se_rie_-_1a_etapa_-_4o_peri_odo_606c11b41ec9.docx",
-      "added_at": "2026-10-11 12:34:03"
-    },
-    {
-      "path": "2AnoM/sociologia/novos/2025/sociabilidades_contemporaneas_-_2a_se_rie_-_1a_etapa_-_3o_peri_odo_472d315dd961.docx",
-      "added_at": "2026-10-11 12:33:56"
-    },
-    {
-      "path": "2AnoM/sociologia/novos/2025/sociabilidades_contemporaneas_-_2a_se_rie_-_1a_etapa_-_2o_peri_odo_0fa657ac639d.docx",
-      "added_at": "2026-10-11 12:33:48"
-    },
-    {
-      "path": "2AnoM/sociologia/novos/2024/politica_e_modernidade_-_2a_se_rie_-_2a_etapa_-_4o_peri_odo_2cf1f945c7aa.docx",
-      "added_at": "2026-10-11 12:33:32"
-    },
-    {
-      "path": "2AnoM/sociologia/novos/2024/politica_e_modernidade_-_2a_se_rie_-_2a_etapa_-_3o_peri_odo_64261c056147.docx",
-      "added_at": "2026-10-11 12:33:25"
-    },
-    {
-      "path": "2AnoM/sociologia/novos/2024/politica_e_modernidade_-_2a_se_rie_-_2a_etapa_-_2o_peri_odo_32c303aceef5.docx",
-      "added_at": "2026-10-11 12:33:17"
-    },
-    {
-      "path": "2AnoM/sociologia/novos/2024/politica_e_modernidade_-_2a_se_rie_-_2a_etapa_-_1o_peri_odo_1f15b0297a3d.docx",
-      "added_at": "2026-10-11 12:33:10"
     }
   ]
 }
