@@ -1001,25 +1001,6 @@ input,select,textarea{
 
 <body>
 
-<div id="loginScreen" class="login-screen">
-  <div class="login-card">
-    <div class="login-logo">StudyFlow</div>
-    <div class="login-text">Digite o código de 6 dígitos para acessar.</div>
-
-    <input
-      id="codigoAcesso"
-      class="login-code"
-      maxlength="6"
-      inputmode="numeric"
-      placeholder="000000"
-      autocomplete="off"
-    >
-
-    <button onclick="verificarLogin()">Entrar</button>
-    <div id="loginErro" class="login-error">Código incorreto.</div>
-  </div>
-</div>
-
 <div id="menuEscolha" class="menu-escolha">
   <div class="menu-box">
     <div class="menu-title">Escolha seu ambiente</div>
@@ -2194,7 +2175,7 @@ async function carregarRanking(){
   `).join("");
 }
 
-function verificarLogin(){ location.href='conta.html'; }
+
 
 function entrarEscola(){
   document.getElementById("menuEscolha").style.display = "none";
@@ -2240,20 +2221,7 @@ function mostrarAula(tipo){
   aula.innerHTML = aulas[tipo] || "<p>Aula não encontrada.</p>";
 }
 
-document.addEventListener("DOMContentLoaded",()=>{
-  const campoCodigo = document.getElementById("codigoAcesso");
 
-  if(campoCodigo){
-    campoCodigo.addEventListener("input",()=>{
-      campoCodigo.value = campoCodigo.value.replace(/\D/g,"").slice(0,6);
-      document.getElementById("loginErro").style.display = "none";
-    });
-
-    campoCodigo.addEventListener("keydown",e=>{
-      if(e.key === "Enter") verificarLogin();
-    });
-  }
-});
 
 montarBoletim();
 calcularTudo();
@@ -2467,5 +2435,5 @@ document.getElementById("installBtn")?.addEventListener("click", async () => {
 </script>
 
 <script src="novo-visual.js?v=6"></script>
-<script src="biblioteca.js?v=8"></script><script type="module" src="conta-cabecalho.js?v=4"></script><script type="module" src="access.js?v=1"></script></body>
+<script src="biblioteca.js?v=8"></script><script type="module" src="conta-cabecalho.js?v=4"></script><script type="module" src="access.js?v=2"></script></body>
 </html>
