@@ -3,9 +3,39 @@
   dialog.id = 'mediaViewer';
   dialog.setAttribute('aria-label', 'Visualizador de material');
   const style = document.createElement('style');
-  style.textContent = '#mediaViewer{border:1px solid #ddd8f6;border-radius:24px;padding:24px;width:min(900px,90vw);max-height:90vh;color:#293147;background:#fff}#mediaViewer::backdrop{background:#15142e99}#mediaViewer header{display:flex;align-items:center;justify-content:space-between;gap:16px}#mediaViewer h2{font-size:22px;margin:0}#mediaViewer button{border:0;border-radius:12px;padding:12px 18px;background:#5543df;color:white;cursor:pointer}#mediaViewer img{display:block;max-width:100%;max-height:65vh;margin:20px auto}#mediaViewer iframe,#mediaViewer video{width:100%;height:min(58vw,480px);border:0;border-radius:16px;margin-top:16px}#mediaViewer a{display:inline-block;margin-top:16px;color:#5543df}#mediaViewer p{color:#68758b}';
+  style.textContent = `
+    #mediaViewer{position:fixed;inset:0;margin:0;width:100vw;height:100vh;height:100dvh;max-width:none;max-height:none;padding:0;border:0;border-radius:0;box-sizing:border-box;overflow:hidden;color:#293147;background:#fff}
+    #mediaViewer[open]{display:flex;flex-direction:column}
+    #mediaViewer::backdrop{background:#15142e99}
+    #mediaViewer header{position:relative;display:flex;flex:none;align-items:center;justify-content:space-between;gap:16px;margin:0;padding:14px 20px;border-radius:0;background:#fff;box-shadow:none;color:#293147}
+    #mediaViewer h2{font-size:clamp(16px,2vw,22px);line-height:1.3;margin:0;overflow-wrap:anywhere;color:inherit}
+    #mediaViewer button{position:relative;flex:none;border:0;border-radius:12px;padding:12px 18px;background:#5543df;color:white;cursor:pointer;white-space:nowrap;pointer-events:auto}
+    #mediaViewer .media-body{display:flex;flex:1;min-height:0;align-items:center;justify-content:center;overflow:auto;background:#101827}
+    #mediaViewer img{display:block;max-width:100%;max-height:100%;object-fit:contain;margin:0}
+    #mediaViewer iframe,#mediaViewer video{display:block;width:100%;height:100%;border:0;border-radius:0;margin:0;object-fit:contain}
+    #mediaViewer footer{display:flex;flex:none;align-items:center;justify-content:space-between;gap:12px;margin:0;padding:10px 20px;background:#fff}
+    #mediaViewer a{display:inline-block;flex:none;margin:0;color:#5543df}
+    #mediaViewer p{font-size:13px;line-height:1.4;color:#68758b;margin:0}
+    @media(max-width:600px){#mediaViewer header{padding:12px}#mediaViewer footer{padding:10px 12px;flex-wrap:wrap}}
+  `;
   document.head.append(style);
   document.body.append(dialog);
+  const cleanup = () => {
+    dialog.querySelectorAll('video').forEach(video => video.pause());
+    dialog.querySelectorAll('iframe').forEach(frame => frame.remove());
+    dialog.replaceChildren();
+  };
+  const closeViewer = () => {
+    cleanup();
+    if (dialog.open) dialog.close();
+  };
+  dialog.addEventListener('click', event => {
+    if (!event.target.closest('[data-close-media]')) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    closeViewer();
+  }, true);
+  dialog.addEventListener('cancel', event => { event.preventDefault(); closeViewer(); });
   const validUrl = value => {
     const url = new URL(value);
     if (url.protocol !== 'https:' || url.username || url.password) throw new Error('Endereço inválido');
@@ -15,8 +45,9 @@
     dialog.replaceChildren();
     const head = document.createElement('header');
     const heading = document.createElement('h2'); heading.textContent = title;
-    const close = document.createElement('button'); close.textContent = 'Fechar'; close.onclick = () => dialog.close();
+    const close = document.createElement('button'); close.type = 'button'; close.textContent = '✕ Fechar'; close.setAttribute('aria-label', 'Fechar visualizador'); close.dataset.closeMedia = '';
     head.append(heading, close); dialog.append(head);
+    const body = document.createElement('div'); body.className = 'media-body'; dialog.append(body);
     let embed;
     if (kind === 'image') {
       embed = document.createElement('img'); embed.src = url.href; embed.alt = title;
@@ -33,14 +64,15 @@
         embed.src = drive ? 'https://drive.google.com/file/d/' + drive[1] + '/preview' : 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(youtube || short);
       }
     }
-    if (embed) dialog.append(embed);
+    if (embed) body.append(embed);
     const note = document.createElement('p');
     note.textContent = kind === 'link' ? 'Se o player pedir acesso ou não carregar, abra o material na origem. As permissões são as mesmas do professor.' : 'Material da sua biblioteca de estudos.';
     const open = document.createElement('a'); open.href = url.href; open.target = '_blank'; open.rel = 'noopener noreferrer';
     open.textContent = kind === 'link' ? 'Abrir na origem ↗' : 'Abrir arquivo ↗';
-    dialog.append(note, open); dialog.showModal();
+    const footer = document.createElement('footer'); footer.append(note, open);
+    dialog.append(footer); dialog.showModal();
   }
-  dialog.addEventListener('close', () => dialog.replaceChildren());
+  dialog.addEventListener('close', cleanup);
   window.abrirAtalhoUrl = async function(file) {
     try {
       if (!window.studyCanSee?.(file)) return;
