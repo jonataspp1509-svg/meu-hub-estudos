@@ -30,7 +30,9 @@ onAuthStateChanged(auth,user=>{
 
 
 import {getFirestore,doc,onSnapshot} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
-const walletDb=getFirestore(app);let stopWallet=null;
-onAuthStateChanged(auth,user=>{stopWallet?.();stopWallet=null;if(!user)return;stopWallet=onSnapshot(doc(walletDb,'studyWallets',user.uid),snapshot=>{badge.textContent=snapshot.exists()&&snapshot.data().premiumUntil?.toMillis()>Date.now()?'Premium de teste':'Gratuito';},()=>{badge.textContent='Gratuito';});});
+const walletDb=getFirestore(app);let stopWallet=null,stopVip=null,isVip=false,isPremium=false;function refreshPlan(){badge.textContent=isVip?'VIP':isPremium?'Premium de teste':auth.currentUser?'Gratuito':'Visitante';}
+onAuthStateChanged(auth,user=>{stopWallet?.();stopVip?.();stopWallet=null;stopVip=null;isVip=false;isPremium=false;refreshPlan();if(!user)return;stopVip=onSnapshot(doc(walletDb,'vipMembers',user.uid),snapshot=>{isVip=snapshot.exists();refreshPlan();},()=>{isVip=false;refreshPlan();});stopWallet=onSnapshot(doc(walletDb,'studyWallets',user.uid),snapshot=>{isPremium=snapshot.exists()&&snapshot.data().premiumUntil?.toMillis()>Date.now();refreshPlan();},()=>{isPremium=false;refreshPlan();});});
 const logo=document.querySelector('#siteContent .logo');if(logo){logo.replaceChildren();const icon=document.createElement('span');icon.className='brand-icon';icon.textContent='S';icon.setAttribute('aria-hidden','true');const name=document.createElement('span');name.className='brand-name';name.textContent='StudyFlow';logo.append(icon,name,badge);}
 const planLink=document.createElement('a');planLink.className='dash-card';planLink.href='plano.html';planLink.textContent='Plano e diamantes';document.getElementById('dashboard')?.prepend(planLink);
+
+for(const card of document.querySelectorAll('.dash-card')){if(card.textContent.includes('Caderno Inteligente'))card.onclick=()=>{location.href='caderno.html';};}

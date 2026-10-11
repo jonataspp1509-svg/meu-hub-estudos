@@ -89,9 +89,8 @@ document.addEventListener('click', async event => {
 (out / 'materiais-grandes.js').write_text(script, encoding='utf-8')
 index = out / 'index.html'
 index.write_text(index.read_text(encoding='utf-8').replace('</body>', '<script src="materiais-grandes.js"></script></body>'), encoding='utf-8')
-(out / '_headers').write_text('/\n  Cache-Control: no-cache\n/index.html\n  Cache-Control: no-cache\n/dados.txt\n  Cache-Control: no-cache\n', encoding='utf-8')
+(out / '_headers').write_text('/*\n  Cache-Control: no-cache, must-revalidate\n', encoding='utf-8')
 published = list(p for p in out.rglob('*') if p.is_file())
 assert len(published) <= 20000
 assert all(p.stat().st_size <= 25 * 1024 * 1024 for p in published)
 print(f'Build ready: {len(published)} files; {len(manifest)} large materials preserved.')
-
