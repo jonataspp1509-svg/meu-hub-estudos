@@ -28,7 +28,7 @@
       const short = url.hostname === 'youtu.be' && url.pathname.slice(1);
       if (drive || youtube || short) {
         embed = document.createElement('iframe'); embed.title = title; embed.allowFullscreen = true;
-        embed.allow = 'fullscreen; encrypted-media; picture-in-picture';
+        embed.allow = 'autoplay; fullscreen; encrypted-media; picture-in-picture';
         embed.referrerPolicy = 'strict-origin-when-cross-origin';
         embed.src = drive ? 'https://drive.google.com/file/d/' + drive[1] + '/preview' : 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(youtube || short);
       }
