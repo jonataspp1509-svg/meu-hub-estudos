@@ -31,7 +31,8 @@ Array.from(nav.querySelectorAll('.dash-card')).forEach(button=>{if(/Calculadora|
 const hero=document.querySelector('.study-hero');hero.querySelector('h1').textContent='O que vamos estudar hoje?';
 const library=document.getElementById('materiais');
 const status=document.createElement('p');status.className='sync-status';status.textContent='Carregando última verificação…';library.prepend(status);
-function loadRecent(){document.querySelectorAll('.recent-materials').forEach(n=>n.remove());fetch('biblioteca-status.json?v='+Date.now()).then(r=>{if(!r.ok)throw new Error();return r.json();}).then(data=>{
+let recentRequest=0;function loadRecent(){const request=++recentRequest;document.querySelectorAll('.recent-materials').forEach(n=>n.remove());fetch('biblioteca-status.json?v='+Date.now()).then(r=>{if(!r.ok)throw new Error();return r.json();}).then(data=>{
+ if(request!==recentRequest)return;
  status.textContent='Última verificação: '+new Date(data.checked_at).toLocaleString('pt-BR')+' · '+data.failures+' pendência(s). A verificação não garante que todos os materiais já estejam sincronizados.';
  if(!data.recent?.length)return;
  const section=document.createElement('section');section.className='recent-materials';
