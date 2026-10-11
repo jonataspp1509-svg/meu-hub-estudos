@@ -876,9 +876,15 @@
 2AnoM/quimica/renato/2p/Anotações de sala/Capítulo 4 - Mistura de soluções sem reação.pdf
 2AnoM/quimica/renato/2p/lista_de_exercicios/LISTA EXTRA - SOLUÇÕES - PARTE 5 - ITA e IME.pdf
 2AnoM/quimica/renato/2p/lista_de_exercicios/lista_extra_-_solucoes_-_parte_4_-_concentracoes_e_operacoes.pdf
+2AnoM/quimica/renato/2p/lista_de_exercicios/resolucao/solucoes_-_concentracao_-_exercicios_gerais_-_1_a204b5cf52b3.pdf
+2AnoM/quimica/renato/2p/lista_de_exercicios/resolucao/solucoes_-_concentracao_-_exercicios_gerais_-_2_1_7d2950d16c6a.pdf
+2AnoM/quimica/renato/2p/lista_de_exercicios/resolucao/solucoes_-_concentracao_-_exercicios_gerais_-_2_2_c47b510a4b75.pdf
+2AnoM/quimica/renato/2p/lista_de_exercicios/resolucao/solucoes_-_concentracao_-_exercicios_gerais_-_3_4531390cb593.pdf
+2AnoM/quimica/renato/2p/lista_de_exercicios/resolucao/solucoes_-_concentracao_-_exercicios_gerais_-_4_23d1f7727921.pdf
 2AnoM/quimica/renato/2p/slides/CAPÍTULO 4 - PROCASSOS COM SOLUÇÕES - MISTURA DE SOLUÇÕES SEM REAÇÃO.pdf
 2AnoM/quimica/renato/2p/slides/CAPÍTULO 4 - PROCESSOS COM SOLUÇÕES - MISTURA DE SOLUÇÕES COM REAÇÃO.pdf
 2AnoM/quimica/renato/2p/slides/capitulo_4_-_processos_com_solucoes_-_diluicao.pdf
+2AnoM/quimica/renato/2p/slides/capitulo_4_-_processos_com_solucoes_-_revisao_8e58a795450a.pdf
 2AnoM/quimica/renato/3p/lista_de_exercicios/lista_extra_-_equilibrio_quimico_-_parte_1_-_kc_e_kp_c9bfa38b065a.pdf
 2AnoM/quimica/renato/3p/lista_de_exercicios/lista_extra_-_equilibrio_quimico_-_parte_2_-_deslocamento_de_equilibri_ce5f63961485.pdf
 2AnoM/quimica/renato/3p/lista_de_exercicios/resolucao/equilibrio_quimico_-_parte_1_c5570a81670d.pdf
