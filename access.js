@@ -20,7 +20,7 @@ function notify(){document.body.dataset.accessReady='false';const grade=effectiv
  if(!ready){gate('Carregando sua conta…','Confirmando sua série e seu plano.','conta.html','Minha conta');return;}
  if(!grade){chooseGrade();return;}
  if(paidPage&&!paid){gate('Recurso Premium','Flashcards e programação ficam disponíveis no Premium ou VIP. Seu plano gratuito inclui sua série e o Modo Foco.','plano.html','Ver plano e ativar VIP');return;}
- document.body.dataset.accessReady='true';overlay.hidden=true;overlay.style.display='none';
+ if(mainPage){document.getElementById('loginScreen').style.display='none';document.getElementById('menuEscolha').style.display='none';document.getElementById('siteContent').style.display='block';}document.body.dataset.accessReady='true';overlay.hidden=true;overlay.style.display='none';
 }
 onAuthStateChanged(auth,current=>{stops.forEach(stop=>stop());stops=[];const active=++epoch;user=current;profile=null;wallet=null;vip=false;failed=false;flags={};notify();if(!user)return;const uid=user.uid;
  for(const [key,collection] of [['profile','studentProfiles'],['wallet','studyWallets'],['vip','vipMembers']])stops.push(onSnapshot(doc(db,collection,uid),snapshot=>{if(active!==epoch)return;flags[key]=true;if(key==='profile'){profile=snapshot.exists()?snapshot.data():null;if(profile&&profile.gradeYear===currentSchoolYear()-1){updateDoc(doc(db,collection,uid),{grade:effectiveGrade(profile),gradeYear:currentSchoolYear(),updatedAt:serverTimestamp()}).catch(()=>{});}}if(key==='wallet')wallet=snapshot.exists()?snapshot.data():null;if(key==='vip')vip=snapshot.exists();notify();},()=>{if(active!==epoch)return;failed=true;flags[key]=true;notify();}));
