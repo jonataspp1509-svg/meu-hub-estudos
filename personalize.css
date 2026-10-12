@@ -1,6 +1,6 @@
 /* Shared by every StudyFlow page. Cards remain readable over any photograph. */
-html[data-personalized]{--personal-ink:#20263c;--personal-muted:#404b62;--personal-accent:#4431ad}
-html[data-personal-tone=dark]{--personal-ink:#fff;--personal-muted:#e6e9f3;--personal-accent:#e0d8ff}
+html[data-personalized]{--personal-ink:#20263c;--personal-muted:#354159;--personal-accent:#4431ad;--personal-reading-surface:#ffffffe8}
+html[data-personal-tone=dark]{--personal-ink:#fff;--personal-muted:#eef1fa;--personal-accent:#e0d8ff;--personal-reading-surface:#111827df}
 html[data-personalized] body{background:transparent!important;isolation:isolate;min-height:100dvh;color:var(--personal-ink)}
 html[data-personalized] body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(#ffffff66,#ffffff66),var(--personal-background);background-size:cover;background-position:center;background-color:var(--personal-background,#f5f6fa)}
 html[data-personal-tone=dark] body::before{background-image:linear-gradient(#10152577,#10152577),var(--personal-background)}
@@ -18,6 +18,20 @@ html[data-personalized] :is(.section.panel,.summary-stat,.tools-card,.notebook,.
 html[data-personalized] :is(.section.panel,.tools-card,.notebook,.timer-card,.sounds,.summary-stat) :is(h1,h2,h3,h4,p,label){text-shadow:none;color:#293249}
 html[data-personalized] :is(.topbar,#siteContent>header){background:#fffffff0!important;color:#293249!important;backdrop-filter:blur(12px)}
 html[data-personalized] .tool-panel{background:transparent!important;backdrop-filter:none}
+/* Contrast is determined by the surface beneath the text, not just the photo. */
+html[data-personalized=image] :is(#siteContent .study-hero,#siteContent .workspace-head,.tools-hero,.intro,.page-heading,.tools-footer,.site-footer){background:var(--personal-reading-surface)!important;border-radius:18px;padding:20px;backdrop-filter:blur(10px);text-shadow:none!important}
+html[data-personalized] :is(#siteContent #dashboard .dash-card,#accountPopover){background:#f8f9fd!important;color:#273249!important;border:1px solid #d7ddeb!important;box-shadow:none!important;backdrop-filter:none!important;text-shadow:none!important}
+html[data-personalized] #dashboard .dash-card :is(span,a){color:inherit!important;opacity:1}
+html[data-personalized] #siteContent #dashboard .dash-card.active{background:#e9e5fc!important;color:#392695!important;border-color:#bcb2ea!important}
+html[data-personalized] #siteContent>header :is(.logo,.subtitle){color:#273249!important}
+html[data-personalized] :is(.summary-stat,.hero-stamp) :is(small,p,span){color:#46526a!important}
+html[data-personalized] :is(.summary-stat,.hero-stamp) strong{color:#202a40!important}
+html[data-personalized] :is(#accountPopover,.notebook,.tools-card,.section.panel) :is(p,small,label){color:#46526a!important}
+html[data-personalized] body:has(#signedIn):not(.tools-page)>main{background:#fffffff5!important;color:#202a40!important}
+html[data-personalized] body:has(#signedIn):not(.tools-page)>main :is(h1,h2,h3,label,strong,.badge){color:#202a40!important}
+html[data-personalized] body:has(#signedIn):not(.tools-page)>main :is(p,small){color:#46526a!important}
+html[data-personalized] body:has(#signedIn):not(.tools-page)>main a,html[data-personalized] #accountPopover a{color:#4431ad!important}
+@media(max-width:760px){html[data-personalized] .workspace-head{align-items:flex-start;flex-wrap:wrap;gap:14px}html[data-personalized] .workspace-actions{flex-wrap:wrap;row-gap:12px}html[data-personalized] .summary-stat small{font-size:12px;line-height:1.5}html[data-personalized] .summary-stat:last-child strong{font-size:12px}html[data-personalized] #dashboard .dash-card{font-size:13px;min-height:44px}html[data-personalized=image] .study-hero{padding:20px 16px}}
 html[data-personal-embedded=true] body{background:transparent!important}
 html[data-personal-embedded=true] body::before{display:none!important}
 .customize-dialog.customize-dialog{position:fixed;inset:0;width:100vw;max-width:none;height:100dvh;max-height:none;margin:0;border:0;border-radius:0;padding:32px max(24px,calc((100vw - 1120px)/2));background:#f6f7fb;color:#293249;box-sizing:border-box;overflow:auto;overscroll-behavior:contain}
