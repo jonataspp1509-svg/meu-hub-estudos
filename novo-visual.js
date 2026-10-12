@@ -3,10 +3,10 @@ document.querySelectorAll('#dashboard .dash-card').forEach((card,index)=>{
   const icons=['▣','⌗','▤','◇','◷','▱','◎','▦','◉','▧','↓'];
   const label=card.textContent.trim().replace(/^[^\p{L}]+/u,'');
   card.textContent='';
-  const icon=document.createElement('span'); icon.className='nav-symbol'; icon.textContent=icons[index]||'·'; icon.setAttribute('aria-hidden','true');
+  const icon=document.createElement('span'); icon.className='nav-symbol'; icon.textContent=card.dataset.navIcon||(card.id==='installBtn'?'↓':icons[index]||'·'); icon.setAttribute('aria-hidden','true');
   const text=document.createElement('span'); text.textContent=label;
   card.append(icon,text);
-  if(card.tagName!=='BUTTON'){card.setAttribute('role','button');card.tabIndex=0;card.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();card.click();}});}
+  if(card.tagName!=='BUTTON'&&card.tagName!=='A'){card.setAttribute('role','button');card.tabIndex=0;card.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();card.click();}});}
 });
 const originalRenderMateriais=renderMateriais;
 const search=document.getElementById('pesquisaMateriais');
