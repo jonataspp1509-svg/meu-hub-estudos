@@ -27,7 +27,8 @@ decorateRows=function(){
 const nav=document.getElementById('dashboard');
 const extra=document.createElement('details');extra.className='extra-tools';
 const summary=document.createElement('summary');summary.textContent='Mais ferramentas';extra.append(summary);
-Array.from(nav.querySelectorAll('.dash-card')).forEach(button=>{if(/Calculadora|Boletim|Desafios|Foco|Caderno/.test(button.textContent))extra.append(button);});nav.append(extra);
+Array.from(nav.querySelectorAll('.dash-card')).forEach(button=>{if(/Calculadora|Boletim|Desafios/.test(button.textContent))extra.append(button);});if(extra.querySelector('.dash-card'))nav.append(extra);
+Array.from(nav.querySelectorAll('.dash-card')).filter(b=>/Foco|Caderno/.test(b.textContent)).reverse().forEach(b=>{b.classList.add('study-primary');if(/Caderno/.test(b.textContent))b.setAttribute('onclick',"window.location.href='caderno.html'");nav.insertBefore(b,nav.children[1]);});
 const hero=document.querySelector('.study-hero');hero.querySelector('h1').textContent='O que vamos estudar hoje?';
 const library=document.getElementById('materiais');
 const status=document.createElement('p');status.className='sync-status';status.textContent='Carregando última verificação…';library.prepend(status);
