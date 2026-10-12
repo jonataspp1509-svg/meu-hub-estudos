@@ -32,7 +32,7 @@ textarea{min-height:160px;resize:vertical}
 </style>
 <link rel="stylesheet" href="novo-visual.css?v=3">
 <link rel="stylesheet" href="ferramentas.css?v=5">
-<style>body:not([data-access-ready="true"])>:not(#accessGate){visibility:hidden}</style></head>
+<style>body:not([data-access-ready="true"])>:not(#accessGate){visibility:hidden}</style><link rel="stylesheet" href="study-tools.css?v=2"></head>
 <body>
 <script>if(new URLSearchParams(location.search).has("integrado"))document.body.classList.add("integrado");</script>
 <div class="top">
@@ -75,4 +75,4 @@ function virar(){mostrandoResposta=!mostrandoResposta; mostrar();}
 function proximo(){if(!cards.length)return; i=(i+1)%cards.length; mostrandoResposta=false; mostrar();}
 render();
 </script>
-<script type="module" src="access.js?v=1"></script></body></html>
+<script type="module" src="access.js?v=1"></script><script type="module" src="study-personalize.js?v=2"></script></body></html>

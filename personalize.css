@@ -1,0 +1,35 @@
+/* Shared by every StudyFlow page. Cards remain readable over any photograph. */
+html[data-personalized]{--personal-ink:#20263c;--personal-muted:#404b62;--personal-accent:#4431ad}
+html[data-personal-tone=dark]{--personal-ink:#fff;--personal-muted:#e6e9f3;--personal-accent:#e0d8ff}
+html[data-personalized] body{background:transparent!important;isolation:isolate;min-height:100dvh;color:var(--personal-ink)}
+html[data-personalized] body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(#ffffff66,#ffffff66),var(--personal-background);background-size:cover;background-position:center;background-color:var(--personal-background,#f5f6fa)}
+html[data-personal-tone=dark] body::before{background-image:linear-gradient(#10152577,#10152577),var(--personal-background)}
+html[data-personalized=color] body::before{background:var(--personal-background)}
+html[data-personalized] :is(#siteContent,.shell,.programacao-site,.workspace-head,.study-hero,.tools-shell,.tools-hero,.intro,.site-footer,.tools-footer){background:transparent!important;color:var(--personal-ink)!important}
+html[data-personalized] :is(.workspace-head,.study-hero,.tools-hero,.intro,.tools-nav,.topbar,.site-footer,.tools-footer)>:is(h1,h2,h3,p,span,a,div),html[data-personalized] :is(.study-hero,.intro,.tools-hero) :is(h1,p,.eyebrow,.tools-kicker){color:var(--personal-ink)!important;text-shadow:0 1px 8px #00000018}
+html[data-personalized] :is(.workspace-head,.study-hero,.tools-hero,.intro) :is(p,.eyebrow,.tools-kicker,.breadcrumbs){color:var(--personal-muted)!important}
+html[data-personalized] .workspace-head strong{color:var(--personal-ink)!important}
+html[data-personalized] :is(.workspace-head,.tools-nav,main>header) a:not(.site-diamond-pill),html[data-personalized] .study-hero h1 span{color:var(--personal-accent)!important}
+html[data-personalized] :is(.section.panel,.summary-stat,.tools-card,.notebook,.timer-card,.sounds,.unit-card,.lesson-card,.lab-card,.mentor-card,.submission-card,.book-card,.content-card,.panel,.hero-stamp){background:#fffffff0!important;color:#263148!important;backdrop-filter:blur(12px);border-color:#ffffffb0!important;box-shadow:0 8px 30px #11182714}
+html[data-personalized] :is(.section.panel,.tools-card,.notebook,.timer-card,.sounds,.summary-stat) :is(h1,h2,h3,h4,p,label){text-shadow:none;color:#293249}
+html[data-personalized] :is(.topbar,#siteContent>header){background:#fffffff0!important;color:#293249!important;backdrop-filter:blur(12px)}
+html[data-personalized] .tool-panel{background:transparent!important;backdrop-filter:none}
+html[data-personal-embedded=true] body{background:transparent!important}
+html[data-personal-embedded=true] body::before{display:none!important}
+.customize-dialog.customize-dialog{position:fixed;inset:0;width:100vw;max-width:none;height:100dvh;max-height:none;margin:0;border:0;border-radius:0;padding:32px max(24px,calc((100vw - 1120px)/2));background:#f6f7fb;color:#293249;box-sizing:border-box;overflow:auto;overscroll-behavior:contain}
+.customize-dialog .tools-row{position:sticky;top:-32px;z-index:2;background:#f6f7fbee;padding:22px 0;border-bottom:1px solid #e2e4ee;backdrop-filter:blur(14px)}
+.customize-dialog .tools-row h2{font-size:clamp(23px,3vw,34px)}
+.customize-dialog p{color:#526078}
+.customize-dialog #customizeStatus{position:sticky;bottom:0;z-index:3;background:#eae5fd;color:#4431a4;padding:14px;border-radius:12px;min-height:24px;box-shadow:0 4px 20px #25205014}
+.customize-dialog #customizeStatus:empty{display:none}
+.custom-image-upload{display:inline-flex;align-items:center;padding:13px 20px;border-radius:12px;background:#5145cd;color:white;font-weight:700;cursor:pointer}
+.customize-dialog #customImage{position:absolute;width:1px;height:1px;padding:0;opacity:0;overflow:hidden}
+.custom-image-library{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin:20px 0 36px}
+.customize-dialog .custom-image-tile{padding:0;overflow:hidden;background:white;position:relative;text-align:left;border:2px solid #dde1ee;transition:border-color .15s,transform .15s}
+.customize-dialog .custom-image-tile img{display:block;width:100%;height:140px;object-fit:cover}
+.customize-dialog .custom-image-tile span{display:block;padding:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.customize-dialog .custom-image-tile[aria-pressed=true]{border-color:#5145cd;box-shadow:0 0 0 3px #5145cd20}
+.customize-dialog .custom-image-tile[aria-pressed=true]::after{content:'✓ Em uso';position:absolute;top:9px;right:9px;border-radius:20px;padding:5px 9px;background:#5145cd;color:white;font-size:11px}
+.personalize-open{font:600 12px system-ui!important;padding:8px 12px!important;border:1px solid #ddd7f2!important;background:#f0edfb!important;color:#5744b3!important;border-radius:12px;cursor:pointer}
+@media(max-width:600px){.customize-dialog.customize-dialog{padding:20px 16px}.customize-dialog .tools-row{top:-20px;gap:12px}.customize-dialog .tools-row h2{max-width:70%}.custom-image-library{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.customize-dialog .custom-image-tile img{height:110px}}
+@media(prefers-reduced-motion:reduce){.custom-image-tile{transition:none!important}}
