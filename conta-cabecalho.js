@@ -44,4 +44,4 @@ const planLink=document.createElement('a');planLink.className='dash-card';planLi
 for(const card of document.querySelectorAll('.dash-card')){if(card.textContent.includes('Caderno Inteligente'))card.onclick=()=>{location.href='caderno.html';};}
 
 
-import('./study-personalize.js?v=notebook-20261012').catch(()=>{console.warn('Personalizações temporariamente indisponíveis.');});
+import('./study-personalize.js?v=nav-buttons-20261012').catch(()=>{console.warn('Personalizações temporariamente indisponíveis.');});

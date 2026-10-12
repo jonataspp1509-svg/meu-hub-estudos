@@ -33,3 +33,9 @@ html body #accountPopover button{color:#4431ad!important;background:#eeeafb!impo
  .showcase-header .personalize-open{font-size:12px!important;padding:10px 12px!important}
  .showcase-header>a:not(.showcase-brand):not(.site-diamond-pill){font-size:12px!important}
 }
+
+/* Every navigation action remains recognizable without a custom background. */
+#siteContent #dashboard .dash-card{background:#f8f9fd!important;color:#293249!important;border:1px solid #d9deeb!important;box-shadow:0 2px 5px #29324908!important;cursor:pointer;display:flex!important;align-items:center!important;border-radius:12px!important}
+#siteContent #dashboard .dash-card::before{display:none!important}
+#siteContent #dashboard .dash-card:hover{background:#efedf9!important;border-color:#c4bbe8!important;color:#4431ad!important}
+#siteContent #dashboard .dash-card.active,#siteContent #dashboard .study-primary{background:#ede9fc!important;border-color:#c8beed!important;color:#3d2da1!important}
