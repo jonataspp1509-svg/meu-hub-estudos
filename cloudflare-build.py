@@ -12,7 +12,7 @@ if out.exists():
 out.mkdir()
 manifest = {}
 limit = 20 * 1024 * 1024
-allowed = {'.html', '.css', '.js', '.json', '.png', '.jpg', '.jpeg', '.svg', '.ico', '.webp', '.txt', '.woff', '.woff2'}
+allowed = {'.html', '.css', '.js', '.json', '.png', '.jpg', '.jpeg', '.svg', '.ico', '.webp', '.txt', '.woff', '.woff2', '.pdf'}
 files = [p for p in root.iterdir() if p.is_file() and p.suffix.lower() in allowed]
 for folder in ['Estudos', 'Fotos de fisica']:
     if (root / folder).exists():
