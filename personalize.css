@@ -51,3 +51,9 @@ html[data-personal-embedded=true] body::before{display:none!important}
 .personalize-open{font:600 12px system-ui!important;padding:8px 12px!important;border:1px solid #ddd7f2!important;background:#f0edfb!important;color:#5744b3!important;border-radius:12px;cursor:pointer}
 @media(max-width:600px){.customize-dialog.customize-dialog{padding:20px 16px}.customize-dialog .tools-row{top:-20px;gap:12px}.customize-dialog .tools-row h2{max-width:70%}.custom-image-library{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.customize-dialog .custom-image-tile img{height:110px}}
 @media(prefers-reduced-motion:reduce){.custom-image-tile{transition:none!important}}
+
+/* Membership cards use a light surface even when the chosen photo is dark. */
+html[data-personalized] body:has(.showcase-hero) main #content .card{background:#f3f1fa!important;color:#293249!important;border:1px solid #e2dfee}
+html[data-personalized] body:has(.showcase-hero) main #content .card :is(h1,h2,h3,h4,label,strong){color:#293249!important;text-shadow:none!important;-webkit-text-fill-color:#293249!important}
+html[data-personalized] body:has(.showcase-hero) main #content .card :is(p,small,li){color:#46526a!important;text-shadow:none!important}
+html[data-personalized] body:has(.showcase-hero) main #content .card a{color:#4431ad!important}
