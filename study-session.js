@@ -5,11 +5,12 @@ export const app=getApps().some(a=>a.name==='[DEFAULT]')?getApp():initializeApp(
 export const auth=getAuth(app),db=getFirestore(app);
 export {doc,getDoc,setDoc,onSnapshot,runTransaction,serverTimestamp,Timestamp};
 export const localDay=()=>Number(new Intl.DateTimeFormat('sv-SE',{timeZone:'America/Sao_Paulo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date()).replaceAll('-',''));
-export let session={user:null,wallet:null,paid:false,ready:false,items:new Set(),error:''};
+export let session={user:null,wallet:null,testing:false,paid:false,ready:false,items:new Set(),error:''};
 const subscribers=new Set();let stops=[],epoch=0;
-function publish(){for(const fn of subscribers)fn(session);document.dispatchEvent(new CustomEvent('studysessionchange'));}
+export function ownerTesting(){const u=session.user;return !!(u&&u.email==='jonataspp1509@gmail.com'&&u.emailVerified&&u.providerData.some(p=>p.providerId==='google.com'));}
+function publish(){session.testing=ownerTesting();for(const fn of subscribers)fn(session);document.dispatchEvent(new CustomEvent('studysessionchange'));}
 export function subscribe(fn){subscribers.add(fn);fn(session);return()=>subscribers.delete(fn);}
-onAuthStateChanged(auth,async user=>{const generation=++epoch;stops.forEach(stop=>stop());stops=[];session={user,wallet:null,paid:false,ready:!user,items:new Set(),error:''};publish();if(!user)return;let vip=false,walletReady=false,vipReady=false;const sync=()=>{session.paid=vip||Boolean(session.wallet?.premiumUntil?.toMillis()>Date.now());session.ready=walletReady&&vipReady;publish();};
+onAuthStateChanged(auth,async user=>{const generation=++epoch;stops.forEach(stop=>stop());stops=[];session={user,wallet:null,testing:false,paid:false,ready:!user,items:new Set(),error:''};publish();if(!user)return;let vip=false,walletReady=false,vipReady=false;const sync=()=>{session.paid=vip||Boolean(session.wallet?.premiumUntil?.toMillis()>Date.now());session.ready=walletReady&&vipReady;publish();};
  try{const ref=doc(db,'studyWallets',user.uid),snap=await getDoc(ref);if(generation!==epoch)return;if(!snap.exists())await setDoc(ref,{balance:0,day:localDay(),earnedToday:0,sessionStarted:null,premiumUntil:Timestamp.fromMillis(0),updatedAt:serverTimestamp()});if(generation!==epoch)return;
  stops.push(onSnapshot(ref,s=>{session.wallet=s.data();walletReady=true;sync();},()=>{walletReady=true;session.error='Não consegui atualizar seus diamantes.';sync();}),onSnapshot(doc(db,'vipMembers',user.uid),s=>{vip=s.exists();vipReady=true;sync();},()=>{vipReady=true;session.error='Não consegui confirmar seu plano.';sync();}));
  }catch{if(generation!==epoch)return;session.ready=true;session.error='Não consegui conectar sua conta. Tente novamente.';publish();}

@@ -1,4 +1,4 @@
-import {session,subscribe,auth} from './study-session.js?v=1';
+import {session,subscribe,auth} from './study-session.js?v=notebook-20261012';
 const $=id=>document.getElementById(id),local='http://localhost:8790';let connected=false,busy=false,owner=null;
 async function call(path,data){const response=await fetch(local+path,{method:data?'POST':'GET',headers:data?{'Content-Type':'application/json'}:{},body:data?JSON.stringify(data):undefined,cache:'no-store'});const result=await response.json();if(!response.ok)throw Error(result.error||'Não consegui conectar.');return result;}
 async function authorize(){if(!auth.currentUser||auth.currentUser.email!=='jonataspp1509@gmail.com')throw Error('Entre com a conta do proprietário.');const token=await auth.currentUser.getIdToken();await call('/connect',{token});}
