@@ -1,9 +1,9 @@
 // Apresentação e busca; os recursos originais continuam no index.html.
 document.querySelectorAll('#dashboard .dash-card').forEach((card,index)=>{
-  const icons=['▣','⌗','▤','◇','◷','▱','◎','▦','◉','▧','↓'];
+  const icons={Materiais:'▣','Atualizações':'◷',Flashcards:'▱',Foco:'◉','Caderno Inteligente':'▧','Baixar app':'↓'};
   const label=card.textContent.trim().replace(/^[^\p{L}]+/u,'');
   card.textContent='';
-  const icon=document.createElement('span'); icon.className='nav-symbol'; icon.textContent=card.dataset.navIcon||(card.id==='installBtn'?'↓':icons[index]||'·'); icon.setAttribute('aria-hidden','true');
+  const icon=document.createElement('span'); icon.className='nav-symbol'; icon.textContent=card.dataset.navIcon||(card.id==='installBtn'?'↓':icons[label]||'·'); icon.setAttribute('aria-hidden','true');
   const text=document.createElement('span'); text.textContent=label;
   card.append(icon,text);
   if(card.tagName!=='BUTTON'&&card.tagName!=='A'){card.setAttribute('role','button');card.tabIndex=0;card.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();card.click();}});}
@@ -41,11 +41,12 @@ document.getElementById('dataHoje').textContent=new Date().toLocaleDateString('p
 renderMateriais();
 
 function abrirFerramenta(nome, botao){
+  if(nome!=='flashcards')return;
   let secao=document.getElementById('ferramenta-'+nome);
   if(!secao){
     secao=document.createElement('section');secao.id='ferramenta-'+nome;secao.className='section panel tool-panel';
     const frame=document.createElement('iframe');frame.src=nome+'.html?integrado=1&v=5';
-    frame.title={flashcards:'Flashcards',metas:'Metas',calendario:'Calendário'}[nome];
+    frame.title='Flashcards';
     frame.className='tool-frame';secao.append(frame);document.getElementById('siteContent').append(secao);
   }
   abrirSecao(secao.id,botao);
