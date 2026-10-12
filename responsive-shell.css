@@ -1,6 +1,7 @@
 /* Shared navigation keeps study tools visible and fits narrow screens. */
 #siteContent #dashboard{display:grid!important;gap:7px!important}
 #siteContent #dashboard .dash-card{min-width:0!important;text-decoration:none!important;line-height:1.4!important;white-space:normal!important;padding:12px 14px!important}
+#siteContent #dashboard .dash-card,#siteContent #dashboard .dash-card:is(:hover,:focus,:active){transform:none!important;translate:none!important;scale:none!important;transition:background-color .15s,color .15s,border-color .15s!important}
 #siteContent #dashboard .study-primary{background:#ede9fc!important;color:#3d2da1!important;font-weight:700!important;border:1px solid #d8d0f5!important}
 .showcase-header{display:grid!important;grid-template-columns:1fr auto!important;gap:14px!important;align-items:center!important}
 .showcase-header .showcase-brand{grid-column:1!important;grid-row:1!important;color:#293249!important;min-width:0;font-size:22px!important}
@@ -12,6 +13,10 @@ html[data-personalized] body main .showcase-header>a:not(.showcase-brand):not(.s
 .showcase-header>*{max-width:100%;box-sizing:border-box;min-width:0}
 .tools-nav,.tools-nav-links,main>header{flex-wrap:wrap;min-width:0}
 .personalize-open{max-width:100%;white-space:normal}
+html body #accountPopover{width:300px;max-width:calc(100vw - 24px)!important;max-height:calc(100dvh - 24px);overflow:auto;box-sizing:border-box;background:#fff!important;color:#273249!important;box-shadow:0 16px 48px #11182740!important}
+html body #accountPopover :is(strong,p,span){color:#273249!important;text-shadow:none!important;-webkit-text-fill-color:#273249!important}
+html body #accountPopover a{color:#4431ad!important;text-shadow:none!important}
+html body #accountPopover button{color:#4431ad!important;background:#eeeafb!important}
 #siteContent .list .item{min-width:0;align-items:flex-start!important}
 #siteContent .list .item>span:not(.material-glyph):not(.format-tag){flex:1 1 auto;min-width:0;overflow-wrap:anywhere;word-break:normal;line-height:1.55}
 #siteContent .list .item .format-tag{flex:0 0 auto;align-self:flex-start}
