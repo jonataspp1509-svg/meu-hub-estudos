@@ -9,6 +9,10 @@ html[data-personalized] :is(#siteContent,.shell,.programacao-site,.workspace-hea
 html[data-personalized] :is(.workspace-head,.study-hero,.tools-hero,.intro,.tools-nav,.topbar,.site-footer,.tools-footer)>:is(h1,h2,h3,p,span,a,div),html[data-personalized] :is(.study-hero,.intro,.tools-hero) :is(h1,p,.eyebrow,.tools-kicker){color:var(--personal-ink)!important;text-shadow:0 1px 8px #00000018}
 html[data-personalized] :is(.workspace-head,.study-hero,.tools-hero,.intro) :is(p,.eyebrow,.tools-kicker,.breadcrumbs){color:var(--personal-muted)!important}
 html[data-personalized] .workspace-head strong{color:var(--personal-ink)!important}
+html[data-personalized] .page-heading :is(h1,p,.eyebrow){color:var(--personal-ink)!important}
+html[data-personalized] :is(.showcase-header,.top){background:#fffffff0!important;color:#293249!important;border-radius:16px;padding:14px}
+html[data-personalized] body:has(.showcase-hero)>main{background:transparent!important}
+html[data-personalized] :is(.showcase-section,.showcase-hero){background:#fffffff0!important;color:#293249!important;border-radius:24px;padding:28px;backdrop-filter:blur(12px)}
 html[data-personalized] :is(.workspace-head,.tools-nav,main>header) a:not(.site-diamond-pill),html[data-personalized] .study-hero h1 span{color:var(--personal-accent)!important}
 html[data-personalized] :is(.section.panel,.summary-stat,.tools-card,.notebook,.timer-card,.sounds,.unit-card,.lesson-card,.lab-card,.mentor-card,.submission-card,.book-card,.content-card,.panel,.hero-stamp){background:#fffffff0!important;color:#263148!important;backdrop-filter:blur(12px);border-color:#ffffffb0!important;box-shadow:0 8px 30px #11182714}
 html[data-personalized] :is(.section.panel,.tools-card,.notebook,.timer-card,.sounds,.summary-stat) :is(h1,h2,h3,h4,p,label){text-shadow:none;color:#293249}
