@@ -997,7 +997,7 @@ input,select,textarea{
 
 </style>
 <link rel="stylesheet" href="novo-visual.css?v=6">
-<link rel="stylesheet" href="biblioteca.css?v=6"><link rel="stylesheet" href="cabecalho-alinhado.css?v=1"><link rel="stylesheet" href="aurora-studyflow.css?v=2"><style>body:not([data-access-ready="true"]) #siteContent{visibility:hidden}</style></head>
+<link rel="stylesheet" href="biblioteca.css?v=6"><link rel="stylesheet" href="cabecalho-alinhado.css?v=1"><link rel="stylesheet" href="aurora-studyflow.css?v=2"><style>body:not([data-access-ready="true"]) #siteContent{visibility:hidden}</style><link rel="stylesheet" href="study-tools.css?v=1"></head>
 
 <body>
 
@@ -1073,6 +1073,8 @@ input,select,textarea{
   📖 Caderno Inteligente
   </div>
 
+  <a class="dash-card" data-nav-icon="◇" href="diamantes.html">◇ Diamantes e loja</a>
+  <a class="dash-card" data-nav-icon="▷" href="resumos.html">▷ Resumidor do YouTube</a>
   <a id="auroraNav" class="dash-card" data-premium-feature="programacao" data-nav-icon="⌘" href="plano.html" aria-label="Programação · Fazenda Aurora — Premium ou VIP">⌘ Programação · Aurora</a>
 
   <button id="installBtn"
@@ -1296,7 +1298,7 @@ function voltarInicioMateriais(){
   renderMateriais();
 }
 
-const APP_VERSION = "studyflow-panel-v10";
+const APP_VERSION = "studyflow-panel-v11";
 
 async function atualizarCacheDoApp(){
   if(!("serviceWorker" in navigator)) return;
@@ -1490,6 +1492,5 @@ document.getElementById("installBtn")?.addEventListener("click", async () => {
 </script>
 
 <script src="novo-visual.js?v=8"></script>
-<script src="biblioteca.js?v=9"></script><script src="midias.js?v=3"></script><script type="module" src="conta-cabecalho.js?v=5"></script><script type="module" src="access.js?v=3"></script><script type="module" src="aurora-studyflow.js?v=1"></script></body>
+<script src="biblioteca.js?v=9"></script><script src="midias.js?v=3"></script><script type="module" src="conta-cabecalho.js?v=6"></script><script type="module" src="access.js?v=3"></script><script type="module" src="aurora-studyflow.js?v=1"></script></body>
 </html>
-
