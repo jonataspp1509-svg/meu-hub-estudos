@@ -11,3 +11,6 @@
 #auroraNav:focus-visible,#materiais .aurora-entry-link:focus-visible{outline:3px solid #967838;outline-offset:3px}
 @media(max-width:1000px){#materiais .aurora-study-entry{flex-wrap:wrap}#materiais .aurora-entry-link{margin-left:70px}}
 @media(max-width:600px){#materiais .aurora-study-entry{padding:18px;gap:14px}#materiais .aurora-entry-mark{width:39px;height:44px;font-size:24px}#materiais .aurora-entry-kicker{font-size:8px}#materiais .aurora-study-entry h2{font-size:18px}#materiais .aurora-entry-link{margin-left:0;width:100%}#auroraNav[data-locked=true]::after{margin-left:5px}}
+
+#materiais .aurora-benefits-link{display:block;width:fit-content;margin-top:9px;color:#396b58;font-size:11px;font-weight:600;text-decoration:underline;text-underline-offset:3px}#materiais .aurora-benefits-link:focus-visible{outline:3px solid #967838;outline-offset:3px}
+

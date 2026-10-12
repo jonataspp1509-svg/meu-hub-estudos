@@ -32,6 +32,7 @@ onAuthStateChanged(auth,user=>{
 function refreshBadge(){const state=window.studyAccess;badge.textContent=state?.ready?state.plan:auth.currentUser?'Carregando…':'Entrar com Google';}
 document.addEventListener('studyaccesschange',refreshBadge);refreshBadge();
 const logo=document.querySelector('#siteContent .logo');if(logo){logo.replaceChildren();const icon=document.createElement('span');icon.className='brand-icon';icon.textContent='S';icon.setAttribute('aria-hidden','true');const name=document.createElement('span');name.className='brand-name';name.textContent='StudyFlow';logo.append(icon,name,badge);}
-const planLink=document.createElement('a');planLink.className='dash-card';planLink.href='plano.html';planLink.textContent='Plano e diamantes';document.getElementById('dashboard')?.prepend(planLink);
+const planLink=document.createElement('a');planLink.className='dash-card';planLink.href='plano.html';planLink.textContent='Planos e benefícios';document.getElementById('dashboard')?.prepend(planLink);
 
 for(const card of document.querySelectorAll('.dash-card')){if(card.textContent.includes('Caderno Inteligente'))card.onclick=()=>{location.href='caderno.html';};}
+
