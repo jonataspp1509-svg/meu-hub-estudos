@@ -1,6 +1,6 @@
 import {session,subscribe,redeemPremium,localDay} from './study-session.js?v=notebook-20261012';
 import {PRODUCTS,owned,shopReady,shopError,subscribeShop,purchase} from './study-shop.js?v=notebook-20261012';
-import {diamond} from './study-personalize.js?v=uniform-buttons-2-20261012';
+import {diamond} from './study-personalize.js?v=uniform-credits-20261012';
 const $=id=>document.getElementById(id);let buying=false,redeeming=false;
 $('balanceHero').append(diamond());
 function render(){const s=session;$('balanceAmount').textContent=s.testing?'∞':s.wallet?String(s.wallet.balance):s.user?'—':'0';$('walletNote').textContent=s.testing?'Modo de teste da sua conta: músicas e fundos liberados, sem gastar seu saldo.':s.user?'Saldo da sua conta. As compras são confirmadas antes de descontar.':'Entre com Google para ganhar, gastar e guardar seus diamantes.';$('diamondLogin').hidden=Boolean(s.user);$('dailyRewards').textContent=s.wallet?'Hoje: '+(s.wallet.day===localDay()?s.wallet.earnedToday:0)+' de 10 diamantes recebidos.':'';$('redeemPremium').disabled=!s.user||!s.ready||!s.wallet||s.wallet.balance<100||s.paid||redeeming;$('premiumNote').textContent=s.paid?'Seu Premium ou VIP já está ativo. O resgate fica disponível quando não houver acesso ativo.':s.wallet?.premiumUntil?.toMillis()>Date.now()?'Premium válido até '+s.wallet.premiumUntil.toDate().toLocaleDateString('pt-BR'):'';if(s.error||shopError)$('shopStatus').textContent=s.error||shopError;

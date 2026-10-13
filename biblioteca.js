@@ -47,3 +47,5 @@ loadRecent();renderMateriais();
 
 
 const accountLink=document.createElement('a');accountLink.className='dash-card';accountLink.href='conta.html';accountLink.textContent='Minha conta · Google';nav.prepend(accountLink);
+
+const creatorCredit=document.createElement('footer');creatorCredit.className='site-footer creator-credit';creatorCredit.textContent='StudyFlow · Criado por Jonatas.';document.getElementById('siteContent')?.append(creatorCredit);

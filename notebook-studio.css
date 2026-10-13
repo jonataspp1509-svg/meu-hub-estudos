@@ -12,3 +12,9 @@ body.drawing-expanded::after{content:"";position:fixed;inset:0;background:#11180
 .studio-access{margin:30px 42px;padding:28px;border:1px solid #405534;background:#202b1c;border-radius:14px;color:#c7dfb5}
 .studio-access a{display:inline-block;background:#c8dfb5;color:#263b1d;padding:10px 18px;border-radius:8px;margin-top:12px}
 @media(max-width:760px){.canvas-wrap.expanded{top:162px}.draw-toolbar.expanded{max-height:136px}.studio-access{margin:20px 16px}}
+
+.topbar{height:auto;min-height:73px;padding-top:14px;padding-bottom:14px}
+.topbar>div:first-child{flex:1 1 140px;min-width:0}
+.breadcrumb{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.return-studyflow{white-space:nowrap;display:inline-flex;align-items:center;color:#d8e8cc}
+@media(max-width:760px){.topbar{flex-wrap:wrap;padding:12px 15px;gap:10px}.top-actions{width:100%;justify-content:space-between}.return-studyflow{font-size:11px}}

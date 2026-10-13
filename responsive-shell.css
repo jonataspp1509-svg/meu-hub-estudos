@@ -45,3 +45,5 @@ html body #accountPopover button{color:#4431ad!important;background:#eeeafb!impo
 #siteContent #dashboard .dash-card.active{background:#f8f9fd!important;color:#293249!important;font-weight:600!important;border-color:#8c7bd0!important}
 html[data-personalized] #siteContent #dashboard .dash-card,html[data-personalized] #siteContent #dashboard .dash-card.active,html[data-personalized] #siteContent #dashboard .study-primary{background:#f8f9fd!important;color:#293249!important;font-weight:600!important;border-color:#d9deeb!important}
 html[data-personalized] #siteContent #dashboard .dash-card.active{border-color:#8c7bd0!important}
+
+.creator-credit{text-align:center;padding:24px 16px;margin-top:30px;border-top:1px solid #d9deeb;color:#526078;font:500 12px/1.6 system-ui}
