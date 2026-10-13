@@ -4,3 +4,6 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:radial-gradient(circl
 @media(max-width:650px){body{padding:18px}.showcase-header{padding:6px 0 25px}.showcase-brand{font-size:20px}.showcase-header>a{font-size:11px}.showcase-hero{padding:15px 0 30px}h1{font-size:36px}.showcase-hero>p{font-size:14px}.showcase-section>h2{font-size:25px}.aurora-featured{grid-template-columns:1fr}.aurora-featured-copy{padding:25px}.aurora-featured img{height:440px}.showcase-grid{grid-template-columns:1fr}.preview-button img{height:260px}.showcase-card-copy{padding:20px}.showcase-actions .showcase-button{width:100%}#content{padding:18px}.pricing-card{padding:23px}.showcase-footer{flex-wrap:wrap}.preview-dialog{padding:15px}.preview-dialog-header{top:-15px}.preview-dialog h2{font-size:17px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 .showcase-card .preview-button img{object-fit:cover;object-position:top}.showcase-card img[src="preview-materiais.jpg"]{object-fit:contain}.showcase-card img[src="preview-caderno.jpg"]{object-position:bottom}
+
+.showcase-card .preview-button img[src="preview-flashcards-studio.jpg"],.showcase-card .preview-button img[src="preview-caderno-entrelinhas.jpg"]{object-position:center}
+.showcase-card .preview-button img[src="preview-materiais-atual.jpg"]{object-fit:contain;object-position:center;background:#eef1f8}
