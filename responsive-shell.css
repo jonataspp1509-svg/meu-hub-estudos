@@ -43,3 +43,5 @@ html body #accountPopover button{color:#4431ad!important;background:#eeeafb!impo
 /* All shortcuts share one surface; only the selected section has an accent border. */
 #siteContent #dashboard .dash-card,#siteContent #dashboard .study-primary,#siteContent #dashboard .dash-card:is(:hover,:focus,:active){background:#f8f9fd!important;color:#293249!important;font-weight:600!important;border-color:#d9deeb!important}
 #siteContent #dashboard .dash-card.active{background:#f8f9fd!important;color:#293249!important;font-weight:600!important;border-color:#8c7bd0!important}
+html[data-personalized] #siteContent #dashboard .dash-card,html[data-personalized] #siteContent #dashboard .dash-card.active,html[data-personalized] #siteContent #dashboard .study-primary{background:#f8f9fd!important;color:#293249!important;font-weight:600!important;border-color:#d9deeb!important}
+html[data-personalized] #siteContent #dashboard .dash-card.active{border-color:#8c7bd0!important}
