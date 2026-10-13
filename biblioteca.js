@@ -1,6 +1,6 @@
 // Biblioteca: presentation only; original paths and features remain intact.
 function materialTitle(name){return name.replace(/(?:_[0-9a-f]{12})+(?=\.[^.]+$)/ig,'').replace(/\.[^.]+$/,'').replace(/_/g,' ').replace(/\s+/g,' ').trim();}
-function folderTitle(name){return /^[1-4]p$/i.test(name)?name[0]+'º período':name==='3AnoM'?'3º ano':name==='2AnoM'?'2º ano':name==='1AnoM'?'1º ano':name==='novos'?'Outros materiais':name==='debora'?'Débora':name;}
+function folderTitle(name,path){const teacher=window.studyTeachers?.[path];if(teacher)return teacher.name+' — '+teacher.subject;return /^[1-4]p$/i.test(name)?name[0]+'º período':name==='3AnoM'?'3º ano':name==='2AnoM'?'2º ano':name==='1AnoM'?'1º ano':name==='novos'?'Outros materiais':name==='debora'?'Débora':name;}
 const priorDecoration=decorateRows;
 decorateRows=function(){
   const list=document.getElementById('lista');
@@ -16,11 +16,11 @@ decorateRows=function(){
       const ext=name.split('.').pop().toLowerCase();
       let tag=item.querySelector('.format-tag');if(!tag){tag=document.createElement('small');tag.className='format-tag';item.append(tag);}
       tag.textContent={pdf:'PDF',doc:'Word',docx:'Word',ppt:'Slides',pptx:'Slides',xls:'Excel',xlsx:'Excel',jpg:'Imagem',jpeg:'Imagem',png:'Imagem',gif:'Imagem',webp:'Imagem',mp4:'Vídeo'}[ext]||ext.toUpperCase();
-    }else label.textContent=item.dataset.materialFile?materialTitle(item.dataset.materialFile.split('/').pop()):folderTitle(label.textContent.trim());
+    }else label.textContent=item.dataset.materialFile?materialTitle(item.dataset.materialFile.split('/').pop()):folderTitle(label.textContent.trim(),[caminhoAtual,label.textContent.trim()].filter(Boolean).join('/'));
   });
   priorDecoration();
   list.querySelectorAll('a .material-glyph').forEach(glyph=>{const ext=new URL(glyph.parentElement.href).pathname.split('.').pop().toLowerCase();glyph.textContent=/ppt/.test(ext)?'▧':/doc/.test(ext)?'▤':/xls/.test(ext)?'▦':'▤';});
-  document.querySelectorAll('#breadcrumb span').forEach(span=>span.textContent=folderTitle(span.textContent.trim()));
+  document.querySelectorAll('#breadcrumb span').forEach((span,index)=>{const parts=caminhoAtual.split('/');span.textContent=folderTitle(index?parts[index-1]:span.textContent.trim(),index?parts.slice(0,index).join('/'):null);});
   const visible=arquivos.filter(p=>window.studyCanSee?.(p)===true);const total=document.getElementById('totalMateriais');total.textContent=visible.length.toLocaleString('pt-BR');const roots=new Set(visible.map(p=>p.split('/')[0]));document.getElementById('totalPastas').textContent=roots.size;
   const caption=total.parentElement.querySelector(':scope > :last-child');if(caption && caption!==total)caption.textContent='Materiais na biblioteca';
 };

@@ -997,7 +997,7 @@ input,select,textarea{
 
 </style>
 <link rel="stylesheet" href="novo-visual.css?v=6">
-<link rel="stylesheet" href="biblioteca.css?v=6"><link rel="stylesheet" href="cabecalho-alinhado.css?v=1"><link rel="stylesheet" href="aurora-studyflow.css?v=2"><style>body:not([data-access-ready="true"]) #siteContent{visibility:hidden}</style><link rel="stylesheet" href="study-tools.css?v=1"></head>
+<link rel="stylesheet" href="biblioteca.css?v=6"><link rel="stylesheet" href="cabecalho-alinhado.css?v=1"><link rel="stylesheet" href="aurora-studyflow.css?v=2"><style>body:not([data-access-ready="true"]) #siteContent{visibility:hidden}</style><link rel="stylesheet" href="study-tools.css?v=1"><script src="teacher-catalog.js?v=teachers-20261012"></script></head>
 
 <body>
 
@@ -1183,6 +1183,16 @@ function renderMateriais(){
   }
 
   const pastas = new Set();
+  // Destinos já configurados aparecem mesmo antes do primeiro arquivo.
+  Object.keys(window.studyTeachers||{}).forEach(base=>{
+    if(window.studyCanSee?.(base+'/')!==true)return;
+    const prefix=caminhoAtual?caminhoAtual+'/':'';
+    if(base.startsWith(prefix)&&base!==caminhoAtual){
+      const next=base.slice(prefix.length).split('/')[0];
+      if(next)pastas.add(next);
+    }
+  });
+
   const files = [];
 
   arquivos.filter(path=>window.studyCanSee?.(path)===true).forEach(path=>{
@@ -1492,5 +1502,5 @@ document.getElementById("installBtn")?.addEventListener("click", async () => {
 </script>
 
 <script src="novo-visual.js?v=8"></script>
-<script src="biblioteca.js?v=creator-credit-20261012"></script><script src="midias.js?v=3"></script><script type="module" src="conta-cabecalho.js?v=notebook-20261012"></script><script type="module" src="access.js?v=3"></script><script type="module" src="aurora-studyflow.js?v=1"></script></body>
+<script src="biblioteca.js?v=teachers-20261012"></script><script src="midias.js?v=3"></script><script type="module" src="conta-cabecalho.js?v=notebook-20261012"></script><script type="module" src="access.js?v=3"></script><script type="module" src="aurora-studyflow.js?v=1"></script></body>
 </html>
