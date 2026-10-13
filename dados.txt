@@ -627,11 +627,13 @@
 2AnoM/fisica/fabio/1p/lista_03_-_pressao_hidrostatica_e_teorema_de_stevin_-_aluno.pdf
 2AnoM/fisica/fabio/1p/lista_03_pressao_hidrostatica_e_teorema_de_stevin_-_gabarito.pdf
 2AnoM/fisica/fabio/1p/lista_04_aplicacoes_da_lei_de_stevin_-_aluno.pdf
+2AnoM/fisica/fabio/1p/lista_05_principio_de_pascal_-_aluno_36dc9826fe13.pdf
 2AnoM/fisica/fabio/2p/Lista 04 – Aplicações da Lei de Stevin - Gabarito.pdf
 2AnoM/fisica/fabio/2p/Lista 05 – Princípio de Pascal - Gabarito.pdf
 2AnoM/fisica/fabio/2p/Lista 06 – Gases Perfeitos - Gabarito.pdf
 2AnoM/fisica/fabio/2p/Lista 06 – Gases Perfeitos I (1).pdf
 2AnoM/fisica/fabio/2p/Lista 07 – Teorema de Arquimedes - Aluno.pdf
+2AnoM/fisica/fabio/2p/lista_04_aplicacoes_da_lei_de_stevin_-_aluno_c36cf361bef0.pdf
 2AnoM/fisica/fabio/2p/lista_05_principio_de_pascal_-_aluno.pdf
 2AnoM/fisica/fabio/2p/lista_07_teorema_de_arquimedes_-_gabarito_57f9d39e953e.pdf
 2AnoM/fisica/fabio/3p/lista_01_densidade_e_pressao_-_gabarito_a9cd6be93d01.pdf
@@ -728,6 +730,7 @@
 2AnoM/geografia/alex/1p/sistemas_de_transporte_no_mundo.pptx
 2AnoM/geografia/alex/2p/Slides/L5FAC1_Urbanização Mundial.pptx
 2AnoM/geografia/alex/2p/Slides/L5FAC2_Redes e Hierarquia Urbana.pptx
+2AnoM/geografia/alex/2p/l5fac3e4_problemas_sociambientais_urbanos_ffac6d79d565.pptx
 2AnoM/geografia/alex/2p/sugestao_de_exercicios_d20c5f30b2ea.pdf
 2AnoM/geografia/alex/3p/a_importancia_das_sementes_crioulas_6f25bd3bd95d.pdf
 2AnoM/geografia/alex/3p/a_questao_agraria_5be697efb1b5.ppt
@@ -743,6 +746,7 @@
 2AnoM/geografia/bruno/1p/if_-_redes_sociais_etica_e_cidadania/atividade_02_segregacao_e_violencia_em_sao_paulo_d940c77c8a99.pdf
 2AnoM/geografia/bruno/1p/if_-_redes_sociais_etica_e_cidadania/grupos_icec_turma_a_64edddb545ba.pdf
 2AnoM/geografia/bruno/1p/if_-_redes_sociais_etica_e_cidadania/grupos_icec_turma_b_e02beb3b33a5.pdf
+2AnoM/geografia/bruno/1p/if_-_redes_sociais_etica_e_cidadania/notas_atividades_-_2em_icec_a_e_b_-_redes_sociais_-_prof_0c842c643696.xlsx
 2AnoM/geografia/bruno/1p/if_-_redes_sociais_etica_e_cidadania/organizacao_dos_seminarios_expressoes_da_violencia_1b747442c544.pdf
 2AnoM/geografia/bruno/1p/if_-_redes_sociais_etica_e_cidadania/rubrica_seminarios_-_expressoes_da_violencia_pelos_lugares_5ce8737b56b0.pdf
 2AnoM/geografia/bruno/1p/if_-_redes_sociais_etica_e_cidadania/rubricas_seminarios_trabalho_01_-_icec_turma_a_d9abb32ca58c.pdf
@@ -759,6 +763,7 @@
 2AnoM/geografia/bruno/2p/[Tema 05] Novos Fluxos Migratórios pelos Lugares.pdf
 2AnoM/geografia/bruno/2p/if_-_redes_sociais_etica_e_cidadania/aulas_09_e_10_sistemas_de_informacao_redes_sociais_e_atualidades_bf5e87e130cf.pdf
 2AnoM/geografia/bruno/2p/if_-_redes_sociais_etica_e_cidadania/aulas_13_e_14_correcao_das_atividades_e_orientacao_dos_trabalhos_7593b46ce2a5.pdf
+2AnoM/geografia/bruno/2p/if_-_redes_sociais_etica_e_cidadania/notas_atividade_icec_turma_a_e_b_-_2o_periodo_3a7e2dd19b90.xlsx
 2AnoM/geografia/bruno/2p/if_-_redes_sociais_etica_e_cidadania/rubricas_campanha_publicitaria_-_icec_turma_a_e5904fecdae5.pdf
 2AnoM/geografia/bruno/2p/if_-_redes_sociais_etica_e_cidadania/rubricas_campanha_publicitaria_-_icec_turma_b_b98cb78e2d57.pdf
 2AnoM/geografia/bruno/3p/2em/gabarito_2em_geo_apv_3o_periodo_2026_versao_01_015cce8db9b5.pdf
@@ -785,9 +790,16 @@
 2AnoM/historia/celcio/1p/america_pre_colonial_introducao_p.pptx
 2AnoM/historia/celcio/1p/conteudos_das_provas/1p_-_historia_-_conteudos_da_prova_de_historia_da_1a_etapa_do_1o_periodo.docx
 2AnoM/historia/celcio/1p/conteudos_das_provas/1p_-_historia_-_conteudos_da_prova_de_historia_da_2a_etapa_do_1o_periodo.docx
+2AnoM/historia/celcio/1p/recuperacao/2a_serie_recuperacao_de_historia_-_12_de_fevereiro_de_2026_-_1a_etapa__4d19ddecffc0.docx
+2AnoM/historia/celcio/1p/recuperacao/gab_recuperacao_1_-_12_de_fevereiro_de_2026_-_1a_etapa_do_1o_periodo_c0183d38b556.docx
+2AnoM/historia/celcio/1p/recuperacao/gab_recuperacao_2_-_19_de_marco_de_2026_-_2a_serie_-_2a_etapa_do_1o_pe_aa4427f70a04.docx
 2AnoM/historia/celcio/2p/1a_etapa/2P - História - Conteúdos da Prova de História da 1ª Etapa do 2º Período.docx
 2AnoM/historia/celcio/2p/1a_etapa/2P - Vol.pptx
 2AnoM/historia/celcio/2p/1a_etapa/2p_-_as_independencias_na_america_espanhola.pptx
+2AnoM/historia/celcio/2p/recuperacao/1a_etapa/2a_serie_recuperacao_-de_historia_-_14_de_maio_de_2026_-_1a_etapa_do_2_86ed4f56ddca.docx
+2AnoM/historia/celcio/2p/recuperacao/1a_etapa/gabarito_-2a_serie_recuperacao_-de_historia_-_14_de_maio_de_2026_-_1a__0575794a4424.docx
+2AnoM/historia/celcio/2p/recuperacao/2a_etapa/2p_-rec_2_-_recuperacao_de_historia_-_11_de_junho_-_2a_etapa_do_2o_per_c05bb3786d07.docx
+2AnoM/historia/celcio/2p/recuperacao/2a_etapa/gabarito_-_2p_-rec_2_-_recuperacao_de_historia_-_11_de_junho_-_2a_etap_db4f9affea4c.docx
 2AnoM/historia/celcio/3p/3p-_imperialismo_na_africa_e_asia_seculo_xix_e2a04f475bf9.pptx
 2AnoM/historia/celcio/3p/3p_-_cap_6_-_pagina_116_-_vol4_-_crise_do_2o_reinado_0c752010b0cf.pptx
 2AnoM/historia/celcio/3p/3p_-_fases_da_revolucao_industrial_50d5fd2275b6.pptx
@@ -879,6 +891,8 @@
 2AnoM/matematica/larissa/2p/BINO^MIO DE NEWTON LISTA 1.pdf
 2AnoM/matematica/larissa/2p/COMBINAÇÃO.pdf
 2AnoM/matematica/larissa/2p/Slides - Exerci´cios e Exemplos.pdf
+2AnoM/matematica/larissa/2p/prob_espacial/lista_arranjo_95c9a359e695.pdf
+2AnoM/matematica/larissa/2p/prob_espacial/lista_combinacao_b53a45c6075d.pdf
 2AnoM/matematica/larissa/2p/prob_espacial/lista_geral_47c1c8e7e6bf.pdf
 2AnoM/matematica/larissa/2p/triangulo_de_pascal.pdf
 2AnoM/matematica/larissa/2p/trigo/trigo_adic_a_o_e_arco_duplo_lista_1_763a7b305f2a.pdf
@@ -920,9 +934,17 @@
 2AnoM/matematica/walter/novos/resolucao_da_lista_de_trigonometria_-_debora_d402cfebefd7.pdf
 2AnoM/matematica/walter/novos/resolucao_exercicios_pagina_332_livro_4_0033e6a58b18.docx
 2AnoM/portugues/ivan/1p/exercicios_sujeito_-_gabarito.docx
+2AnoM/portugues/ivan/1p/recuperacao/recuperacao_2a_serie_49a8c49996d8.docx
 2AnoM/portugues/ivan/2p/2a_em_gramatica_informativo_apvs_2o_periodo.docx
 2AnoM/portugues/ivan/2p/Valorada/2a EM GRAMÁTICA Informativo APVs   2º período (1).docx
 2AnoM/portugues/ivan/2p/Valorada/zeluiz,+03_radicalismos+a¦Ç+brasileira (1).pdf
+2AnoM/portugues/ivan/2p/adverbio_d0edcb8d5896.docx
+2AnoM/portugues/ivan/2p/exercicios_adverbio_gabarito_c08beb068d8b.docx
+2AnoM/portugues/ivan/2p/exercicios_sujeito_-_gabarito_05ef23074d86.docx
+2AnoM/portugues/ivan/2p/exercicios_sujeito_56a7727e5976.docx
+2AnoM/portugues/ivan/2p/periodo_simples_-_sujeito_4d07de51aa51.docx
+2AnoM/portugues/ivan/2p/recuperacao/recuperacao_2a_serie_6b0178ed81b6.docx
+2AnoM/portugues/ivan/2p/recuperacao/recuperacao_2a_serie_adjunto_adverbial_c8a0bcad7f65.docx
 2AnoM/portugues/ivan/3p/recuperacao/rec_2a_serie_termos_ligados_ao_nome_d6f6328172c4.docx
 2AnoM/portugues/ivan/novos/exercicios_sujeito_-_gabarito_1c10bd7ef910.docx
 2AnoM/portugues/odete/1p/2_-_aula_03_-_realismo_em_portugal.pdf
@@ -930,6 +952,8 @@
 2AnoM/portugues/odete/1p/2_-_aula_3_-_memorias_postumas_de_bras_cubas.pptx
 2AnoM/portugues/odete/1p/gabarito_recuperacao_marco_26.docx
 2AnoM/portugues/odete/1p/recuperacao-_marco_de_26.docx
+2AnoM/portugues/odete/1p/recuperacao/02_q26_194dca398868.docx
+2AnoM/portugues/odete/1p/recuperacao/recuperacao_2a_fevereiro_26_57a5cfdf4b09.docx
 2AnoM/portugues/odete/2p/2 - Aula 05 -Realismo Antero + Eça.pptx
 2AnoM/portugues/odete/2p/2 - Aula 06 - Parnasianismo.pdf
 2AnoM/portugues/odete/2p/2 - Aula 07 - Parnasianismo no Brasil.pdf
@@ -995,6 +1019,7 @@
 2AnoM/quimica/renato/1p/sala/capitulo_3_-_concentracao_molar.pdf
 2AnoM/quimica/renato/1p/sala/capitulo_3_-_relacoes_entre_concentracoes.pdf
 2AnoM/quimica/renato/1p/sala/capitulo_3_-_titulo_ppm_e_ppb.pdf
+2AnoM/quimica/renato/1p/slides/capitulo_3_-_solucoes_-_relacao_entre_concentracao_8666f683e4c1.pdf
 2AnoM/quimica/renato/1p/slides/slide_-_capitulo_2_-_solucoes_-_solubilidade.pdf
 2AnoM/quimica/renato/1p/slides/slide_-_capitulo_3_-_solucoes_-_concentracao_comum_e_densidade.pdf
 2AnoM/quimica/renato/1p/slides/slide_-_capitulo_3_-_solucoes_-_concentracao_molar.pdf
@@ -1101,6 +1126,8 @@
 2AnoM/sociologia/2p/APV - CHS/APV Ciências Humanas e Sociais - 2ª Série - 2º Período - Modelo 3.docx
 2AnoM/sociologia/2p/Lista de Exercícios/Lista 2 - Teorias Políticas e Estado Moderno (até Rousseau).doc
 2AnoM/sociologia/2p/Provas/Sociabilidades Contemporâneas - 2ª Se∩rie - 1ª Etapa - 2º Peri∩odo.docx
+2AnoM/sociologia/2p/lista_de_exercicios/lista_2_-_teorias_politicas_e_estado_moderno_ce922a1d9688.doc
+2AnoM/sociologia/2p/lista_de_exercicios/lista_2_-_teorias_politicas_e_estado_moderno_sem_gabarito_0ace77bda0d0.pdf
 2AnoM/sociologia/3p/lista_de_exercicios/lista_3_-_estado_governo_democracia_e_cidadania_35cb249ad60b.doc
 2AnoM/sociologia/3p/lista_de_exercicios/lista_3_-_estado_governo_democracia_e_cidadania_sem_gabarito_8747b5cf20b8.pdf
 2AnoM/sociologia/3p/lista_de_exercicios/lista_4_-_formacao_do_estado_e_da_sociologia_no_brasil_-_ate_parte_2_25578cd9168a.doc
