@@ -39,3 +39,7 @@ html body #accountPopover button{color:#4431ad!important;background:#eeeafb!impo
 #siteContent #dashboard .dash-card::before{display:none!important}
 #siteContent #dashboard .dash-card:hover{background:#efedf9!important;border-color:#c4bbe8!important;color:#4431ad!important}
 #siteContent #dashboard .dash-card.active,#siteContent #dashboard .study-primary{background:#ede9fc!important;border-color:#c8beed!important;color:#3d2da1!important}
+
+/* All shortcuts share one surface; only the selected section has an accent border. */
+#siteContent #dashboard .dash-card,#siteContent #dashboard .study-primary,#siteContent #dashboard .dash-card:is(:hover,:focus,:active){background:#f8f9fd!important;color:#293249!important;font-weight:600!important;border-color:#d9deeb!important}
+#siteContent #dashboard .dash-card.active{background:#f8f9fd!important;color:#293249!important;font-weight:600!important;border-color:#8c7bd0!important}
