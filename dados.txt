@@ -634,6 +634,13 @@
 2AnoM/fisica/fabio/2p/Lista 07 – Teorema de Arquimedes - Aluno.pdf
 2AnoM/fisica/fabio/2p/lista_05_principio_de_pascal_-_aluno.pdf
 2AnoM/fisica/fabio/2p/lista_07_teorema_de_arquimedes_-_gabarito_57f9d39e953e.pdf
+2AnoM/fisica/fabio/3p/lista_01_densidade_e_pressao_-_gabarito_a9cd6be93d01.pdf
+2AnoM/fisica/fabio/3p/lista_02_-_pressao_hidrostatica_e_teorema_de_stevin_-_gabarito_fa4fa84e1d9a.pdf
+2AnoM/fisica/fabio/3p/lista_03_pressao_hidrostatica_e_teorema_de_stevin_-_gabarito_19aacc1d50c6.pdf
+2AnoM/fisica/fabio/3p/lista_04_aplicacoes_da_lei_de_stevin_-_gabarito_96f03de42ffe.pdf
+2AnoM/fisica/fabio/3p/lista_05_principio_de_pascal_-_gabarito_58cbd0407241.pdf
+2AnoM/fisica/fabio/3p/lista_06_gases_perfeitos_-_gabarito_a58179b92ec4.pdf
+2AnoM/fisica/fabio/3p/lista_07_teorema_de_arquimedes_-_gabarito_1ab13ab11757.pdf
 2AnoM/fisica/fabio/3p/lista_08_estatica_do_ponto_material_-_aluno_326adfb6fe66.pdf
 2AnoM/fisica/fabio/3p/lista_08_estatica_do_ponto_material_-_gabarito_a7b72164b262.pdf
 2AnoM/fisica/fabio/3p/lista_09_estatica_do_corpo_extenso_349f60ff573f.pdf
@@ -708,6 +715,12 @@
 2AnoM/fisica/rocris/4p/choques_mecanicos_-_exercicios_-_resolucao_e879c6fc3f5a.pdf
 2AnoM/fisica/rocris/4p/choques_mecanicos_-_exercicios_4fbd53805f7c.pdf
 2AnoM/fisica/rocris/4p/recuperacao/conservacao_da_quantidade_de_movimento_c66801ac7b76.pdf
+2AnoM/fisica/rocris/novos/provas/1o_periodo_-_1_etapa_-_resolucao_95f85812a34e.pdf
+2AnoM/fisica/rocris/novos/provas/1o_periodo_-_2a_etapa_-_resolucao_682f8b8c1d81.pdf
+2AnoM/fisica/rocris/novos/provas/2a_serie_-_2o_periodo_-_1a_etapa_dc09e568ffc8.pdf
+2AnoM/fisica/rocris/novos/provas/2a_serie_-_2o_periodo_-_2a_etapa_835668a5140b.pdf
+2AnoM/fisica/rocris/novos/provas/2a_serie_-_3o_periodo_-2_a_etapa_8b9154ad4136.pdf
+2AnoM/fisica/rocris/novos/provas/2a_serie_-_3o_periodo_-_1a_etapa_-_resolucao_c0acb21ae4fc.pdf
 2AnoM/geografia/alex/1p/exercicios_transportes.pdf
 2AnoM/geografia/alex/1p/industrializacao_brasileira.pptx
 2AnoM/geografia/alex/1p/sistemas_de_comunicacao_no_brasil_e_no_mundo.pptx
@@ -789,11 +802,23 @@
 2AnoM/historia/celcio/3p/recuperacao/3p_-rec_-_1_-_recuperacao_de_historia_2a_serie-_13_de_agosto_-_1a_etap_082f56b19bf9.docx
 2AnoM/historia/celcio/3p/recuperacao/gabarito_-_3p_-rec_1_-_recuperacao_de_historia_2a_serie-_13_de_agosto__f54bad858121.docx
 2AnoM/historia/celcio/3p/textos_de_apoio_-_apv_-_2a_etapa_do_3o_periodo_de_2026_-_2a_serie_bdc068114125.docx
+2AnoM/historia/celcio/4p/3p-_imperialismo_na_africa_e_asia_seculo_xix_52b2fd74078c.pptx
+2AnoM/historia/celcio/4p/4p_1a_guerra_mundial_-capitulo_31_-_um_mundo_em_guerra_1914-1918_pagin_02dda8a4af60.pptx
+2AnoM/historia/celcio/novos/2a_serie_recuperacao_2_de_historia_-_19_de_marco_de_2026_-_2a_etapa_do_d595ef8a3ace.docx
+2AnoM/historia/celcio/novos/3p-_imperialismo_na_africa_e_asia_seculo_xix_7440359449ae.pptx
+2AnoM/historia/celcio/novos/3p_-_cap_6_-_pagina_116_-_vol4_-_crise_do_2o_reinado_08e5b18b3ec3.pptx
+2AnoM/historia/celcio/novos/3p_-_fases_da_revolucao_industrial_ead5d837bfc5.pptx
+2AnoM/historia/celcio/novos/3p_cap_2_-_pagina_24-_vol4_-_eua_no_seculo_xix_2_6373f43ffb14.pptx
+2AnoM/historia/celcio/novos/3p_cap_4_5_6_-_pagina_90_-_vol4_-_2o_reinado_-politica_interna_externa_f5bf6c6993fb.pptx
 2AnoM/historia/celcio/novos/4p_1a_guerra_mundial_-capitulo_31_-_um_mundo_em_guerra_1914-1918_pagin_36d65a3023c2.pptx
 2AnoM/historia/celcio/novos/apv_-_roteiro-_1o_periodo_ciencias_humanas-_trabalho_mennino_23_e_a_no_3290a6151560.docx
 2AnoM/historia/celcio/novos/gab_recuperacao_2_-_19_de_marco_de_2026_-_2a_serie_-_2a_etapa_do_1o_pe_81199d91cd85.docx
 2AnoM/historia/celcio/novos/gabarito_a.p.v/1p_proposta_a_atividade_pedagogica_valorada_-_2a_serie_-_ciencias_huma_bccea325e94d.docx
 2AnoM/historia/celcio/novos/gabarito_a.p.v/1p_proposta_b_-_atividade_pedagogica_valorada-_2a_serie_-_ciencias_hum_b8ad3ae52f24.docx
+2AnoM/historia/celcio/novos/gabarito_a.p.v/apv_-_roteiro-_1o_periodo_ciencias_humanas-_trabalho_mennino_23_e_a_no_c07a5acdb9b7.docx
+2AnoM/historia/celcio/novos/gabarito_apv1-_redencao_de_cam_5e4f1bd600ca.docx
+2AnoM/historia/celcio/novos/gabarito_apv2-_redencao_de_cam_477d97c6b0b1.docx
+2AnoM/historia/celcio/novos/gabarito_apv3-_redencao_de_cam_b387e1f47357.docx
 2AnoM/historia/luciano/1p/material_13_-_o_renascimento.pdf
 2AnoM/historia/luciano/1p/material_14_-_o_estilo_barroco.pdf
 2AnoM/historia/luciano/1p/material_15_-_o_estilo_rococo.pdf
@@ -802,6 +827,8 @@
 2AnoM/historia/luciano/2p/material_17_-_neoclassicismo_romantismo_e_realismo.pdf
 2AnoM/historia/luciano/3p/2em/material_20_-_o_simbolismo_e_o_pos-impressionismo_188debe45eee.pdf
 2AnoM/historia/luciano/3p/2em/material_21_-_vanguardas_europeias_18335cb21137.pdf
+2AnoM/historia/luciano/3p/material_20_-_o_simbolismo_e_o_pos-impressionismo_188debe45eee.pdf
+2AnoM/historia/luciano/3p/material_21_-_vanguardas_europeias_18335cb21137.pdf
 2AnoM/historia/luciano/4p/2em/materiais_das_aulas/material_21_-_vanguardas_europeias_e53ef5432a56.pdf
 2AnoM/historia/luciano/novos/2em/provas/2026_historia_2aserie_1aetapa_1operiodo_revisada_nova_versao_e41a0888baa5.pdf
 2AnoM/historia/luciano/novos/2em/provas/historia_-_2a_serie_-_2aetapa_-_3o_periodo_139a1abc715d.pdf
@@ -837,6 +864,10 @@
 2AnoM/matematica/debora/2p/Lista para reforço - Radicais, frações, fatoração e produtos notáveis.pdf
 2AnoM/matematica/debora/2p/Resolução do exercício 7 (lista junho).pdf
 2AnoM/matematica/debora/3p/Lista funções trigonométricas - Setembro.pdf
+2AnoM/matematica/debora/novos/lista_exercicios_-_2a_serie_-_trigonometria_junho_3c851cb1959a.pdf
+2AnoM/matematica/debora/novos/lista_exercicios_extra_maio_-_2a_serie_-_trigonometria_a81502ec37a9.pdf
+2AnoM/matematica/debora/novos/lista_funcoes_trigonometricas_-_setembro_9c0f204c741c.pdf
+2AnoM/matematica/debora/novos/lista_para_reforco_-_radicais_fracoes_fatoracao_e_produtos_notaveis_570a8a61f1ef.pdf
 2AnoM/matematica/larissa/1p/fatorial_-_lista_com_resolucao.pdf
 2AnoM/matematica/larissa/1p/permutacao_-_lista.pdf
 2AnoM/matematica/larissa/1p/pfc_-_lista.pdf
@@ -856,17 +887,44 @@
 2AnoM/matematica/larissa/3p/geometria/revisao_geometria_plana_91abf7a2e518.pdf
 2AnoM/matematica/larissa/3p/geometria/slides_-_prisma_ce8dba9da60b.pdf
 2AnoM/matematica/larissa/3p/lista_probabilidade_8762bfb4fba1.pdf
+2AnoM/matematica/larissa/novos/bino_mio_de_newton_lista_1_f74927a30412.pdf
+2AnoM/matematica/larissa/novos/exemplos_dos_slides_987821f821fb.pdf
+2AnoM/matematica/larissa/novos/lista_arranjo_ded37166e042.pdf
+2AnoM/matematica/larissa/novos/lista_combinacao_a22ebe3d56a8.pdf
+2AnoM/matematica/larissa/novos/lista_geral_135bf5fb9ed2.pdf
+2AnoM/matematica/larissa/novos/lista_probabilidade_b3860a306575.pdf
+2AnoM/matematica/larissa/novos/pfc_-_lista_a95288b4225f.pdf
+2AnoM/matematica/larissa/novos/prismas_68dd3659c421.pdf
+2AnoM/matematica/larissa/novos/prob_espacial/bino_mio_de_newton_lista_1_e3fe24b8748e.pdf
+2AnoM/matematica/larissa/novos/prob_espacial/fatorial_-_lista_com_resolucao_387bcbee1961.pdf
+2AnoM/matematica/larissa/novos/prob_espacial/lista_arranjo_95c9a359e695.pdf
+2AnoM/matematica/larissa/novos/prob_espacial/lista_combinacao_b53a45c6075d.pdf
+2AnoM/matematica/larissa/novos/prob_espacial/lista_geral_47c1c8e7e6bf.pdf
+2AnoM/matematica/larissa/novos/prob_espacial/permutacao_-_lista_c268ade3131c.pdf
+2AnoM/matematica/larissa/novos/prob_espacial/pfc_-_lista_54859f317f7b.pdf
+2AnoM/matematica/larissa/novos/prob_espacial/slides_-_exerci_cios_e_exemplos_a607201a40a7.pdf
+2AnoM/matematica/larissa/novos/prob_espacial/slides_-_exercicios_e_exemplos_aec56ccc2058.pdf
+2AnoM/matematica/larissa/novos/prob_espacial/triangulo_de_pascal_52f774a71aaf.pdf
+2AnoM/matematica/larissa/novos/revisao_geometria_plana_3db976535527.pdf
+2AnoM/matematica/larissa/novos/slides_-_exerci_cios_e_exemplos_d2d2df533b2a.pdf
+2AnoM/matematica/larissa/novos/slides_-_exercicios_e_exemplos_140fd788bf8b.pdf
+2AnoM/matematica/larissa/novos/slides_-_prisma_8129a4dfbc0f.pdf
+2AnoM/matematica/larissa/novos/triangulo_de_pascal_e4606a286603.pdf
+2AnoM/matematica/larissa/novos/trigo_adic_a_o_e_arco_duplo_lista_1_46737865d5a7.pdf
 2AnoM/matematica/walter/1p/gabarito_apv_s.pdf
 2AnoM/matematica/walter/1p/resolucao_exercicios_pagina_332_livro_4.docx
 2AnoM/matematica/walter/novos/gabarito_apv_2periodo_15e653fad72c.pdf
 2AnoM/matematica/walter/novos/gabarito_apv_3o_periodo_d9a267de8288.pdf
+2AnoM/matematica/walter/novos/gabarito_apv_s_b8b342d80e9b.pdf
 2AnoM/matematica/walter/novos/gabarito_exercicios_t1_ao_t7_lista_1_estatistica_c1f24196c7b6.pdf
 2AnoM/matematica/walter/novos/resolucao_da_lista_de_trigonometria_-_debora_d402cfebefd7.pdf
+2AnoM/matematica/walter/novos/resolucao_exercicios_pagina_332_livro_4_0033e6a58b18.docx
 2AnoM/portugues/ivan/1p/exercicios_sujeito_-_gabarito.docx
 2AnoM/portugues/ivan/2p/2a_em_gramatica_informativo_apvs_2o_periodo.docx
 2AnoM/portugues/ivan/2p/Valorada/2a EM GRAMÁTICA Informativo APVs   2º período (1).docx
 2AnoM/portugues/ivan/2p/Valorada/zeluiz,+03_radicalismos+a¦Ç+brasileira (1).pdf
 2AnoM/portugues/ivan/3p/recuperacao/rec_2a_serie_termos_ligados_ao_nome_d6f6328172c4.docx
+2AnoM/portugues/ivan/novos/exercicios_sujeito_-_gabarito_1c10bd7ef910.docx
 2AnoM/portugues/odete/1p/2_-_aula_03_-_realismo_em_portugal.pdf
 2AnoM/portugues/odete/1p/2_-_aula_04_-_realismo_em_portugal.pdf
 2AnoM/portugues/odete/1p/2_-_aula_3_-_memorias_postumas_de_bras_cubas.pptx
@@ -992,8 +1050,12 @@
 2AnoM/quimica/thati/2p/2 ANO EN MOLEC CINE´T QUI´M PARTE 1 EXTRAS.pdf
 2AnoM/quimica/thati/2p/2 ANO EN MOLEC TERMOQUI´MICA 3 EXTRAS.pdf
 2AnoM/quimica/thati/2p/2 ANO EN MOLEC TERMOQUI´MICA 4 EXTRAS (1).pdf
+2AnoM/quimica/thati/novos/energia_molecular/2_ano_en_molec_cine_t_qui_m_parte_1_extras_d0234d981f8e.pdf
 2AnoM/quimica/thati/novos/energia_molecular/2_ano_en_molec_cine_t_qui_m_parte_2_extras_ok_eda23525635f.pdf
 2AnoM/quimica/thati/novos/energia_molecular/2_ano_en_molec_cinet_quim_parte_3_extras_0db3a7ae8437.pdf
+2AnoM/quimica/thati/novos/energia_molecular/2_ano_en_molec_termoqui_mica_2_extras_70edafb65139.pdf
+2AnoM/quimica/thati/novos/energia_molecular/2_ano_en_molec_termoqui_mica_3_extras_485f603340da.pdf
+2AnoM/quimica/thati/novos/energia_molecular/2_ano_en_molec_termoqui_mica_4_extras_5b77111cb09d.pdf
 2AnoM/quimica/thati/novos/energia_molecular/2_ano_en_molec_termoquimica_5_extras_e5d524c19360.pdf
 2AnoM/redacao/1p/cronica_2026_.pdf
 2AnoM/redacao/1p/cronica_exercicio2_fuvestsimulado.pdf
@@ -1047,6 +1109,14 @@
 2AnoM/sociologia/3p/2em/provas/sociabilidades_contemporaneas_-_2a_se_rie_-_2a_etapa_-_3o_peri_odo_d46cb6d06461.docx
 2AnoM/sociologia/3p/2em/slides/material_4_-_estado_sociedade_e_sociologia_brasileiros_f53bf40f35cb.pptx
 2AnoM/sociologia/3p/2em/textos_complementares/tc3_-_sociologia_brasileira_bf8fbece9c62.pdf
+2AnoM/sociologia/3p/lista_de_exercicios/lista_3_-_estado_governo_democracia_e_cidadania_35cb249ad60b.doc
+2AnoM/sociologia/3p/lista_de_exercicios/lista_3_-_estado_governo_democracia_e_cidadania_sem_gabarito_8747b5cf20b8.pdf
+2AnoM/sociologia/3p/lista_de_exercicios/lista_4_-_formacao_do_estado_e_da_sociologia_no_brasil_-_ate_parte_2_25578cd9168a.doc
+2AnoM/sociologia/3p/lista_de_exercicios/lista_4_-_formacao_do_estado_e_da_sociologia_no_brasil_sem_gabarito_f10d6205fe4e.doc
+2AnoM/sociologia/3p/provas/sociabilidades_contemporaneas_-_2a_se_rie_-_1a_etapa_-_3o_peri_odo_1b318bf9653b.docx
+2AnoM/sociologia/3p/provas/sociabilidades_contemporaneas_-_2a_se_rie_-_2a_etapa_-_3o_peri_odo_d46cb6d06461.docx
+2AnoM/sociologia/3p/slides/material_4_-_estado_sociedade_e_sociologia_brasileiros_f53bf40f35cb.pptx
+2AnoM/sociologia/3p/textos_complementares/tc3_-_sociologia_brasileira_bf8fbece9c62.pdf
 2AnoM/sociologia/novos/2024/politica_e_modernidade_-_2a_se_rie_-_1a_etapa_-_1o_peri_odo_487fac688436.docx
 2AnoM/sociologia/novos/2024/politica_e_modernidade_-_2a_se_rie_-_1a_etapa_-_2o_peri_odo_ef1112f36a7b.docx
 2AnoM/sociologia/novos/2024/politica_e_modernidade_-_2a_se_rie_-_1a_etapa_-_3o_peri_odo_10d30f9bf23f.docx
@@ -1063,6 +1133,10 @@
 2AnoM/sociologia/novos/2025/sociabilidades_contemporaneas_-_2a_se_rie_-_2a_etapa_-_3o_peri_odo_03853494249e.docx
 2AnoM/sociologia/novos/2025/sociabilidades_contemporaneas_-_2a_se_rie_-_2a_etapa_-_4o_peri_odo_5bc653b869c4.docx
 2AnoM/sociologia/novos/2025/sociologia_-_2a_se_rie_-_1a_etapa_-_1o_peri_odo_abc71586238d.docx
+2AnoM/sociologia/novos/slides/material_1_-_a_natureza_da_politica_938f277425df.pdf
+2AnoM/sociologia/novos/slides/material_2_-_teorias_politicas_e_estado_moderno_87ab1dda4ce1.pptx
+2AnoM/sociologia/novos/textos_complementares/tc1_-_politica_poder_e_estado_estado_e_legitimidade_do_poder_3aa348a8710a.pdf
+2AnoM/sociologia/novos/textos_complementares/tc2_-_povo_e_nacao_12ca4966aead.pdf
 vestibulares/Enem/Enem 2025 - Copia/Enem Dia 1_2025_AMARELO__7aa6ffc6-4b96-412c-acef-469618a6941b.pdf
 vestibulares/Enem/Enem 2025 - Copia/Enem Dia 1_2025_Azul__845a0661-6a0c-44ed-9115-91f199a2c3c5.pdf
 vestibulares/Enem/Enem 2025 - Copia/Enem Dia 1_2025_Verde__95f7afd9-1e6b-4aac-b6a0-b840236c917e.pdf
