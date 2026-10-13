@@ -21,7 +21,14 @@
   `;
   document.head.append(style);
   document.body.append(dialog);
+  let generation=0,controller,oldOverflow='',blobURLs=[];
+  async function materialBytes(url, signal){
+    if(window.studyLoadMaterial)return window.studyLoadMaterial(url,signal);
+    const response=await fetch(url,{signal});if(!response.ok)throw new Error('Material indisponível');return response.arrayBuffer();
+  }
+  function materialBlob(data,type){const url=URL.createObjectURL(new Blob([data],{type}));blobURLs.push(url);return url;}
   const cleanup = () => {
+    generation++;controller?.abort();blobURLs.forEach(URL.revokeObjectURL);blobURLs=[];document.body.style.overflow=oldOverflow;
     dialog.querySelectorAll('video').forEach(video => video.pause());
     dialog.querySelectorAll('iframe').forEach(frame => frame.remove());
     dialog.replaceChildren();
@@ -42,15 +49,25 @@
     if (url.protocol !== 'https:' || url.username || url.password) throw new Error('Endereço inválido');
     return url;
   };
-  function show(title, url, kind) {
+  async function show(title, url, kind, path) {
+    if(dialog.open)dialog.close();
+    oldOverflow=document.body.style.overflow;document.body.style.overflow='hidden';controller=new AbortController();const version=++generation;
     dialog.replaceChildren();
     const head = document.createElement('header');
     const heading = document.createElement('h2'); heading.textContent = title;
     const close = document.createElement('button'); close.type = 'button'; close.textContent = '✕ Fechar'; close.setAttribute('aria-label', 'Fechar visualizador'); close.dataset.closeMedia = '';
     head.append(heading, close); dialog.append(head);
     const body = document.createElement('div'); body.className = 'media-body'; dialog.append(body);
+    dialog.showModal();
     let embed;
-    if (kind === 'image') {
+    if(kind==='pdf'){
+      const loading=document.createElement('p');loading.textContent='Preparando seu PDF…';loading.style.color='#eee';body.append(loading);
+      try{const data=await materialBytes(url.href,controller.signal);if(version!==generation)return;embed=document.createElement('iframe');embed.title=title;embed.src=new URL('vendor/pdfjs/web/viewer.html',document.baseURI).href+'?file='+encodeURIComponent(materialBlob(data,'application/pdf'));loading.remove();}
+      catch(error){if(version!==generation)return;loading.textContent='Não consegui carregar a prévia. Você pode tentar novamente ou baixar o arquivo.';}
+    }else if(kind==='office'){
+      const original=new URL('Estudos/'+caminhoSeguro(path),'https://jonataspp1509-svg.github.io/meu-hub-estudos/').href;
+      embed=document.createElement('iframe');embed.title=title;embed.allowFullscreen=true;embed.src='https://view.officeapps.live.com/op/embed.aspx?src='+encodeURIComponent(original);
+    }else if (kind === 'image') {
       embed = document.createElement('img'); embed.src = url.href; embed.alt = title;
     } else if (kind === 'video') {
       embed = document.createElement('video'); embed.src = url.href; embed.controls = true; embed.preload = 'metadata';
@@ -66,12 +83,25 @@
       }
     }
     if (embed) body.append(embed);
+    const relative=path&&'Estudos/'+path;
+    if(['image','video'].includes(kind)&&window.studyMaterialManifest?.[relative]){
+      try{const data=await materialBytes(url.href,controller.signal);if(version!==generation)return;embed.src=materialBlob(data,kind==='video'?'video/mp4':'image/'+url.pathname.split('.').pop());}catch{if(version!==generation)return;body.textContent='Não consegui carregar este material. Tente novamente.';}
+    }
     const note = document.createElement('p');
     note.textContent = kind === 'link' ? 'Se o player pedir acesso ou não carregar, abra o material na origem. As permissões são as mesmas do professor.' : 'Material da sua biblioteca de estudos.';
     const open = document.createElement('a'); open.href = url.href; open.target = '_blank'; open.rel = 'noopener noreferrer';
-    open.textContent = kind === 'link' ? 'Abrir na origem ↗' : 'Abrir arquivo ↗';
+    open.textContent = 'Abrir na origem ↗';
     const footer = document.createElement('footer'); footer.append(note, open);
-    dialog.append(footer); dialog.showModal();
+    if(kind!=='link'){
+      open.remove();note.textContent='Leia aqui. Baixe apenas se quiser guardar uma cópia.';
+      const download=document.createElement('button');download.type='button';download.textContent='↓ Baixar arquivo';
+      download.onclick=async()=>{download.disabled=true;download.textContent='Preparando…';try{const data=await materialBytes(url.href,controller.signal);if(version!==generation)return;const objectURL=URL.createObjectURL(new Blob([data]));const a=document.createElement('a');a.href=objectURL;a.download=decodeURIComponent(url.pathname.split('/').pop());document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(objectURL),60000);}catch(error){if(error.name!=='AbortError')note.textContent='Não consegui baixar agora. Tente novamente.';}finally{download.disabled=false;download.textContent='↓ Baixar arquivo';}};
+      if(kind==='office'){
+        const alternate=document.createElement('button');alternate.type='button';alternate.textContent='Tentar outra prévia';alternate.style.cssText='background:#f1eff9;color:#5543df';alternate.onclick=()=>{embed.src='https://docs.google.com/gview?embedded=1&url='+encodeURIComponent(new URL('Estudos/'+caminhoSeguro(path),'https://jonataspp1509-svg.github.io/meu-hub-estudos/').href);alternate.remove();};footer.append(alternate);
+      }
+      footer.append(download);
+    }
+    dialog.append(footer);
   }
   dialog.addEventListener('close', cleanup);
   window.abrirAtalhoUrl = async function(file) {
@@ -89,11 +119,13 @@
     if (!link || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button) return;
     const url = new URL(link.href);
     const extension = url.pathname.split('.').pop().toLowerCase();
+    const path=decodeURIComponent(url.pathname.split('/Estudos/')[1]||'');
+    if(!path||!window.studyCanSee?.(path))return;
     if (extension === 'url') {
       const path = decodeURIComponent(url.pathname.split('/Estudos/')[1] || '');
       if (path) { event.preventDefault(); window.abrirAtalhoUrl(path); }
-    } else if (['jpg','jpeg','png','gif','webp','mp4'].includes(extension)) {
-      event.preventDefault(); show(materialTitle(decodeURIComponent(url.pathname.split('/').pop())), url, extension === 'mp4' ? 'video' : 'image');
+    } else if (['pdf','doc','docx','ppt','pptx','xls','xlsx','jpg','jpeg','png','gif','webp','mp4'].includes(extension)) {
+      event.preventDefault();event.stopImmediatePropagation();show(materialTitle(decodeURIComponent(url.pathname.split('/').pop())), url, extension==='pdf'?'pdf':/^(docx?|pptx?|xlsx?)$/.test(extension)?'office':extension === 'mp4' ? 'video' : 'image',path);
     }
-  });
+  },true);
 })();

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'studyflow-notebook-20261012';
+const CACHE_NAME = 'studyflow-reader-20261013';
 const urlsToCache = ['./', './index.html', './manifest.json'];
 self.addEventListener('install', event => {
   self.skipWaiting();

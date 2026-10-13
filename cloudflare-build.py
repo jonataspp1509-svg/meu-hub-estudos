@@ -14,7 +14,7 @@ manifest = {}
 limit = 20 * 1024 * 1024
 allowed = {'.html', '.css', '.js', '.json', '.png', '.jpg', '.jpeg', '.svg', '.ico', '.webp', '.txt', '.woff', '.woff2', '.pdf'}
 files = [p for p in root.iterdir() if p.is_file() and p.suffix.lower() in allowed]
-for folder in ['Estudos', 'Fotos de fisica']:
+for folder in ['Estudos', 'Fotos de fisica', 'vendor']:
     if (root / folder).exists():
         files.extend(p for p in (root / folder).rglob('*') if p.is_file())
 for source in files:
@@ -42,48 +42,21 @@ for source in files:
 script = r'''
 (() => {
 const materials = __MANIFEST__;
-document.addEventListener('click', async event => {
-  const link = event.target.closest('a[href]');
-  if (!link || event.button !== 0) return;
-  const url = new URL(link.href, location.href);
-  const base = new URL('./', location.href);
-  if (url.origin !== base.origin || !url.pathname.startsWith(base.pathname)) return;
-  let relative;
-  try { relative = decodeURIComponent(url.pathname.slice(base.pathname.length)); } catch { return; }
-  const item = materials[relative];
-  if (!item) return;
-  event.preventDefault();
-  event.stopImmediatePropagation();
-  const pdf = relative.toLowerCase().endsWith('.pdf');
-  const preview = pdf ? window.open('about:blank', '_blank') : null;
-  if (preview) preview.document.body.textContent = 'Preparando seu PDF…';
-  const old = link.textContent;
-  link.textContent = 'Preparando material…';
-  try {
-    const buffers = [];
-    for (const part of item.parts) {
-      const response = await fetch(new URL(part, base));
-      if (!response.ok) throw new Error('Falha ao carregar o material.');
-      buffers.push(await response.arrayBuffer());
-    }
-    const blob = new Blob(buffers, {type: pdf ? 'application/pdf' : 'application/octet-stream'});
-    if (blob.size !== item.size) throw new Error('Download incompleto.');
-    const hash = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', await blob.arrayBuffer())), b => b.toString(16).padStart(2, '0')).join('');
-    if (hash !== item.sha256) throw new Error('Não foi possível verificar o material.');
-    const objectURL = URL.createObjectURL(blob);
-    if (preview && !preview.closed) preview.location.href = objectURL;
-    else {
-      const download = document.createElement('a');
-      download.href = objectURL;
-      download.download = relative.split('/').pop();
-      download.click();
-    }
-    setTimeout(() => URL.revokeObjectURL(objectURL), 3600000);
-  } catch (error) {
-    if (preview && !preview.closed) preview.close();
-    alert('Não consegui abrir o material. Tente novamente. ' + error.message);
-  } finally { link.textContent = old; }
-}, true);
+window.studyMaterialManifest=materials;
+window.studyLoadMaterial=async function(value,signal){
+  const url=new URL(value,location.href),base=new URL('./',location.href);
+  const relative=url.origin===base.origin && url.pathname.startsWith(base.pathname)?decodeURIComponent(url.pathname.slice(base.pathname.length)):'';
+  const item=materials[relative];
+  if(!item){const response=await fetch(url,{signal});if(!response.ok)throw new Error('Material indisponível.');return response.arrayBuffer();}
+  const buffers=[];
+  for(const part of item.parts){const response=await fetch(new URL(part,base),{signal});if(!response.ok)throw new Error('Falha ao carregar o material.');buffers.push(await response.arrayBuffer());}
+  const blob=new Blob(buffers);
+  if(blob.size!==item.size)throw new Error('Material incompleto.');
+  const data=await blob.arrayBuffer();
+  const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',data)),b=>b.toString(16).padStart(2,'0')).join('');
+  if(hash!==item.sha256)throw new Error('Não foi possível verificar o material.');
+  return data;
+};
 })();
 '''.replace('__MANIFEST__', json.dumps(manifest, ensure_ascii=True))
 (out / 'materiais-grandes.js').write_text(script, encoding='utf-8')
