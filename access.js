@@ -1,3 +1,4 @@
+import './study-focus.js?v=sound-focus20261014';
 import {auth,onAuthStateChanged} from './code-account.js?v=free20261014';
 import {canSeeMaterial} from './access-policy.js?v=free20261014';
 window.studyAccess={ready:true,uid:null,grade:null,paid:false,plan:'Gratuito'};

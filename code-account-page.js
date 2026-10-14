@@ -1,5 +1,5 @@
 import {auth,onAuthStateChanged,signInLegacyGoogle,availability,codeAvailable,savedCode,createAccount,loginCode,linkedCode,rotateCode,leaveAccount} from './code-account.js?v=free20261014';
-import {subscribe} from './study-session.js?v=free20261014';
+import {subscribe} from './study-session.js?v=sound-focus20261014';
 const $=id=>document.getElementById(id);let current=null,busy=false,revealed=false,hasLinked=false,epoch=0;
 function message(text){$('status').textContent=text;}
 function controls(){for(const id of ['createCodeAccount','connectCode','generateAccountCode','rotateAccountCode','logout','google'])$(id).disabled=busy;}

@@ -1,1 +1,1 @@
-{"version": 1, "include": ["/api/aurora", "/api/resumos", "/api/youtube-bot", "/api/acesso", "/api/estudos"], "exclude": []}
+{"version": 1, "include": ["/api/aurora", "/api/resumos", "/api/youtube-bot", "/api/acesso", "/api/estudos", "/api/foco"], "exclude": []}
