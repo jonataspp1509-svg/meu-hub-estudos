@@ -1,30 +1,7 @@
-import {initializeApp,getApps,getApp} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
-import {getAuth,onAuthStateChanged} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
-import {getFirestore,doc,onSnapshot,setDoc,updateDoc,serverTimestamp} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
-import {effectiveGrade,currentSchoolYear,canSeeMaterial} from './access-policy.js?v=1';
-const config={apiKey:'AIzaSyAUcyfIrmue8JDpcNNjkT8QViLB5bnuawY',authDomain:'studyflow-788a2.firebaseapp.com',projectId:'studyflow-788a2'};
-const app=getApps().some(a=>a.name==='[DEFAULT]')?getApp():initializeApp(config),auth=getAuth(app),db=getFirestore(app);
-let epoch=0,stops=[],profile=null,wallet=null,vip=false,flags={},failed=false,user=null;
-window.studyAccess={ready:false,uid:null,grade:null,paid:false,plan:'Carregando…'};
-window.studyCanSee=path=>canSeeMaterial(path,window.studyAccess);
-const paidPage=/\/(flashcards|programacao)(?:\.html)?$/.test(location.pathname);
-const mainPage=Boolean(document.getElementById('siteContent'));
-const overlay=document.createElement('div');overlay.id='accessGate';overlay.style.cssText='position:fixed;inset:0;z-index:99999;background:#f5f6fa;display:grid;place-items:center;padding:22px;overflow:auto';
-const card=document.createElement('section');card.style.cssText='max-width:500px;width:100%;box-sizing:border-box;background:white;padding:32px;border:1px solid #e3e7f0;border-radius:24px;color:#293249;font:16px system-ui';overlay.append(card);
-if(mainPage||paidPage)document.body.append(overlay);
-function gate(title,text,href,label){card.replaceChildren();const h=document.createElement('h1'),p=document.createElement('p'),a=document.createElement('a');h.textContent=title;p.textContent=text;p.style.lineHeight='1.6';a.href=href;a.textContent=label;a.style.cssText='display:inline-block;background:#5145cd;color:white;padding:12px 18px;border-radius:12px;text-decoration:none';card.append(h,p,a);overlay.hidden=false;overlay.style.display='grid';}
-function chooseGrade(){gate('Em qual série você está?','No plano gratuito, sua biblioteca acompanha sua série. A série avança automaticamente em 1º de janeiro.','conta.html','Minha conta');const form=document.createElement('form'),select=document.createElement('select'),button=document.createElement('button'),status=document.createElement('p');select.setAttribute('aria-label','Sua série');select.style.cssText='display:block;width:100%;padding:12px;margin:20px 0;font:inherit';for(const grade of [1,2,3]){const o=document.createElement('option');o.value=grade;o.textContent=grade+'º ano';select.append(o);}button.type='submit';button.textContent='Salvar minha série';button.style.cssText='background:#5145cd;color:white;border:0;padding:12px;border-radius:10px;font:inherit';form.append(select,button,status);card.append(form);form.onsubmit=async e=>{e.preventDefault();const uid=user?.uid;if(!uid)return;button.disabled=true;try{await setDoc(doc(db,'studentProfiles',uid),{grade:Number(select.value),gradeYear:currentSchoolYear(),createdAt:serverTimestamp(),updatedAt:serverTimestamp()});}catch(error){status.textContent='Não foi possível salvar. Confira sua conexão e as regras do perfil.';}finally{button.disabled=false;}};}
-function notify(){document.body.dataset.accessReady='false';const grade=effectiveGrade(profile),paid=vip||Boolean(wallet?.premiumUntil?.toMillis()>Date.now()),ready=Boolean(user&&flags.profile&&flags.wallet&&flags.vip&&!failed);window.studyAccess={ready,uid:user?.uid||null,grade,paid,plan:user?(vip?'VIP':paid?'Premium':'Gratuito'):'Entrar com Google'};document.dispatchEvent(new CustomEvent('studyaccesschange',{detail:window.studyAccess}));if(mainPage&&typeof renderMateriais==='function')renderMateriais();if(!mainPage&&!paidPage)return;
- if(!user){gate('Seu espaço de estudos','Entre com Google para guardar sua série e manter seu espaço separado das outras contas.','conta.html','Entrar com Google');return;}
- if(failed){gate('Não consegui confirmar sua conta','Confira a conexão e as regras do perfil e do plano no Firebase.','conta.html','Ver minha conta');return;}
- if(!ready){gate('Carregando sua conta…','Confirmando sua série e seu plano.','conta.html','Minha conta');return;}
- if(!grade){chooseGrade();return;}
- if(paidPage&&!paid){gate('Recurso Premium','Flashcards e programação ficam disponíveis no Premium ou VIP. Seu plano gratuito inclui sua série e o Modo Foco.','plano.html','Ver plano e ativar VIP');return;}
- if(mainPage){document.getElementById('menuEscolha').style.display='none';document.getElementById('siteContent').style.display='block';}document.body.dataset.accessReady='true';overlay.hidden=true;overlay.style.display='none';
-}
-onAuthStateChanged(auth,current=>{stops.forEach(stop=>stop());stops=[];const active=++epoch;user=current;profile=null;wallet=null;vip=false;failed=false;flags={};notify();if(!user)return;const uid=user.uid;
- for(const [key,collection] of [['profile','studentProfiles'],['wallet','studyWallets'],['vip','vipMembers']])stops.push(onSnapshot(doc(db,collection,uid),snapshot=>{if(active!==epoch)return;flags[key]=true;if(key==='profile'){profile=snapshot.exists()?snapshot.data():null;if(profile&&profile.gradeYear===currentSchoolYear()-1){updateDoc(doc(db,collection,uid),{grade:effectiveGrade(profile),gradeYear:currentSchoolYear(),updatedAt:serverTimestamp()}).catch(()=>{});}}if(key==='wallet')wallet=snapshot.exists()?snapshot.data():null;if(key==='vip')vip=snapshot.exists();notify();},()=>{if(active!==epoch)return;failed=true;flags[key]=true;notify();}));
-});
-setInterval(()=>{if(user)notify();},60000);
-document.addEventListener('click',event=>{const target=event.target.closest('.dash-card,a');if(!target)return;const label=target.textContent;if((target.dataset.premiumFeature||/Flashcards|Programação|Caderno Inteligente/.test(label))&&(!window.studyAccess.ready||!window.studyAccess.paid)){event.preventDefault();event.stopImmediatePropagation();location.href='plano.html';}},true);
-window.addEventListener('pagehide',()=>stops.forEach(stop=>stop()));
+import {auth,onAuthStateChanged} from './code-account.js?v=free20261014';
+import {canSeeMaterial} from './access-policy.js?v=free20261014';
+window.studyAccess={ready:true,uid:null,grade:null,paid:false,plan:'Gratuito'};
+window.studyCanSee=path=>canSeeMaterial(path);
+const main=document.getElementById('siteContent');
+if(main){document.getElementById('menuEscolha').style.display='none';main.style.display='block';document.body.dataset.accessReady='true';}
+onAuthStateChanged(auth,user=>{window.studyAccess={ready:true,uid:user?.uid||null,grade:null,paid:!!user,plan:'Gratuito'};document.body.dataset.accessReady='true';document.dispatchEvent(new CustomEvent('studyaccesschange',{detail:window.studyAccess}));if(typeof renderMateriais==='function')renderMateriais();});

@@ -23,7 +23,6 @@ export function imageStore(mode, value) {
           if (mode === 'get') result = items.find(i => i.id === (value.id || 'legacy'))?.blob;
           else if (mode === 'list') result = items;
           else if (mode === 'put') {
-            if (items.length >= 24) { tx.abort(); return; }
             items.push({id:value.id, name:value.name, blob:value.blob, tone:value.tone});
             result = value.id;
           } else if (mode === 'delete') {

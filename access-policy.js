@@ -1,4 +1,4 @@
 export function currentSchoolYear(date=new Date()){return Number(new Intl.DateTimeFormat('en',{year:'numeric',timeZone:'America/Sao_Paulo'}).format(date));}
 export function effectiveGrade(profile,year=currentSchoolYear()){if(!profile||![1,2,3].includes(profile.grade)||!Number.isInteger(profile.gradeYear))return null;return Math.min(3,profile.grade+Math.max(0,year-profile.gradeYear));}
 export function pathGrade(path){const root=path.split('/')[0];const found=/^([123])(?:AnoM|ano|serie)$/i.exec(root);return found?Number(found[1]):null;}
-export function canSeeMaterial(path,state){return Boolean(state?.ready&&state.uid&&state.grade&&(state.paid||pathGrade(path)===state.grade));}
+export function canSeeMaterial(path,state){return typeof path==='string'&&!!path&&!path.startsWith('/')&&!path.includes('\\')&&!path.split('/').some(part=>part==='..'||part==='.');}

@@ -1,5 +1,5 @@
 import {initializeApp} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
-import {getAuth,onAuthStateChanged} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+import {getAuth,onAuthStateChanged} from './code-account.js?v=free20261014';
 const app=initializeApp({apiKey:'AIzaSyAUcyfIrmue8JDpcNNjkT8QViLB5bnuawY',authDomain:'studyflow-788a2.firebaseapp.com',projectId:'studyflow-788a2'});
 const auth=getAuth(app);
 const oldAvatar=document.querySelector('.avatar');
@@ -26,22 +26,22 @@ window.addEventListener('resize',()=>{if(!panel.hidden)positionPanel();});
 window.addEventListener('scroll',close,{passive:true});
 document.addEventListener('click',event=>{if(!panel.contains(event.target)&&!button.contains(event.target))close();});
 document.addEventListener('keydown',event=>{if(event.key==='Escape'){close();button.focus();}});
-const badge=document.createElement('span');badge.className='plan-badge';badge.style.cssText='display:inline-block;font:600 12px system-ui;padding:5px 9px;margin-left:10px;border-radius:20px;background:#eeebfa;color:#514475;vertical-align:middle;letter-spacing:0;-webkit-text-fill-color:#514475';badge.textContent='Entrar com Google';
-document.querySelector('.logo')?.append(badge);
+const badge=document.createElement('span');badge.className='plan-badge';badge.style.cssText='display:inline-block;font:600 12px system-ui;padding:5px 9px;margin-left:10px;border-radius:20px;background:#eeebfa;color:#514475;vertical-align:middle;letter-spacing:0;-webkit-text-fill-color:#514475';badge.textContent='Conectar minha conta';
+
 onAuthStateChanged(auth,user=>{
  button.textContent=user?(user.displayName||user.email||'?').trim().charAt(0).toUpperCase():'?';
- email.textContent=user?.email||'Você ainda não entrou com Google.';
- link.textContent=user?'Gerenciar minha conta':'Entrar com Google';
+ email.textContent=user?.email||'Conecte sua conta para guardar seus estudos.';
+ link.textContent=user?'Gerenciar minha conta':'Conectar minha conta';
  refreshBadge();
 });
 
 
-function refreshBadge(){const state=window.studyAccess;badge.textContent=state?.ready?state.plan:auth.currentUser?'Carregando…':'Entrar com Google';}
+function refreshBadge(){const state=window.studyAccess;badge.textContent=state?.ready?state.plan:auth.currentUser?'Carregando…':'Conectar minha conta';}
 document.addEventListener('studyaccesschange',refreshBadge);refreshBadge();
-const logo=document.querySelector('#siteContent .logo');if(logo){logo.replaceChildren();const icon=document.createElement('span');icon.className='brand-icon';icon.textContent='S';icon.setAttribute('aria-hidden','true');const name=document.createElement('span');name.className='brand-name';name.textContent='StudyFlow';logo.append(icon,name,badge);}
-const planLink=document.createElement('a');planLink.className='dash-card';planLink.href='plano.html';planLink.textContent='Planos e benefícios';document.getElementById('dashboard')?.prepend(planLink);
+const logo=document.querySelector('#siteContent .logo');if(logo){logo.replaceChildren();const icon=document.createElement('span');icon.className='brand-icon';icon.textContent='S';icon.setAttribute('aria-hidden','true');const name=document.createElement('span');name.className='brand-name';name.textContent='StudyFlow';logo.append(icon,name);}
+
 
 for(const card of document.querySelectorAll('.dash-card')){if(card.textContent.includes('Caderno Inteligente'))card.onclick=()=>{location.href='caderno.html';};}
 
 
-import('./study-personalize.js?v=uniform-credits-20261012').catch(()=>{console.warn('Personalizações temporariamente indisponíveis.');});
+import('./study-personalize.js?v=free20261014').catch(()=>{console.warn('Personalizações temporariamente indisponíveis.');});

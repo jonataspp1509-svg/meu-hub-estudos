@@ -1,4 +1,4 @@
-import {getAuth,onAuthStateChanged} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+import {getAuth,onAuthStateChanged} from './code-account.js?v=free20261014';
 const auth=getAuth();let uid=null,selected=null,generation=0,urls=[];
 const area=document.getElementById('attachments'),picker=document.getElementById('attachmentFiles'),list=document.getElementById('attachmentList'),message=document.getElementById('attachmentStatus');
 const dbPromise=new Promise((resolve,reject)=>{const request=indexedDB.open('StudyFlowPrivateAttachments',1);request.onupgradeneeded=()=>request.result.createObjectStore('notes',{keyPath:'key'});request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error);});
