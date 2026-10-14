@@ -10,6 +10,7 @@ document.querySelectorAll('#dashboard .dash-card').forEach((card,index)=>{
 });
 const originalRenderMateriais=renderMateriais;
 const search=document.getElementById('pesquisaMateriais');
+function searchText(value){return String(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').replaceAll('_',' ').toLocaleLowerCase('pt-BR');}
 function decorateRows(){
   document.querySelectorAll('#lista .item').forEach(item=>{
     const label=item.querySelector('span:not(.material-glyph)');
@@ -20,14 +21,14 @@ function decorateRows(){
   });
 }
 renderMateriais=function(){
-  const query=(search.value||'').trim().toLocaleLowerCase('pt-BR');
+  const query=searchText(search.value||'').trim();
   document.getElementById('totalMateriais').textContent=arquivos.filter(path=>path.toLowerCase().endsWith('.pdf')).length.toLocaleString('pt-BR');
   document.getElementById('totalPastas').textContent=new Set(arquivos.map(path=>path.split('/')[0])).size;
   if(!query){originalRenderMateriais();decorateRows();return;}
   const list=document.getElementById('lista');list.replaceChildren();
   document.getElementById('pastaAtualTexto').textContent='Resultados em todas as pastas';
   document.getElementById('breadcrumb').textContent='Busca por: '+search.value;
-  const matches=arquivos.filter(path=>path.toLocaleLowerCase('pt-BR').includes(query));
+  const matches=arquivos.filter(path=>window.studyCanSee?.(path)===true&&searchText(path+' '+(window.studyMaterialTitles?.[path]||'')).includes(query));
   matches.forEach(path=>{
     const anchor=document.createElement('a');anchor.className='item';anchor.href=BASE+'Estudos/'+caminhoSeguro(path);anchor.target='_blank';anchor.rel='noopener';
     const text=document.createElement('span');text.textContent=path.split('/').pop();anchor.title=path;anchor.append(text);list.append(anchor);
