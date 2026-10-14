@@ -1271,6 +1271,7 @@ async function abrirAtalhoUrl(file){
 function irPara(path){
   if(path && !window.studyCanSee?.(path+'/')){ caminhoAtual='';renderMateriais();return; }
   caminhoAtual = path;
+  const route={...history.state,libraryPath:path};delete route.studyDialog;history.pushState(route,'');
   renderMateriais();
 }
 
@@ -1301,10 +1302,11 @@ function voltarMenu(){
 
 
 function voltarInicioMateriais(){
-  caminhoAtual = "";
-  renderMateriais();
+  irPara("");
 }
 
+history.replaceState({...history.state,libraryPath:caminhoAtual},'');
+window.addEventListener('popstate',event=>{if(typeof event.state?.libraryPath==='string'){caminhoAtual=event.state.libraryPath;renderMateriais();}});
 const APP_VERSION = "studyflow-panel-v11";
 
 async function atualizarCacheDoApp(){
@@ -1499,5 +1501,5 @@ document.getElementById("installBtn")?.addEventListener("click", async () => {
 </script>
 
 <script src="novo-visual.js?v=8"></script>
-<script src="biblioteca.js?v=teachers-20261012"></script><script src="midias.js?v=reader-20261013"></script><script type="module" src="conta-cabecalho.js?v=notebook-20261012"></script><script type="module" src="access.js?v=3"></script><script type="module" src="aurora-studyflow.js?v=1"></script></body>
+<script src="material-titles.js?v=notebook-tools-20261014"></script><script src="biblioteca.js?v=notebook-tools-20261014"></script><script src="midias.js?v=notebook-tools-20261014"></script><script type="module" src="conta-cabecalho.js?v=notebook-20261012"></script><script type="module" src="access.js?v=3"></script><script type="module" src="aurora-studyflow.js?v=1"></script><script src="site-guide.js?v=notebook-tools-20261014"></script></body>
 </html>

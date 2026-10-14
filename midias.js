@@ -111,7 +111,7 @@
       if (!response.ok) throw new Error();
       const line = (await response.text()).split(/\r?\n/).find(value => /^URL=/i.test(value));
       if (!line) throw new Error();
-      show(materialTitle(file.split('/').pop()), validUrl(line.slice(4).trim()), 'link');
+      show(materialTitle(file.split('/').pop(),file), validUrl(line.slice(4).trim()), 'link');
     } catch { alert('Não foi possível abrir este link. Tente novamente.'); }
   };
   document.addEventListener('click', event => {
@@ -125,7 +125,7 @@
       const path = decodeURIComponent(url.pathname.split('/Estudos/')[1] || '');
       if (path) { event.preventDefault(); window.abrirAtalhoUrl(path); }
     } else if (['pdf','doc','docx','ppt','pptx','xls','xlsx','jpg','jpeg','png','gif','webp','mp4'].includes(extension)) {
-      event.preventDefault();event.stopImmediatePropagation();show(materialTitle(decodeURIComponent(url.pathname.split('/').pop())), url, extension==='pdf'?'pdf':/^(docx?|pptx?|xlsx?)$/.test(extension)?'office':extension === 'mp4' ? 'video' : 'image',path);
+      event.preventDefault();event.stopImmediatePropagation();show(materialTitle(decodeURIComponent(url.pathname.split('/').pop()),url.pathname), url, extension==='pdf'?'pdf':/^(docx?|pptx?|xlsx?)$/.test(extension)?'office':extension === 'mp4' ? 'video' : 'image',path);
     }
   },true);
 })();
