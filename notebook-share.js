@@ -1,5 +1,5 @@
-import {session} from './study-session.js?v=together20261015';
-import {groupRequest} from './community-api.js?v=together20261015';
+import {session} from './study-session.js?v=community-news20261015';
+import {groupRequest} from './community-api.js?v=community-news20261015';
 import {encodeNote} from './notebook-codec.js?v=postit-move20261014';
 const bridge=window.notebookBridge,actions=document.querySelector('.top-actions'),button=document.createElement('button'),groupsLink=document.createElement('a');button.type='button';button.className='subtle-button';button.textContent='Compartilhar página';groupsLink.href='comunidade.html#cadernos';groupsLink.className='subtle-button';groupsLink.textContent='Cadernos em grupo';actions.append(groupsLink,button);// Keep all sharing styles scoped to the dialog.
 

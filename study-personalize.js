@@ -1,7 +1,7 @@
-import {createMusic} from './study-music.js?v=together20261015';
+import {createMusic} from './study-music.js?v=community-news20261015';
 import {imageStore} from './personal-image-store.js?v=2';
-import {session,subscribe} from './study-session.js?v=together20261015';
-import {PRODUCTS,owned,shopReady,subscribeShop} from './study-shop.js?v=together20261015';
+import {session,subscribe} from './study-session.js?v=community-news20261015';
+import {PRODUCTS,owned,shopReady,subscribeShop} from './study-shop.js?v=community-news20261015';
 export function diamond(){const ns='http://www.w3.org/2000/svg',svg=document.createElementNS(ns,'svg');svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('class','diamond-icon');svg.setAttribute('aria-hidden','true');svg.innerHTML='<path d="M6 3h12l5 6-11 13L1 9z" fill="#8878e8"/><path d="M6 3h12l-6 6z" fill="#d8d0ff"/><path d="m1 9 11 13V9z" fill="#aea0fa"/><path d="M18 3 23 9H12z" fill="#6450cf"/>';return svg;}
 let galleryURLs=[],galleryGeneration=0;
 let uid=null,prefs={theme:'default',sound:'none',volume:25},generation=0,imageURL=null,audio=null,audioNodes=[],audioMaster=null,musicPlayer=null,previewTimer=null,playing=false,menuButton=null;
@@ -9,7 +9,7 @@ const dialog=document.createElement('dialog');dialog.className='customize-dialog
 const $=id=>dialog.querySelector('#'+id),status=text=>{$('customizeStatus').textContent=text;};
 function readPrefs(){try{return {...prefs,...JSON.parse(localStorage.getItem('studyflow-style:'+uid)||'{}')};}catch{return {theme:'default',sound:'none',volume:25};}}
 function save(){if(!uid)return;try{localStorage.setItem('studyflow-style:'+uid,JSON.stringify(prefs));}catch{status('Não consegui guardar a preferência neste navegador.');}}
-const personalCSS=document.createElement('link');personalCSS.rel='stylesheet';personalCSS.href=new URL('./personalize.css?v=together20261015',import.meta.url).href;document.head.append(personalCSS);const shellCSS=document.createElement('link');shellCSS.rel='stylesheet';shellCSS.href=new URL('./responsive-shell.css?v=uniform-credits-20261012',import.meta.url).href;document.head.append(shellCSS);
+const personalCSS=document.createElement('link');personalCSS.rel='stylesheet';personalCSS.href=new URL('./personalize.css?v=community-news20261015',import.meta.url).href;document.head.append(personalCSS);const shellCSS=document.createElement('link');shellCSS.rel='stylesheet';shellCSS.href=new URL('./responsive-shell.css?v=uniform-credits-20261012',import.meta.url).href;document.head.append(shellCSS);
 const root=document.documentElement;
 if(window.parent!==window)root.dataset.personalEmbedded='true';
 async function apply(){
@@ -83,4 +83,4 @@ const mount=()=>{const host=document.querySelector('.workspace-actions')||docume
  const panel=document.getElementById('accountPopover');if(panel){menuButton=document.createElement('button');menuButton.type='button';menuButton.className='customize-profile-button';menuButton.textContent='Personalizar meu site';menuButton.onclick=()=>{panel.hidden=true;document.querySelector('.avatar')?.setAttribute('aria-expanded','false');openCustomize();};panel.append(menuButton);}document.querySelectorAll('[data-customize]').forEach(button=>{button.onclick=openCustomize;});};
 mount();subscribe(s=>{const next=s.user?.uid||null;if(next!==uid){uid=next;stopAudio();galleryGeneration++;galleryURLs.forEach(url=>URL.revokeObjectURL(url));galleryURLs=[];prefs={theme:'default',sound:'none',volume:25};if(uid)prefs=readPrefs();prefs.volume=Math.max(0,Math.min(70,Number(prefs.volume)||0));dialog.close();}apply();render();});subscribeShop(()=>{apply();render();if(!owned.has(prefs.sound))stopAudio();});
 
-window.addEventListener('studyflow:external-audio',stopAudio);
+

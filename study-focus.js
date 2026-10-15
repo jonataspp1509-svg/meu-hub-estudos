@@ -1,4 +1,3 @@
-import './study-spotify.js?v=together20261015';
 import {auth,onAuthStateChanged} from './code-account.js?v=free20261014';
 let uid=null,state=null,offset=0,busy=false,epoch=0,error='',claiming=false,lastPoll=0,loaded=false,revision=0,requestSeq=0,appliedSeq=0;
 const listeners=new Set();

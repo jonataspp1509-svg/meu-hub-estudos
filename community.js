@@ -1,5 +1,5 @@
-import {subscribe,session} from './study-session.js?v=together20261015';
-import {communityRequest,groupRequest} from './community-api.js?v=together20261015';
+import {subscribe,session} from './study-session.js?v=community-news20261015';
+import {communityRequest,groupRequest} from './community-api.js?v=community-news20261015';
 const $=id=>document.getElementById(id),status=text=>{$('communityStatus').textContent=text;};let owner=null,roomCode='',activeRoom='',busy=false;
 async function task(fn){if(busy)return;busy=true;document.querySelectorAll('form button,#newRoom,#refreshRanking').forEach(b=>b.disabled=true);try{await fn();}catch(e){status(e.message);}finally{busy=false;document.querySelectorAll('form button,#newRoom,#refreshRanking').forEach(b=>b.disabled=false);}}
 async function copy(text){try{await navigator.clipboard.writeText(text);status('Código copiado. Envie somente para seu grupo.');}catch{status('Não consegui copiar automaticamente. Selecione o código mostrado para copiar.');}}

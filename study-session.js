@@ -1,4 +1,4 @@
-import './study-focus.js?v=together20261015';
+import './study-focus.js?v=community-news20261015';
 import {auth,onAuthStateChanged} from './code-account.js?v=free20261014';
 import {db,doc,getDoc,setDoc,onSnapshot,runTransaction,serverTimestamp,Timestamp} from './study-storage.js?v=free20261014';
 export {auth,db,doc,getDoc,setDoc,onSnapshot,runTransaction,serverTimestamp,Timestamp};

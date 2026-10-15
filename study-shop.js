@@ -1,5 +1,5 @@
-import {MUSIC_PRODUCTS,GRADIENT_PRODUCTS} from './music-catalog.js?v=together20261015';
-import {session,subscribe,ownerTesting,db,doc,onSnapshot,runTransaction,serverTimestamp} from './study-session.js?v=together20261015';
+import {MUSIC_PRODUCTS,GRADIENT_PRODUCTS} from './music-catalog.js?v=community-news20261015';
+import {session,subscribe,ownerTesting,db,doc,onSnapshot,runTransaction,serverTimestamp} from './study-session.js?v=community-news20261015';
 import {collection} from './study-storage.js?v=free20261014';
 export const PRODUCTS=[
  {id:'theme-mint',kind:'theme',name:'Jardim de menta',price:0,color:'#e0f1e9',description:'Um fundo verde leve para o seu espaço.'},
