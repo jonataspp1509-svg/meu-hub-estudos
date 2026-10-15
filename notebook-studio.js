@@ -7,7 +7,7 @@ if(!data||!Array.isArray(data.pages)||!Array.isArray(data.folders)){const now=Da
 let view='all',filter='all',folder=null,current=null,saveTimer,toastTimer,listView=false,redoStack=[],drawing=null,ink='#253c23',tool='pen',expanded=false,attachmentURLs=[];
 function toast(message){$('toast').textContent=message;$('toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').hidden=true,3800);}
 function saveData(){if(window.STUDIO_CLOUD){window.studioCloud?.save(data);return false;}try{localStorage.setItem(KEY,JSON.stringify(data));return true;}catch{toast('O armazenamento está cheio. Exporte uma cópia antes de continuar.');return false;}}
-function plain(html){const el=document.createElement('div');el.innerHTML=html;el.querySelectorAll('[data-postit-remove]').forEach(n=>n.remove());return el.textContent||'';}
+function plain(html){const el=document.createElement('div');el.innerHTML=html;el.querySelectorAll('[data-postit-remove],[data-postit-drag]').forEach(n=>n.remove());return el.textContent||'';}
 function date(ts){return new Date(ts).toLocaleDateString('pt-BR',{day:'2-digit',month:'short'});}
 function escape(value){const el=document.createElement('span');el.textContent=value;return el.innerHTML;}
 function folderName(id){return data.folders.find(f=>f.id===id)?.name||'Sem caderno';}
