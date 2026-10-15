@@ -566,8 +566,12 @@
 2AnoM/biologia/croti/3p/lab_04_-_transpiracao_e_estomatos_-_gabarito_ecc4d435243e.pdf
 2AnoM/biologia/croti/3p/lab_05_-_transporte_da_seiva_-_exercicios_extra_be9d94cf0008.pdf
 2AnoM/biologia/croti/3p/lab_05_-_transporte_da_seiva_-_gabarito_087408ef08f5.pdf
+2AnoM/biologia/croti/4p/aula_15_-_fitormonios_-_hormonios_vegetais_-_gabarito_ae742577b978.pdf
+2AnoM/biologia/croti/4p/aula_16_-_fotoperiodismo_8a8e4573279f.pdf
 2AnoM/biologia/croti/4p/lab_06_-_fotossintese_e_respiracao_-_gabarito_1d06405d1b48.pdf
 2AnoM/biologia/croti/4p/lab_07_-_pigmentos_vegetais_-_gabarito_585b687c6ef5.pdf
+2AnoM/biologia/croti/novos/2em_-_recuperacao/2em_-_recuperacao_paralela/rec_01_-_ciclo_celular_mitose_e_meiose_-_gabarito_a93f589007c7.pdf
+2AnoM/biologia/croti/novos/2em_-_recuperacao/2em_-_recuperacao_paralela/rec_02_-_replicacao_e_transcricao_do_dna_-_ciclos_reprodutivos_-_gabar_e4d36473e8d8.pdf
 2AnoM/biologia/croti/novos/2em_-_recuperacao/2em_-_recuperacao_paralela/rec_03_-_sintese_proteica_-_briofitas_e_pteridofitas_b518d487d624.pdf
 2AnoM/biologia/croti/novos/2em_-_recuperacao/2em_-_recuperacao_paralela/rec_04_-_biotecnologia_-_gabarito_bc5b11edf1d7.pdf
 2AnoM/biologia/croti/novos/2em_-_recuperacao/2em_-_recuperacao_paralela/rec_04_-_biotecnologia_-_telas_0e2d8432548e.pdf
@@ -665,6 +669,7 @@
 2AnoM/fisica/fabio/3p/mostra_cultural_-_2026_-_fabio/imagens_da_apostila_aumentadas/infografia_tecnica_do_motor_stirling_caseiro_8d3803575d3c.png
 2AnoM/fisica/fabio/3p/mostra_cultural_-_2026_-_fabio/inicie_aqui_-_resumo_do_bate_papo_inicial_da_mostra_cultural_627c8246728d.url
 2AnoM/fisica/fabio/3p/mostra_cultural_-_2026_-_fabio/tabela_links_videos_apoio_2017b61a651e.pdf
+2AnoM/fisica/fabio/4p/lista_11_-_cinematica_do_mhs_e9423c08023f.pdf
 2AnoM/fisica/rocris/1p/2em_-_1o_periodo/exercicios_1_serie_-_dinamica/plano_inclinado_-_exercicios.pdf
 2AnoM/fisica/rocris/1p/2em_-_1o_periodo/exercicios_1_serie_-_dinamica/plano_inclinado_-_exercicios_-_resolucao.pdf
 2AnoM/fisica/rocris/1p/2em_-_1o_periodo/exercicios_1_serie_-_dinamica/sistemas_de_blocos_-_ex_-_modelos_-_resolucao.pdf
@@ -714,6 +719,7 @@
 2AnoM/fisica/rocris/3p/recuperacao/forca_centripeta_6cf14b4f86da.pdf
 2AnoM/fisica/rocris/3p/recuperacao/lentes_esfericas_4702dd451755.pdf
 2AnoM/fisica/rocris/3p/recuperacao/quantidade_de_movimento_-_impulso_-_teorema_do_impulso_9adb42f46219.pdf
+2AnoM/fisica/rocris/4p/choques_-_exercicios_-_resolucao_36056c1244aa.pdf
 2AnoM/fisica/rocris/4p/choques_mecanicos_-_exercicios_-_resolucao_e879c6fc3f5a.pdf
 2AnoM/fisica/rocris/4p/choques_mecanicos_-_exercicios_4fbd53805f7c.pdf
 2AnoM/fisica/rocris/4p/recuperacao/conservacao_da_quantidade_de_movimento_c66801ac7b76.pdf
@@ -864,6 +870,7 @@
 2AnoM/ingles/2p/review_exercises_gabarito_ae6d2b6317c0.pdf
 2AnoM/ingles/3p/conditional_sentences_112011186a99.pdf
 2AnoM/ingles/3p/relative_pronouns_7be8659ee2b7.pptx
+2AnoM/ingles/4p/active_and_passive_voice_664d2694b4af.pdf
 2AnoM/ingles/4p/global_water_bankruptcy_2026_78b253312fa5.pptx
 2AnoM/ingles/4p/texto_extra_scientific_american_microplastic_13_agosto_2018_6779d36aae3c.pptx
 2AnoM/matematica/debora/1p/arcos_geomtricos.pdf
@@ -1009,6 +1016,7 @@
 2AnoM/quimica/gabriel/3p/tarefas/08_-_lista_8_d4c522ac1ab2.pdf
 2AnoM/quimica/gabriel/4p/crimes_ambientais/10_-_orientacoes_para_os_banners_e79e403579a0.pdf
 2AnoM/quimica/gabriel/4p/slides/09_-_slides_-_isomeria_plana_2cbaea70d8ee.pdf
+2AnoM/quimica/gabriel/4p/slides/10_-_slides_-_isomeria_espacial_101489dd41ba.pdf
 2AnoM/quimica/gabriel/4p/tarefas/09_-_lista_10_df7586a1ae2b.pdf
 2AnoM/quimica/gabriel/4p/tarefas/09_-_lista_9_499d36ffcaea.pdf
 2AnoM/quimica/renato/1p/exercicios/lista_extra_-_solucoes_-_parte_1.pdf
@@ -1155,6 +1163,10 @@
 2AnoM/sociologia/novos/2025/sociabilidades_contemporaneas_-_2a_se_rie_-_2a_etapa_-_3o_peri_odo_03853494249e.docx
 2AnoM/sociologia/novos/2025/sociabilidades_contemporaneas_-_2a_se_rie_-_2a_etapa_-_4o_peri_odo_5bc653b869c4.docx
 2AnoM/sociologia/novos/2025/sociologia_-_2a_se_rie_-_1a_etapa_-_1o_peri_odo_abc71586238d.docx
+2AnoM/sociologia/novos/lista_de_exercicios/lista_1_-_a_natureza_da_politica_-_gabarito_partes_1_e_2_4cb0897510df.doc
+2AnoM/sociologia/novos/lista_de_exercicios/lista_1_-_a_natureza_da_politica_2ed93c864bca.doc
+2AnoM/sociologia/novos/lista_de_exercicios/lista_1_-_a_natureza_da_politica_sem_gabarito_37ddd9f925f4.pdf
+2AnoM/sociologia/novos/lista_de_exercicios/lista_2_-_teorias_politicas_e_estado_moderno_sem_gabarito_e5d221c51dc6.pdf
 2AnoM/sociologia/novos/slides/material_1_-_a_natureza_da_politica_938f277425df.pdf
 2AnoM/sociologia/novos/slides/material_2_-_teorias_politicas_e_estado_moderno_87ab1dda4ce1.pptx
 2AnoM/sociologia/novos/textos_complementares/tc1_-_politica_poder_e_estado_estado_e_legitimidade_do_poder_3aa348a8710a.pdf
