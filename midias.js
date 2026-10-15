@@ -4,19 +4,19 @@
   dialog.setAttribute('aria-label', 'Visualizador de material');
   const style = document.createElement('style');
   style.textContent = `
-    #mediaViewer{position:fixed;inset:0;margin:0;width:100%;height:100vh;height:100dvh;max-width:none;max-height:none;padding:0;border:0;border-radius:0;box-sizing:border-box;overflow:hidden;color:#293147;background:#fff}
+    #mediaViewer{position:fixed;inset:0;margin:0;width:100%;height:100vh;height:100dvh;max-width:none;max-height:none;padding:0;border:0;border-radius:0;box-sizing:border-box;overflow:hidden;color:#f2f0fa;background:#202535}
     #mediaViewer[open]{display:flex;flex-direction:column}
     #mediaViewer::backdrop{background:#15142e99}
-    #mediaViewer header{position:relative;display:flex;flex:none;align-items:center;justify-content:space-between;gap:16px;margin:0;padding:14px 20px;border-radius:0;background:#fff;box-shadow:none;color:#293147}
+    #mediaViewer header{position:relative;display:flex;flex:none;align-items:center;justify-content:space-between;gap:16px;margin:0;padding:14px 20px;border-radius:0;background:#202535;box-shadow:none;color:#f2f0fa}
     #mediaViewer header::before,#mediaViewer header::after{content:none;display:none;pointer-events:none}
     #mediaViewer h2{font-size:clamp(16px,2vw,22px);line-height:1.3;margin:0;overflow-wrap:anywhere;color:inherit}
     #mediaViewer button{position:relative;z-index:2;flex:none;border:0;border-radius:12px;padding:12px 18px;background:#5543df;color:white;cursor:pointer;white-space:nowrap;pointer-events:auto}
     #mediaViewer .media-body{display:flex;flex:1;min-height:0;align-items:center;justify-content:center;overflow:auto;background:#101827}
     #mediaViewer img{display:block;max-width:100%;max-height:100%;object-fit:contain;margin:0}
     #mediaViewer iframe,#mediaViewer video{display:block;width:100%;height:100%;border:0;border-radius:0;margin:0;object-fit:contain}
-    #mediaViewer footer{display:flex;flex:none;align-items:center;justify-content:space-between;gap:12px;margin:0;padding:10px 20px;background:#fff}
-    #mediaViewer a{display:inline-block;flex:none;margin:0;color:#5543df}
-    #mediaViewer p{font-size:13px;line-height:1.4;color:#68758b;margin:0}
+    #mediaViewer footer{display:flex;flex:none;align-items:center;justify-content:space-between;gap:12px;margin:0;padding:10px 20px;background:#202535}
+    #mediaViewer a{display:inline-block;flex:none;margin:0;color:#cec4ff}
+    #mediaViewer p{font-size:13px;line-height:1.4;color:#c4c5d5;margin:0}
     @media(max-width:600px){#mediaViewer header{padding:12px}#mediaViewer footer{padding:10px 12px;flex-wrap:wrap}}
   `;
   document.head.append(style);
@@ -97,7 +97,7 @@
       const download=document.createElement('button');download.type='button';download.textContent='↓ Baixar arquivo';
       download.onclick=async()=>{download.disabled=true;download.textContent='Preparando…';try{const data=await materialBytes(url.href,controller.signal);if(version!==generation)return;const objectURL=URL.createObjectURL(new Blob([data]));const a=document.createElement('a');a.href=objectURL;a.download=decodeURIComponent(url.pathname.split('/').pop());document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(objectURL),60000);}catch(error){if(error.name!=='AbortError')note.textContent='Não consegui baixar agora. Tente novamente.';}finally{download.disabled=false;download.textContent='↓ Baixar arquivo';}};
       if(kind==='office'){
-        const alternate=document.createElement('button');alternate.type='button';alternate.textContent='Tentar outra prévia';alternate.style.cssText='background:#f1eff9;color:#5543df';alternate.onclick=()=>{embed.src='https://docs.google.com/gview?embedded=1&url='+encodeURIComponent(new URL('Estudos/'+caminhoSeguro(path),'https://jonataspp1509-svg.github.io/meu-hub-estudos/').href);alternate.remove();};footer.append(alternate);
+        const alternate=document.createElement('button');alternate.type='button';alternate.textContent='Tentar outra prévia';alternate.style.cssText='background:#3c355e;color:#f4efff';alternate.onclick=()=>{embed.src='https://docs.google.com/gview?embedded=1&url='+encodeURIComponent(new URL('Estudos/'+caminhoSeguro(path),'https://jonataspp1509-svg.github.io/meu-hub-estudos/').href);alternate.remove();};footer.append(alternate);
       }
       footer.append(download);
     }

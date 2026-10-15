@@ -1,0 +1,3 @@
+import {auth} from './code-account.js?v=free20261014';
+export async function communityRequest(endpoint,action,data={}){const user=auth.currentUser;if(!user)throw Error('Conecte sua conta para continuar.');const r=await fetch('https://meu-hub-estudos.pages.dev/api/'+endpoint,{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+await user.getIdToken()},body:JSON.stringify({action,...data}),signal:AbortSignal.timeout(20000)}),body=await r.json();if(auth.currentUser?.uid!==user.uid)throw Error('A conta mudou. Reabra esta página.');if(!r.ok){const error=Error(body.error||'Não consegui conectar agora.');error.status=r.status;throw error;}return body;}
+export const groupRequest=(action,data)=>communityRequest('cadernos-grupo',action,data);
