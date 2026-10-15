@@ -44,4 +44,4 @@ const logo=document.querySelector('#siteContent .logo');if(logo){logo.replaceChi
 for(const card of document.querySelectorAll('.dash-card')){if(card.textContent.includes('Caderno Inteligente'))card.onclick=()=>{location.href='caderno.html';};}
 
 
-import('./study-personalize.js?v=sound-focus20261014').catch(()=>{console.warn('Personalizações temporariamente indisponíveis.');});
+import('./study-personalize.js?v=diamond-shop20261014').catch(()=>{console.warn('Personalizações temporariamente indisponíveis.');});

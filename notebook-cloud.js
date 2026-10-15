@@ -1,4 +1,4 @@
-import {session,subscribe,db,doc,onSnapshot,setDoc,serverTimestamp} from './study-session.js?v=sound-focus20261014';
+import {session,subscribe,db,doc,onSnapshot,setDoc,serverTimestamp} from './study-session.js?v=diamond-shop20261014';
 import {collection} from './study-storage.js?v=free20261014';
 import {PREFIX,decodeNote,encodeNote} from './notebook-codec.js?v=paper-decks20261014';
 const bridge=window.notebookBridge,gate=document.getElementById('notebookAccess'),notice=document.getElementById('cloudNotice'),login=document.getElementById('cloudLogin');

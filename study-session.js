@@ -1,4 +1,4 @@
-import './study-focus.js?v=sound-focus20261014';
+import './study-focus.js?v=diamond-shop20261014';
 import {auth,onAuthStateChanged} from './code-account.js?v=free20261014';
 import {db,doc,getDoc,setDoc,onSnapshot,runTransaction,serverTimestamp,Timestamp} from './study-storage.js?v=free20261014';
 export {auth,db,doc,getDoc,setDoc,onSnapshot,runTransaction,serverTimestamp,Timestamp};
