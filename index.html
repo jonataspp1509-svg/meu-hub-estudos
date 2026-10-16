@@ -1071,6 +1071,7 @@ input,select,textarea{
   </div>
 
   <a class="dash-card" data-nav-icon="✧" href="ranking.html">✧ Ranking do mês</a>
+<a class="dash-card" id="vestibularesNav" href="vestibulares.html" data-nav-icon="◇">Vestibulares</a>
   <a class="dash-card" data-nav-icon="◇" href="diamantes.html">◇ Diamantes e músicas</a>
   <a class="dash-card" data-nav-icon="▷" href="resumos.html">▷ Resumidor do YouTube</a>
   <a id="auroraNav" class="dash-card" data-nav-icon="⌘" href="programacao.html" aria-label="Programação · Fazenda Aurora — Gratuito">⌘ Programação · Aurora</a>
@@ -1279,6 +1280,7 @@ function mostrarPastaNaTela(){
   });
 }
 function irPara(path){
+  if(path==='vestibulares'){location.href='vestibulares.html';return;}
   if(path && !window.studyCanSee?.(path+'/')){ caminhoAtual='';renderMateriais();return; }
   caminhoAtual = path;
   const route={...history.state,libraryPath:path};delete route.studyDialog;history.pushState(route,'');
@@ -1513,5 +1515,5 @@ document.getElementById("installBtn")?.addEventListener("click", async () => {
 </script>
 
 <script src="novo-visual.js?v=notebook-tools-20261014"></script>
-<script src="material-titles.js?v=notebook-tools-20261014"></script><script src="biblioteca.js?v=notebook-tools-20261014"></script><script src="midias.js?v=community-news20261015"></script><script type="module" src="conta-cabecalho.js?v=focus-exit-fix20261015"></script><script type="module" src="access.js?v=focus-exit-fix20261015"></script><script type="module" src="aurora-studyflow.js?v=free20261014"></script><script src="site-guide.js?v=focus-exit-fix20261015"></script><script type="module" src="study-feedback.js?v=focus-exit-fix20261015"></script></body>
+<script src="material-titles.js?v=notebook-tools-20261014"></script><script src="biblioteca.js?v=notebook-tools-20261014"></script><script src="midias.js?v=vest20261016"></script><script type="module" src="conta-cabecalho.js?v=focus-exit-fix20261015"></script><script type="module" src="access.js?v=focus-exit-fix20261015"></script><script type="module" src="aurora-studyflow.js?v=free20261014"></script><script src="site-guide.js?v=vest20261016"></script><script type="module" src="study-feedback.js?v=focus-exit-fix20261015"></script></body>
 </html>

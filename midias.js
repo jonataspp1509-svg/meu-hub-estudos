@@ -117,6 +117,8 @@
   document.addEventListener('click', event => {
     const link = event.target.closest('a.item, .recent-materials a');
     if (!link || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button) return;
+    const exam=link.dataset.examId&&window.studyExamCatalog?.get(link.dataset.examId);
+    if(exam){event.preventDefault();event.stopImmediatePropagation();show(exam.title,new URL(link.href),'pdf',exam.path||null);return;}
     const url = new URL(link.href);
     const extension = url.pathname.split('.').pop().toLowerCase();
     const path=decodeURIComponent(url.pathname.split('/Estudos/')[1]||'');
