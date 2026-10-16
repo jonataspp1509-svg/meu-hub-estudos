@@ -1,4 +1,4 @@
-import {subscribe,session} from './study-session.js?v=focus-exit20261015';
+import {subscribe,session} from './study-session.js?v=focus-exit-fix20261015';
 import {communityRequest,groupRequest} from './community-api.js?v=community-news20261015';
 const $=id=>document.getElementById(id),status=text=>{$('communityStatus').textContent=text;};let owner=null,roomCode='',activeRoom='',busy=false;
 async function task(fn){if(busy)return;busy=true;document.querySelectorAll('form button,#newRoom,#refreshRanking').forEach(b=>b.disabled=true);try{await fn();}catch(e){status(e.message);}finally{busy=false;document.querySelectorAll('form button,#newRoom,#refreshRanking').forEach(b=>b.disabled=false);}}

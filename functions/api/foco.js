@@ -20,7 +20,7 @@ export async function browserFocus(db,uid,action,input={}){
  const fresh=JSON.stringify({sessionId:crypto.randomUUID(),activeSeconds:0,claimed:false,running:false,anchorTime:now,startedAt:{__sfTime:now},updatedAt:{__sfTime:now}});
  if(action==='close'){
   if(known){const statements=[input.handoff===true?db.prepare('UPDATE focus_views SET expires=? WHERE uid=? AND id=?').bind(now+15000,uid,client):db.prepare('DELETE FROM focus_views WHERE uid=? AND id=?').bind(uid,client)];
-   if(input.handoff!==true&&typeof input.sessionId==='string')statements.push(db.prepare("UPDATE study_documents SET data=?,version=version+1 WHERE path=? AND json_extract(data,'$.sessionId')=? AND NOT EXISTS(SELECT 1 FROM focus_views WHERE uid=? AND expires>?)").bind(fresh,fp,input.sessionId,uid,now));
+   if(input.handoff!==true&&typeof input.sessionId==='string')statements.push(db.prepare("UPDATE study_documents SET data=?,version=version+1 WHERE path=? AND json_extract(data,'$.sessionId')=? AND NOT EXISTS(SELECT 1 FROM focus_views WHERE uid=? AND browser=? AND expires>?)").bind(fresh,fp,input.sessionId,uid,input.browser,now));
    await db.batch(statements);
   }
   return updateFocus(db,uid,'state');
@@ -29,7 +29,7 @@ export async function browserFocus(db,uid,action,input={}){
  if(action==='open'){
   const statements=[db.prepare('DELETE FROM focus_views WHERE uid=? AND expires<=?').bind(uid,now)];
   if(input.freshBrowser===true&&!input.previous)statements.push(db.prepare('DELETE FROM focus_views WHERE uid=? AND browser=?').bind(uid,input.browser));
-  statements.push(db.prepare('UPDATE study_documents SET data=?,version=version+1 WHERE path=? AND NOT EXISTS(SELECT 1 FROM focus_views WHERE uid=? AND expires>?)').bind(fresh,fp,uid,now),db.prepare('INSERT INTO focus_views(uid,id,browser,expires) VALUES(?,?,?,?) ON CONFLICT(uid,id) DO UPDATE SET expires=excluded.expires').bind(uid,client,input.browser,now+120000));
+  statements.push(db.prepare('UPDATE study_documents SET data=?,version=version+1 WHERE path=? AND NOT EXISTS(SELECT 1 FROM focus_views WHERE uid=? AND browser=? AND expires>?)').bind(fresh,fp,uid,input.browser,now),db.prepare('INSERT INTO focus_views(uid,id,browser,expires) VALUES(?,?,?,?) ON CONFLICT(uid,id) DO UPDATE SET expires=excluded.expires').bind(uid,client,input.browser,now+120000));
   if(/^[a-f0-9-]{36}$/.test(input.previous||'')&&input.previous!==client)statements.push(db.prepare('DELETE FROM focus_views WHERE uid=? AND id=?').bind(uid,input.previous));
   await db.batch(statements);
  }else await db.prepare('UPDATE focus_views SET expires=? WHERE uid=? AND id=?').bind(now+120000,uid,client).run();

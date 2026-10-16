@@ -1,4 +1,4 @@
-import {session,subscribe,auth} from './study-session.js?v=focus-exit20261015';
+import {session,subscribe,auth} from './study-session.js?v=focus-exit-fix20261015';
 import {signInLegacyGoogle} from './code-account.js?v=free20261014';
 const $=id=>document.getElementById(id),local='http://127.0.0.1:8790';let connected=false,busy=false,owner=null;
 const allowed=user=>!!(user?.email==='jonataspp1509@gmail.com'&&user.emailVerified&&user.providerData.some(p=>p.providerId==='google.com'));

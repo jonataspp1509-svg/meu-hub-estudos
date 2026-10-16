@@ -1,4 +1,4 @@
-import './study-focus.js?v=focus-exit20261015';
+import './study-focus.js?v=focus-exit-fix20261015';
 import {auth,onAuthStateChanged} from './code-account.js?v=free20261014';
 import {db,doc,getDoc,setDoc,onSnapshot,runTransaction,serverTimestamp,Timestamp} from './study-storage.js?v=free20261014';
 export {auth,db,doc,getDoc,setDoc,onSnapshot,runTransaction,serverTimestamp,Timestamp};

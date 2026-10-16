@@ -1,4 +1,4 @@
-import {session,subscribe} from './study-session.js?v=focus-exit20261015';
+import {session,subscribe} from './study-session.js?v=focus-exit-fix20261015';
 import {groupRequest} from './community-api.js?v=community-news20261015';
 import {decodeNote,encodeNote} from './notebook-codec.js?v=postit-move20261014';
 const bridge=window.notebookBridge,$=id=>document.getElementById(id),group=new URLSearchParams(location.search).get('group');

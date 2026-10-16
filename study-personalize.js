@@ -1,7 +1,7 @@
 import {createMusic} from './study-music.js?v=community-news20261015';
 import {imageStore} from './personal-image-store.js?v=2';
-import {session,subscribe} from './study-session.js?v=focus-exit20261015';
-import {PRODUCTS,owned,shopReady,subscribeShop} from './study-shop.js?v=focus-exit20261015';
+import {session,subscribe} from './study-session.js?v=focus-exit-fix20261015';
+import {PRODUCTS,owned,shopReady,subscribeShop} from './study-shop.js?v=focus-exit-fix20261015';
 export function diamond(){const ns='http://www.w3.org/2000/svg',svg=document.createElementNS(ns,'svg');svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('class','diamond-icon');svg.setAttribute('aria-hidden','true');svg.innerHTML='<path d="M6 3h12l5 6-11 13L1 9z" fill="#8878e8"/><path d="M6 3h12l-6 6z" fill="#d8d0ff"/><path d="m1 9 11 13V9z" fill="#aea0fa"/><path d="M18 3 23 9H12z" fill="#6450cf"/>';return svg;}
 let galleryURLs=[],galleryGeneration=0;
 let uid=null,prefs={theme:'default',sound:'none',volume:25},generation=0,imageURL=null,audio=null,audioNodes=[],audioMaster=null,musicPlayer=null,previewTimer=null,playing=false,menuButton=null;

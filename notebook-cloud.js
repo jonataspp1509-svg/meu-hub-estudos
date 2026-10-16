@@ -1,4 +1,4 @@
-import {session,subscribe,db,doc,onSnapshot,setDoc,serverTimestamp} from './study-session.js?v=focus-exit20261015';
+import {session,subscribe,db,doc,onSnapshot,setDoc,serverTimestamp} from './study-session.js?v=focus-exit-fix20261015';
 import {collection} from './study-storage.js?v=free20261014';
 import {PREFIX,decodeNote,encodeNote} from './notebook-codec.js?v=postit-move20261014';
 const bridge=window.notebookBridge,gate=document.getElementById('notebookAccess'),notice=document.getElementById('cloudNotice'),login=document.getElementById('cloudLogin');
