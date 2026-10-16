@@ -1,4 +1,4 @@
-import './study-focus.js?v=community-news20261015';
+import './study-focus.js?v=focus-exit20261015';
 import {auth,onAuthStateChanged} from './code-account.js?v=free20261014';
 import {canSeeMaterial} from './access-policy.js?v=free20261014';
 window.studyAccess={ready:true,uid:null,grade:null,paid:false,plan:'Gratuito'};
