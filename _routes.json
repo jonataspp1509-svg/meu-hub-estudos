@@ -1,1 +1,1 @@
-{"version": 1, "include": ["/api/aurora", "/api/resumos", "/api/youtube-bot", "/api/acesso", "/api/estudos", "/api/foco", "/api/comunidade", "/api/cadernos-grupo", "/api/prova", "/api/vestibulares"], "exclude": []}
+{"version": 1, "include": ["/api/aurora", "/api/resumos", "/api/youtube-bot", "/api/acesso", "/api/estudos", "/api/foco", "/api/comunidade", "/api/cadernos-grupo", "/api/prova", "/api/vestibulares", "/api/perfil"], "exclude": []}

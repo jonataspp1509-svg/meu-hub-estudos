@@ -45,3 +45,6 @@ for(const card of document.querySelectorAll('.dash-card')){if(card.textContent.i
 
 
 import('./study-personalize.js?v=focus-exit-fix20261015').catch(()=>{console.warn('Personalizações temporariamente indisponíveis.');});
+
+import {watchProfile,paintAvatar} from './study-profile.js?v=profile20261017';
+watchProfile(profile=>{if(profile){paintAvatar(button,profile);email.textContent=profile.name;link.textContent='Editar meu perfil';}else{button.replaceChildren();button.style.background='';button.textContent=auth.currentUser?(auth.currentUser.displayName||'E').charAt(0).toUpperCase():'?';}});
