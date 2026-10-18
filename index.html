@@ -997,7 +997,7 @@ input,select,textarea{
 
 </style>
 <link rel="stylesheet" href="novo-visual.css?v=6">
-<link rel="stylesheet" href="biblioteca.css?v=library-nav20261016"><link rel="stylesheet" href="cabecalho-alinhado.css?v=1"><style>#menuEscolha{display:none!important}#siteContent{display:block;visibility:visible}</style><script>window.studyCanSee=path=>typeof path==="string"&&!!path&&!path.startsWith("/")&&!path.split("/").includes("..");</script><link rel="stylesheet" href="study-tools.css?v=1"><script src="teacher-catalog.js?v=teachers-20261012"></script><link rel="stylesheet" href="home-design.css?v=audio-header20261018"></head>
+<link rel="stylesheet" href="biblioteca.css?v=library-nav20261016"><link rel="stylesheet" href="cabecalho-alinhado.css?v=1"><style>#menuEscolha{display:none!important}#siteContent{display:block;visibility:visible}</style><script>window.studyCanSee=path=>typeof path==="string"&&!!path&&!path.startsWith("/")&&!path.split("/").includes("..");</script><link rel="stylesheet" href="study-tools.css?v=1"><script src="teacher-catalog.js?v=teachers-20261012"></script><link rel="stylesheet" href="home-design.css?v=audio-header-fix20261018"><style id="audio-header-placement">#siteContent .site-sound-button{position:static!important;inset:auto!important;z-index:auto!important;transform:none!important}#siteContent .site-sound-button[hidden]{display:none!important}@media(max-width:760px){#siteContent .workspace-actions{flex-wrap:wrap;justify-content:flex-end;max-width:190px}#siteContent .workspace-actions .site-sound-button{order:10;flex-basis:100%;min-height:38px;background:#fff!important;color:#554274!important;border:1px solid #d8cfe7!important;border-radius:11px;margin-top:4px}}</style></head>
 
 <body>
 
@@ -1320,7 +1320,7 @@ function voltarInicioMateriais(){
 
 history.replaceState({...history.state,libraryPath:caminhoAtual},'');
 window.addEventListener('popstate',event=>{if(typeof event.state?.libraryPath==='string'){caminhoAtual=event.state.libraryPath;document.getElementById('pesquisaMateriais').value='';renderMateriais();mostrarPastaNaTela();}});
-const APP_VERSION = "studyflow-panel-v11";
+const APP_VERSION = "studyflow-audio-header-v12";
 
 async function atualizarCacheDoApp(){
   if(!("serviceWorker" in navigator)) return;
@@ -1514,5 +1514,5 @@ document.getElementById("installBtn")?.addEventListener("click", async () => {
 </script>
 
 <script src="novo-visual.js?v=notebook-tools-20261014"></script>
-<script src="material-titles.js?v=notebook-tools-20261014"></script><script src="biblioteca.js?v=contact20261017"></script><script src="midias.js?v=vest20261016"></script><script type="module" src="conta-cabecalho.js?v=avatar-crop20261017"></script><script type="module" src="access.js?v=focus-exit-fix20261015"></script><script type="module" src="aurora-studyflow.js?v=free20261014"></script><script src="site-guide.js?v=clean20261018"></script><script type="module" src="study-feedback.js?v=clean20261018"></script><script src="home-design.js?v=clean20261018"></script></body>
+<script src="material-titles.js?v=notebook-tools-20261014"></script><script src="biblioteca.js?v=contact20261017"></script><script src="midias.js?v=vest20261016"></script><script type="module" src="conta-cabecalho.js?v=audio-header-fix20261018"></script><script type="module" src="access.js?v=focus-exit-fix20261015"></script><script type="module" src="aurora-studyflow.js?v=free20261014"></script><script src="site-guide.js?v=clean20261018"></script><script type="module" src="study-feedback.js?v=clean20261018"></script><script src="home-design.js?v=clean20261018"></script></body>
 </html>
