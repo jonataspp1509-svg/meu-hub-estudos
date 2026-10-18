@@ -2,6 +2,8 @@ import {schema} from './account-store.js';
 const ready=new WeakMap();
 export async function communitySchema(db){await schema(db);if(!ready.has(db))ready.set(db,db.batch([
  db.prepare('CREATE TABLE IF NOT EXISTS study_feedback(id TEXT PRIMARY KEY,uid TEXT NOT NULL,name TEXT NOT NULL,rating INTEGER NOT NULL,message TEXT NOT NULL,created_at INTEGER NOT NULL)'),
+ db.prepare('CREATE TABLE IF NOT EXISTS study_ranking_photos(uid TEXT PRIMARY KEY,enabled INTEGER NOT NULL)'),
+ db.prepare('CREATE TABLE IF NOT EXISTS study_profile_details(uid TEXT PRIMARY KEY,bio TEXT NOT NULL,color TEXT NOT NULL,photo TEXT NOT NULL)'),
  db.prepare('CREATE TABLE IF NOT EXISTS study_spotify(uid TEXT PRIMARY KEY,url TEXT NOT NULL)'),
  db.prepare('CREATE TABLE IF NOT EXISTS study_profiles(uid TEXT PRIMARY KEY,name TEXT NOT NULL,participating INTEGER NOT NULL,updated_at INTEGER NOT NULL)'),
  db.prepare('CREATE TABLE IF NOT EXISTS study_months(uid TEXT NOT NULL,month TEXT NOT NULL,seconds INTEGER NOT NULL,updated_at INTEGER NOT NULL,PRIMARY KEY(uid,month))'),
