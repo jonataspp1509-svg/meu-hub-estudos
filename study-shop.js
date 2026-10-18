@@ -1,4 +1,4 @@
-import {MUSIC_PRODUCTS,GRADIENT_PRODUCTS} from './music-catalog.js?v=community-news20261015';
+import {MUSIC_PRODUCTS,GRADIENT_PRODUCTS} from './music-catalog.js?v=arrangements20261018';
 import {session,subscribe,ownerTesting,db,doc,onSnapshot,runTransaction,serverTimestamp} from './study-session.js?v=focus-exit-fix20261015';
 import {collection} from './study-storage.js?v=free20261014';
 export const PRODUCTS=[

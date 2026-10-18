@@ -1,4 +1,4 @@
-import {createMusic} from './study-music.js?v=community-news20261015';
+import {createMusic} from './study-music.js?v=arrangements20261018';
 import {imageStore} from './personal-image-store.js?v=2';
 import {session,subscribe} from './study-session.js?v=focus-exit-fix20261015';
 import {PRODUCTS,owned,shopReady,subscribeShop} from './study-shop.js?v=focus-exit-fix20261015';
