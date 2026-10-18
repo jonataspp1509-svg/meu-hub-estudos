@@ -18,3 +18,12 @@ body{background:#f9f8f4!important}.design-preview-note{background:#efeee8;color:
 @media(max-width:760px){.design-install-button{min-height:38px;padding:10px 12px;font-size:10px;gap:6px;white-space:nowrap}.design-install-button span{font-size:17px}.design-install-guide{padding:24px}.design-tools-line{border:0;margin:0;padding:0}.design-tools-line>span{display:none}}
 
 @media(max-width:760px){.design-primary-grid{display:none!important}}
+
+/* Keep branding and installation readable on every personalized background. */
+#siteContent>header .logo{background:#fff!important;border:1px solid #e5e4eb!important;border-radius:14px!important;padding:9px 13px!important;box-shadow:none!important;color:#2d303c!important;-webkit-text-fill-color:#2d303c!important}
+#siteContent>header .logo .brand-name{color:#2d303c!important;-webkit-text-fill-color:#2d303c!important}
+#siteContent>header .logo .brand-icon{background:#eee8f7!important;color:#665185!important;-webkit-text-fill-color:#665185!important;border-radius:10px!important}
+#siteContent .design-install-button{background:#fff!important;color:#45424e!important;-webkit-text-fill-color:#45424e!important;border:1px solid #dedce6!important;box-shadow:0 2px 6px #24202f08!important}
+#siteContent .design-install-button:hover{background:#f3f0f8!important;border-color:#c6bad7!important}
+#siteContent .design-install-button span{color:#78618f!important;-webkit-text-fill-color:#78618f!important}
+@media(max-width:760px){#siteContent>header .logo{padding:7px 9px!important;font-size:19px!important;gap:7px!important}#siteContent>header .logo .brand-icon{width:28px!important;height:30px!important;flex-basis:28px!important;font-size:17px!important}.design-install-button{padding:10px 11px!important}}
