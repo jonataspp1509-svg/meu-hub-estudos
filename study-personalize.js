@@ -9,7 +9,7 @@ const dialog=document.createElement('dialog');dialog.className='customize-dialog
 const $=id=>dialog.querySelector('#'+id),status=text=>{$('customizeStatus').textContent=text;};
 function readPrefs(){try{return {...prefs,...JSON.parse(localStorage.getItem('studyflow-style:'+uid)||'{}')};}catch{return {theme:'default',sound:'none',volume:25};}}
 function save(){if(!uid)return;try{localStorage.setItem('studyflow-style:'+uid,JSON.stringify(prefs));}catch{status('Não consegui guardar a preferência neste navegador.');}}
-const personalCSS=document.createElement('link');personalCSS.rel='stylesheet';personalCSS.href=new URL('./personalize.css?v=community-news20261015',import.meta.url).href;document.head.append(personalCSS);const shellCSS=document.createElement('link');shellCSS.rel='stylesheet';shellCSS.href=new URL('./responsive-shell.css?v=uniform-credits-20261012',import.meta.url).href;document.head.append(shellCSS);
+const personalCSS=document.createElement('link');personalCSS.rel='stylesheet';personalCSS.href=new URL('./personalize.css?v=audio-dock20261018',import.meta.url).href;document.head.append(personalCSS);const shellCSS=document.createElement('link');shellCSS.rel='stylesheet';shellCSS.href=new URL('./responsive-shell.css?v=uniform-credits-20261012',import.meta.url).href;document.head.append(shellCSS);
 const root=document.documentElement;
 if(window.parent!==window)root.dataset.personalEmbedded='true';
 async function apply(){

@@ -54,3 +54,6 @@ html[data-personal-tone=dark] #siteContent .summary-strip,html[data-personal-ton
 #siteContent #materiais .library-search{background:#fff!important;color:#647267!important}
 #siteContent #materiais .library-search input{background:#fff!important;color:#263148!important;-webkit-text-fill-color:#263148!important}
 #siteContent #materiais .library-search input::placeholder{color:#65716b!important;-webkit-text-fill-color:#65716b!important;opacity:1!important}
+
+/* Keep the audio control above the focus dock and mobile navigation. */
+@media(max-width:760px){#studyFocusDock{bottom:calc(90px + env(safe-area-inset-bottom,0px))!important}#siteContent .site-sound-button{position:fixed!important;right:14px!important;bottom:calc(158px + env(safe-area-inset-bottom,0px))!important;z-index:9001!important;max-width:calc(100vw - 28px)}}

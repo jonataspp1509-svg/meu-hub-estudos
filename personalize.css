@@ -61,3 +61,5 @@ html[data-personalized] body:has(.showcase-hero) main #content .card a{color:#44
 .site-sound-button{font:600 12px system-ui!important;border:1px solid #5e5091!important;background:#453679!important;color:#fff!important;border-radius:12px;padding:9px 13px;cursor:pointer;white-space:nowrap}.site-sound-button[aria-pressed=true]{background:#283e39!important;border-color:#466458!important}.site-sound-button:focus-visible{outline:3px solid #b7a5e5;outline-offset:3px}
 
 @media(max-width:450px){.site-sound-button{bottom:78px!important;right:12px!important;z-index:8999!important}}
+
+@media(max-width:760px){body:has(#studyFocusDock) .site-sound-button{position:fixed!important;right:14px!important;bottom:calc(82px + env(safe-area-inset-bottom,0px))!important;z-index:9001!important}}
