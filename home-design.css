@@ -59,3 +59,5 @@ html[data-personal-tone=dark] #siteContent .summary-strip,html[data-personal-ton
 @media(max-width:760px){#studyFocusDock{bottom:calc(90px + env(safe-area-inset-bottom,0px))!important}#siteContent .site-sound-button{position:fixed!important;right:14px!important;bottom:calc(158px + env(safe-area-inset-bottom,0px))!important;z-index:9001!important;max-width:calc(100vw - 28px)}}
 
 @media(max-width:760px){#siteContent .workspace-actions{flex-wrap:wrap;justify-content:flex-end;max-width:190px}#siteContent .workspace-actions .site-sound-button{position:static!important;inset:auto!important;z-index:auto!important;order:10;flex-basis:100%;min-height:38px;margin-top:4px;padding:8px 12px!important;border-radius:11px;background:#fff!important;color:#554274!important;border-color:#d8cfe7!important;box-shadow:none!important}#siteContent .workspace-actions .site-sound-button[aria-pressed=true]{background:#ede8f6!important;color:#493364!important}}
+
+.design-install-button[hidden],#installBtn[hidden]{display:none!important}
