@@ -50,4 +50,4 @@ loadRecent();renderMateriais();
 
 const accountLink=document.createElement('a');accountLink.className='dash-card';accountLink.href='conta.html';accountLink.textContent='Minha conta';nav.prepend(accountLink);
 
-const creatorCredit=document.createElement('footer');creatorCredit.className='site-footer creator-credit';creatorCredit.textContent='StudyFlow · Criado por Jonatas.';document.getElementById('siteContent')?.append(creatorCredit);
+const creatorCredit=document.createElement('footer');creatorCredit.className='site-footer creator-credit';creatorCredit.append(document.createTextNode('StudyFlow · Criado por Jonatas. '));const contact=document.createElement('a');contact.href='mailto:jonataspp1509@gmail.com';contact.textContent='Dúvidas: jonataspp1509@gmail.com';contact.style.cssText='color:inherit;overflow-wrap:anywhere;text-decoration:underline';creatorCredit.append(contact);document.getElementById('siteContent')?.append(creatorCredit);
