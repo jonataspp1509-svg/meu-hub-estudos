@@ -44,3 +44,13 @@ body{background:#f9f8f4!important}.design-preview-note{background:#efeee8;color:
 html[data-personal-tone=dark] #siteContent .summary-strip,html[data-personal-tone=dark] #siteContent .design-tools-line{border-color:#ffffff35!important}
 #siteContent .creator-credit{color:var(--personal-muted,#737d69)!important}
 #siteContent .creator-credit>a{color:inherit!important}
+
+/* Reading surfaces keep dark ink even when the background theme uses white text. */
+#siteContent #materiais{--personal-ink:#263148;--personal-muted:#556174;--personal-accent:#4e6641;background:#fafbf8!important;color:#263148!important;text-shadow:none!important}
+#siteContent .summary-stat{--personal-ink:#263148;--personal-muted:#556174;background:#fff!important;color:#263148!important}
+#siteContent #materiais .recent-materials a{color:#34483e!important}
+#siteContent #materiais .recent-materials small{color:#586474!important}
+#siteContent #materiais .site-footer{color:#586474!important}
+#siteContent #materiais .library-search{background:#fff!important;color:#647267!important}
+#siteContent #materiais .library-search input{background:#fff!important;color:#263148!important;-webkit-text-fill-color:#263148!important}
+#siteContent #materiais .library-search input::placeholder{color:#65716b!important;-webkit-text-fill-color:#65716b!important;opacity:1!important}
