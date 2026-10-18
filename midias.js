@@ -21,14 +21,14 @@
   `;
   document.head.append(style);
   document.body.append(dialog);
-  let generation=0,controller,oldOverflow='',blobURLs=[];
+  let generation=0,controller,oldOverflow='',blobURLs=[],currentMaterial=null;
   async function materialBytes(url, signal){
     if(window.studyLoadMaterial)return window.studyLoadMaterial(url,signal);
     const response=await fetch(url,{signal});if(!response.ok)throw new Error('Material indisponível');return response.arrayBuffer();
   }
   function materialBlob(data,type){const url=URL.createObjectURL(new Blob([data],{type}));blobURLs.push(url);return url;}
   const cleanup = () => {
-    generation++;controller?.abort();blobURLs.forEach(URL.revokeObjectURL);blobURLs=[];document.body.style.overflow=oldOverflow;
+    currentMaterial=null;generation++;controller?.abort();blobURLs.forEach(URL.revokeObjectURL);blobURLs=[];document.body.style.overflow=oldOverflow;
     dialog.querySelectorAll('video').forEach(video => video.pause());
     dialog.querySelectorAll('iframe').forEach(frame => frame.remove());
     dialog.replaceChildren();
@@ -49,9 +49,9 @@
     if (url.protocol !== 'https:' || url.username || url.password) throw new Error('Endereço inválido');
     return url;
   };
-  async function show(title, url, kind, path) {
+  async function show(title, url, kind, path, resumePage=1) {
     if(dialog.open)dialog.close();
-    oldOverflow=document.body.style.overflow;document.body.style.overflow='hidden';controller=new AbortController();const version=++generation;
+    currentMaterial=path?{path,kind,page:resumePage}:null;oldOverflow=document.body.style.overflow;document.body.style.overflow='hidden';controller=new AbortController();const version=++generation;
     dialog.replaceChildren();
     const head = document.createElement('header');
     const heading = document.createElement('h2'); heading.textContent = title;
@@ -62,7 +62,7 @@
     let embed;
     if(kind==='pdf'){
       const loading=document.createElement('p');loading.textContent='Preparando seu PDF…';loading.style.color='#eee';body.append(loading);
-      try{const data=await materialBytes(url.href,controller.signal);if(version!==generation)return;embed=document.createElement('iframe');embed.title=title;embed.src=new URL('vendor/pdfjs/web/viewer.html',document.baseURI).href+'?file='+encodeURIComponent(materialBlob(data,'application/pdf'));loading.remove();}
+      try{const data=await materialBytes(url.href,controller.signal);if(version!==generation)return;embed=document.createElement('iframe');embed.title=title;embed.src=new URL('vendor/pdfjs/web/viewer.html',document.baseURI).href+'?file='+encodeURIComponent(materialBlob(data,'application/pdf'))+'#page='+Math.max(1,Math.floor(resumePage)||1);loading.remove();}
       catch(error){if(version!==generation)return;loading.textContent='Não consegui carregar a prévia. Você pode tentar novamente ou baixar o arquivo.';}
     }else if(kind==='office'){
       const original=new URL('Estudos/'+caminhoSeguro(path),'https://jonataspp1509-svg.github.io/meu-hub-estudos/').href;
@@ -103,6 +103,8 @@
     }
     dialog.append(footer);
   }
+  window.studyReadingState=()=>{if(!dialog.open||!currentMaterial)return null;let page=currentMaterial.page;try{page=dialog.querySelector('iframe')?.contentWindow?.PDFViewerApplication?.page||page;}catch{}return {...currentMaterial,page:Math.max(1,Math.floor(page)||1)};};
+  window.studyResumeMaterial=state=>{if(!state||typeof state.path!=='string'||!arquivos.includes(state.path)||!window.studyCanSee?.(state.path))return;const ext=state.path.split('.').pop().toLowerCase(),kind=ext==='pdf'?'pdf':/^(docx?|pptx?|xlsx?)$/.test(ext)?'office':['jpg','jpeg','png','gif','webp'].includes(ext)?'image':ext==='mp4'?'video':null;if(!kind)return;show(materialTitle(state.path.split('/').pop(),state.path),new URL(BASE+'Estudos/'+caminhoSeguro(state.path),document.baseURI),kind,state.path,state.page);};
   dialog.addEventListener('close', cleanup);
   window.abrirAtalhoUrl = async function(file) {
     try {
