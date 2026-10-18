@@ -63,3 +63,6 @@ html[data-personalized] body:has(.showcase-hero) main #content .card a{color:#44
 @media(max-width:450px){.site-sound-button{bottom:78px!important;right:12px!important;z-index:8999!important}}
 
 @media(max-width:760px){body:has(#studyFocusDock) .site-sound-button{position:fixed!important;right:14px!important;bottom:calc(82px + env(safe-area-inset-bottom,0px))!important;z-index:9001!important}}
+
+/* Audio belongs to the header, never over the page or focus timer. */
+body .site-sound-button{position:static!important;inset:auto!important;z-index:auto!important;transform:none!important}body .site-sound-button[hidden]{display:none!important}
