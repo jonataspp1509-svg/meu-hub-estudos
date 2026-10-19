@@ -1,7 +1,47 @@
 {
-  "checked_at": "2026-10-18T21:26:11-03:00",
-  "failures": 0,
+  "checked_at": "2026-10-19T19:10:34-03:00",
+  "failures": 4,
   "recent": [
+    {
+      "path": "2AnoM/quimica/thati/4p/2_ano_en_molec_prop_coligativas_parte_1_extras_ok_cc73637a4f8a.pdf",
+      "added_at": "2026-10-19 19:04:20"
+    },
+    {
+      "path": "2AnoM/fisica/rocris/4p/choques_-_exercicios_-_resolucao_36056c1244aa.pdf",
+      "added_at": "2026-10-19 19:01:06"
+    },
+    {
+      "path": "2AnoM/biologia/murilo/3p/tarefa_heranca_cromossomos_sexuais_com_respostas_2026_ec736d9da4fb.docx",
+      "added_at": "2026-10-19 18:57:47"
+    },
+    {
+      "path": "2AnoM/biologia/murilo/3p/tarefa_heranca_cromossomos_sexuais_2026_e3cbd7ab9fdf.docx",
+      "added_at": "2026-10-19 18:57:36"
+    },
+    {
+      "path": "2AnoM/redacao/4p/vunesp/vunesp_atividade1_2em_df1ae2122838.pdf",
+      "added_at": "2026-10-19 18:52:23"
+    },
+    {
+      "path": "2AnoM/redacao/4p/vunesp/vunesp_2em_d7bf328d9a3b.docx",
+      "added_at": "2026-10-19 18:52:14"
+    },
+    {
+      "path": "2AnoM/redacao/4p/vunesp/unesp_2019_-_extra_0ac6b15ac10f.pdf",
+      "added_at": "2026-10-19 18:52:05"
+    },
+    {
+      "path": "2AnoM/redacao/4p/vunesp/grade_vunesp_3532fefb0441.pdf",
+      "added_at": "2026-10-19 18:51:56"
+    },
+    {
+      "path": "2AnoM/redacao/4p/vunesp/dissertacao-argumentativa_vunesp_e14be32067ac.pdf",
+      "added_at": "2026-10-19 18:51:47"
+    },
+    {
+      "path": "2AnoM/quimica/gabriel/4p/tribunal/tribunal_de_juri_2026_f6b68ee6cc06.pdf",
+      "added_at": "2026-10-19 18:49:55"
+    },
     {
       "path": "2AnoM/quimica/thati/4p/2_ano_en_molec_prop_coligativas_parte_1_extras_1bc5abee77b7.pdf",
       "added_at": "2026-10-18 21:22:56"
@@ -9,46 +49,6 @@
     {
       "path": "2AnoM/geografia/bruno/4p/2em/revisao_2em_geografia_geral_1_etapa_4_periodo_5b75a1f2bfcf.pdf",
       "added_at": "2026-10-18 21:08:50"
-    },
-    {
-      "path": "2AnoM/biologia/croti/novos/2em_-_recuperacao/2em_-_recuperacao_paralela/rec_08_-_padroes_de_heranca_heranca_quantitativa_-_fisiologia_vegetal_c90d203e16e9.pdf",
-      "added_at": "2026-10-18 21:08:01"
-    },
-    {
-      "path": "2AnoM/fisica/rocris/4p/recuperacao/estatica_do_corpo_extenso_af20ee56aed3.pdf",
-      "added_at": "2026-10-18 21:00:47"
-    },
-    {
-      "path": "2AnoM/fisica/rocris/4p/choques_mecanicos_-_exercicios_-_resolucao_e879c6fc3f5a.pdf",
-      "added_at": "2026-10-18 20:58:13"
-    },
-    {
-      "path": "2AnoM/biologia/murilo/3p/mostra_cultural_-_biologia/videos_e_fotos_do_protocolo_907b99909783.url",
-      "added_at": "2026-10-18 20:44:35"
-    },
-    {
-      "path": "2AnoM/matematica/larissa/novos/prismas_68dd3659c421.pdf",
-      "added_at": "2026-10-18 20:33:14"
-    },
-    {
-      "path": "2AnoM/matematica/larissa/4p/prismas_4b1cdb6373f4.pdf",
-      "added_at": "2026-10-18 20:30:48"
-    },
-    {
-      "path": "2AnoM/fisica/fabio/3p/mostra_cultural_-_2026_-_fabio/inicie_aqui_-_resumo_do_bate_papo_inicial_da_mostra_cultural_627c8246728d.url",
-      "added_at": "2026-10-18 20:12:36"
-    },
-    {
-      "path": "2AnoM/historia/celcio/4p/recuperacao/4p_-_recuperacao_de_historia_2a_serie-_8_de_outubro_-_1a_etapa_do_4o_p_03de163ee012.docx",
-      "added_at": "2026-10-18 20:06:41"
-    },
-    {
-      "path": "2AnoM/historia/celcio/4p/recuperacao/4p_-_gabarito_-_recuperacao_de_historia_2a_serie-_8_de_outubro_-_1a_et_8849bd3d9527.docx",
-      "added_at": "2026-10-18 20:06:27"
-    },
-    {
-      "path": "2AnoM/historia/celcio/novos/4p_-_recuperacao_de_historia_2a_serie-_8_de_outubro_-_1a_etapa_do_4o_p_995fb3130994.docx",
-      "added_at": "2026-10-18 20:01:21"
     }
   ]
 }

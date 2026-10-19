@@ -610,6 +610,8 @@
 2AnoM/biologia/murilo/3p/tarefa_-_interacao_genica_com_respostas_5e4abc3ead33.docx
 2AnoM/biologia/murilo/3p/tarefa_-_ligacao_genica_com_respostas_e4a8b65b5719.docx
 2AnoM/biologia/murilo/3p/tarefa_-_ligacao_genica_f1128e7f535f.docx
+2AnoM/biologia/murilo/3p/tarefa_heranca_cromossomos_sexuais_2026_e3cbd7ab9fdf.docx
+2AnoM/biologia/murilo/3p/tarefa_heranca_cromossomos_sexuais_com_respostas_2026_ec736d9da4fb.docx
 2AnoM/filosofia/1p/2em_filosofia_1aetapa_1operiodo_2026.docx
 2AnoM/filosofia/1p/a_filosofia_de_aristoteles_parte_1.pptx
 2AnoM/filosofia/1p/a_filosofia_de_aristoteles_parte_2.pptx
@@ -1030,6 +1032,7 @@
 2AnoM/quimica/gabriel/4p/slides/10_-_slides_-_isomeria_espacial_101489dd41ba.pdf
 2AnoM/quimica/gabriel/4p/tarefas/09_-_lista_10_df7586a1ae2b.pdf
 2AnoM/quimica/gabriel/4p/tarefas/09_-_lista_9_499d36ffcaea.pdf
+2AnoM/quimica/gabriel/4p/tribunal/tribunal_de_juri_2026_f6b68ee6cc06.pdf
 2AnoM/quimica/renato/1p/exercicios/lista_extra_-_solucoes_-_parte_1.pdf
 2AnoM/quimica/renato/1p/exercicios/lista_extra_-_solucoes_-_parte_2_-_concentracao_de_solucoes.pdf
 2AnoM/quimica/renato/1p/exercicios/lista_extra_-_solucoes_-_parte_3_-_concentracao_de_solucoes_1.pdf
@@ -1099,6 +1102,7 @@
 2AnoM/quimica/thati/3p/2_ano_en_molec_cine_t_qui_m_parte_2_extras_ok_eda23525635f.pdf
 2AnoM/quimica/thati/3p/2_ano_en_molec_cinet_quim_parte_3_extras_0db3a7ae8437.pdf
 2AnoM/quimica/thati/4p/2_ano_en_molec_prop_coligativas_parte_1_extras_1bc5abee77b7.pdf
+2AnoM/quimica/thati/4p/2_ano_en_molec_prop_coligativas_parte_1_extras_ok_cc73637a4f8a.pdf
 2AnoM/redacao/1p/cronica_2026_.pdf
 2AnoM/redacao/1p/cronica_exercicio2_fuvestsimulado.pdf
 2AnoM/redacao/1p/cronicas_2026_exemplos.pdf
@@ -1128,6 +1132,11 @@
 2AnoM/redacao/3p/propostas/enem/proposta_red1000_pessoas_situacao_rua_92acf5053a79.pdf
 2AnoM/redacao/3p/propostas/enem/simulado_desenvolvimento_sustentavel_04587335cf5f.jpg
 2AnoM/redacao/3p/propostas/enem/simulado_violencia_escolar_a09873fb5c72.jpg
+2AnoM/redacao/4p/vunesp/dissertacao-argumentativa_vunesp_e14be32067ac.pdf
+2AnoM/redacao/4p/vunesp/grade_vunesp_3532fefb0441.pdf
+2AnoM/redacao/4p/vunesp/unesp_2019_-_extra_0ac6b15ac10f.pdf
+2AnoM/redacao/4p/vunesp/vunesp_2em_d7bf328d9a3b.docx
+2AnoM/redacao/4p/vunesp/vunesp_atividade1_2em_df1ae2122838.pdf
 2AnoM/sociologia/1p/lista_de_exercicios/lista_1_-_a_natureza_da_politica.doc
 2AnoM/sociologia/1p/lista_de_exercicios/lista_1_-_a_natureza_da_politica_-_gabarito_partes_1_e_2.doc
 2AnoM/sociologia/1p/lista_de_exercicios/lista_1_-_a_natureza_da_politica_sem_gabarito.pdf
