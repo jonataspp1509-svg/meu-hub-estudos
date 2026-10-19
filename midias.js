@@ -49,7 +49,7 @@
     if (url.protocol !== 'https:' || url.username || url.password) throw new Error('Endereço inválido');
     return url;
   };
-  async function show(title, url, kind, path, resumePage=1) {
+  async function show(title, url, kind, path, resumePage=1, navigationNote="") {
     if(dialog.open)dialog.close();
     currentMaterial=path?{path,kind,page:resumePage}:null;oldOverflow=document.body.style.overflow;document.body.style.overflow='hidden';controller=new AbortController();const version=++generation;
     dialog.replaceChildren();
@@ -72,17 +72,21 @@
     } else if (kind === 'video') {
       embed = document.createElement('video'); embed.src = url.href; embed.controls = true; embed.preload = 'metadata';
     } else {
+      const folder = url.hostname === 'drive.google.com' && url.pathname.match(/\/folders\/([\w-]+)/);
       const drive = url.hostname === 'drive.google.com' && url.pathname.match(/^\/file\/d\/([\w-]+)(?:\/|$)/);
       const youtube = ['www.youtube.com','youtube.com'].includes(url.hostname) && url.searchParams.get('v');
       const short = url.hostname === 'youtu.be' && url.pathname.slice(1);
-      if (drive || youtube || short) {
+      if (folder || drive || youtube || short) {
         embed = document.createElement('iframe'); embed.title = title; embed.allowFullscreen = true;
         embed.allow = 'autoplay; fullscreen; encrypted-media; picture-in-picture';
         embed.referrerPolicy = 'strict-origin-when-cross-origin';
-        embed.src = drive ? 'https://drive.google.com/file/d/' + drive[1] + '/preview' : 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(youtube || short);
+        embed.src = folder ? 'https://drive.google.com/embeddedfolderview?id='+encodeURIComponent(folder[1])+'#grid' : drive ? 'https://drive.google.com/file/d/' + drive[1] + '/preview' : 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(youtube || short);
       }
     }
     if (embed) body.append(embed);
+    else if(kind==='link'){
+      const message=document.createElement('p');message.textContent='Este material precisa ser aberto no site de origem. Use o botão abaixo para acessar.';message.style.padding='24px';body.append(message);
+    }
     const relative=path&&'Estudos/'+path;
     if(['image','video'].includes(kind)&&window.studyMaterialManifest?.[relative]){
       try{const data=await materialBytes(url.href,controller.signal);if(version!==generation)return;embed.src=materialBlob(data,kind==='video'?'video/mp4':'image/'+url.pathname.split('.').pop());}catch{if(version!==generation)return;body.textContent='Não consegui carregar este material. Tente novamente.';}
@@ -91,9 +95,10 @@
     note.textContent = kind === 'link' ? 'Se o player pedir acesso ou não carregar, abra o material na origem. As permissões são as mesmas do professor.' : 'Material da sua biblioteca de estudos.';
     const open = document.createElement('a'); open.href = url.href; open.target = '_blank'; open.rel = 'noopener noreferrer';
     open.textContent = 'Abrir na origem ↗';
+    if(kind==='link'){open.style.cssText='background:#5543df;color:white;padding:12px 18px;border-radius:12px;text-decoration:none';embed?.addEventListener('error',()=>{note.textContent='A prévia não carregou. Abra na origem para assistir ou verificar o acesso.';});}
     const footer = document.createElement('footer'); footer.append(note, open);
     if(kind!=='link'){
-      open.remove();note.textContent='Leia aqui. Baixe apenas se quiser guardar uma cópia.';
+      open.remove();note.textContent=(navigationNote?navigationNote+' · ':'')+'Leia aqui. Baixe apenas se quiser guardar uma cópia.';
       const download=document.createElement('button');download.type='button';download.textContent='↓ Baixar arquivo';
       download.onclick=async()=>{download.disabled=true;download.textContent='Preparando…';try{const data=await materialBytes(url.href,controller.signal);if(version!==generation)return;const objectURL=URL.createObjectURL(new Blob([data]));const a=document.createElement('a');a.href=objectURL;a.download=decodeURIComponent(url.pathname.split('/').pop());document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(objectURL),60000);}catch(error){if(error.name!=='AbortError')note.textContent='Não consegui baixar agora. Tente novamente.';}finally{download.disabled=false;download.textContent='↓ Baixar arquivo';}};
       if(kind==='office'){
@@ -116,11 +121,11 @@
       show(materialTitle(file.split('/').pop(),file), validUrl(line.slice(4).trim()), 'link');
     } catch { alert('Não foi possível abrir este link. Tente novamente.'); }
   };
-  document.addEventListener('click', event => {
+  document.addEventListener('click', async event => {
     const link = event.target.closest('a.item, .recent-materials a');
     if (!link || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button) return;
     const exam=link.dataset.examId&&window.studyExamCatalog?.get(link.dataset.examId);
-    if(exam){event.preventDefault();event.stopImmediatePropagation();show(exam.title,new URL(link.href),'pdf',exam.path||null);return;}
+    if(exam){event.preventDefault();event.stopImmediatePropagation();const target=await window.studyExamPage?.(exam,link.dataset.examSubject);show(exam.title,new URL(link.href),'pdf',exam.path||null,target?.page||1,target?.label||'');return;}
     const url = new URL(link.href);
     const extension = url.pathname.split('.').pop().toLowerCase();
     const path=decodeURIComponent(url.pathname.split('/Estudos/')[1]||'');
