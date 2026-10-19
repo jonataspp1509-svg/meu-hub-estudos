@@ -578,6 +578,7 @@
 2AnoM/biologia/croti/novos/2em_-_recuperacao/2em_-_recuperacao_paralela/rec_05_-_plantas_terrestres_-_gabarito_d543985f4933.pdf
 2AnoM/biologia/croti/novos/2em_-_recuperacao/2em_-_recuperacao_paralela/rec_06_-_genetica_do_sangue_31c5f0bfd03f.pdf
 2AnoM/biologia/croti/novos/2em_-_recuperacao/2em_-_recuperacao_paralela/rec_07_-_fisiologia_vegetal_-_linkage_-_gabarito_8bb437c94eec.pdf
+2AnoM/biologia/croti/novos/2em_-_recuperacao/2em_-_recuperacao_paralela/rec_08_-_padroes_de_heranca_heranca_quantitativa_-_fisiologia_vegetal_c90d203e16e9.pdf
 2AnoM/biologia/murilo/1p/dna_rna_e_sintese_proteica_2026.pptx
 2AnoM/biologia/murilo/1p/historico_-_cancer_-_copia.pdf
 2AnoM/biologia/murilo/1p/meiose_2.pdf
@@ -723,6 +724,7 @@
 2AnoM/fisica/rocris/4p/choques_mecanicos_-_exercicios_-_resolucao_e879c6fc3f5a.pdf
 2AnoM/fisica/rocris/4p/choques_mecanicos_-_exercicios_4fbd53805f7c.pdf
 2AnoM/fisica/rocris/4p/recuperacao/conservacao_da_quantidade_de_movimento_c66801ac7b76.pdf
+2AnoM/fisica/rocris/4p/recuperacao/estatica_do_corpo_extenso_af20ee56aed3.pdf
 2AnoM/fisica/rocris/novos/provas/1o_periodo_-_1_etapa_-_resolucao_95f85812a34e.pdf
 2AnoM/fisica/rocris/novos/provas/1o_periodo_-_2a_etapa_-_resolucao_682f8b8c1d81.pdf
 2AnoM/fisica/rocris/novos/provas/2a_serie_-_2o_periodo_-_1a_etapa_dc09e568ffc8.pdf
@@ -747,6 +749,8 @@
 2AnoM/geografia/alex/3p/agropecuaria_geral_a15513116caa.pptx
 2AnoM/geografia/alex/3p/exercicios_agropecuaria_29d67ea3d3c6.pdf
 2AnoM/geografia/alex/3p/exercicios_de_revisao_agropecuaria_03d17db001c7.pdf
+2AnoM/geografia/alex/4p/agropecuaria_e_sustentabilidade_d4af036ecfd7.pptx
+2AnoM/geografia/alex/4p/solos_d716d783b938.ppt
 2AnoM/geografia/bruno/1p/gabarito_2em_geo_geral_1a_etapa_1o_periodo_2026.pdf
 2AnoM/geografia/bruno/1p/gabarito_2em_geo_geral_2a_etapa_1o_periodo_2026.pdf
 2AnoM/geografia/bruno/1p/if_-_redes_sociais_etica_e_cidadania/atividade_02_segregacao_e_violencia_em_sao_paulo_d940c77c8a99.pdf
@@ -788,6 +792,7 @@
 2AnoM/geografia/bruno/3p/if_-_redes_sociais_etica_e_cidadania/aulas_19_e_20_direito_nacional_6734379e47cc.pdf
 2AnoM/geografia/bruno/3p/if_-_redes_sociais_etica_e_cidadania/direito_internacional_-_situacao-problema_cf62b4d272e9.pdf
 2AnoM/geografia/bruno/3p/if_-_redes_sociais_etica_e_cidadania/notas_atividade_icec_turma_a_e_b_-_3o_periodo_fe7a4644c6d5.xlsx
+2AnoM/geografia/bruno/4p/2em/revisao_2em_geografia_geral_1_etapa_4_periodo_5b75a1f2bfcf.pdf
 2AnoM/historia/celcio/1p/1p-_napoleao_bonaparte_e_o_congresso_de_viena_-_vol.pptx
 2AnoM/historia/celcio/1p/1p_-_1o_reinado_e_periodo_regencial_-cap.pptx
 2AnoM/historia/celcio/1p/1p_-_a_corte_portuguesa_no_brasil_e_a_independencia_-_pag.pptx
@@ -821,13 +826,18 @@
 2AnoM/historia/celcio/3p/recuperacao/gabarito_-_3p_-rec_1_-_recuperacao_de_historia_2a_serie-_13_de_agosto__f54bad858121.docx
 2AnoM/historia/celcio/3p/textos_de_apoio_-_apv_-_2a_etapa_do_3o_periodo_de_2026_-_2a_serie_bdc068114125.docx
 2AnoM/historia/celcio/4p/3p-_imperialismo_na_africa_e_asia_seculo_xix_52b2fd74078c.pptx
+2AnoM/historia/celcio/4p/4p_-_historia_-_conteudos_da_prova_de_historia_da_1a_etapa_do_4o_perio_bb696fb569e7.docx
 2AnoM/historia/celcio/4p/4p_1a_guerra_mundial_-capitulo_31_-_um_mundo_em_guerra_1914-1918_pagin_02dda8a4af60.pptx
+2AnoM/historia/celcio/4p/recuperacao/4p_-_gabarito_-_recuperacao_de_historia_2a_serie-_8_de_outubro_-_1a_et_8849bd3d9527.docx
+2AnoM/historia/celcio/4p/recuperacao/4p_-_recuperacao_de_historia_2a_serie-_8_de_outubro_-_1a_etapa_do_4o_p_03de163ee012.docx
 2AnoM/historia/celcio/novos/2a_serie_recuperacao_2_de_historia_-_19_de_marco_de_2026_-_2a_etapa_do_d595ef8a3ace.docx
 2AnoM/historia/celcio/novos/3p-_imperialismo_na_africa_e_asia_seculo_xix_7440359449ae.pptx
 2AnoM/historia/celcio/novos/3p_-_cap_6_-_pagina_116_-_vol4_-_crise_do_2o_reinado_08e5b18b3ec3.pptx
 2AnoM/historia/celcio/novos/3p_-_fases_da_revolucao_industrial_ead5d837bfc5.pptx
 2AnoM/historia/celcio/novos/3p_cap_2_-_pagina_24-_vol4_-_eua_no_seculo_xix_2_6373f43ffb14.pptx
 2AnoM/historia/celcio/novos/3p_cap_4_5_6_-_pagina_90_-_vol4_-_2o_reinado_-politica_interna_externa_f5bf6c6993fb.pptx
+2AnoM/historia/celcio/novos/4p_-_gabarito_-_recuperacao_de_historia_2a_serie-_8_de_outubro_-_1a_et_f8c58d7d72e1.docx
+2AnoM/historia/celcio/novos/4p_-_recuperacao_de_historia_2a_serie-_8_de_outubro_-_1a_etapa_do_4o_p_995fb3130994.docx
 2AnoM/historia/celcio/novos/4p_1a_guerra_mundial_-capitulo_31_-_um_mundo_em_guerra_1914-1918_pagin_36d65a3023c2.pptx
 2AnoM/historia/celcio/novos/apv_-_roteiro-_1o_periodo_ciencias_humanas-_trabalho_mennino_23_e_a_no_3290a6151560.docx
 2AnoM/historia/celcio/novos/gab_recuperacao_2_-_19_de_marco_de_2026_-_2a_serie_-_2a_etapa_do_1o_pe_81199d91cd85.docx
@@ -908,6 +918,7 @@
 2AnoM/matematica/larissa/3p/geometria/revisao_geometria_plana_91abf7a2e518.pdf
 2AnoM/matematica/larissa/3p/geometria/slides_-_prisma_ce8dba9da60b.pdf
 2AnoM/matematica/larissa/3p/lista_probabilidade_8762bfb4fba1.pdf
+2AnoM/matematica/larissa/4p/prismas_4b1cdb6373f4.pdf
 2AnoM/matematica/larissa/novos/bino_mio_de_newton_lista_1_f74927a30412.pdf
 2AnoM/matematica/larissa/novos/exemplos_dos_slides_987821f821fb.pdf
 2AnoM/matematica/larissa/novos/lista_arranjo_ded37166e042.pdf
@@ -1087,6 +1098,7 @@
 2AnoM/quimica/thati/novos/energia_molecular/2_ano_en_molec_cine_t_qui_m_parte_1_extras_d0234d981f8e.pdf
 2AnoM/quimica/thati/novos/energia_molecular/2_ano_en_molec_cine_t_qui_m_parte_2_extras_ok_eda23525635f.pdf
 2AnoM/quimica/thati/novos/energia_molecular/2_ano_en_molec_cinet_quim_parte_3_extras_0db3a7ae8437.pdf
+2AnoM/quimica/thati/novos/energia_molecular/2_ano_en_molec_prop_coligativas_parte_1_extras_1bc5abee77b7.pdf
 2AnoM/quimica/thati/novos/energia_molecular/2_ano_en_molec_termoqui_mica_2_extras_70edafb65139.pdf
 2AnoM/quimica/thati/novos/energia_molecular/2_ano_en_molec_termoqui_mica_3_extras_485f603340da.pdf
 2AnoM/quimica/thati/novos/energia_molecular/2_ano_en_molec_termoqui_mica_4_extras_5b77111cb09d.pdf
