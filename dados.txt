@@ -1091,18 +1091,14 @@
 2AnoM/quimica/thati/1p/2_ano_en_molec_reac_ao_simples_troca_extras.pdf
 2AnoM/quimica/thati/1p/2_ano_en_molec_reacoes_dupla_troca_e_funcoes_extras.pdf
 2AnoM/quimica/thati/1p/2_ano_en_molec_termoqui_mica_1_extras.pdf
-2AnoM/quimica/thati/1p/2_ano_en_molec_termoqui_mica_2_extras.pdf
 2AnoM/quimica/thati/2p/2 ANO EN MOLEC CINE´T QUI´M PARTE 1 EXTRAS.pdf
 2AnoM/quimica/thati/2p/2 ANO EN MOLEC TERMOQUI´MICA 3 EXTRAS.pdf
 2AnoM/quimica/thati/2p/2 ANO EN MOLEC TERMOQUI´MICA 4 EXTRAS (1).pdf
-2AnoM/quimica/thati/novos/energia_molecular/2_ano_en_molec_cine_t_qui_m_parte_1_extras_d0234d981f8e.pdf
-2AnoM/quimica/thati/novos/energia_molecular/2_ano_en_molec_cine_t_qui_m_parte_2_extras_ok_eda23525635f.pdf
-2AnoM/quimica/thati/novos/energia_molecular/2_ano_en_molec_cinet_quim_parte_3_extras_0db3a7ae8437.pdf
-2AnoM/quimica/thati/novos/energia_molecular/2_ano_en_molec_prop_coligativas_parte_1_extras_1bc5abee77b7.pdf
-2AnoM/quimica/thati/novos/energia_molecular/2_ano_en_molec_termoqui_mica_2_extras_70edafb65139.pdf
-2AnoM/quimica/thati/novos/energia_molecular/2_ano_en_molec_termoqui_mica_3_extras_485f603340da.pdf
-2AnoM/quimica/thati/novos/energia_molecular/2_ano_en_molec_termoqui_mica_4_extras_5b77111cb09d.pdf
-2AnoM/quimica/thati/novos/energia_molecular/2_ano_en_molec_termoquimica_5_extras_e5d524c19360.pdf
+2AnoM/quimica/thati/2p/2_ano_en_molec_termoqui_mica_2_extras_70edafb65139.pdf
+2AnoM/quimica/thati/2p/2_ano_en_molec_termoquimica_5_extras_e5d524c19360.pdf
+2AnoM/quimica/thati/3p/2_ano_en_molec_cine_t_qui_m_parte_2_extras_ok_eda23525635f.pdf
+2AnoM/quimica/thati/3p/2_ano_en_molec_cinet_quim_parte_3_extras_0db3a7ae8437.pdf
+2AnoM/quimica/thati/4p/2_ano_en_molec_prop_coligativas_parte_1_extras_1bc5abee77b7.pdf
 2AnoM/redacao/1p/cronica_2026_.pdf
 2AnoM/redacao/1p/cronica_exercicio2_fuvestsimulado.pdf
 2AnoM/redacao/1p/cronicas_2026_exemplos.pdf
