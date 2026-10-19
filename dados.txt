@@ -570,8 +570,6 @@
 2AnoM/biologia/croti/4p/aula_16_-_fotoperiodismo_8a8e4573279f.pdf
 2AnoM/biologia/croti/4p/lab_06_-_fotossintese_e_respiracao_-_gabarito_1d06405d1b48.pdf
 2AnoM/biologia/croti/4p/lab_07_-_pigmentos_vegetais_-_gabarito_585b687c6ef5.pdf
-2AnoM/biologia/croti/novos/2em_-_recuperacao/2em_-_recuperacao_paralela/rec_01_-_ciclo_celular_mitose_e_meiose_-_gabarito_a93f589007c7.pdf
-2AnoM/biologia/croti/novos/2em_-_recuperacao/2em_-_recuperacao_paralela/rec_02_-_replicacao_e_transcricao_do_dna_-_ciclos_reprodutivos_-_gabar_e4d36473e8d8.pdf
 2AnoM/biologia/croti/novos/2em_-_recuperacao/2em_-_recuperacao_paralela/rec_03_-_sintese_proteica_-_briofitas_e_pteridofitas_b518d487d624.pdf
 2AnoM/biologia/croti/novos/2em_-_recuperacao/2em_-_recuperacao_paralela/rec_04_-_biotecnologia_-_gabarito_bc5b11edf1d7.pdf
 2AnoM/biologia/croti/novos/2em_-_recuperacao/2em_-_recuperacao_paralela/rec_04_-_biotecnologia_-_telas_0e2d8432548e.pdf
@@ -727,12 +725,6 @@
 2AnoM/fisica/rocris/4p/choques_mecanicos_-_exercicios_4fbd53805f7c.pdf
 2AnoM/fisica/rocris/4p/recuperacao/conservacao_da_quantidade_de_movimento_c66801ac7b76.pdf
 2AnoM/fisica/rocris/4p/recuperacao/estatica_do_corpo_extenso_af20ee56aed3.pdf
-2AnoM/fisica/rocris/novos/provas/1o_periodo_-_1_etapa_-_resolucao_95f85812a34e.pdf
-2AnoM/fisica/rocris/novos/provas/1o_periodo_-_2a_etapa_-_resolucao_682f8b8c1d81.pdf
-2AnoM/fisica/rocris/novos/provas/2a_serie_-_2o_periodo_-_1a_etapa_dc09e568ffc8.pdf
-2AnoM/fisica/rocris/novos/provas/2a_serie_-_2o_periodo_-_2a_etapa_835668a5140b.pdf
-2AnoM/fisica/rocris/novos/provas/2a_serie_-_3o_periodo_-2_a_etapa_8b9154ad4136.pdf
-2AnoM/fisica/rocris/novos/provas/2a_serie_-_3o_periodo_-_1a_etapa_-_resolucao_c0acb21ae4fc.pdf
 2AnoM/geografia/alex/1p/exercicios_transportes.pdf
 2AnoM/geografia/alex/1p/industrializacao_brasileira.pptx
 2AnoM/geografia/alex/1p/sistemas_de_comunicacao_no_brasil_e_no_mundo.pptx
@@ -855,8 +847,6 @@
 2AnoM/historia/luciano/2p/2em/material_19_-_o_impressionismo_e_pontilhismo_f618bf1080a7.pdf
 2AnoM/historia/luciano/2p/material_16_-_o_barroco_no_brasil.pdf
 2AnoM/historia/luciano/2p/material_17_-_neoclassicismo_romantismo_e_realismo.pdf
-2AnoM/historia/luciano/3p/2em/material_20_-_o_simbolismo_e_o_pos-impressionismo_188debe45eee.pdf
-2AnoM/historia/luciano/3p/2em/material_21_-_vanguardas_europeias_18335cb21137.pdf
 2AnoM/historia/luciano/3p/material_20_-_o_simbolismo_e_o_pos-impressionismo_188debe45eee.pdf
 2AnoM/historia/luciano/3p/material_21_-_vanguardas_europeias_18335cb21137.pdf
 2AnoM/historia/luciano/4p/2em/materiais_das_aulas/material_21_-_vanguardas_europeias_e53ef5432a56.pdf
@@ -895,10 +885,6 @@
 2AnoM/matematica/debora/2p/Lista para reforço - Radicais, frações, fatoração e produtos notáveis.pdf
 2AnoM/matematica/debora/2p/Resolução do exercício 7 (lista junho).pdf
 2AnoM/matematica/debora/3p/Lista funções trigonométricas - Setembro.pdf
-2AnoM/matematica/debora/novos/lista_exercicios_-_2a_serie_-_trigonometria_junho_3c851cb1959a.pdf
-2AnoM/matematica/debora/novos/lista_exercicios_extra_maio_-_2a_serie_-_trigonometria_a81502ec37a9.pdf
-2AnoM/matematica/debora/novos/lista_funcoes_trigonometricas_-_setembro_9c0f204c741c.pdf
-2AnoM/matematica/debora/novos/lista_para_reforco_-_radicais_fracoes_fatoracao_e_produtos_notaveis_570a8a61f1ef.pdf
 2AnoM/matematica/larissa/1p/fatorial_-_lista_com_resolucao.pdf
 2AnoM/matematica/larissa/1p/permutacao_-_lista.pdf
 2AnoM/matematica/larissa/1p/pfc_-_lista.pdf
@@ -910,8 +896,6 @@
 2AnoM/matematica/larissa/2p/BINO^MIO DE NEWTON LISTA 1.pdf
 2AnoM/matematica/larissa/2p/COMBINAÇÃO.pdf
 2AnoM/matematica/larissa/2p/Slides - Exerci´cios e Exemplos.pdf
-2AnoM/matematica/larissa/2p/prob_espacial/lista_arranjo_95c9a359e695.pdf
-2AnoM/matematica/larissa/2p/prob_espacial/lista_combinacao_b53a45c6075d.pdf
 2AnoM/matematica/larissa/2p/prob_espacial/lista_geral_47c1c8e7e6bf.pdf
 2AnoM/matematica/larissa/2p/triangulo_de_pascal.pdf
 2AnoM/matematica/larissa/2p/trigo/trigo_adic_a_o_e_arco_duplo_lista_1_763a7b305f2a.pdf
@@ -921,35 +905,10 @@
 2AnoM/matematica/larissa/3p/geometria/slides_-_prisma_ce8dba9da60b.pdf
 2AnoM/matematica/larissa/3p/lista_probabilidade_8762bfb4fba1.pdf
 2AnoM/matematica/larissa/4p/prismas_4b1cdb6373f4.pdf
-2AnoM/matematica/larissa/novos/bino_mio_de_newton_lista_1_f74927a30412.pdf
-2AnoM/matematica/larissa/novos/exemplos_dos_slides_987821f821fb.pdf
-2AnoM/matematica/larissa/novos/lista_arranjo_ded37166e042.pdf
-2AnoM/matematica/larissa/novos/lista_combinacao_a22ebe3d56a8.pdf
-2AnoM/matematica/larissa/novos/lista_geral_135bf5fb9ed2.pdf
-2AnoM/matematica/larissa/novos/lista_probabilidade_b3860a306575.pdf
-2AnoM/matematica/larissa/novos/pfc_-_lista_a95288b4225f.pdf
-2AnoM/matematica/larissa/novos/prismas_68dd3659c421.pdf
-2AnoM/matematica/larissa/novos/prob_espacial/bino_mio_de_newton_lista_1_e3fe24b8748e.pdf
-2AnoM/matematica/larissa/novos/prob_espacial/fatorial_-_lista_com_resolucao_387bcbee1961.pdf
-2AnoM/matematica/larissa/novos/prob_espacial/lista_arranjo_95c9a359e695.pdf
-2AnoM/matematica/larissa/novos/prob_espacial/lista_combinacao_b53a45c6075d.pdf
-2AnoM/matematica/larissa/novos/prob_espacial/lista_geral_47c1c8e7e6bf.pdf
-2AnoM/matematica/larissa/novos/prob_espacial/permutacao_-_lista_c268ade3131c.pdf
-2AnoM/matematica/larissa/novos/prob_espacial/pfc_-_lista_54859f317f7b.pdf
-2AnoM/matematica/larissa/novos/prob_espacial/slides_-_exerci_cios_e_exemplos_a607201a40a7.pdf
-2AnoM/matematica/larissa/novos/prob_espacial/slides_-_exercicios_e_exemplos_aec56ccc2058.pdf
-2AnoM/matematica/larissa/novos/prob_espacial/triangulo_de_pascal_52f774a71aaf.pdf
-2AnoM/matematica/larissa/novos/revisao_geometria_plana_3db976535527.pdf
-2AnoM/matematica/larissa/novos/slides_-_exerci_cios_e_exemplos_d2d2df533b2a.pdf
-2AnoM/matematica/larissa/novos/slides_-_exercicios_e_exemplos_140fd788bf8b.pdf
-2AnoM/matematica/larissa/novos/slides_-_prisma_8129a4dfbc0f.pdf
-2AnoM/matematica/larissa/novos/triangulo_de_pascal_e4606a286603.pdf
-2AnoM/matematica/larissa/novos/trigo_adic_a_o_e_arco_duplo_lista_1_46737865d5a7.pdf
 2AnoM/matematica/walter/1p/gabarito_apv_s.pdf
 2AnoM/matematica/walter/1p/resolucao_exercicios_pagina_332_livro_4.docx
 2AnoM/matematica/walter/novos/gabarito_apv_2periodo_15e653fad72c.pdf
 2AnoM/matematica/walter/novos/gabarito_apv_3o_periodo_d9a267de8288.pdf
-2AnoM/matematica/walter/novos/gabarito_apv_s_b8b342d80e9b.pdf
 2AnoM/matematica/walter/novos/gabarito_exercicios_t1_ao_t7_lista_1_estatistica_c1f24196c7b6.pdf
 2AnoM/matematica/walter/novos/resolucao_da_lista_de_trigonometria_-_debora_d402cfebefd7.pdf
 2AnoM/matematica/walter/novos/resolucao_exercicios_pagina_332_livro_4_0033e6a58b18.docx
@@ -1101,7 +1060,6 @@
 2AnoM/quimica/thati/2p/2_ano_en_molec_termoquimica_5_extras_e5d524c19360.pdf
 2AnoM/quimica/thati/3p/2_ano_en_molec_cine_t_qui_m_parte_2_extras_ok_eda23525635f.pdf
 2AnoM/quimica/thati/3p/2_ano_en_molec_cinet_quim_parte_3_extras_0db3a7ae8437.pdf
-2AnoM/quimica/thati/4p/2_ano_en_molec_prop_coligativas_parte_1_extras_1bc5abee77b7.pdf
 2AnoM/quimica/thati/4p/2_ano_en_molec_prop_coligativas_parte_1_extras_ok_cc73637a4f8a.pdf
 2AnoM/redacao/1p/cronica_2026_.pdf
 2AnoM/redacao/1p/cronica_exercicio2_fuvestsimulado.pdf
@@ -1182,12 +1140,7 @@
 2AnoM/sociologia/novos/2025/sociologia_-_2a_se_rie_-_1a_etapa_-_1o_peri_odo_abc71586238d.docx
 2AnoM/sociologia/novos/lista_de_exercicios/lista_1_-_a_natureza_da_politica_-_gabarito_partes_1_e_2_4cb0897510df.doc
 2AnoM/sociologia/novos/lista_de_exercicios/lista_1_-_a_natureza_da_politica_2ed93c864bca.doc
-2AnoM/sociologia/novos/lista_de_exercicios/lista_1_-_a_natureza_da_politica_sem_gabarito_37ddd9f925f4.pdf
-2AnoM/sociologia/novos/lista_de_exercicios/lista_2_-_teorias_politicas_e_estado_moderno_sem_gabarito_e5d221c51dc6.pdf
-2AnoM/sociologia/novos/slides/material_1_-_a_natureza_da_politica_938f277425df.pdf
 2AnoM/sociologia/novos/slides/material_2_-_teorias_politicas_e_estado_moderno_87ab1dda4ce1.pptx
-2AnoM/sociologia/novos/textos_complementares/tc1_-_politica_poder_e_estado_estado_e_legitimidade_do_poder_3aa348a8710a.pdf
-2AnoM/sociologia/novos/textos_complementares/tc2_-_povo_e_nacao_12ca4966aead.pdf
 vestibulares/Enem/Enem 2025 - Copia/Enem Dia 1_2025_AMARELO__7aa6ffc6-4b96-412c-acef-469618a6941b.pdf
 vestibulares/Enem/Enem 2025 - Copia/Enem Dia 1_2025_Azul__845a0661-6a0c-44ed-9115-91f199a2c3c5.pdf
 vestibulares/Enem/Enem 2025 - Copia/Enem Dia 1_2025_Verde__95f7afd9-1e6b-4aac-b6a0-b840236c917e.pdf
