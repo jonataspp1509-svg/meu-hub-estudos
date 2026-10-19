@@ -10,3 +10,7 @@
 .section-tabs a:last-child{grid-column:1/-1}
 .section-tabs a[aria-current=page]{border-color:var(--ink);background:var(--ink);color:#fff}
 }
+
+.subject-note{margin:18px 0;padding:15px 18px;background:#f0edf7;border:1px solid #ddd4ec;border-radius:13px;color:#55466c;font-size:13px;line-height:1.8}.subject-note[hidden]{display:none}.exam-description .exam-subjects{color:#655580;font-size:12px;font-weight:600;margin-top:8px}.filter-row{flex-wrap:wrap}.filter-row label{min-width:145px;flex:1}.filter-row #examSubject{font-weight:600}@media(max-width:600px){.filter-row label{min-width:0}.subject-note{font-size:12px;padding:13px}}
+
+.filter-row{grid-template-columns:repeat(3,minmax(0,1fr))}.filter-row label{min-width:0}@media(max-width:600px){.filter-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
