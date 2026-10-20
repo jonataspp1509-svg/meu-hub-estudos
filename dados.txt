@@ -591,6 +591,10 @@
 2AnoM/biologia/murilo/2p/Lista 2 - Variações da 1ª Lei.docx
 2AnoM/biologia/murilo/2p/Slides - 1a lei.pdf
 2AnoM/biologia/murilo/2p/Tarefa Livro 3.pptx
+2AnoM/biologia/murilo/2p/gabarito_-_lista_1_-_1a_lei_e_probabilidades_dd112a94ae6b.docx
+2AnoM/biologia/murilo/2p/gabarito_-_lista_2_-_variacoes_da_1a_lei_2db44f384f4a.docx
+2AnoM/biologia/murilo/2p/lista_genetica_basica_cd3018e01572.pptx
+2AnoM/biologia/murilo/2p/lista_impressa_genetica_basica_com_respostas_c12d09c203be.docx
 2AnoM/biologia/murilo/2p/tipos_de_heranca_1_debf5d6724e9.pdf
 2AnoM/biologia/murilo/3p/eritroblastose_9503b3390e95.ppt
 2AnoM/biologia/murilo/3p/interacao_genica_1826a961816d.pptx
@@ -610,6 +614,8 @@
 2AnoM/biologia/murilo/3p/tarefa_-_ligacao_genica_f1128e7f535f.docx
 2AnoM/biologia/murilo/3p/tarefa_heranca_cromossomos_sexuais_2026_e3cbd7ab9fdf.docx
 2AnoM/biologia/murilo/3p/tarefa_heranca_cromossomos_sexuais_com_respostas_2026_ec736d9da4fb.docx
+2AnoM/biologia/murilo/4p/tarefa_heranca_cromossomos_sexuais_2026_5b12f30a6cfd.docx
+2AnoM/biologia/murilo/4p/tarefa_heranca_cromossomos_sexuais_com_respostas_2026_dc520050c580.docx
 2AnoM/filosofia/1p/2em_filosofia_1aetapa_1operiodo_2026.docx
 2AnoM/filosofia/1p/a_filosofia_de_aristoteles_parte_1.pptx
 2AnoM/filosofia/1p/a_filosofia_de_aristoteles_parte_2.pptx
@@ -708,6 +714,7 @@
 2AnoM/fisica/rocris/2p/recuperacao/sistemas_conservativos_e_dissipativos_f9633ead556a.pdf
 2AnoM/fisica/rocris/2p/sistemas_dissipativos_exercicios_-_resolucao_6f9ee5e9e473.pdf
 2AnoM/fisica/rocris/2p/tec_-_exercicios.pdf
+2AnoM/fisica/rocris/2p/trabalho_-_exercicios_-_livro_-_resolucao_a99fdc173914.pdf
 2AnoM/fisica/rocris/3p/conservacao_da_quantidade_de_movimento-_exercicios_-_resolucao_38e62e1f30bc.pdf
 2AnoM/fisica/rocris/3p/conservacao_da_quantidade_de_movimento_-_entendendo_fisicamente_31f9ad2aa161.pdf
 2AnoM/fisica/rocris/3p/conservacao_da_quantidade_de_movimento_-_exercicios_afc83983ba3b.pdf
@@ -732,6 +739,7 @@
 2AnoM/geografia/alex/1p/sistemas_de_transporte_no_mundo.pptx
 2AnoM/geografia/alex/2p/Slides/L5FAC1_Urbanização Mundial.pptx
 2AnoM/geografia/alex/2p/Slides/L5FAC2_Redes e Hierarquia Urbana.pptx
+2AnoM/geografia/alex/2p/l5fac2_redes_e_hierarquia_urbana_7aa5899e51d5.pptx
 2AnoM/geografia/alex/2p/l5fac3e4_problemas_sociambientais_urbanos_ffac6d79d565.pptx
 2AnoM/geografia/alex/2p/sugestao_de_exercicios_d20c5f30b2ea.pdf
 2AnoM/geografia/alex/3p/a_importancia_das_sementes_crioulas_6f25bd3bd95d.pdf
@@ -801,6 +809,8 @@
 2AnoM/historia/celcio/2p/1a_etapa/2P - História - Conteúdos da Prova de História da 1ª Etapa do 2º Período.docx
 2AnoM/historia/celcio/2p/1a_etapa/2P - Vol.pptx
 2AnoM/historia/celcio/2p/1a_etapa/2p_-_as_independencias_na_america_espanhola.pptx
+2AnoM/historia/celcio/2p/2a_etapa/2p_-_vol_-_copia_3c8d834c5491.pptx
+2AnoM/historia/celcio/2p/2a_etapa/2p_-_vol_74f341560a9c.pptx
 2AnoM/historia/celcio/2p/recuperacao/1a_etapa/2a_serie_recuperacao_-de_historia_-_14_de_maio_de_2026_-_1a_etapa_do_2_86ed4f56ddca.docx
 2AnoM/historia/celcio/2p/recuperacao/1a_etapa/gabarito_-2a_serie_recuperacao_-de_historia_-_14_de_maio_de_2026_-_1a__0575794a4424.docx
 2AnoM/historia/celcio/2p/recuperacao/2a_etapa/2p_-rec_2_-_recuperacao_de_historia_-_11_de_junho_-_2a_etapa_do_2o_per_c05bb3786d07.docx
@@ -925,6 +935,7 @@
 2AnoM/portugues/ivan/2p/recuperacao/recuperacao_2a_serie_6b0178ed81b6.docx
 2AnoM/portugues/ivan/2p/recuperacao/recuperacao_2a_serie_adjunto_adverbial_c8a0bcad7f65.docx
 2AnoM/portugues/ivan/3p/recuperacao/rec_2a_serie_termos_ligados_ao_nome_d6f6328172c4.docx
+2AnoM/portugues/ivan/4p/recuperacao/recuperacao_2a_serie_gramatica_a16b155af272.pdf
 2AnoM/portugues/ivan/novos/exercicios_sujeito_-_gabarito_1c10bd7ef910.docx
 2AnoM/portugues/odete/1p/2_-_aula_03_-_realismo_em_portugal.pdf
 2AnoM/portugues/odete/1p/2_-_aula_04_-_realismo_em_portugal.pdf
@@ -1122,6 +1133,7 @@
 2AnoM/sociologia/3p/provas/sociabilidades_contemporaneas_-_2a_se_rie_-_2a_etapa_-_3o_peri_odo_d46cb6d06461.docx
 2AnoM/sociologia/3p/slides/material_4_-_estado_sociedade_e_sociologia_brasileiros_f53bf40f35cb.pptx
 2AnoM/sociologia/3p/textos_complementares/tc3_-_sociologia_brasileira_bf8fbece9c62.pdf
+2AnoM/sociologia/4p/lista_de_exercicios/lista_4_-_formacao_do_estado_e_da_sociologia_no_brasil_4986972adefe.doc
 2AnoM/sociologia/novos/2024/politica_e_modernidade_-_2a_se_rie_-_1a_etapa_-_1o_peri_odo_487fac688436.docx
 2AnoM/sociologia/novos/2024/politica_e_modernidade_-_2a_se_rie_-_1a_etapa_-_2o_peri_odo_ef1112f36a7b.docx
 2AnoM/sociologia/novos/2024/politica_e_modernidade_-_2a_se_rie_-_1a_etapa_-_3o_peri_odo_10d30f9bf23f.docx
