@@ -1,4 +1,4 @@
-const CACHE_NAME = 'studyflow-focus-lock-20261021';
+const CACHE_NAME = 'studyflow-board-images-20261021';
 const urlsToCache = ['./', './index.html', './manifest.json'];
 self.addEventListener('install', event => {
   self.skipWaiting();
