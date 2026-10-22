@@ -5,3 +5,7 @@ body.drawing-expanded #drawPane .draw-toolbar.expanded{position:relative;inset:a
 body.drawing-expanded #drawPane .canvas-wrap.expanded{position:relative;inset:auto;flex:1;min-height:0;height:auto;width:100%;margin:0;z-index:1;border-radius:10px}
 body.drawing-expanded #studyFocusDock{display:none}
 @media(max-width:760px){.board-image-tools{gap:5px}.board-image-tools button{min-height:38px}.board-image-tip{font-size:11px}body.drawing-expanded #drawPane .draw-toolbar.expanded{padding:8px;gap:6px;max-height:42dvh}body.drawing-expanded .drawing-zoom{width:auto;gap:2px}body.drawing-expanded .draw-toolbar button{padding:7px 8px}}
+
+
+
+.board-image-selection{pointer-events:auto;touch-action:none;cursor:move}.board-image-selection .board-image-resize{background:transparent;border:0;box-shadow:none;border-radius:50%;width:32px;height:32px;min-height:32px;padding:0;right:auto;bottom:auto}.board-image-resize::after{content:"";position:absolute;inset:9px;border:2px solid #5674d8;background:#fff;border-radius:50%;box-shadow:0 1px 4px #0003}.board-image-resize.nw{left:-16px;top:-16px;cursor:nwse-resize}.board-image-resize.ne{right:-16px;top:-16px;cursor:nesw-resize}.board-image-resize.sw{left:-16px;bottom:-16px;cursor:nesw-resize}.board-image-resize.se{right:-16px;bottom:-16px;cursor:nwse-resize}.board-image-selection:focus-visible{outline:3px solid #809aff;outline-offset:5px}

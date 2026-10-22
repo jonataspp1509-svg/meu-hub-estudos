@@ -3,19 +3,20 @@ const boardWrap=$('canvasWrap'),boardPane=$('drawPane');
 const imageLayer=document.createElement('canvas');imageLayer.className='board-image-layer';imageLayer.setAttribute('aria-hidden','true');boardWrap.prepend(imageLayer);
 const imageCtx=imageLayer.getContext('2d'),imageCache=new Map();
 const imageControls=document.createElement('div');imageControls.className='board-image-selection';imageControls.hidden=true;
-imageControls.innerHTML='<button type="button" class="board-image-move" aria-label="Mover imagem. Arraste ou use as setas.">✥ Mover imagem</button><button type="button" class="board-image-resize" aria-label="Redimensionar imagem. Arraste ou use as setas.">↘</button>';
+imageControls.tabIndex=0;imageControls.setAttribute('role','group');imageControls.setAttribute('aria-label','Imagem selecionada. Arraste para mover ou use as setas.');
+imageControls.innerHTML=[['nw','superior esquerdo'],['ne','superior direito'],['sw','inferior esquerdo'],['se','inferior direito']].map(([corner,label])=>'<button type="button" class="board-image-resize '+corner+'" data-corner="'+corner+'" aria-label="Redimensionar imagem pelo canto '+label+'. Arraste ou use as setas."></button>').join('');
 boardWrap.append(imageControls);
 const imageTools=document.createElement('div');imageTools.className='board-image-tools';
 imageTools.innerHTML='<button type="button" id="addBoardImage">＋ Imagem</button><button type="button" id="pasteBoardImage">Colar imagem</button><button type="button" id="editBoardImage" aria-pressed="false">Ajustar imagem</button><button type="button" id="removeBoardImage" hidden>Remover imagem</button><input id="boardImageFile" type="file" accept="image/png,image/jpeg,image/webp" hidden>';
 document.querySelector('.draw-toolbar').insertBefore(imageTools,document.querySelector('.drawing-zoom'));
-const boardTip=document.createElement('p');boardTip.className='board-image-tip';boardTip.textContent='Cole um recorte com Ctrl+V ou adicione uma imagem. Use Ajustar imagem para mover e redimensionar; depois escolha Caneta para resolver por cima.';
+const boardTip=document.createElement('p');boardTip.className='board-image-tip';boardTip.textContent='Cole um recorte com Ctrl+V ou adicione uma imagem. Toque na imagem para selecionar. Arraste a imagem para mover e as bolinhas dos cantos para redimensionar. Com dois dedos sobre a imagem selecionada, amplie ou diminua. Escolha Caneta para resolver por cima.';
 document.querySelector('.drawing-footer').before(boardTip);
 let selectedBoardImage=null,imagePage=null,importingImage=false;
 const boardImages=()=>current?.drawingImages||[];
 function selectedImage(){return boardImages().find(i=>i.id===selectedBoardImage);}
 function imageBitmap(src){if(!imageCache.has(src)){const img=new Image();imageCache.set(src,img);img.onload=()=>{if(current&&!boardPane.hidden)redraw();};img.src=src;}return imageCache.get(src);}
 function syncImageControls(){
-  const editing=tool==='image'&&!window.STUDIO_READONLY,images=boardImages();
+  const images=boardImages();if(!images.length&&tool==='image'){tool='pen';toolsBeforeImages();}const editing=tool==='image'&&!window.STUDIO_READONLY;
   if(imagePage!==current?.id){imagePage=current?.id;selectedBoardImage=null;imageCache.clear();}
   if(!selectedImage())selectedBoardImage=images.at(-1)?.id||null;
   const image=selectedImage();boardWrap.classList.toggle('board-editing-image',editing);
@@ -36,17 +37,21 @@ const toolsBeforeImages=updateTools;updateTools=function(){toolsBeforeImages();s
 $('editBoardImage').onclick=()=>{tool=tool==='image'?'pen':'image';updateTools();redraw();};
 $('removeBoardImage').onclick=()=>{if(window.STUDIO_READONLY||!current)return;current.drawingImages=boardImages().filter(i=>i.id!==selectedBoardImage);selectedBoardImage=null;redraw();flush();};
 function placeImage(image,x,y,width=image.width){const ratio=image.height/image.width;image.width=Math.max(40,Math.min(8000,8000/ratio,width));image.height=image.width*ratio;image.x=Math.max(0,Math.min(16000-image.width,x));image.y=Math.max(0,Math.min(16000-image.height,y));const w=worldSize();const next={width:Math.max(w.width,Math.ceil(image.x+image.width)),height:Math.max(w.height,Math.ceil(image.y+image.height))};if(next.width!==w.width||next.height!==w.height){for(const stroke of [...current.strokes||[],...redoStack])for(const p of stroke.points){p.x*=w.width/next.width;p.y*=w.height/next.height;}current.drawingSize=next;}}
-for(const [selector,resize]of [['.board-image-move',false],['.board-image-resize',true]]){
-  const handle=imageControls.querySelector(selector);
-  handle.onpointerdown=e=>{const image=selectedImage();if(e.button!==0||!image||window.STUDIO_READONLY)return;e.preventDefault();e.stopPropagation();const page=current,id=image.id,start={x:e.clientX,y:e.clientY,ix:image.x,iy:image.y,width:image.width},zoom=camera.zoom;handle.setPointerCapture(e.pointerId);
-    const move=event=>{if(event.pointerId!==e.pointerId||current!==page||selectedBoardImage!==id)return;event.preventDefault();if(resize)placeImage(image,start.ix,start.iy,start.width+(event.clientX-start.x)/zoom);else placeImage(image,start.ix+(event.clientX-start.x)/zoom,start.iy+(event.clientY-start.y)/zoom);redraw();};
-    const end=event=>{if(event.pointerId!==e.pointerId)return;handle.removeEventListener('pointermove',move);handle.removeEventListener('pointerup',end);handle.removeEventListener('pointercancel',end);if(handle.hasPointerCapture(e.pointerId))handle.releasePointerCapture(e.pointerId);if(current===page)flush();};
-    handle.addEventListener('pointermove',move);handle.addEventListener('pointerup',end);handle.addEventListener('pointercancel',end);
-  };
-  handle.onkeydown=e=>{const image=selectedImage();if(!image||window.STUDIO_READONLY||!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key))return;e.preventDefault();const step=e.shiftKey?40:10,dx=e.key==='ArrowLeft'?-step:e.key==='ArrowRight'?step:0,dy=e.key==='ArrowUp'?-step:e.key==='ArrowDown'?step:0;if(resize)placeImage(image,image.x,image.y,image.width+(dx||dy));else placeImage(image,image.x+dx,image.y+dy);redraw();schedule();};
-}
-// Clicking a reference selects it while the image adjustment tool is active.
-boardWrap.addEventListener('pointerdown',e=>{if(tool!=='image'||window.STUDIO_READONLY||e.target.closest('button'))return;const r=canvas.getBoundingClientRect(),x=(e.clientX-r.left-camera.x)/camera.zoom,y=(e.clientY-r.top-camera.y)/camera.zoom;const image=[...boardImages()].reverse().find(i=>x>=i.x&&x<=i.x+i.width&&y>=i.y&&y<=i.y+i.height);if(image){selectedBoardImage=image.id;redraw();}});
+function hitBoardImage(e){const r=canvas.getBoundingClientRect(),x=(e.clientX-r.left-camera.x)/camera.zoom,y=(e.clientY-r.top-camera.y)/camera.zoom;return [...boardImages()].reverse().find(i=>x>=i.x&&x<=i.x+i.width&&y>=i.y&&y<=i.y+i.height);}
+let imageTap=null;
+canvas.addEventListener('pointerdown',e=>{if(window.STUDIO_READONLY||tool!=='pen'||pointers.size){imageTap=null;return;}const image=hitBoardImage(e);imageTap=image?{pointer:e.pointerId,id:image.id,x:e.clientX,y:e.clientY,page:current}:null;},true);
+canvas.addEventListener('pointermove',e=>{if(imageTap?.pointer===e.pointerId&&Math.hypot(e.clientX-imageTap.x,e.clientY-imageTap.y)>8)imageTap=null;},true);
+canvas.addEventListener('pointerup',e=>{if(!imageTap||imageTap.pointer!==e.pointerId)return;const tap=imageTap;imageTap=null;if(current!==tap.page||window.STUDIO_READONLY)return;e.stopImmediatePropagation();drawing=null;pointers.delete(e.pointerId);selectedBoardImage=tap.id;tool='image';updateTools();redraw();},true);
+canvas.addEventListener('pointercancel',()=>{imageTap=null;},true);
+boardWrap.addEventListener('pointerdown',e=>{if(tool!=='image'||window.STUDIO_READONLY||imageControls.contains(e.target))return;const image=hitBoardImage(e);if(image){selectedBoardImage=image.id;redraw();}else{tool='pen';updateTools();redraw();}});
+const imagePointers=new Map();let imageDrag=null,imagePinch=null;
+function imagePair(){const pts=[...imagePointers.values()];if(pts.length<2)return null;return{x:(pts[0].x+pts[1].x)/2,y:(pts[0].y+pts[1].y)/2,distance:Math.max(1,Math.hypot(pts[0].x-pts[1].x,pts[0].y-pts[1].y))};}
+imageControls.onpointerdown=e=>{const image=selectedImage();if(e.button!==0||!image||window.STUDIO_READONLY)return;e.preventDefault();e.stopPropagation();imageControls.setPointerCapture(e.pointerId);imagePointers.set(e.pointerId,{x:e.clientX,y:e.clientY});const pair=imagePair();if(pair){imagePinch={...pair,image:{...image},page:current};return;}imageDrag={pointer:e.pointerId,x:e.clientX,y:e.clientY,image:{...image},page:current,corner:e.target.closest('[data-corner]')?.dataset.corner};};
+imageControls.onpointermove=e=>{if(!imagePointers.has(e.pointerId)||window.STUDIO_READONLY)return;e.preventDefault();imagePointers.set(e.pointerId,{x:e.clientX,y:e.clientY});const image=selectedImage();if(!image)return;const pair=imagePair();if(imagePinch){if(!pair||current!==imagePinch.page||image.id!==imagePinch.image.id)return;const start=imagePinch.image,width=start.width*pair.distance/imagePinch.distance,height=width*start.height/start.width;placeImage(image,start.x+(pair.x-imagePinch.x)/camera.zoom+(start.width-width)/2,start.y+(pair.y-imagePinch.y)/camera.zoom+(start.height-height)/2,width);}
+ else if(imageDrag&&current===imageDrag.page&&image.id===imageDrag.image.id){const start=imageDrag.image,dx=(e.clientX-imageDrag.x)/camera.zoom,dy=(e.clientY-imageDrag.y)/camera.zoom;if(imageDrag.corner){const left=imageDrag.corner.includes('w'),top=imageDrag.corner.includes('n'),ratio=start.height/start.width,delta=Math.abs(dx)>Math.abs(dy/ratio)?dx*(left?-1:1):dy/ratio*(top?-1:1),width=Math.max(40,start.width+delta),height=width*ratio;placeImage(image,left?start.x+start.width-width:start.x,top?start.y+start.height-height:start.y,width);}else placeImage(image,start.x+dx,start.y+dy);}redraw();};
+function finishImagePointer(e){imagePointers.delete(e.pointerId);if(imageControls.hasPointerCapture(e.pointerId))imageControls.releasePointerCapture(e.pointerId);if(!imagePointers.size){if(current===(imagePinch?.page||imageDrag?.page))flush();imageDrag=imagePinch=null;}}
+imageControls.onpointerup=finishImagePointer;imageControls.onpointercancel=finishImagePointer;
+imageControls.onkeydown=e=>{const image=selectedImage();if(!image||window.STUDIO_READONLY||!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key))return;e.preventDefault();const step=e.shiftKey?40:10,dx=e.key==='ArrowLeft'?-step:e.key==='ArrowRight'?step:0,dy=e.key==='ArrowUp'?-step:e.key==='ArrowDown'?step:0;if(e.target.dataset.corner)placeImage(image,image.x,image.y,image.width+(dx||dy));else placeImage(image,image.x+dx,image.y+dy);redraw();schedule();};
 async function insertBoardImage(file){
   if(importingImage||!current||window.STUDIO_READONLY)return;
   if(!['image/png','image/jpeg','image/webp'].includes(file.type)){toast('Escolha uma imagem PNG, JPG ou WebP.');return;}
@@ -66,7 +71,7 @@ async function insertBoardImage(file){
     if(current!==page||window.STUDIO_READONLY)return;
     const r=canvas.getBoundingClientRect(),width=Math.min(bitmap.width,900,Math.max(240,r.width/camera.zoom*.8)),height=width*bitmap.height/bitmap.width;
     const image={id:crypto.randomUUID(),src,x:Math.max(0,-camera.x/camera.zoom+30),y:Math.max(0,-camera.y/camera.zoom+30),width,height};
-    page.drawingImages??=[];page.drawingImages.push(image);placeImage(image,image.x,image.y);selectedBoardImage=image.id;imagePage=page.id;tool='image';updateTools();redraw();flush();toast('Imagem adicionada. Ajuste pelos controles e escolha Caneta para escrever.');
+    page.drawingImages??=[];page.drawingImages.push(image);placeImage(image,image.x,image.y);selectedBoardImage=image.id;imagePage=page.id;tool='image';updateTools();redraw();flush();toast('Imagem adicionada. Arraste as bolinhas dos cantos para ajustar e escolha Caneta para escrever.');
   }catch(error){toast(error.message||'Não consegui abrir a imagem. Tente outro arquivo.');}finally{bitmap?.close();importingImage=false;syncImageControls();}
 }
 $('addBoardImage').onclick=()=>$('boardImageFile').click();$('boardImageFile').onchange=e=>{const file=e.target.files?.[0];e.target.value='';if(file)insertBoardImage(file);};
