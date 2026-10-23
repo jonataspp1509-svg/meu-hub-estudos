@@ -794,6 +794,7 @@
 2AnoM/geografia/bruno/3p/if_-_redes_sociais_etica_e_cidadania/aulas_19_e_20_direito_nacional_6734379e47cc.pdf
 2AnoM/geografia/bruno/3p/if_-_redes_sociais_etica_e_cidadania/direito_internacional_-_situacao-problema_cf62b4d272e9.pdf
 2AnoM/geografia/bruno/3p/if_-_redes_sociais_etica_e_cidadania/notas_atividade_icec_turma_a_e_b_-_3o_periodo_fe7a4644c6d5.xlsx
+2AnoM/geografia/bruno/4p/2em/aula_02_comercio_internacional_9a2f58125e8f.pdf
 2AnoM/geografia/bruno/4p/2em/revisao_2em_geografia_geral_1_etapa_4_periodo_5b75a1f2bfcf.pdf
 2AnoM/historia/celcio/1p/1p-_napoleao_bonaparte_e_o_congresso_de_viena_-_vol.pptx
 2AnoM/historia/celcio/1p/1p_-_1o_reinado_e_periodo_regencial_-cap.pptx
@@ -914,6 +915,7 @@
 2AnoM/matematica/larissa/3p/geometria/revisao_geometria_plana_91abf7a2e518.pdf
 2AnoM/matematica/larissa/3p/geometria/slides_-_prisma_ce8dba9da60b.pdf
 2AnoM/matematica/larissa/3p/lista_probabilidade_8762bfb4fba1.pdf
+2AnoM/matematica/larissa/4p/ex_slides_-_cubo_paralelepipedo_e_cilindro_df9277ea0744.pdf
 2AnoM/matematica/larissa/4p/prismas_4b1cdb6373f4.pdf
 2AnoM/matematica/walter/1p/gabarito_apv_s.pdf
 2AnoM/matematica/walter/1p/resolucao_exercicios_pagina_332_livro_4.docx
@@ -1038,6 +1040,7 @@
 2AnoM/quimica/renato/3p/lista_de_exercicios/resolucao/equilibrio_quimico_-_parte_2_020578e1276a.pdf
 2AnoM/quimica/renato/3p/slides/capitulo_1_-_reacoes_reversiveis_-_kc_e_kp_61ea7bc2006d.pdf
 2AnoM/quimica/renato/4p/listas_de_exercicios/lista_extra_-_equilibrio_quimico_-_parte_3_-_ki_e_ph_7ff5241c7571.pdf
+2AnoM/quimica/renato/4p/listas_de_exercicios/lista_extra_-_equilibrio_quimico_-_parte_4_-_hidrolise_salina_e_kps_0287e34465ab.pdf
 2AnoM/quimica/renato/novos/recuperacao/07_maio_-_recuperacao_paralela_c0f91272022c.pdf
 2AnoM/quimica/renato/novos/recuperacao/09_abril_-_recuperacao_paralela_1025901c2e09.pdf
 2AnoM/quimica/renato/novos/recuperacao/10_setembro_-_recuperacao_paralela_c57a8ada124a.pdf
