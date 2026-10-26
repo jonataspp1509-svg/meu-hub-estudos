@@ -1,4 +1,4 @@
-const CACHE_NAME = 'studyflow-writing-tools-20261026';
+const CACHE_NAME = 'studyflow-full-highlight-20261026';
 const urlsToCache = ['./', './index.html', './manifest.json'];
 self.addEventListener('install', event => {
   self.skipWaiting();
