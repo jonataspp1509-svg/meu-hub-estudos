@@ -1,0 +1,43 @@
+/* Scoped to the text editor; drawing, library, attachments and print stay independent. */
+.document:has(#textPane:not([hidden])){max-width:1240px;padding-left:32px;padding-right:32px}
+.writing-layout{display:grid;grid-template-columns:224px minmax(0,1fr);gap:28px;align-items:start}
+.writing-page{min-width:0}.writing-tools{position:sticky;top:16px;align-self:start;max-height:calc(100dvh - 32px);overflow:auto;scrollbar-width:thin;padding:14px;background:var(--surface,#202421);border:1px solid var(--line,#303630);border-radius:13px;z-index:6}
+.writing-tools-title{display:block;color:var(--ink);font-size:12px;margin:0 0 12px}
+.writing-tools .format-toolbar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));padding:0;border:0;background:none;margin:0;gap:5px}
+.writing-tools .format-toolbar>span{display:none}.writing-tools .format-toolbar button{min-height:36px;font-size:11px;padding:7px 3px;border:1px solid var(--line);border-radius:7px;color:var(--ink);background:var(--bg,#141615);white-space:normal}
+.writing-tools .format-toolbar #addPostit{grid-column:span 3;margin-top:3px;font-size:12px}
+.writing-tools .highlight-panel{background:transparent;border:0;border-top:1px solid var(--line);border-radius:0;margin:15px 0 0;padding:12px 0 0;color:var(--ink)}
+.writing-tools .highlight-heading{margin-bottom:10px;gap:5px}.writing-tools .highlight-heading strong{font-size:12px}.writing-tools .highlight-heading span{font-size:10px;line-height:1.5}
+.writing-tools .highlight-row{display:flex;gap:5px;margin:12px 0;flex-wrap:wrap}.writing-tools .highlight-row small{flex:0 0 100%;font-size:10px;margin-bottom:1px}.writing-tools .highlight-row button{width:23px;height:26px;border-radius:6px;padding:0;flex-shrink:0}.writing-tools .highlight-panel .subtle-button{padding:9px;font-size:10px;width:100%;color:var(--ink);background:var(--bg);border:1px solid var(--line)}
+.writing-highlight-toggle,.writing-palette-close{display:none}
+.writing-note-button{display:block;width:100%;margin-top:9px;min-height:38px;padding:8px;border-radius:7px;background:var(--green,#c8dfb5);color:#233023;font-size:12px}
+.writing-page{padding-right:36px}
+.editor .margin-note{height:0;min-height:0;position:relative;margin:0;padding:0;border:0;overflow:visible}
+.editor .margin-note>p{display:none}
+.margin-note-marker{position:absolute;right:-33px;top:-30px;width:29px;height:29px;border-radius:7px;border:1px solid var(--line);background:var(--surface);color:var(--accent);padding:5px;display:grid;place-items:center;cursor:pointer}
+.margin-note-marker svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}
+.margin-note-marker:hover{background:var(--green);color:#233023}
+.writing-note-panel{position:fixed;z-index:100;width:min(310px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow:auto;padding:17px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 40px #0004}
+.writing-note-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;font-size:13px}
+.writing-note-heading button{width:32px;height:32px;border-radius:50%;background:transparent;color:var(--ink);font-size:22px;padding:0}
+.writing-note-panel label{display:block;font-size:11px;color:var(--muted)}
+.writing-note-panel textarea{display:block;width:100%;resize:vertical;min-height:110px;max-height:45dvh;margin-top:8px;padding:10px;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--ink);font:13px/1.7 system-ui,sans-serif;box-sizing:border-box}
+.writing-note-actions{display:flex;justify-content:space-between;gap:10px;margin:12px 0}.writing-note-actions button{font-size:11px;padding:9px 12px;border-radius:6px;background:var(--bg);color:var(--ink);border:1px solid var(--line)}.writing-note-actions [data-done]{background:var(--green);color:#233023}.writing-note-panel small{display:block;font-size:10px;color:var(--muted)}
+html[data-notebook-theme=light] .writing-note-panel{--bg:#f5f7f0;--muted:#56634e;--accent:#526d3e}
+html[data-notebook-theme=light] .writing-tools{background:#fff;border-color:#d4ddcb;color:#263425}html[data-notebook-theme=light] .writing-tools .format-toolbar button,html[data-notebook-theme=light] .writing-tools .highlight-panel .subtle-button{background:#f0f3e9;color:#263425;border-color:#d4ddcb}
+@media(max-width:1000px){.document:has(#textPane:not([hidden])){padding-left:22px;padding-right:22px}.writing-layout{grid-template-columns:188px minmax(0,1fr);gap:18px}.writing-tools{padding:11px}.writing-tools .highlight-row{gap:4px}.writing-tools .highlight-row button{width:20px;height:26px}.writing-tools .format-toolbar button{font-size:10px}}
+@media(max-width:760px){
+ .document:has(#textPane:not([hidden])){padding-left:18px;padding-right:18px}
+ .writing-layout{display:block}.writing-tools{top:0;overflow:visible;max-height:none;display:flex;gap:8px;align-items:center;padding:9px 8px;margin:0 -7px 22px;border-radius:0 0 10px 10px;box-shadow:0 5px 15px #0002;z-index:12}
+ .writing-tools-title{display:none}.writing-tools .format-toolbar{display:flex;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;min-width:0;flex:1;padding-bottom:3px;gap:5px;margin:0}
+ .writing-tools .format-toolbar button{flex-shrink:0;white-space:nowrap;min-height:40px;padding:8px 12px;font-size:12px}.writing-tools .format-toolbar #addPostit{margin:0;font-size:12px}
+ .writing-highlight-toggle{display:block;flex-shrink:0;align-self:stretch;border-radius:7px;padding:9px 11px;font-size:12px;background:var(--green,#c8dfb5);color:#233023;min-height:40px}
+ .writing-note-button{flex-shrink:0;align-self:stretch;width:auto;margin:0;min-height:40px;padding:9px;font-size:11px}
+ .writing-tools .highlight-panel{display:none;position:absolute;top:100%;right:0;left:0;background:var(--surface,#202421);border:1px solid var(--line);border-radius:0 0 12px 12px;padding:15px;margin:0;max-height:55dvh;overflow:auto;box-shadow:0 12px 20px #0003}
+ .writing-tools.colors-open .highlight-panel{display:block}.writing-tools .highlight-row{gap:8px;margin:12px 0}.writing-tools .highlight-row button{width:32px;height:34px}.writing-tools .highlight-row small{font-size:11px}.writing-tools .highlight-heading span{font-size:11px}.writing-tools .highlight-panel .subtle-button{font-size:11px;padding:10px}
+ .writing-palette-close{display:block;width:100%;margin-top:8px;padding:10px;background:transparent;color:var(--ink);font-size:12px;border-radius:6px}
+ .writing-note-panel textarea{font-size:16px}
+ html[data-notebook-theme=light] .writing-tools .highlight-panel{background:#fff;border-color:#d4ddcb}
+ .writing-page .editor{scroll-margin-top:90px}.writing-page .postit{scroll-margin-top:90px}
+}
+@media print{.writing-tools,.writing-note-panel,.margin-note-marker{display:none!important}.writing-layout{display:block!important}.document:has(#textPane:not([hidden])){padding:0;max-width:none}.writing-page{width:100%;padding-right:0}.editor .margin-note{height:auto;margin:10px 0!important;border-left:2px solid #888;padding-left:12px}.editor .margin-note>p{display:block;font-size:11px;color:#333}.editor .margin-note>p:before{content:'Observação: ';font-weight:bold}}

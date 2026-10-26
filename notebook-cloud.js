@@ -1,6 +1,6 @@
 import {session,subscribe,db,doc,onSnapshot,setDoc,serverTimestamp} from './study-session.js?v=focus-exit-fix20261015';
 import {collection} from './study-storage.js?v=free20261014';
-import {PREFIX,decodeNote,encodeNote} from './notebook-codec.js?v=board20261021';
+import {PREFIX,decodeNote,encodeNote} from './notebook-codec.js?v=writing20261026';
 const bridge=window.notebookBridge,gate=document.getElementById('notebookAccess'),notice=document.getElementById('cloudNotice'),login=document.getElementById('cloudLogin');
 let uid=undefined,epoch=0,stop=null,timer=null,folders=[{id:'anotacoes',name:'Meu caderno',color:'green'},{id:'youtube',name:'Resumos de vídeos',color:'purple'}],known=new Map(),fingerprints=new Map(),pending=new Map(),settingsFingerprint='',writing=false;
 const noteRef=(owner,id)=>doc(db,'userNotebooks',owner,'notes',id);
