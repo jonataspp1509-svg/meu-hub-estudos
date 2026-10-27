@@ -1070,6 +1070,8 @@ input,select,textarea{
   📖 Caderno Inteligente
   </div>
 
+  <a class="dash-card" data-nav-icon="❧" href="atlas.html" aria-label="Atlas · Guias de estudos do 2º ano, 4º período">❧ Atlas · Guias de estudos</a>
+
   <a class="dash-card" data-nav-icon="☏" href="https://studychat.jonataspersico.chatgpt.site/" target="_blank" rel="noopener">☏ StudyChat</a>
 
   <a class="dash-card" data-nav-icon="✧" href="ranking.html">✧ Ranking do mês</a>
@@ -1322,7 +1324,7 @@ function voltarInicioMateriais(){
 
 history.replaceState({...history.state,libraryPath:caminhoAtual},'');
 window.addEventListener('popstate',event=>{if(typeof event.state?.libraryPath==='string'){caminhoAtual=event.state.libraryPath;document.getElementById('pesquisaMateriais').value='';renderMateriais();mostrarPastaNaTela();}});
-const APP_VERSION = "studyflow-audio-header-v12";
+const APP_VERSION = "studyflow-atlas-2ano-4p-20261027";
 
 async function atualizarCacheDoApp(){
   if(!("serviceWorker" in navigator)) return;
