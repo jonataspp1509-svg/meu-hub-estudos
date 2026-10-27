@@ -1,0 +1,2 @@
+b21111b85710f9dc6f16b0c077949cb153c5e0bdb5f6671ebb230b20ce26d0ed  StudyChat-Android-0.1-arm32.apk
+dfa03773713df1bf8e04c1eb9d4189d7f9d533d96cbfb2cfe48db376d12cb15e  StudyChat-Android-0.1-arm64.apk
