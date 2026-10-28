@@ -1,4 +1,4 @@
-const CACHE_NAME = 'studyflow-atlas-fisica-mhs-20261028';
+const CACHE_NAME = 'studyflow-atlas-fisica-mhs-detalhado-20261028';
 const urlsToCache = ['./', './index.html', './manifest.json'];
 self.addEventListener('install', event => {
   self.skipWaiting();
