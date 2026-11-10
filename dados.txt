@@ -676,6 +676,7 @@
 2AnoM/fisica/fabio/3p/mostra_cultural_-_2026_-_fabio/imagens_da_apostila_aumentadas/infografia_tecnica_do_motor_stirling_caseiro_8d3803575d3c.png
 2AnoM/fisica/fabio/3p/mostra_cultural_-_2026_-_fabio/inicie_aqui_-_resumo_do_bate_papo_inicial_da_mostra_cultural_627c8246728d.url
 2AnoM/fisica/fabio/3p/mostra_cultural_-_2026_-_fabio/tabela_links_videos_apoio_2017b61a651e.pdf
+2AnoM/fisica/fabio/4p/lista_11_-_cinematica_do_mhs_-_gabarito_2203332599a6.pdf
 2AnoM/fisica/fabio/4p/lista_11_-_cinematica_do_mhs_e9423c08023f.pdf
 2AnoM/fisica/rocris/1p/2em_-_1o_periodo/exercicios_1_serie_-_dinamica/plano_inclinado_-_exercicios.pdf
 2AnoM/fisica/rocris/1p/2em_-_1o_periodo/exercicios_1_serie_-_dinamica/plano_inclinado_-_exercicios_-_resolucao.pdf
@@ -751,6 +752,7 @@
 2AnoM/geografia/alex/3p/agropecuaria_geral_a15513116caa.pptx
 2AnoM/geografia/alex/3p/exercicios_agropecuaria_29d67ea3d3c6.pdf
 2AnoM/geografia/alex/3p/exercicios_de_revisao_agropecuaria_03d17db001c7.pdf
+2AnoM/geografia/alex/4p/a_questao_ambiental_8a8382a3ff8a.pptx
 2AnoM/geografia/alex/4p/agropecuaria_e_sustentabilidade_d4af036ecfd7.pptx
 2AnoM/geografia/alex/4p/solos_d716d783b938.ppt
 2AnoM/geografia/bruno/1p/gabarito_2em_geo_geral_1a_etapa_1o_periodo_2026.pdf
@@ -795,6 +797,7 @@
 2AnoM/geografia/bruno/3p/if_-_redes_sociais_etica_e_cidadania/direito_internacional_-_situacao-problema_cf62b4d272e9.pdf
 2AnoM/geografia/bruno/3p/if_-_redes_sociais_etica_e_cidadania/notas_atividade_icec_turma_a_e_b_-_3o_periodo_fe7a4644c6d5.xlsx
 2AnoM/geografia/bruno/4p/2em/aula_02_comercio_internacional_9a2f58125e8f.pdf
+2AnoM/geografia/bruno/4p/2em/gabarito_2em_geo_geral_1a_etapa_4o_periodo_2026_98db7939cccb.pdf
 2AnoM/geografia/bruno/4p/2em/revisao_2em_geografia_geral_1_etapa_4_periodo_5b75a1f2bfcf.pdf
 2AnoM/historia/celcio/1p/1p-_napoleao_bonaparte_e_o_congresso_de_viena_-_vol.pptx
 2AnoM/historia/celcio/1p/1p_-_1o_reinado_e_periodo_regencial_-cap.pptx
@@ -916,6 +919,7 @@
 2AnoM/matematica/larissa/3p/geometria/revisao_geometria_plana_91abf7a2e518.pdf
 2AnoM/matematica/larissa/3p/geometria/slides_-_prisma_ce8dba9da60b.pdf
 2AnoM/matematica/larissa/3p/lista_probabilidade_8762bfb4fba1.pdf
+2AnoM/matematica/larissa/4p/cone_14b02a91cc5d.pdf
 2AnoM/matematica/larissa/4p/ex_slides_-_cubo_paralelepipedo_e_cilindro_df9277ea0744.pdf
 2AnoM/matematica/larissa/4p/prismas_4b1cdb6373f4.pdf
 2AnoM/matematica/walter/1p/gabarito_apv_s.pdf
@@ -1006,6 +1010,7 @@
 2AnoM/quimica/gabriel/4p/slides/10_-_slides_-_isomeria_espacial_101489dd41ba.pdf
 2AnoM/quimica/gabriel/4p/tarefas/09_-_lista_10_df7586a1ae2b.pdf
 2AnoM/quimica/gabriel/4p/tarefas/09_-_lista_9_499d36ffcaea.pdf
+2AnoM/quimica/gabriel/4p/tarefas/11_-_lista_11_fb4d0b560037.pdf
 2AnoM/quimica/gabriel/4p/tribunal/tribunal_de_juri_2026_f6b68ee6cc06.pdf
 2AnoM/quimica/renato/1p/exercicios/lista_extra_-_solucoes_-_parte_1.pdf
 2AnoM/quimica/renato/1p/exercicios/lista_extra_-_solucoes_-_parte_2_-_concentracao_de_solucoes.pdf
@@ -1106,8 +1111,11 @@
 2AnoM/redacao/3p/propostas/enem/proposta_red1000_pessoas_situacao_rua_92acf5053a79.pdf
 2AnoM/redacao/3p/propostas/enem/simulado_desenvolvimento_sustentavel_04587335cf5f.jpg
 2AnoM/redacao/3p/propostas/enem/simulado_violencia_escolar_a09873fb5c72.jpg
+2AnoM/redacao/4p/vunesp/atividade_-_unesp_2016_27c2321553e0.docx
 2AnoM/redacao/4p/vunesp/dissertacao-argumentativa_vunesp_e14be32067ac.pdf
+2AnoM/redacao/4p/vunesp/feedback_-_prova_1_-_vunesp_f4aff9483f77.docx
 2AnoM/redacao/4p/vunesp/grade_vunesp_3532fefb0441.pdf
+2AnoM/redacao/4p/vunesp/proposta_extra_-_prova_2_213850171677.jpg
 2AnoM/redacao/4p/vunesp/unesp_2019_-_extra_0ac6b15ac10f.pdf
 2AnoM/redacao/4p/vunesp/vunesp_2em_d7bf328d9a3b.docx
 2AnoM/redacao/4p/vunesp/vunesp_atividade1_2em_df1ae2122838.pdf
