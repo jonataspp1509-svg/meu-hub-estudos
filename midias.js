@@ -46,7 +46,8 @@
   dialog.addEventListener('cancel', event => { event.preventDefault(); closeViewer(); });
   const validUrl = value => {
     const url = new URL(value);
-    if (url.protocol !== 'https:' || url.username || url.password) throw new Error('Endereço inválido');
+    if (!['https:','http:'].includes(url.protocol) || !url.hostname || url.username || url.password) throw new Error('Endereço inválido');
+    if(url.protocol==='http:'&&['youtube.com','www.youtube.com','m.youtube.com','youtu.be'].includes(url.hostname))url.protocol='https:';
     return url;
   };
   async function show(title, url, kind, path, resumePage=1, navigationNote="") {
@@ -76,7 +77,7 @@
       const drive = url.hostname === 'drive.google.com' && url.pathname.match(/^\/file\/d\/([\w-]+)(?:\/|$)/);
       const youtube = ['www.youtube.com','youtube.com'].includes(url.hostname) && url.searchParams.get('v');
       const short = url.hostname === 'youtu.be' && url.pathname.slice(1);
-      if (folder || drive || youtube || short) {
+      if (url.protocol==='https:' && (folder || drive || youtube || short)) {
         embed = document.createElement('iframe'); embed.title = title; embed.allowFullscreen = true;
         embed.allow = 'autoplay; fullscreen; encrypted-media; picture-in-picture';
         embed.referrerPolicy = 'strict-origin-when-cross-origin';
