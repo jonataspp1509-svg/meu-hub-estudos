@@ -568,6 +568,9 @@
 2AnoM/biologia/croti/3p/lab_05_-_transporte_da_seiva_-_gabarito_087408ef08f5.pdf
 2AnoM/biologia/croti/4p/aula_15_-_fitormonios_-_hormonios_vegetais_-_gabarito_ae742577b978.pdf
 2AnoM/biologia/croti/4p/aula_16_-_fotoperiodismo_8a8e4573279f.pdf
+2AnoM/biologia/croti/4p/aula_17_-_fungos_fbc4bab69f20.pdf
+2AnoM/biologia/croti/4p/aula_18_-_virus_981756bd36a1.pdf
+2AnoM/biologia/croti/4p/aula_19_-_viroses_9f5838b40762.pdf
 2AnoM/biologia/croti/4p/lab_06_-_fotossintese_e_respiracao_-_gabarito_1d06405d1b48.pdf
 2AnoM/biologia/croti/4p/lab_07_-_pigmentos_vegetais_-_gabarito_585b687c6ef5.pdf
 2AnoM/biologia/croti/novos/2em_-_recuperacao/2em_-_recuperacao_paralela/rec_03_-_sintese_proteica_-_briofitas_e_pteridofitas_b518d487d624.pdf
@@ -614,6 +617,9 @@
 2AnoM/biologia/murilo/3p/tarefa_-_ligacao_genica_f1128e7f535f.docx
 2AnoM/biologia/murilo/3p/tarefa_heranca_cromossomos_sexuais_2026_e3cbd7ab9fdf.docx
 2AnoM/biologia/murilo/3p/tarefa_heranca_cromossomos_sexuais_com_respostas_2026_ec736d9da4fb.docx
+2AnoM/biologia/murilo/4p/lista_de_exercicios_-_mutacoes_6319471b35c1.docx
+2AnoM/biologia/murilo/4p/lista_desafio_-_mutacoes_6323ee27d533.docx
+2AnoM/biologia/murilo/4p/slides_mutacoes_genicas_e_cromossomicas_2026_7ca31f796747.pptx
 2AnoM/biologia/murilo/4p/tarefa_heranca_cromossomos_sexuais_2026_5b12f30a6cfd.docx
 2AnoM/biologia/murilo/4p/tarefa_heranca_cromossomos_sexuais_com_respostas_2026_dc520050c580.docx
 2AnoM/filosofia/1p/2em_filosofia_1aetapa_1operiodo_2026.docx
@@ -631,6 +637,8 @@
 2AnoM/filosofia/3p/as_5_vias_-_tomas_de_aquino_274c432c7688.docx
 2AnoM/filosofia/3p/descartes_e_espinosa_completo_526b9340b7fc.pdf
 2AnoM/filosofia/3p/filosofia_medieval_7339ff3666c3.pptx
+2AnoM/filosofia/4p/2em_filosofia_1aetapa_4operiodo_2026_final_23d2ccd6ca9c.docx
+2AnoM/filosofia/4p/empirismo_-_locke_e_hume_89b5247c7a6b.pdf
 2AnoM/fisica/fabio/1p/lista_01_densidade_e_pressao.pdf
 2AnoM/fisica/fabio/1p/lista_01_densidade_e_pressao_-_gabarito.pdf
 2AnoM/fisica/fabio/1p/lista_02_-_pressao_hidrostatica_e_teorema_de_stevin_-_aluno.pdf
@@ -678,6 +686,7 @@
 2AnoM/fisica/fabio/3p/mostra_cultural_-_2026_-_fabio/tabela_links_videos_apoio_2017b61a651e.pdf
 2AnoM/fisica/fabio/4p/lista_11_-_cinematica_do_mhs_-_gabarito_2203332599a6.pdf
 2AnoM/fisica/fabio/4p/lista_11_-_cinematica_do_mhs_e9423c08023f.pdf
+2AnoM/fisica/fabio/4p/lista_12_-_mhs_dinamica_-_aluno_d2c82180edc9.pdf
 2AnoM/fisica/rocris/1p/2em_-_1o_periodo/exercicios_1_serie_-_dinamica/plano_inclinado_-_exercicios.pdf
 2AnoM/fisica/rocris/1p/2em_-_1o_periodo/exercicios_1_serie_-_dinamica/plano_inclinado_-_exercicios_-_resolucao.pdf
 2AnoM/fisica/rocris/1p/2em_-_1o_periodo/exercicios_1_serie_-_dinamica/sistemas_de_blocos_-_ex_-_modelos_-_resolucao.pdf
@@ -731,8 +740,16 @@
 2AnoM/fisica/rocris/4p/choques_-_exercicios_-_resolucao_36056c1244aa.pdf
 2AnoM/fisica/rocris/4p/choques_mecanicos_-_exercicios_-_resolucao_e879c6fc3f5a.pdf
 2AnoM/fisica/rocris/4p/choques_mecanicos_-_exercicios_4fbd53805f7c.pdf
+2AnoM/fisica/rocris/4p/enem_-_exercicios_04b695fa9ae8.pdf
+2AnoM/fisica/rocris/4p/enem_exercicios_-_resolucao_30e608c65fee.pdf
+2AnoM/fisica/rocris/4p/lei_da_gravitacao_universal_-_exercicios_7a0514fce09d.pdf
+2AnoM/fisica/rocris/4p/leis_de_kepler-_exercicios_-_resolucao_a816c538d866.pdf
+2AnoM/fisica/rocris/4p/leis_de_kepler-_exercicios_4eb6d83df83c.pdf
+2AnoM/fisica/rocris/4p/leis_de_kepler_-_teoria_56ed6dcf2594.pdf
+2AnoM/fisica/rocris/4p/recuperacao/colisoes_mecanicas_104238692bec.pdf
 2AnoM/fisica/rocris/4p/recuperacao/conservacao_da_quantidade_de_movimento_c66801ac7b76.pdf
 2AnoM/fisica/rocris/4p/recuperacao/estatica_do_corpo_extenso_af20ee56aed3.pdf
+2AnoM/fisica/rocris/4p/recuperacao/formula_dos_fabricantes_e5bcfbe8e307.pdf
 2AnoM/geografia/alex/1p/exercicios_transportes.pdf
 2AnoM/geografia/alex/1p/industrializacao_brasileira.pptx
 2AnoM/geografia/alex/1p/sistemas_de_comunicacao_no_brasil_e_no_mundo.pptx
@@ -836,6 +853,8 @@
 2AnoM/historia/celcio/4p/3p-_imperialismo_na_africa_e_asia_seculo_xix_52b2fd74078c.pptx
 2AnoM/historia/celcio/4p/4p_-_historia_-_conteudos_da_prova_de_historia_da_1a_etapa_do_4o_perio_bb696fb569e7.docx
 2AnoM/historia/celcio/4p/4p_1a_guerra_mundial_-capitulo_31_-_um_mundo_em_guerra_1914-1918_pagin_02dda8a4af60.pptx
+2AnoM/historia/celcio/4p/a_crise_de_29_e_a_depressao_economica_-_capitulo_3-entreguerras-_volum_e3fc25cb4053.pptx
+2AnoM/historia/celcio/4p/a_revolucao_russa-capitulo_3-_volume_5-_entreguerras_39b5b6c80d31.pptx
 2AnoM/historia/celcio/4p/recuperacao/4p_-_gabarito_-_recuperacao_de_historia_2a_serie-_8_de_outubro_-_1a_et_8849bd3d9527.docx
 2AnoM/historia/celcio/4p/recuperacao/4p_-_recuperacao_de_historia_2a_serie-_8_de_outubro_-_1a_etapa_do_4o_p_03de163ee012.docx
 2AnoM/historia/celcio/4p/recuperacao/recuperacao-_questoes_de_1a_guerra_a4b4a360d204.pptx
@@ -865,6 +884,7 @@
 2AnoM/historia/luciano/3p/material_20_-_o_simbolismo_e_o_pos-impressionismo_188debe45eee.pdf
 2AnoM/historia/luciano/3p/material_21_-_vanguardas_europeias_18335cb21137.pdf
 2AnoM/historia/luciano/4p/2em/materiais_das_aulas/material_21_-_vanguardas_europeias_e53ef5432a56.pdf
+2AnoM/historia/luciano/4p/2em/materiais_das_aulas/material_23_-_o_modernismo_no_brasil_89a81308c4a0.pdf
 2AnoM/historia/luciano/novos/2em/provas/2026_historia_2aserie_1aetapa_1operiodo_revisada_nova_versao_e41a0888baa5.pdf
 2AnoM/historia/luciano/novos/2em/provas/historia_-_2a_serie_-_2aetapa_-_3o_periodo_139a1abc715d.pdf
 2AnoM/historia/luciano/novos/2em/provas/historia_da_arte_-_2a_serie_-_1aetapa_-_2o_periodo_ef8ca8b662e8.pdf
@@ -889,6 +909,7 @@
 2AnoM/ingles/3p/relative_pronouns_7be8659ee2b7.pptx
 2AnoM/ingles/4p/active_and_passive_voice_664d2694b4af.pdf
 2AnoM/ingles/4p/global_water_bankruptcy_2026_78b253312fa5.pptx
+2AnoM/ingles/4p/reported_speech_5df05ce83b65.pdf
 2AnoM/ingles/4p/texto_extra_scientific_american_microplastic_13_agosto_2018_6779d36aae3c.pptx
 2AnoM/matematica/debora/1p/arcos_geomtricos.pdf
 2AnoM/matematica/debora/1p/ciclo_com_seno_e_cosseno.pdf
@@ -921,6 +942,7 @@
 2AnoM/matematica/larissa/3p/lista_probabilidade_8762bfb4fba1.pdf
 2AnoM/matematica/larissa/4p/cone_14b02a91cc5d.pdf
 2AnoM/matematica/larissa/4p/ex_slides_-_cubo_paralelepipedo_e_cilindro_df9277ea0744.pdf
+2AnoM/matematica/larissa/4p/piramide_9c95b773b8e9.pdf
 2AnoM/matematica/larissa/4p/prismas_4b1cdb6373f4.pdf
 2AnoM/matematica/walter/1p/gabarito_apv_s.pdf
 2AnoM/matematica/walter/1p/resolucao_exercicios_pagina_332_livro_4.docx
@@ -973,8 +995,13 @@
 2AnoM/portugues/odete/4p/aula_16_-_os_sertoes_e3a2db0e048f.pdf
 2AnoM/portugues/odete/4p/aula_17_-_monteiro_lobato_-_um_visionario_89075caf64d4.pdf
 2AnoM/portugues/odete/4p/aula_18_-_lima_barreto_-_o_cronista_do_preconceito_e_da_opressao_-_cop_31c773eebd27.pdf
+2AnoM/portugues/odete/4p/aula_24_o_modernismo_cdc4162ab003.pdf
+2AnoM/portugues/odete/4p/aula_28_-_a_1a_fase_do_modernismo_brasileiro-_1922_a_1930_450ea09fde90.pptx
+2AnoM/portugues/odete/4p/conselhos_a_minha_filha_8ca8205b0ef7.docx
 2AnoM/portugues/odete/4p/gabarito_4d63c8939dfe.docx
+2AnoM/portugues/odete/4p/gabarito_recup_df3420613b1b.docx
 2AnoM/portugues/odete/4p/recuperacao-_outubro_26_8f56b7af0368.docx
+2AnoM/portugues/odete/4p/recuperacao_novembro_4f2e3e240c84.docx
 2AnoM/quimica/gabriel/1p/materiais_1a_serie/2025_slides_1.pdf
 2AnoM/quimica/gabriel/1p/materiais_1a_serie/2025_tnv_1em_1.pdf
 2AnoM/quimica/gabriel/1p/materiais_1a_serie/2025_tnv_1em_10.pdf
@@ -1047,6 +1074,7 @@
 2AnoM/quimica/renato/3p/slides/capitulo_1_-_reacoes_reversiveis_-_kc_e_kp_61ea7bc2006d.pdf
 2AnoM/quimica/renato/4p/listas_de_exercicios/lista_extra_-_equilibrio_quimico_-_parte_3_-_ki_e_ph_7ff5241c7571.pdf
 2AnoM/quimica/renato/4p/listas_de_exercicios/lista_extra_-_equilibrio_quimico_-_parte_4_-_hidrolise_salina_e_kps_0287e34465ab.pdf
+2AnoM/quimica/renato/4p/listas_de_exercicios/lista_extra_-_propriedades_e_fenomenos_quimicos_7cd4cd20ae4a.pdf
 2AnoM/quimica/renato/novos/recuperacao/07_maio_-_recuperacao_paralela_c0f91272022c.pdf
 2AnoM/quimica/renato/novos/recuperacao/09_abril_-_recuperacao_paralela_1025901c2e09.pdf
 2AnoM/quimica/renato/novos/recuperacao/10_setembro_-_recuperacao_paralela_c57a8ada124a.pdf
@@ -1081,7 +1109,9 @@
 2AnoM/quimica/thati/2p/2_ano_en_molec_termoquimica_5_extras_e5d524c19360.pdf
 2AnoM/quimica/thati/3p/2_ano_en_molec_cine_t_qui_m_parte_2_extras_ok_eda23525635f.pdf
 2AnoM/quimica/thati/3p/2_ano_en_molec_cinet_quim_parte_3_extras_0db3a7ae8437.pdf
+2AnoM/quimica/thati/4p/2_ano_en_molec_diagrama_de_fases_extras_95d5fd3aa7a6.pdf
 2AnoM/quimica/thati/4p/2_ano_en_molec_prop_coligativas_parte_1_extras_ok_cc73637a4f8a.pdf
+2AnoM/quimica/thati/4p/2_ano_en_molec_prop_coligativas_parte_2_extras_bdd943e5c687.pdf
 2AnoM/redacao/1p/cronica_2026_.pdf
 2AnoM/redacao/1p/cronica_exercicio2_fuvestsimulado.pdf
 2AnoM/redacao/1p/cronicas_2026_exemplos.pdf
@@ -1147,6 +1177,9 @@
 2AnoM/sociologia/3p/slides/material_4_-_estado_sociedade_e_sociologia_brasileiros_f53bf40f35cb.pptx
 2AnoM/sociologia/3p/textos_complementares/tc3_-_sociologia_brasileira_bf8fbece9c62.pdf
 2AnoM/sociologia/4p/lista_de_exercicios/lista_4_-_formacao_do_estado_e_da_sociologia_no_brasil_4986972adefe.doc
+2AnoM/sociologia/4p/lista_de_exercicios/lista_5_-_estratificacao_social_e_desigualdades_sem_gabarito_ee5a69db9ce8.pdf
+2AnoM/sociologia/4p/provas/sociabilidades_contemporaneas_-_2a_se_rie_-_1a_etapa_-_4o_peri_odo_7e46254fa2bc.docx
+2AnoM/sociologia/4p/slides/material_5_-_formas_historicas_e_teorias_da_estratificacao_social_26017e97330a.pptx
 2AnoM/sociologia/novos/2024/politica_e_modernidade_-_2a_se_rie_-_1a_etapa_-_1o_peri_odo_487fac688436.docx
 2AnoM/sociologia/novos/2024/politica_e_modernidade_-_2a_se_rie_-_1a_etapa_-_2o_peri_odo_ef1112f36a7b.docx
 2AnoM/sociologia/novos/2024/politica_e_modernidade_-_2a_se_rie_-_1a_etapa_-_3o_peri_odo_10d30f9bf23f.docx
