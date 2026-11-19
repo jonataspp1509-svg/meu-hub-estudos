@@ -1,7 +1,11 @@
 {
-  "checked_at": "2026-11-16T17:38:57-03:00",
-  "failures": 0,
+  "checked_at": "2026-11-19T19:09:12-03:00",
+  "failures": 1,
   "recent": [
+    {
+      "path": "2AnoM/portugues/ivan/4p/recuperacao/periodo_composto_2a_serie_135fae44e2a5.docx",
+      "added_at": "2026-11-19 19:04:41"
+    },
     {
       "path": "2AnoM/quimica/gabriel/4p/tribunal/organizacao_do_tribunal_c7c0a196f6b0.url",
       "added_at": "2026-11-16 17:51:47"
@@ -45,10 +49,6 @@
     {
       "path": "2AnoM/fisica/rocris/4p/leis_de_kepler-_exercicios_4eb6d83df83c.pdf",
       "added_at": "2026-11-16 17:32:34"
-    },
-    {
-      "path": "2AnoM/fisica/rocris/4p/leis_de_kepler_-_teoria_56ed6dcf2594.pdf",
-      "added_at": "2026-11-16 17:32:23"
     }
   ]
 }
