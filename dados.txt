@@ -742,7 +742,9 @@
 2AnoM/fisica/rocris/4p/choques_mecanicos_-_exercicios_4fbd53805f7c.pdf
 2AnoM/fisica/rocris/4p/enem_-_exercicios_04b695fa9ae8.pdf
 2AnoM/fisica/rocris/4p/enem_exercicios_-_resolucao_30e608c65fee.pdf
+2AnoM/fisica/rocris/4p/lei_da_gravitacao_universal_-_ex_-_resolucao_e297aa6a4b84.pdf
 2AnoM/fisica/rocris/4p/lei_da_gravitacao_universal_-_exercicios_7a0514fce09d.pdf
+2AnoM/fisica/rocris/4p/lei_da_gravitacao_universal_-_teoria_c785e750dd09.pdf
 2AnoM/fisica/rocris/4p/leis_de_kepler-_exercicios_-_resolucao_a816c538d866.pdf
 2AnoM/fisica/rocris/4p/leis_de_kepler-_exercicios_4eb6d83df83c.pdf
 2AnoM/fisica/rocris/4p/leis_de_kepler_-_teoria_56ed6dcf2594.pdf

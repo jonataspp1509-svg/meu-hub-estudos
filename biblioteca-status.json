@@ -1,7 +1,19 @@
 {
-  "checked_at": "2026-11-19T19:09:12-03:00",
-  "failures": 1,
+  "checked_at": "2026-11-21T16:45:06-03:00",
+  "failures": 0,
   "recent": [
+    {
+      "path": "2AnoM/fisica/rocris/4p/recuperacao/formula_dos_fabricantes_e5bcfbe8e307.pdf",
+      "added_at": "2026-11-21 16:39:04"
+    },
+    {
+      "path": "2AnoM/fisica/rocris/4p/lei_da_gravitacao_universal_-_teoria_c785e750dd09.pdf",
+      "added_at": "2026-11-21 16:38:26"
+    },
+    {
+      "path": "2AnoM/fisica/rocris/4p/lei_da_gravitacao_universal_-_ex_-_resolucao_e297aa6a4b84.pdf",
+      "added_at": "2026-11-21 16:38:18"
+    },
     {
       "path": "2AnoM/portugues/ivan/4p/recuperacao/periodo_composto_2a_serie_135fae44e2a5.docx",
       "added_at": "2026-11-19 19:04:41"
@@ -35,20 +47,8 @@
       "added_at": "2026-11-16 17:34:19"
     },
     {
-      "path": "2AnoM/fisica/rocris/4p/recuperacao/formula_dos_fabricantes_e5bcfbe8e307.pdf",
-      "added_at": "2026-11-16 17:33:27"
-    },
-    {
       "path": "2AnoM/fisica/rocris/4p/recuperacao/colisoes_mecanicas_104238692bec.pdf",
       "added_at": "2026-11-16 17:33:19"
-    },
-    {
-      "path": "2AnoM/fisica/rocris/4p/leis_de_kepler-_exercicios_-_resolucao_a816c538d866.pdf",
-      "added_at": "2026-11-16 17:32:41"
-    },
-    {
-      "path": "2AnoM/fisica/rocris/4p/leis_de_kepler-_exercicios_4eb6d83df83c.pdf",
-      "added_at": "2026-11-16 17:32:34"
     }
   ]
 }
